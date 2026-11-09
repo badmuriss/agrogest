@@ -1,4 +1,4 @@
-"""Loopback-only OCR. Tesseract decodes the actual image; no sample substitutions."""
+"""Backend-only OCR. Tesseract decodes the actual image; no sample substitutions."""
 import csv
 import hashlib
 import io
@@ -6,6 +6,7 @@ import json
 import os
 from pathlib import Path
 import re
+import shutil
 import subprocess
 import tempfile
 import threading
@@ -17,6 +18,10 @@ MODEL = ROOT / '.models' / 'por.traineddata'
 MODEL_SHA256 = 'c4932b937207a9514b7514d518b931a99938c02a28a5a5a553f8599ed58b7deb'
 LIMIT = 8 * 1024 * 1024
 SLOT = threading.BoundedSemaphore(1)
+
+
+def model_ready():
+    return MODEL.is_file() and hashlib.sha256(MODEL.read_bytes()).hexdigest() == MODEL_SHA256
 
 
 def fields_from_text(text):
@@ -62,7 +67,7 @@ def fields_from_text(text):
 def extract(data):
     if not (data.startswith(b'\x89PNG\r\n\x1a\n') or data.startswith(b'\xff\xd8\xff') or (data[:4] == b'RIFF' and data[8:12] == b'WEBP')):
         raise ValueError('Envie uma imagem PNG, JPEG ou WebP válida.')
-    if not MODEL.exists() or hashlib.sha256(MODEL.read_bytes()).hexdigest() != MODEL_SHA256:
+    if not model_ready():
         raise ValueError('Modelo de português ausente ou inválido. Execute setup.py.')
     with tempfile.TemporaryDirectory(prefix='agrogest-ocr-') as tmp:
         path = Path(tmp) / 'document'
@@ -105,7 +110,10 @@ class Handler(BaseHTTPRequestHandler):
         self.wfile.write(body)
 
     def do_GET(self):
-        self.send_json(200 if self.path == '/health' else 404, {'ok': self.path == '/health', 'provider': 'local', 'modelInstalled': MODEL.exists()})
+        if self.path != '/health':
+            return self.send_json(404, {'error': 'Rota inválida.'})
+        ready = model_ready() and shutil.which('tesseract') is not None
+        self.send_json(200 if ready else 503, {'ok': ready, 'provider': 'local', 'modelInstalled': model_ready(), 'modelSha256': MODEL_SHA256})
 
     def do_POST(self):
         if self.path != '/extract':
@@ -129,5 +137,9 @@ class Handler(BaseHTTPRequestHandler):
 
 
 if __name__ == '__main__':
-    print('OCR local em http://127.0.0.1:8091 (Tesseract/português)', flush=True)
-    ThreadingHTTPServer(('127.0.0.1', int(os.environ.get('AGROGEST_OCR_PORT', '8091'))), Handler).serve_forever()
+    host = os.environ.get('AGROGEST_OCR_HOST', '127.0.0.1')
+    if host not in ('127.0.0.1', '0.0.0.0'):
+        raise ValueError('AGROGEST_OCR_HOST deve ser 127.0.0.1 ou 0.0.0.0 (container).')
+    port = int(os.environ.get('AGROGEST_OCR_PORT', '8091'))
+    print(f'OCR em http://{host}:{port} (Tesseract/português, CPU)', flush=True)
+    ThreadingHTTPServer((host, port), Handler).serve_forever()

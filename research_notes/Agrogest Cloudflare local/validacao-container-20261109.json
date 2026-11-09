@@ -1,0 +1,95 @@
+{
+  "checkedAt": "2026-11-09T13:58:34.621Z",
+  "baseCommit": "06eb04f42319419ef7bacb3616f69b63ff5d5be7",
+  "environment": "local",
+  "appDeploy": false,
+  "remoteProvisioning": false,
+  "remoteInference": false,
+  "stage": "validated-after-restart",
+  "tests": {
+    "domainSqlitePGlite": 216,
+    "apiWithContainer": 11,
+    "localDaemonGuard": 1,
+    "pythonInsideContainer": 5,
+    "total": 233,
+    "typesAndLint": "passed",
+    "log": "check-container-20261109.txt"
+  },
+  "before": {
+    "checkedAt": "2026-11-09T13:54:25.688Z",
+    "environment": "local",
+    "phase": "before-other-partner-approval",
+    "entry": {
+      "id": "69aca40b-9cab-42b6-857d-330c8684ff74",
+      "status": "aguardando_aprovacao",
+      "amountCents": 23760,
+      "sourceDocumentId": "e158d15f-dec5-4761-bf79-b72bd9a91cfc"
+    },
+    "entryCount": 3,
+    "totalCostCents": 1134030
+  },
+  "after": {
+    "entryId": "69aca40b-9cab-42b6-857d-330c8684ff74",
+    "status": "aprovado",
+    "amountCents": 23760,
+    "entryCount": 3,
+    "totalCostCents": 1157790,
+    "deltaCents": 23760,
+    "originalImageSha256": "85720868498e3e2a0e8a13b275989bf9a3d4ee143276d9a09f44ee236d45537a"
+  },
+  "review": {
+    "supplier": "Cooperativa Horizonte",
+    "amountCents": 23760,
+    "date": "2026-11-09",
+    "rawDocument": "TESTE",
+    "reviewedDocument": "GS-CONTAINER-003",
+    "note": "O parser capturou TESTE do cabeçalho sintético. O número foi corrigido na revisão humana."
+  },
+  "container": {
+    "name": "agrogest-local-ocr-1",
+    "imageId": "sha256:a5b788f75d4dbc90505f68715f152683222526069d110bdd90bc242aa24d3d25",
+    "user": "10001:10001",
+    "readonly": true,
+    "portBindings": {
+      "8091/tcp": [
+        {
+          "HostIp": "127.0.0.1",
+          "HostPort": "8091"
+        }
+      ]
+    },
+    "cpuLimit": 2,
+    "memoryLimitBytes": 1073741824,
+    "pidsLimit": 64,
+    "gpuRequests": null,
+    "capabilitiesDropped": [
+      "ALL"
+    ],
+    "health": "healthy",
+    "python": "Python 3.14.10",
+    "tesseract": "5.3.0-2",
+    "modelSha256": "c4932b937207a9514b7514d518b931a99938c02a28a5a5a553f8599ed58b7deb"
+  },
+  "limits": [
+    "Somente web Chromium local; não é deploy/benchmark/aparelho nativo.",
+    "Recibo sintético legível; não mede acurácia em documentos fiscais de campo.",
+    "Camada bridge Docker não implementa firewall de saída; testes Python executados sem rede.",
+    "Exports web/Android/iOS e 231 testes de 06/11 são evidência anterior preservada."
+  ],
+  "afterRestart": {
+    "checkedAt": "2026-11-09T14:00:24.655Z",
+    "status": "aprovado",
+    "entryCount": 3,
+    "totalCostCents": 1157790,
+    "r2HashMatches": true,
+    "repeatedUploadReturnsSameDocument": true,
+    "workerAndOcrShutdownVerified": true,
+    "browserReopen": "Chromium: Bruno/session and lot reopened, confirmed value visible",
+    "browserPageErrors": 0
+  },
+  "testLog": {
+    "normalization": "Somente espaços ao fim de linhas do Compose removidos; resultados e tempos preservados.",
+    "rawSha256": "87e80260fdbfd9628e636734517a39cf0e313a22037c4464dc098d0e21e0c3c5",
+    "normalizedSha256": "60ba5c6e3060f3683480d889d7e38a2a904178657037c6874c9bcfefd91f5e66"
+  }
+}

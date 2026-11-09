@@ -1,0 +1,43 @@
+# Development only. No deploy, registry push, GPU or application cloud resources.
+services:
+  ocr:
+    image: agrogest-ocr:local
+    build:
+      context: .
+      dockerfile: services/extraction/Dockerfile
+      target: runtime
+    pull_policy: never
+    ports:
+      - "127.0.0.1:${AGROGEST_OCR_PUBLISHED_PORT:-8091}:8091"
+    networks: [ocr-local]
+    init: true
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,nodev,size=64m,mode=1777
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    cpus: 2
+    mem_limit: 1g
+    pids_limit: 64
+    stop_grace_period: 5s
+  ocr-tests:
+    profiles: [test]
+    image: agrogest-ocr:tests
+    build:
+      context: .
+      dockerfile: services/extraction/Dockerfile
+      target: test
+    pull_policy: never
+    network_mode: none
+    init: true
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,nodev,size=64m,mode=1777
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    cpus: 2
+    mem_limit: 1g
+    pids_limit: 64
+networks:
+  ocr-local:
+    driver: bridge

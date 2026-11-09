@@ -1,10 +1,10 @@
 # Backend e execução locais da versão acadêmica
 
-Conferência funcional: **06/11/2026**. Referência de compartilhamento atualizada em **09/11/2026**. Esta referência substitui a configuração Supabase na cópia da faculdade. A base original, suas migrations PostgreSQL e os documentos de outubro continuam como histórico e regressões; nenhum serviço remoto da aplicação foi usado nesta adaptação.
+Conferência funcional inicial: **06/11/2026**. OCR em container local acrescentado em **09/11/2026**; evidências por execução no [histórico](HISTORICO_REVISOES.md). Esta referência substitui a configuração Supabase na cópia da faculdade. A base original, suas migrations PostgreSQL e os documentos de outubro continuam como histórico e regressões; nenhum serviço remoto da aplicação foi usado nesta adaptação.
 
 ## Primeira execução
 
-Na raiz do clone, use Node **24.10+ da linha 24**, npm, Python 3.10+ e Tesseract 5 instalado no sistema. A máquina de validação usou Node 24.22.2, Python 3.14.8 e Tesseract 5.5.4. O serviço OCR usa apenas a biblioteca padrão Python.
+Na raiz do clone, use Node **24.10+ da linha 24**, npm e Docker local com Compose v2+ e containers Linux. O caminho padrão dispensa Python/Tesseract no host: a imagem contém Python 3.14, Tesseract **5.3.0-2** do Debian Bookworm e o modelo português verificado. Não usa GPU. A imagem base é fixada por digest no Dockerfile; pacotes transitivos do apt não constituem um snapshot completo do Debian.
 
 ```sh
 npm run setup:local
@@ -12,9 +12,26 @@ npm run build:web
 npm start
 ```
 
-`setup:local` instala pelos três lockfiles e obtém o modelo público português fixado. Downloads de pacotes/pesos são preparação; não são inferência hospedada. `npm start` verifica o modelo, aplica **somente migrations locais**, inicia OCR em `127.0.0.1:8091` e Worker + frontend em **http://127.0.0.1:8787**. D1 e R2 são emulados pelo workerd/Miniflare do Wrangler. Use essa mesma origem para manter sessão e SQLite; `localhost` é outra origem do navegador.
+`setup:local` instala pelos três lockfiles e constrói a imagem OCR no daemon Docker local. Downloads de pacotes/pesos são preparação; não são inferência hospedada. `npm start` aplica **somente migrations locais**, constrói/reutiliza a imagem em cache, aguarda saúde do OCR em `127.0.0.1:8091` e inicia Worker + frontend em **http://127.0.0.1:8787**. D1 e R2 são emulados pelo workerd/Miniflare do Wrangler. Use essa mesma origem para manter sessão e SQLite; `localhost` é outra origem do navegador.
 
-Se as dependências/modelo já estiverem instalados, a inicialização não precisa baixar pesos novamente. Não remova `.local/`, dados do site ou bancos para resolver erro de abertura. Um bloqueio transitório de OPFS recebe uma repetição limitada; erro persistente apresenta **Tentar novamente**, preservando os registros. Use uma aba por conta/origem; abas simultâneas no mesmo perfil podem disputar o pool OPFS do Expo.
+Se as dependências e a imagem já estiverem instaladas, a inicialização reutiliza o cache. Pesos e licença Apache-2.0 fazem parte da imagem. Não remova `.local/`, dados do site ou bancos para resolver erro de abertura. Um bloqueio transitório de OPFS recebe uma repetição limitada; erro persistente apresenta **Tentar novamente**, preservando os registros. Use uma aba por conta/origem; abas simultâneas no mesmo perfil podem disputar o pool OPFS do Expo.
+
+### Ciclo do container OCR
+
+```sh
+npm run ocr:build  # constrói localmente, sem enviar imagem a registry
+npm run ocr:local  # inicia só o OCR e aguarda /health
+npm run ocr:stop   # encerra o projeto Compose agrogest-local
+npm run test:ocr   # guarda contra daemon remoto + testes de OCR sem rede no container
+```
+
+`npm start` encerra o container que iniciou ao receber Ctrl+C. Se o OCR já estava iniciado com `ocr:local`, ele permanece disponível e pode ser encerrado com `ocr:stop`. Encerrar/recriar o OCR não remove D1/R2, SQLite ou outbox: nenhum dado do aplicativo é montado no container. A imagem é reconstruída quando o código muda; não há bind mount do workspace.
+
+O Compose em `agrogest-app/compose.local.yaml` publica **somente `127.0.0.1:8091`**. O processo escuta `0.0.0.0` dentro do container para receber esse encaminhamento. Executa com UID/GID 10001, raiz somente leitura, `/tmp` efêmero de 64 MiB, limite de 2 CPUs, 1 GiB e 64 processos, sem capabilities ou dispositivos GPU. Esses limites são configuração de desenvolvimento, não benchmark de capacidade. O runtime usa bridge Docker e não faz chamadas externas; isso não é uma regra de firewall de saída. Os testes Python rodam com `network_mode: none`, usando apenas os pesos incluídos.
+
+Os scripts recusam contextos/hosts Docker SSH/TCP, usam builder local e não possuem comando de push/deploy. `.dockerignore` permite apenas fonte OCR e dois recibos sintéticos de teste; segredos, bancos, `.local`, `.git` e dependências ficam fora do contexto. `/health` confere checksum do modelo e presença do executável. `/extract` continua exclusivo do backend, com rejeição de `Origin`, limite de 8 MiB, uma extração por vez e timeout de 35 segundos. Não expor esse serviço sem autenticação/TLS numa hospedagem futura.
+
+O modo nativo anterior continua opcional para diagnóstico: instale Python 3.10+ e Tesseract 5, execute `npm run setup:ocr:native`, `npm run ocr:native` e `npm run api:local` em terminais separados. Não execute OCR nativo e container na mesma porta. O backend mantém o mesmo contrato HTTP; não há fallback silencioso entre eles.
 
 Para editar com Metro, mantenha OCR/API locais e execute `npm run web` em outro terminal. O build também copia o WASM do player dotLottie e sua licença MIT do pacote fixado para `public/`, evitando o download padrão da biblioteca em CDN. O frontend Metro usa `http://localhost:8081`; o Worker autoriza essa origem e `127.0.0.1:8081`. Após recompilar o SPA, reinicie o Worker para atualizar o manifesto dos assets. `npm run build:web` acrescenta o service worker; `expo export` isoladamente não o acrescenta.
 
@@ -52,7 +69,7 @@ flowchart LR
   SQL --> API[Worker local autenticado]
   API --> D1[D1 local: domínio, versões, ledger e auditoria]
   API --> R2[R2 local: imagens imutáveis por hash]
-  API --> OCR[Tesseract local em português]
+  API --> OCR[Container local: Tesseract português / CPU]
   API -. configuração explícita .-> REMOTE[Workers AI ou OpenRouter do usuário]
 ```
 
@@ -75,7 +92,7 @@ O ledger tem chave `(ator, comando)` e payload canônico. Aprovação não alter
 
 ## Inferência e credenciais transferíveis
 
-O padrão testado é **`INFERENCE_PROVIDER=local`**. O Tesseract 5 executa reconhecimento neural/CV, com `por.traineddata` do `tessdata_fast`, revisão `87416418657359cb625c412a48b6e1d6d41c29bd`, Apache-2.0, SHA-256 `c4932b937207a9514b7514d518b931a99938c02a28a5a5a553f8599ed58b7deb`. O parser de valor/data é determinístico; ele não é apresentado como um segundo modelo de IA. Dois recibos legíveis funcionaram; isso não mede acurácia em fotos rurais difíceis, DANFE, manuscritos ou PDFs.
+O padrão testado é **`INFERENCE_PROVIDER=local`**. O Tesseract 5 executa reconhecimento neural/CV, com `por.traineddata` do `tessdata_fast`, revisão `87416418657359cb625c412a48b6e1d6d41c29bd`, Apache-2.0, SHA-256 `c4932b937207a9514b7514d518b931a99938c02a28a5a5a553f8599ed58b7deb`. O parser de valor/data é determinístico; ele não é apresentado como um segundo modelo de IA. Três recibos sintéticos legíveis foram processados nas validações datadas, com correção humana do número no terceiro; isso não mede acurácia em fotos rurais difíceis, DANFE, manuscritos ou PDFs.
 
 Para configuração privada, copie **`agrogest-app/apps/api/.dev.vars.example` → `.dev.vars`**, edite no próprio arquivo e reinicie o Worker. Esse é o exemplo consumível pelo Wrangler. `config/inference.env.example` permanece referência histórica e aponta para ele. Nunca cole chave num comando, screenshot, commit, frontend ou log.
 
@@ -99,14 +116,14 @@ App, DB, arquivos e shell usam loopback. O probe NetInfo consulta a saúde da **
 npm run check  # tipos, lint e as três suítes abaixo
 npm test
 npm run test:api
-python -m unittest discover -s agrogest-app/services/extraction -p 'test_*.py' -v
+npm run test:ocr
 npm run typecheck
 npm run lint
 npm run build:web
 npm run export:check
 ```
 
-A suíte API inicia seu próprio OCR loopback e Miniflare com banco/R2 temporários, aplica as três migrations locais e não altera o estado da demonstração. Os testes PGlite originais executam SQL PostgreSQL **local em WASM**; são regressões da origem, não evidência de migração aplicada em Supabase remoto. As evidências datadas ficam em [Histórico](HISTORICO_REVISOES.md) e `research_notes/Agrogest Cloudflare local/`.
+A suíte API inicia seu próprio container OCR em porta loopback dinâmica e Miniflare com banco/R2 temporários, aplica as três migrations locais e não altera o estado da demonstração. Ao terminar, remove somente o projeto Compose do teste. Os testes PGlite originais executam SQL PostgreSQL **local em WASM**; são regressões da origem, não evidência de migração aplicada em Supabase remoto. As evidências datadas ficam em [Histórico](HISTORICO_REVISOES.md) e `research_notes/Agrogest Cloudflare local/`.
 
 ## Limites da entrega
 

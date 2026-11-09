@@ -1,8 +1,10 @@
 # Arquitetura técnica
 
-## Arquitetura acadêmica vigente · 06/11/2026
+## Arquitetura acadêmica vigente · 09/11/2026
 
-Expo/React Native e domínio financeiro/pecuário foram preservados. O frontend usa HTTP para Worker local, com D1/R2 emulados e OCR Tesseract separado em loopback. O [contrato implementado](CLOUDFLARE_LOCAL.md#contrato-e-armazenamento) detalha projeção por cargo, batch atômico com revisão/sessão, idempotência, documentos, SQLite v15 e outbox. `supabase.ts` é fachada compatível; o SDK deixou de ser dependência.
+Expo/React Native e domínio financeiro/pecuário foram preservados. O frontend usa HTTP para Worker local, com D1/R2 emulados e OCR Tesseract em container Docker local por CPU, publicado apenas em loopback. O container substitui a instalação nativa como padrão de desenvolvimento, mantendo `POST /extract`; Python e modelo com checksum/licença são incluídos na imagem. O [ciclo do container](CLOUDFLARE_LOCAL.md#ciclo-do-container-ocr) concentra recursos, rede e comandos. O [contrato implementado](CLOUDFLARE_LOCAL.md#contrato-e-armazenamento) detalha projeção por cargo, batch atômico com revisão/sessão, idempotência, documentos, SQLite v15 e outbox. `supabase.ts` é fachada compatível; o SDK deixou de ser dependência.
+
+Esta separação permite avaliar depois hospedagem CPU compatível com a imagem e um endereço privado configurado no backend. Um Worker hospedado não acessa o `127.0.0.1` do computador do desenvolvedor; configuração, conectividade privada, autenticação/TLS, retenção, concorrência e custos de produção ainda precisam de desenho e validação. A imagem local não configura nem comprova Cloudflare Containers hospedado. Alternativamente, o backend pode usar os adaptadores Workers AI/OpenRouter autorizados, sem container de OCR próprio; a GPU e a operação do modelo ficam a cargo do provedor.
 
 Wrangler e assets exportados locais mantêm Metro/Expo existentes e evitam introduzir outro bundler nesta migração. Inferência Workers AI/OpenRouter pode sair pelo backend conforme configuração privada; aplicação/DB/storage continuam locais. Auth atual é de demonstração com senha verificada, não a solução definitiva de e-mail/recuperação. A [revisão 3 do plano](../../PLANO_AGROGEST_CLOUDFLARE_LOCAL.md) distingue realizado, desvios e pendências.
 

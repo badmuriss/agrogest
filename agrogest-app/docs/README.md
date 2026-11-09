@@ -6,9 +6,9 @@ executar tarefas, referência para consultar regras e explicações para entende
 Os documentos ficam no Git e são atualizados no mesmo conjunto de alterações do código
 (docs as code). Não é necessário criar pastas ou arquivos para cada categoria.
 
-## Versão acadêmica local · 06/11/2026
+## Versão acadêmica local · 09/11/2026
 
-O guia vigente de setup, Auth, Worker/D1/R2, documentos e sincronização é [Cloudflare local](CLOUDFLARE_LOCAL.md). A integração Supabase de outubro é histórica; seus comandos remotos não se aplicam à versão da faculdade.
+O guia vigente de setup, Auth, Worker/D1/R2, OCR em container Docker por CPU, documentos e sincronização é [Cloudflare local](CLOUDFLARE_LOCAL.md). A integração Supabase de outubro é histórica; seus comandos remotos não se aplicam à versão da faculdade.
 
 ## Começar
 

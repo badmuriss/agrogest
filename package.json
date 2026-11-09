@@ -17,9 +17,13 @@
     "build:web": "node scripts/build-web.mjs",
     "api:local": "npm --prefix agrogest-app/apps/api run dev",
     "db:local": "npm --prefix agrogest-app/apps/api run migrate",
-    "ocr:local": "python agrogest-app/services/extraction/server.py",
+    "ocr:local": "node agrogest-app/services/extraction/container.mjs start",
+    "ocr:stop": "node agrogest-app/services/extraction/container.mjs stop",
+    "ocr:build": "node agrogest-app/services/extraction/container.mjs build",
+    "ocr:native": "python agrogest-app/services/extraction/server.py",
+    "setup:ocr:native": "python agrogest-app/services/extraction/setup.py",
     "test:api": "npm --prefix agrogest-app/apps/api test",
-    "setup:local": "npm --prefix agrogest-app ci --no-audit --no-fund && npm --prefix agrogest-app/apps/mobile ci --no-audit --no-fund && npm --prefix agrogest-app/apps/api ci --no-audit --no-fund && python agrogest-app/services/extraction/setup.py",
-    "test:ocr": "python -m unittest discover -s agrogest-app/services/extraction -p 'test_*.py' -v"
+    "setup:local": "npm --prefix agrogest-app ci --no-audit --no-fund && npm --prefix agrogest-app/apps/mobile ci --no-audit --no-fund && npm --prefix agrogest-app/apps/api ci --no-audit --no-fund && npm run ocr:build",
+    "test:ocr": "node --test agrogest-app/services/extraction/container.test.mjs && node agrogest-app/services/extraction/container.mjs test"
   }
 }

@@ -1,6 +1,6 @@
 # AgroGest — plano e estado da implementação local
 
-**Revisão 3 · 06/11/2026.** A [autorização de desenvolvimento](AUTORIZACAO_DESENVOLVIMENTO_GS.md) substitui a antiga fase de somente análise. O código foi adaptado na cópia própria; aplicativo e dados continuam locais. A análise v2, seu inventário, riscos, pesquisa e os 114 testes iniciais estão preservados abaixo como registro anterior à implementação.
+**Revisão 3 · 06/11/2026, atualização operacional em 09/11/2026.** A [autorização de desenvolvimento](AUTORIZACAO_DESENVOLVIMENTO_GS.md) substitui a antiga fase de somente análise. O código foi adaptado na cópia própria; aplicativo e dados continuam locais. O OCR passa a ser empacotado em container Docker local por CPU, com modelo incluído e o mesmo contrato HTTP; [execução e limites](agrogest-app/docs/CLOUDFLARE_LOCAL.md#ciclo-do-container-ocr). O repositório independente público é [badmuriss/agrogest](https://github.com/badmuriss/agrogest), publicado por autorização posterior do usuário. A análise v2, seu inventário, riscos, pesquisa e os 114 testes iniciais estão preservados abaixo como registro anterior à implementação.
 
 ## Entrega implementada nesta revisão
 
@@ -28,13 +28,13 @@ Auth web ainda usa sessão no localStorage da origem; cookie HttpOnly/identidade
 | Prioridade | Pendência concreta | Critério para concluir |
 | --- | --- | --- |
 | P0 · GS/cloud | Configurar credencial restrita Workers AI ou OpenRouter e executar experimento pequeno autorizado pelo backend local | Imagem real, retorno real, campos/revisão/provedor/latência/uso registrados sem chave; nenhuma publicação do app |
-| P0 · GS/qualidade | Ampliar corpus com fotos de campo, falhas e documentos sem campos; comparar esforço manual/assistido | Ground truth, erro por campo, tempo incluindo correções e casos de falha; sem extrapolar os dois recibos sintéticos |
+| P0 · GS/qualidade | Ampliar corpus com fotos de campo, falhas e documentos sem campos; comparar esforço manual/assistido | Ground truth, erro por campo, tempo incluindo correções e casos de falha; sem extrapolar os recibos sintéticos das validações locais |
 | P0 · entrega | Ensaiar e gravar pitch técnico de até cinco minutos, atendendo à rubrica | Evidenciar cada tecnologia efetivamente executada, autoria/reaproveitamento e limites; preparar link/arquivo da entrega sem publicação automática |
 | P1 · produto | Completar PDF/XML/DANFE, itens fiscais, correção de imagem e detecção de duplicatas além de bytes idênticos | Subconjunto RF-20 especificado, validado com corpus e sempre sujeito a revisão/aprovação |
 | P1 · identidade | Escolher e testar Auth definitivo, confirmação/recovery e sessão web HttpOnly | Login real, expiração/revogação, antiabuso e transferência das contas sem usar credenciais de demo |
 | P1 · paridade | Expandir testes de cada combinação financeira/estoque, limites D1 e concorrência; validar dispositivos nativos | Comparação com domínio original, sem saldo negativo, vazamento entre contas ou mudança da política RF-16 |
 | P1 · operação | Medir volume, definir retenção e ensaiar backup/restauração local | Restaurar D1/R2 e capturas sem perder vínculos, hashes, IDs e fila; não apagar o estado como atalho |
-| P2 · hospedagem | Definir conta futura do amigo e eventual destino/nome/visibilidade Git | Credenciais próprias por ambiente, domínio/custos e aceite definidos; autorização separada antes de deploy/publicação |
+| P2 · hospedagem | Definir conta futura do amigo, endereço privado/autenticação do OCR CPU ou provedor remoto e custos | Repositório próprio público já definido; credenciais por ambiente, conectividade, custos e aceite validados antes de deploy/provisionamento do aplicativo |
 
 ## Aceite e evidências atuais
 
@@ -42,7 +42,7 @@ A matriz T01–T24 da análise abaixo permanece como contrato amplo. A execuçã
 
 O hardware foi usado para OCR português; a pesquisa Hugging Face abaixo continua válida como lista de candidatos licenciados, não como benchmark local executado. Workers AI não se tornou inferência local. A conta temporária de inferência do usuário segue separada da futura hospedagem/manutenção pelo amigo. O exemplo consumido agora é `agrogest-app/apps/api/.dev.vars.example`; `config/inference.env.example` foi marcado como referência histórica.
 
-**Nenhum deploy, provisionamento remoto, remote:true, Worker AI binding remoto, Supabase remoto, fork ou push foi realizado.** Os resultados de navegador e as contagens atuais são datados no histórico; os 114 testes anteriores e seus hashes permanecem inalterados.
+**Nenhum deploy do aplicativo, provisionamento remoto, remote:true, Worker AI binding remoto, Supabase remoto ou fork foi realizado.** O push autorizado foi somente para o repositório próprio público; a origem do amigo não foi alterada. Os resultados de navegador e as contagens atuais são datados no histórico; os 114 testes anteriores e seus hashes permanecem inalterados.
 
 ---
 

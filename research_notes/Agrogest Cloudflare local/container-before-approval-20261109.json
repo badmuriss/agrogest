@@ -1,0 +1,13 @@
+{
+  "checkedAt": "2026-11-09T13:54:25.688Z",
+  "environment": "local",
+  "phase": "before-other-partner-approval",
+  "entry": {
+    "id": "69aca40b-9cab-42b6-857d-330c8684ff74",
+    "status": "aguardando_aprovacao",
+    "amountCents": 23760,
+    "sourceDocumentId": "e158d15f-dec5-4761-bf79-b72bd9a91cfc"
+  },
+  "entryCount": 3,
+  "totalCostCents": 1134030
+}

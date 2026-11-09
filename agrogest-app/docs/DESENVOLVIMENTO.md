@@ -1,12 +1,12 @@
 # Desenvolvimento e manutenção
 
-Tipo: guia prático. Atualização acadêmica: **06/11/2026**.
+Tipo: guia prático. Atualização acadêmica: **09/11/2026**.
 
 ## Execução vigente da faculdade
 
-Na raiz, execute `npm run setup:local`, `npm run build:web` e `npm start`; abra **http://127.0.0.1:8787/entrar**. Node 24, Python e Tesseract 5 são os pré-requisitos. O [guia Cloudflare local](CLOUDFLARE_LOCAL.md) é responsável por contas, três lockfiles, scripts, migrations D1 locais, OCR, estado persistente, configuração privada e comandos completos de validação.
+Na raiz, execute `npm run setup:local`, `npm run build:web` e `npm start`; abra **http://127.0.0.1:8787/entrar**. Node 24, npm e Docker local com Compose v2+ e containers Linux são os pré-requisitos. Python/Tesseract/modelo português ficam no container OCR e executam por CPU. O [guia Cloudflare local](CLOUDFLARE_LOCAL.md) é responsável por contas, três lockfiles, scripts, migrations D1 locais, OCR, estado persistente, configuração privada e comandos completos de validação.
 
-Tipos e lint mobile são obrigatórios. Execute ainda a suíte herdada (`npm test`), integração API (`npm run test:api`), testes Python de OCR, `npm run build:web` e `npm run export:check`. O banco/arquivos de desenvolvimento não saem do computador. Não usar EAS, túnel, deploy ou Supabase remoto nesta fase.
+Tipos e lint mobile são obrigatórios. `npm run check` reúne tipos/lint, suíte herdada, integração API e testes OCR em container. Para alterações no frontend, execute também `npm run build:web` e `npm run export:check`. O banco/arquivos de desenvolvimento não saem do computador. Não usar EAS, túnel, deploy ou Supabase remoto nesta fase.
 
 Novos diretórios: `agrogest-app/apps/api/` (Worker e migrations), `agrogest-app/services/extraction/` (OCR), `scripts/` na raiz (build/execução locais). O app mobile permanece em `apps/mobile/`, com SQLite v15 e novo cliente HTTP; o SDK Supabase foi removido. Ao recompilar o SPA, reinicie o Worker.
 
@@ -19,7 +19,7 @@ git clone https://github.com/badmuriss/agrogest.git
 cd agrogest
 ```
 
-Instale Tesseract 5 no sistema e confirme que `tesseract` está no `PATH`, além de Node 24.10+ da linha 24 e Python 3.10+. Em seguida use os três comandos de execução vigente acima. O setup baixa e verifica o modelo português; o OCR executa no computador do backend, pelo serviço Python local em `127.0.0.1:8091`, iniciado junto com `npm start`. Banco/arquivos de execução e segredos não são compartilhados pelo Git; a primeira execução cria os dados sintéticos das migrations locais. As verificações funcionais registradas continuam datadas de 06/11/2026.
+Inicie o daemon Docker local e use os três comandos de execução vigente acima. O setup constrói a imagem com modelo português verificado; o OCR executa no computador do backend em `127.0.0.1:8091`, iniciado junto com `npm start`. Consulte o [ciclo do container](CLOUDFLARE_LOCAL.md#ciclo-do-container-ocr) para parada, recursos e alternativa nativa. Banco/arquivos de execução e segredos não são compartilhados pelo Git; a primeira execução cria os dados sintéticos das migrations locais, sem apagar os existentes. As evidências de 06/11 e 09/11 ficam separadas no histórico.
 
 ## Procedimentos de outubro preservados como histórico
 

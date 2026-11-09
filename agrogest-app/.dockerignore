@@ -1,0 +1,13 @@
+# Only OCR source and its synthetic test images belong in the build context.
+# In particular: no Git, .env, .dev.vars, SQLite/D1/R2, node_modules or host models.
+**
+!services/
+!services/extraction/
+!services/extraction/Dockerfile
+!services/extraction/server.py
+!services/extraction/setup.py
+!services/extraction/test_extraction.py
+!tests/
+!tests/fixtures/
+!tests/fixtures/comprovante-gs-001.png
+!tests/fixtures/comprovante-gs-002.png

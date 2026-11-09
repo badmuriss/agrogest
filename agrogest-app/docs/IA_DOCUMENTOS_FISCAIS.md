@@ -1,6 +1,6 @@
 # AgroGest — IA para Leitura e Lançamento de Notas Fiscais
 
-> **Atualização acadêmica · 06/11/2026:** extração real de imagens/comprovantes para despesa, revisão e anexo D1/R2 **implementados localmente**. OCR Tesseract português fixado; Workers AI/OpenRouter possuem adaptadores, sem teste remoto por falta de credencial. A amostra constante foi retirada do runtime. [Contrato/execução e limites](CLOUDFLARE_LOCAL.md#inferência-e-credenciais-transferíveis).
+> **Atualização acadêmica · 09/11/2026:** extração real de imagens/comprovantes para despesa, revisão e anexo D1/R2 **implementados localmente**. OCR Tesseract português fixado agora é empacotado em container local por CPU; não exige GPU. Workers AI/OpenRouter possuem adaptadores, sem teste remoto por falta de credencial. A amostra constante foi retirada do runtime. [Contrato/execução e limites](CLOUDFLARE_LOCAL.md#inferência-e-credenciais-transferíveis).
 >
 > **Tipo do restante deste documento:** referência da integração fiscal completa ainda futura. PDF/XML, itens estruturados, classificação fiscal e validação ampla de qualidade permanecem propostas; não confundir com o importador mínimo de despesas.
 > **Conferência documental:** 26/10/2026. Necessidade confirmada; contratos abaixo são propostas.\

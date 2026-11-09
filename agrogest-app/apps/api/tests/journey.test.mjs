@@ -3,8 +3,7 @@ import { before, after, test } from 'node:test';
 import { readFile, readdir, mkdtemp, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
-import { spawn } from 'node:child_process';
-import { createServer } from 'node:net';
+import { startOcr } from '../../../services/extraction/container.mjs';
 import { build } from 'esbuild';
 import { Miniflare, convertV4MiniflareOptions } from 'miniflare';
 import { summarizeLot } from '../../mobile/src/domain/lot-metrics.ts';
@@ -13,13 +12,9 @@ let mf, temporary, db, ocr;
 const sessions = {};
 const account = { ana: 'ana', bruno: 'bruno', campo: 'campo', isolado: 'isolado' };
 before(async () => {
-  const portServer = createServer(); await new Promise((resolve) => portServer.listen(0, '127.0.0.1', resolve));
-  const ocrPort = portServer.address().port; await new Promise((resolve) => portServer.close(resolve));
-  const ocrUrl = `http://127.0.0.1:${ocrPort}`;
-  ocr = spawn('python', ['server.py'], { cwd: '../../services/extraction', env: { ...process.env, AGROGEST_OCR_PORT: String(ocrPort) }, stdio: 'ignore' });
-  let ready = false;
-  for (let i = 0; i < 40; i++) { try { ready = (await fetch(`${ocrUrl}/health`)).ok; } catch {} if (ready) break; await new Promise((resolve) => setTimeout(resolve, 50)); }
-  assert.ok(ready, 'Install Tesseract and run python services/extraction/setup.py before API tests');
+  ocr = await startOcr({ project: `agrogest-api-test-${process.pid}`, port: 0 });
+  const ocrUrl = ocr.url;
+  assert.equal((await fetch(`${ocrUrl}/health`)).status, 200);
   temporary = await mkdtemp(path.join(tmpdir(), 'agrogest-d1-tests-'));
   await build({ entryPoints: ['src/index.ts'], outfile: path.join(temporary, 'worker.mjs'), bundle: true, format: 'esm', platform: 'browser' });
   mf = new Miniflare({ ...convertV4MiniflareOptions({ name: 'agrogest-test', cf: false, modules: true, modulesRoot: temporary, scriptPath: path.join(temporary, 'worker.mjs'), compatibilityDate: '2026-11-06', d1Databases: ['DB'], r2Buckets: ['DOCUMENTS'], bindings: { APP_ENV: 'local', FRONTEND_ORIGIN: 'http://localhost:8081', INFERENCE_PROVIDER: 'local', INFERENCE_REMOTE_ALLOWED: 'false', LOCAL_OCR_BASE_URL: ocrUrl, INFERENCE_TIMEOUT_MS: '45000', INFERENCE_MAX_OUTPUT_TOKENS: '1200' } }), telemetry: { enabled: false } });
@@ -32,7 +27,7 @@ before(async () => {
     assert.equal(r.status, 200); sessions[key] = (await r.json()).data.session.access_token;
   }
 });
-after(async () => { ocr?.kill('SIGTERM'); await mf?.dispose(); if (temporary) await rm(temporary, { recursive: true }); });
+after(async () => { try { await mf?.dispose(); } finally { await ocr?.stop(); if (temporary) await rm(temporary, { recursive: true }); } });
 const call = async (who, route, input) => {
   const r = await mf.dispatchFetch(`http://localhost${route}`, { method: input === undefined ? 'GET' : 'POST', headers: { Authorization: `Bearer ${sessions[who]}`, 'Content-Type': 'application/json' }, ...(input === undefined ? {} : { body: JSON.stringify(input) }) });
   return { status: r.status, body: await r.json() };
@@ -42,6 +37,18 @@ const cmd = (who, id, kind, payload) => call(who, '/api/rpc/agrogest_command', {
 function expense(id, extra = {}) {
   return { id, operationId: 'gs-op', farmId: 'gs-fazenda', expectedVersion: null, submit: true, entry: { kind: 'despesa', operationId: 'gs-op', farmId: 'gs-fazenda', title: 'Sal mineral', amountCents: 125040, occurredAt: '2026-11-06', payload: { categoryId: 'cat-alimentacao', category: 'Alimentação', description: 'Sal mineral', supplier: 'Cooperativa Campo Verde', document: 'GS-001', installments: [{ dueDate: '2026-11-06', cents: 125040 }], criterion: 'cabeca', allocations: [{ lotId: 'gs-fazenda-lote', cents: 125040, basis: 10 }], ...extra } } };
 }
+
+test('OCR container checks model readiness and rejects browser access, empty bodies and invalid image bytes', async () => {
+  const health = await fetch(`${ocr.url}/health`);
+  assert.equal(health.status, 200);
+  const state = await health.json();
+  assert.equal(state.ok, true);
+  assert.equal(state.modelSha256, 'c4932b937207a9514b7514d518b931a99938c02a28a5a5a553f8599ed58b7deb');
+  assert.equal((await fetch(`${ocr.url}/extract`, { method: 'POST', headers: { Origin: 'http://127.0.0.1:8787' }, body: 'blocked' })).status, 403);
+  assert.equal((await fetch(`${ocr.url}/extract`, { method: 'POST' })).status, 413);
+  assert.equal((await fetch(`${ocr.url}/extract`, { method: 'POST', body: '<html>invalid image</html>' })).status, 422);
+  assert.equal((await fetch(`${ocr.url}/missing`)).status, 404);
+});
 
 test('D1/R2: real image → actual OCR → reviewed expense → another partner approval → calculated indicator', async () => {
   const bytes = await readFile('../../tests/fixtures/comprovante-gs-001.png');
