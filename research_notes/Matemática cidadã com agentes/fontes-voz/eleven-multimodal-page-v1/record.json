@@ -1,0 +1,99 @@
+{
+  "request": {
+    "schema_version": 1,
+    "project_scope": "gs-final-fiap-matematica-voz-20261105",
+    "operation": "fetch.page",
+    "input": {
+      "url": "https://elevenlabs.io/docs/eleven-agents/customization/multimodal-input"
+    },
+    "execution": "static",
+    "limits": {
+      "timeout_ms": 60000,
+      "attempts": 1,
+      "response_bytes": 2097152,
+      "browser_bytes": 10485760,
+      "browser_ms": 45000
+    },
+    "cache": {
+      "mode": "default",
+      "max_age_s": 900
+    }
+  },
+  "admission": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"client_request_id\":\"gs2-eleven-multimodal-page-v1\",\"http_status\":202,\"schema_version\":1,\"job_id\":\"c63e0151-27fb-41b8-bf88-3942aa9fb662\",\"operation\":\"fetch.page\",\"project_scope\":\"gs-final-fiap-matematica-voz-20261105\",\"status\":\"queued\",\"cache_hit\":false,\"max_age_s\":900,\"created_at\":1793910221654,\"deadline\":1793910281654,\"usage\":{\"attempts\":0,\"bytes\":0,\"browser_ms\":0},\"usage_basis\":\"proxy_transport_or_reserved_envelope\",\"proxy\":{\"mode\":\"backbone_rotating\"},\"source_id\":null,\"source_export_formats\":[\"bundle\"],\"source_export_batch_limit\":5,\"errors\":[],\"next_poll_after_ms\":1000}"
+      }
+    ],
+    "structuredContent": {
+      "client_request_id": "gs2-eleven-multimodal-page-v1",
+      "http_status": 202,
+      "schema_version": 1,
+      "job_id": "c63e0151-27fb-41b8-bf88-3942aa9fb662",
+      "operation": "fetch.page",
+      "project_scope": "gs-final-fiap-matematica-voz-20261105",
+      "status": "queued",
+      "cache_hit": false,
+      "max_age_s": 900,
+      "created_at": 1793910221654,
+      "deadline": 1793910281654,
+      "usage": {
+        "attempts": 0,
+        "bytes": 0,
+        "browser_ms": 0
+      },
+      "usage_basis": "proxy_transport_or_reserved_envelope",
+      "proxy": {
+        "mode": "backbone_rotating"
+      },
+      "source_id": null,
+      "source_export_formats": [
+        "bundle"
+      ],
+      "source_export_batch_limit": 5,
+      "errors": [],
+      "next_poll_after_ms": 1000
+    },
+    "isError": false
+  },
+  "status": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"schema_version\":1,\"job_id\":\"c63e0151-27fb-41b8-bf88-3942aa9fb662\",\"operation\":\"fetch.page\",\"project_scope\":\"gs-final-fiap-matematica-voz-20261105\",\"status\":\"succeeded\",\"cache_hit\":false,\"max_age_s\":900,\"created_at\":1793910221654,\"deadline\":1793910281654,\"usage\":{\"attempts\":1,\"bytes\":398463,\"browser_ms\":0},\"usage_basis\":\"proxy_transport_or_reserved_envelope\",\"proxy\":{\"mode\":\"backbone_rotating\"},\"source_id\":\"c63e0151-27fb-41b8-bf88-3942aa9fb662\",\"source_export_formats\":[\"bundle\"],\"source_export_batch_limit\":5,\"errors\":[],\"next_poll_after_ms\":1000}"
+      }
+    ],
+    "structuredContent": {
+      "schema_version": 1,
+      "job_id": "c63e0151-27fb-41b8-bf88-3942aa9fb662",
+      "operation": "fetch.page",
+      "project_scope": "gs-final-fiap-matematica-voz-20261105",
+      "status": "succeeded",
+      "cache_hit": false,
+      "max_age_s": 900,
+      "created_at": 1793910221654,
+      "deadline": 1793910281654,
+      "usage": {
+        "attempts": 1,
+        "bytes": 398463,
+        "browser_ms": 0
+      },
+      "usage_basis": "proxy_transport_or_reserved_envelope",
+      "proxy": {
+        "mode": "backbone_rotating"
+      },
+      "source_id": "c63e0151-27fb-41b8-bf88-3942aa9fb662",
+      "source_export_formats": [
+        "bundle"
+      ],
+      "source_export_batch_limit": 5,
+      "errors": [],
+      "next_poll_after_ms": 1000
+    },
+    "isError": false
+  },
+  "raw_hash_verification": "not_exported; service hash only",
+  "credits": "unknown"
+}
+

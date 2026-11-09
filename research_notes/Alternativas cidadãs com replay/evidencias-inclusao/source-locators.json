@@ -1,0 +1,47 @@
+{
+  "accessed": "2026-11-05",
+  "scope": "gs-final-fiap-citizentech-20261105",
+  "route": "Scrapinho MCP: DDG explicit,page0,limit10;fetch.page static;oneattempt;boundedlimits",
+  "sources": [
+    {
+      "url": "https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/vlibras",
+      "path": "gs2-altfisico-vlibras-page-01/page.md",
+      "eof": true,
+      "chars": 18436,
+      "support": "Official tool description, Portuguese text/audio/video to Libras; does not replace interpreter; no practice-coach efficacy established"
+    },
+    {
+      "url": "https://makeabilitylab.cs.washington.edu/project/sidewalk/",
+      "path": "gs2-altfisico-sidewalk-page-01/page.md",
+      "eof": true,
+      "chars": 20540,
+      "support": "Own project combines crowdsourcing,CV,map imagery; bibliography includes temporal accessibility work. Papers listed not read as efficacy evidence."
+    },
+    {
+      "url": "https://jundiai.sp.gov.br/infraestrutura-e-servicos-publicos/limpeza-publica/residuos-solidos/reciclagem/como-separar-o-lixo/",
+      "path": "gs2-altfisico-residuos-page-01/page.md",
+      "eof": true,
+      "chars": 5178,
+      "support": "Official local separation guidance. Do not assume universal applicability or recover tabular categories from flattened text without visual verification."
+    }
+  ],
+  "discovery_only": [
+    {
+      "source": "gs2-altfisico-signall-01/search.json",
+      "destinations": [
+        "https://partner.microsoft.com/en-us/case-studies/signall",
+        "https://developers.googleblog.com/signall-sdk-sign-language-interface-using-mediapipe-is-now-available-for-developers/"
+      ],
+      "support": "Search leads only; pages not opened; no verified product or efficacy claim accepted."
+    }
+  ],
+  "limits": [
+    "No academic efficacy review conducted in this bounded round",
+    "No new interviews or prototype",
+    "No generic sign translation or safe-navigation claim",
+    "No blocked IBGE/OECD/Wheelmap targets revisited",
+    "No errors/refusals in seven new acquisitions",
+    "Credits/currency not reported; bytes and attempts in receipts,not a measured cost total",
+    "CS2 code audit supplied by contexto_outis;this researcher did not re-audit code"
+  ]
+}

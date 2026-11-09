@@ -1,0 +1,126 @@
+{
+  "access_date": "2026-11-05",
+  "provider_route": {
+    "requested": "research stack; academic literature",
+    "firecrawl_research_index": "MCP and CLI unavailable, checked by coordinator",
+    "scrapingdog_scholar": "missing, checked by coordinator",
+    "used": "host tools.web__run for academic primary sources",
+    "not_a_fallback_for": "blocked IBGE/Wheelmap pages from discontinued scope",
+    "raw_export": "not performed",
+    "scope": "Focused research, not systematic review"
+  },
+  "sources": [
+    {
+      "paper": "Sinha & Kapur 2021",
+      "url": "https://journals.sagepub.com/doi/10.3102/00346543211019105",
+      "status": "Published Review of Educational Research",
+      "reading": "Full-text page accessible; reviewed Abstract, Method/Search Criteria, Pooled Effect Size Estimates, Discussion and Limitations",
+      "locators": [
+        "Method/Search Criteria: 53 studies,166 comparisons, searches through2019",
+        "Pooled Effect Size Estimates",
+        "Discussion: conceptual/transfer g0.36 CI0.20–0.51; procedural g−0.03 CI−0.20–0.15"
+      ],
+      "limitations": "Background method; no LLM intervention; no population-specific EJA estimate"
+    },
+    {
+      "paper": "Jin et al 2024 TeachYou",
+      "url": "https://arxiv.org/html/2309.14534v3",
+      "doi": "10.1145/3613904.3642349",
+      "status": "Published CHI2024; author manuscript v3 read",
+      "locators": [
+        "6.3 User Study",
+        "6.3.1 Participants",
+        "6.3.3 Measures",
+        "6.4 User Study Result",
+        "8 Limitation and Future Work"
+      ],
+      "reading": "N40, randomized20/20 between versions; indirect metrics; no pre/post learning test"
+    },
+    {
+      "paper": "Ma et al HypoCompass",
+      "url": "https://arxiv.org/html/2310.05292v3",
+      "metadata_url": "https://arxiv.org/abs/2310.05292",
+      "status": "Verified arXiv manuscript v3,2024-04-02; abstract record has v5,2024-10-10 not read",
+      "locators": [
+        "3 The Design of HypoCompass",
+        "4 LLM Integration",
+        "6 Learning Evaluation: Pre/Post-Test Study",
+        "7 Discussion"
+      ],
+      "reading": "N19; within subject pre/post; no parallel control or delayed followup reported in reviewed procedure; results11.7% and13.6% are authors' relative figures"
+    },
+    {
+      "paper": "Puech et al2025 StratL",
+      "url": "https://aclanthology.org/2025.findings-acl.1348.pdf",
+      "doi": "10.18653/v1/2025.findings-acl.1348",
+      "status": "Published Findings ACL2025",
+      "locators": [
+        "4.4 Evaluation Metrics, PDFp5",
+        "4.6 Field Test with Students,PDFp6",
+        "5.2 Field Test,PDFp6–7",
+        "B.3 Learning Sciences Rationales,PDFp18–19"
+      ],
+      "reading": "N17 ninth graders Singapore; randomized tutor/exercise15min; proxy/fidelity metrics,not independent learning outcomes"
+    },
+    {
+      "paper": "Wang et al2026 Explique",
+      "url": "https://infoscience.epfl.ch/entities/publication/6897cea7-3c3b-4e4b-b084-a76c533c9d05",
+      "doi": "10.1145/3774398.3811623",
+      "status": "Published L@S2026 according to institutional record",
+      "reading": "ONLY institutional metadata and abstract; PDF download429,not retried",
+      "limited_claims": [
+        "Abstract states546 students,11weeks,3809 dialogues",
+        "Abstract states baseline comparison confounded by time-on-task"
+      ],
+      "excluded_claims": "No model-specific effect, causal inference, retention or test administration details were extracted"
+    },
+    {
+      "paper": "Jin et al2025 Chat Melody",
+      "url": "https://arxiv.org/html/2504.00636v1",
+      "status": "CHI2025 workshop manuscript/arXiv",
+      "locators": [
+        "4.1 Participants & Experiment Design"
+      ],
+      "reading": "FinalN28 after four control withdrawals; intervention task includes TA use; no independent retention claim accepted",
+      "use": "Counterexample to conflating assisted task score and learning"
+    },
+    {
+      "paper": "Chen et al2024 teachable ChatGPT",
+      "url": "https://arxiv.org/html/2412.15226v1",
+      "status": "arXiv2024 manuscript read; search found BJET2026DOI10.1111/bjet.70001,not opened",
+      "locators": [
+        "3.1 Participants",
+        "4.1 Knowledge test scores",
+        "4.2 Programming test scores",
+        "5.2 effect on programming skills"
+      ],
+      "reading": "N41; assignment randomization not stated in inspected manuscript; no significant correctness difference; no delayed retention assessed",
+      "use": "Negative/mixed outcome; do not label RCT"
+    }
+  ],
+  "failures": [
+    {
+      "url": "https://doi.org/10.1145/3613904.3642349",
+      "error": "403 from host web; not retried; publicly indexed author arxiv manuscript independently available"
+    },
+    {
+      "url": "https://infoscience.epfl.ch/bitstreams/f59a39a3-dcfd-4eef-816c-e2bd382e916f/download",
+      "error": "429 from host web; not retried"
+    },
+    {
+      "url": "https://www.ijcai.org/proceedings/2025/1217.pdf",
+      "error": "redirect accessibility500; not retried"
+    },
+    {
+      "url": "https://aclanthology.org/2025.findings-acl.1352/",
+      "error": "Initially guessed wrong ACL id; resolved as unrelated UCD paper and EXCLUDED. Correct id1348 found through title search."
+    }
+  ],
+  "evidence_limits": [
+    "Host response excerpts are preserved,not raw HTTP or full-paper byte exports",
+    "No full paper read for EPFL2026; use only limited abstract claims",
+    "No systematic coverage through2026; no latest-method superlative",
+    "No implementation/test or new learner measurement performed",
+    "No claim that image can infer private cognitive state"
+  ]
+}

@@ -1,0 +1,260 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"schema_version\":1,\"operations\":[{\"operation\":\"fetch.page\",\"available\":true,\"target_policy\":\"public_hosts\",\"modes\":[\"static\",\"browser\",\"auto\"],\"proxy\":{\"mode\":\"backbone_rotating\"},\"reason\":null},{\"operation\":\"page.screenshot\",\"available\":true,\"target_policy\":\"public_hosts\",\"modes\":[\"browser\"],\"proxy\":{\"mode\":\"backbone_rotating\"},\"max_png_bytes\":1048576,\"artifact\":\"private_r2\",\"reason\":null},{\"operation\":\"search.web\",\"available\":true,\"modes\":[\"browser\"],\"provider\":\"http:duckduckgo\",\"providers\":[\"http:duckduckgo\",\"http:bing\"],\"fallback\":{\"from\":\"duckduckgo\",\"to\":\"bing\",\"eligible\":[\"upstream_socket_failure\",\"invalid_shape\",\"unusable_results\"],\"excluded\":[\"block\",\"captcha\",\"rate_limit\",\"proxy_authentication\",\"tls_certificate\",\"byte_limit\",\"output_limit\",\"deadline\",\"pagination\"]},\"query_limit\":20,\"bing_results_max\":10,\"default_engine_for_limit_above_10\":\"duckduckgo\",\"page_range\":[0,1],\"page1_engine_required\":true,\"page1_engines\":[\"duckduckgo\",\"bing\"],\"locale\":\"pt-BR/BR\",\"proxy\":{\"mode\":\"backbone_rotating\"},\"reason\":null},{\"operation\":\"maps.search\",\"available\":true,\"modes\":[\"static\"],\"provider\":\"http:google_maps\",\"locale\":\"pt-BR/BR\",\"query_limit\":60,\"identity\":\"fid\",\"coverage\":\"bounded_snapshot\",\"exhaustive\":false,\"reviews_optional\":true,\"max_review_preview\":20,\"phone_reachability_verified\":false,\"whatsapp_registration_verified\":false,\"proxy\":{\"mode\":\"backbone_rotating\"},\"reason\":null},{\"operation\":\"maps.details\",\"available\":true,\"modes\":[\"static\"],\"provider\":\"http:google_maps\",\"locale\":\"pt-BR/BR\",\"query_limit\":1,\"identity\":\"fid\",\"coverage\":\"bounded_snapshot\",\"exhaustive\":false,\"reviews_optional\":true,\"max_review_preview\":20,\"phone_reachability_verified\":false,\"whatsapp_registration_verified\":false,\"proxy\":{\"mode\":\"backbone_rotating\"},\"reason\":null},{\"operation\":\"maps.reviews\",\"available\":true,\"modes\":[\"static\"],\"provider\":\"http:google_maps\",\"locale\":\"pt-BR/BR\",\"query_limit\":1,\"identity\":\"fid\",\"coverage\":\"provider_selected_review_preview\",\"exhaustive\":false,\"reviews_optional\":true,\"max_review_preview\":20,\"phone_reachability_verified\":false,\"whatsapp_registration_verified\":false,\"proxy\":{\"mode\":\"backbone_rotating\"},\"reason\":null},{\"operation\":\"news.search\",\"coverage\":\"feed_snapshot\",\"link_kind\":\"aggregator\",\"default_source\":\"rss\",\"publisher_feeds\":[{\"source\":\"camara\",\"host\":\"www.camara.leg.br\",\"coverage\":\"recent_publisher_feed\",\"locale_countries\":[\"BR\"],\"query_mode\":\"local_feed_filter\",\"link_kind\":\"publication\",\"attribution\":\"Agência Câmara\",\"available\":true}],\"available\":true,\"rss_available\":true,\"modes\":[\"static\"],\"proxy\":{\"mode\":\"backbone_rotating\"},\"reason\":null},{\"operation\":\"trends.now\",\"coverage\":\"feed_snapshot\",\"available\":true,\"modes\":[\"static\"],\"proxy\":{\"mode\":\"backbone_rotating\"},\"reason\":null},{\"operation\":\"search.suggestions\",\"coverage\":\"suggestions\",\"available\":true,\"modes\":[\"static\"],\"proxy\":{\"mode\":\"backbone_rotating\"},\"reason\":null},{\"operation\":\"trends.suggestions\",\"coverage\":\"topic_suggestions\",\"localization\":\"language_only\",\"available\":true,\"modes\":[\"static\"],\"proxy\":{\"mode\":\"backbone_rotating\"},\"reason\":null},{\"operation\":\"trends.interest\",\"available\":true,\"response\":\"synchronous\",\"provider_selection\":\"internal\",\"query\":{\"single_term\":true,\"max_chars\":100},\"region_format\":\"ISO 3166-1 alpha-2 or ISO 3166-2\",\"default_region\":\"BR\",\"periods\":[\"past_12_months\"],\"scale\":\"relative_0_100\",\"cache_ttl_s\":86400,\"monthly_provider_calls\":100,\"families\":{\"interest_over_time\":{\"available\":true,\"reason\":null},\"related_queries\":{\"available\":false,\"reason\":\"trends_related_queries_unavailable\",\"error_code\":\"capability_unavailable\"},\"related_topics\":{\"available\":false,\"reason\":\"trends_related_topics_unavailable\",\"error_code\":\"capability_unavailable\"},\"geographic_breakdown\":{\"available\":false,\"reason\":\"trends_geographic_breakdown_unavailable\",\"error_code\":\"capability_unavailable\"}},\"reason\":null}]}"
+    }
+  ],
+  "structuredContent": {
+    "schema_version": 1,
+    "operations": [
+      {
+        "operation": "fetch.page",
+        "available": true,
+        "target_policy": "public_hosts",
+        "modes": [
+          "static",
+          "browser",
+          "auto"
+        ],
+        "proxy": {
+          "mode": "backbone_rotating"
+        },
+        "reason": null
+      },
+      {
+        "operation": "page.screenshot",
+        "available": true,
+        "target_policy": "public_hosts",
+        "modes": [
+          "browser"
+        ],
+        "proxy": {
+          "mode": "backbone_rotating"
+        },
+        "max_png_bytes": 1048576,
+        "artifact": "private_r2",
+        "reason": null
+      },
+      {
+        "operation": "search.web",
+        "available": true,
+        "modes": [
+          "browser"
+        ],
+        "provider": "http:duckduckgo",
+        "providers": [
+          "http:duckduckgo",
+          "http:bing"
+        ],
+        "fallback": {
+          "from": "duckduckgo",
+          "to": "bing",
+          "eligible": [
+            "upstream_socket_failure",
+            "invalid_shape",
+            "unusable_results"
+          ],
+          "excluded": [
+            "block",
+            "captcha",
+            "rate_limit",
+            "proxy_authentication",
+            "tls_certificate",
+            "byte_limit",
+            "output_limit",
+            "deadline",
+            "pagination"
+          ]
+        },
+        "query_limit": 20,
+        "bing_results_max": 10,
+        "default_engine_for_limit_above_10": "duckduckgo",
+        "page_range": [
+          0,
+          1
+        ],
+        "page1_engine_required": true,
+        "page1_engines": [
+          "duckduckgo",
+          "bing"
+        ],
+        "locale": "pt-BR/BR",
+        "proxy": {
+          "mode": "backbone_rotating"
+        },
+        "reason": null
+      },
+      {
+        "operation": "maps.search",
+        "available": true,
+        "modes": [
+          "static"
+        ],
+        "provider": "http:google_maps",
+        "locale": "pt-BR/BR",
+        "query_limit": 60,
+        "identity": "fid",
+        "coverage": "bounded_snapshot",
+        "exhaustive": false,
+        "reviews_optional": true,
+        "max_review_preview": 20,
+        "phone_reachability_verified": false,
+        "whatsapp_registration_verified": false,
+        "proxy": {
+          "mode": "backbone_rotating"
+        },
+        "reason": null
+      },
+      {
+        "operation": "maps.details",
+        "available": true,
+        "modes": [
+          "static"
+        ],
+        "provider": "http:google_maps",
+        "locale": "pt-BR/BR",
+        "query_limit": 1,
+        "identity": "fid",
+        "coverage": "bounded_snapshot",
+        "exhaustive": false,
+        "reviews_optional": true,
+        "max_review_preview": 20,
+        "phone_reachability_verified": false,
+        "whatsapp_registration_verified": false,
+        "proxy": {
+          "mode": "backbone_rotating"
+        },
+        "reason": null
+      },
+      {
+        "operation": "maps.reviews",
+        "available": true,
+        "modes": [
+          "static"
+        ],
+        "provider": "http:google_maps",
+        "locale": "pt-BR/BR",
+        "query_limit": 1,
+        "identity": "fid",
+        "coverage": "provider_selected_review_preview",
+        "exhaustive": false,
+        "reviews_optional": true,
+        "max_review_preview": 20,
+        "phone_reachability_verified": false,
+        "whatsapp_registration_verified": false,
+        "proxy": {
+          "mode": "backbone_rotating"
+        },
+        "reason": null
+      },
+      {
+        "operation": "news.search",
+        "coverage": "feed_snapshot",
+        "link_kind": "aggregator",
+        "default_source": "rss",
+        "publisher_feeds": [
+          {
+            "source": "camara",
+            "host": "www.camara.leg.br",
+            "coverage": "recent_publisher_feed",
+            "locale_countries": [
+              "BR"
+            ],
+            "query_mode": "local_feed_filter",
+            "link_kind": "publication",
+            "attribution": "Agência Câmara",
+            "available": true
+          }
+        ],
+        "available": true,
+        "rss_available": true,
+        "modes": [
+          "static"
+        ],
+        "proxy": {
+          "mode": "backbone_rotating"
+        },
+        "reason": null
+      },
+      {
+        "operation": "trends.now",
+        "coverage": "feed_snapshot",
+        "available": true,
+        "modes": [
+          "static"
+        ],
+        "proxy": {
+          "mode": "backbone_rotating"
+        },
+        "reason": null
+      },
+      {
+        "operation": "search.suggestions",
+        "coverage": "suggestions",
+        "available": true,
+        "modes": [
+          "static"
+        ],
+        "proxy": {
+          "mode": "backbone_rotating"
+        },
+        "reason": null
+      },
+      {
+        "operation": "trends.suggestions",
+        "coverage": "topic_suggestions",
+        "localization": "language_only",
+        "available": true,
+        "modes": [
+          "static"
+        ],
+        "proxy": {
+          "mode": "backbone_rotating"
+        },
+        "reason": null
+      },
+      {
+        "operation": "trends.interest",
+        "available": true,
+        "response": "synchronous",
+        "provider_selection": "internal",
+        "query": {
+          "single_term": true,
+          "max_chars": 100
+        },
+        "region_format": "ISO 3166-1 alpha-2 or ISO 3166-2",
+        "default_region": "BR",
+        "periods": [
+          "past_12_months"
+        ],
+        "scale": "relative_0_100",
+        "cache_ttl_s": 86400,
+        "monthly_provider_calls": 100,
+        "families": {
+          "interest_over_time": {
+            "available": true,
+            "reason": null
+          },
+          "related_queries": {
+            "available": false,
+            "reason": "trends_related_queries_unavailable",
+            "error_code": "capability_unavailable"
+          },
+          "related_topics": {
+            "available": false,
+            "reason": "trends_related_topics_unavailable",
+            "error_code": "capability_unavailable"
+          },
+          "geographic_breakdown": {
+            "available": false,
+            "reason": "trends_geographic_breakdown_unavailable",
+            "error_code": "capability_unavailable"
+          }
+        },
+        "reason": null
+      }
+    ]
+  },
+  "isError": false
+}

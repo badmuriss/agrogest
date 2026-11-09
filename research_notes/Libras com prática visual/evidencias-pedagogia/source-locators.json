@@ -1,0 +1,93 @@
+{
+  "access_date_local": "2026-11-05",
+  "acquisition_date_note": "Some service timestamps are2026-11-06UTC; localAmerica/Sao_Paulo date remained2026-11-05.",
+  "scope": "gs-final-fiap-citizentech-20261105",
+  "route": "Official publicpagesviaScrapinhoMCP;academicpapersviahostwebafterresearchindexandScholarunavailablecheckedbycoordinator.",
+  "sources": [
+    {
+      "title": "Gramática da LibrasVolume2",
+      "url": "https://www.gov.br/ines/pt-br/central-de-conteudos/publicacoes-1/todas-as-publicacoes/gramatica-da-libras-volume-2",
+      "institution": "INES",
+      "published": "2023-09-20",
+      "modified": "2024-02-29",
+      "file": "gs2-libras-lingua-ines-page-01/page.md",
+      "eof": true,
+      "chars": 4162,
+      "support": "Libras haslinguisticgrammar,phonology,syntax,morphosyntax,lexicon,varieties;other signedlanguagesexistinBrazil.",
+      "license": "PagefooterCCBY-ND3.0Unported;licenseoflinkedbookandvideosnotinspected,nopresumptionofderivativecoursepermission."
+    },
+    {
+      "title": "Unidade6HabilidadesReceptivaseProdutivas",
+      "url": "https://www.libras.ufsc.br/colecaoLetrasLibras/eixoFormacaoPedagogico/metodologiaDeEnsinoEmLibrasComoL2/scos/cap25033/1.html",
+      "institution": "UFSC",
+      "file": "gs2-libras-lingua-metodologia-page-01/page.md",
+      "eof": true,
+      "chars": 2212,
+      "coverage": "Page1of18,notwholeunit",
+      "support": "LibrasL2forhearinglearners;distinguishesreceptive/productiveandadvocatesintegrationforcommunicativeproficiency.",
+      "license": "No explicitreuselicenseonthepageinspected."
+    },
+    {
+      "title": "CorpusdeLibras",
+      "url": "https://corpuslibras.ufsc.br/",
+      "institution": "UFSC",
+      "file": "gs2-libras-lingua-corpus-page-01/page.md",
+      "eof": true,
+      "chars": 3421,
+      "support": "Researchproductions,culturalandlinguisticvariation;freeresearchreference.",
+      "license": "No explicitvideoreuselicenseonthehomeinspected;notadeterminationthatallitemsareclosed."
+    },
+    {
+      "title": "ODS4",
+      "url": "https://brasil.un.org/pt-br/sdgs/4",
+      "institution": "UNBrazil",
+      "file": "gs2-libras-lingua-ods4-page-01/page.md",
+      "eof": true,
+      "chars": 6871,
+      "support": "Officialtarget4.5equaleducation/trainingaccessforvulnerablegroupsincludingpersonswithdisabilities."
+    },
+    {
+      "title": "ODS10",
+      "url": "https://brasil.un.org/pt-br/sdgs/10",
+      "institution": "UNBrazil",
+      "file": "gs2-libras-lingua-ods10-page-01/page.md",
+      "eof": true,
+      "chars": 6047,
+      "support": "Officialtarget10.2inclusionsocialeconomicpoliticalregardlessofdisabilityandotherconditions."
+    },
+    {
+      "title": "AutomatedSignLanguageVocabularyAssessment:ComparingHumanandMachineRatingsandStudyingLearnerPerceptions",
+      "authors": "FranzHolzknecht;SandrineTornay;AlessiaBattisti;AaronOlafBatty;KatjaTissi;TobiasHaug;SarahEbling",
+      "year": 2024,
+      "doi": "10.1080/15434303.2024.2364877",
+      "url": "https://publications.idiap.ch/attachments/papers/2024/Holzknecht_LAQ_2024.pdf",
+      "status": "PeerreviewedLanguageAssessmentQuarterly21(3)245–265;authorinstitutioncopy",
+      "locators": [
+        "p4–5systemscope:manualaspectsofindividuallexemes,notnonmanualgrammar",
+        "p5–8methods:16learners14raters,16lexemes×3attempts=768performances",
+        "p13learnerfeedback:6/16studentsreportedincorrectfeedback",
+        "p14–15discussion:unacceptablepenalizationofacceptableminor non-dominant-handmovements"
+      ],
+      "limits": "DSGSnotLibras;ratingvalidationandlearnerperceptions,nolearningRCTorretention/transferassessment;noaggregateaccuracyclaim.",
+      "license": "ArticleCCBY4.0statedp1;doesnotautomaticallylicenseunderlyingvideos/data."
+    }
+  ],
+  "limited_leads": [
+    {
+      "title": "EfeitodoensinoexplícitonodesempenhoemLibras:umestudocomquatroaprendizesdeL2",
+      "url": "https://www.scielo.br/j/tla/a/5CmYmQZYRG3GMHF9Ymq8c7x/?lang=pt",
+      "status": "Pageopened,followupbodyfindstimeout;longsearchpassagesreportuncertaineffect.",
+      "use": "Notusedfornumericcausalefficacy;noinfiniteattemptstorecover."
+    }
+  ],
+  "limits": [
+    "No signvideo downloaded,reuploaded,reproducedortransformed",
+    "No coursecontentrightsorlicensedreferencevideoscleared",
+    "No contactsrequested,nopeoplemessaged",
+    "No targetpopulationstatisticsinferredfromhearingloss",
+    "No participantorprototypeevaluationconducted",
+    "No CS2 reuse;userexplicitlyexcluded it",
+    "Credits/currencyunknown;attempts/bytespreserved,notinvoice",
+    "CorpusandUFSCpageinspectionisbounded,notcomprehensivelicenseaudit"
+  ]
+}

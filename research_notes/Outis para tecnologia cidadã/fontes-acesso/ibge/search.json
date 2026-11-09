@@ -1,0 +1,100 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"schema_version\":1,\"source_id\":\"863488fc-e64c-4f93-ab5a-95b10e0b2c2d\",\"provider\":\"http:duckduckgo\",\"engine\":\"duckduckgo\",\"parser_version\":\"http-serp-v1\",\"fallback_reason\":null,\"query\":\"site:ibge.gov.br 2024 internet não saber usar serviços públicos\",\"page\":0,\"locale\":{\"language\":\"pt-BR\",\"country\":\"BR\"},\"results\":[{\"position\":1,\"provider_rank\":1,\"title\":\"IBGE | Portal do IBGE | IBGE\",\"url\":\"https://www.ibge.gov.br/\",\"snippet\":\"Nossos serviços estão apresentando instabilidade no momento. Algumas informações podem não estar disponíveis.\"},{\"position\":2,\"provider_rank\":2,\"title\":\"Pela primeira vez, mais da metade da população acessa a internet pela ...\",\"url\":\"https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/44033-pela-primeira-vez-mais-da-metade-da-populacao-acessa-a-internet-pela-tv\",\"snippet\":\"Em 2024, 10,9% das pessoas de 10 anos ou mais de idade (ou 20,5 milhões de pessoas) não utilizaram a Internet no período de referência, frente a 12,0% em 2023 e 20,5% em 2019. Os dois motivos mais apontados para não acessar a internet foram não saber utilizar (45,6%) e não ter necessidade (28,5%).\"},{\"position\":3,\"provider_rank\":3,\"title\":\"PDF Pesquisa Nacional por Amostra de Domicílios Contínua\",\"url\":\"https://biblioteca.ibge.gov.br/visualizacao/livros/liv102193_informativo.pdf\",\"snippet\":\"Em 2024, no total de domicílios do País, o percentual daqueles em que o serviço de rede móvel celular funcionava, para Internet ou para telefonia, foi de 92,0%, no total; 95,3%, em área urbana; e 65,8%, em área rural.\"},{\"position\":4,\"provider_rank\":4,\"title\":\"PDF PNADC - TIC 2024 - divulgação\",\"url\":\"https://agenciadenoticias.ibge.gov.br/media/com_mediaibge/arquivos/7552c746f69b9cb9b436b44bdce6b60a.pdf\",\"snippet\":\"No período 2022-2024, entre a população mais jovem e entre os estudantes, nota-se que a preocupação com privacidade ou segurança aumentou, ano a ano, a sua participação como principal motivo de não utilização da Internet.\"},{\"position\":5,\"provider_rank\":5,\"title\":\"92,5% domicílios tinham acesso à Internet no Brasil - IBGE\",\"url\":\"https://educa.ibge.gov.br/jovens/materias-especiais/21581-informacoes-atualizadas-sobre-tecnologias-da-informacao-e-comunicacao.html\",\"snippet\":\"A pesquisa identificou que 5,9 milhões de domicílios do país não utilizavam a Internet, sendo os principais motivos> nenhum morador sabia usar a Internet (33,2%), serviço de acesso à Internet caro (30,0%) e falta de necessidade em acessar a Internet (23,4%).\"},{\"position\":6,\"provider_rank\":6,\"title\":\"Pnsb 2024\",\"url\":\"https://pnsb2024.ibge.gov.br/Home/index\",\"snippet\":\"Com esses resultados, o IBGE pretende formular e disponibilizar indicadores capazes de apresentar um cenário atualizado sobre os serviços mencionados em todos os municípios brasileiros, além de possibilitar análises das condições ambientais e suas implicações diretas com a saúde e qualidade de vida da população.\"},{\"position\":7,\"provider_rank\":7,\"title\":\"Divulgação anual | IBGE\",\"url\":\"https://www.ibge.gov.br/estatisticas/multidominio/ciencia-tecnologia-e-inovacao/17270-pnad-continua-acesso-a-internet-e-a-televisao.html\",\"snippet\":\"Erro, identificado pelo IBGE, pelo não cumprimento da data de divulgação dos resultados da Pesquisa Nacional por Amostra de Domicílios Contínua do 3º trimestre de 2024, conforme calendário anteriormente disponibilizado.\"},{\"position\":8,\"provider_rank\":8,\"title\":\"IBGE | Questionários Eletrônicos\",\"url\":\"https://questionarios.ibge.gov.br/\",\"snippet\":\"Baixe os programas para o preenchimento eletrônico dos questionários das pesquisas do IBGE. Aqui você pode enviar o questionário com as informações econômicas desua empresa. Pode também consultar o cadastro das empresas que respondem às nossas pesquisas. A busca é feita pelo CNPJ.\"},{\"position\":9,\"provider_rank\":9,\"title\":\"PNAD investiga posse de televisão, computador, celular e o acesso à ...\",\"url\":\"https://educa.ibge.gov.br/jovens/materias-especiais/23338-pnad-investiga-posse-de-televisao-computador-celular-e-o-acesso-a-internet.html\",\"snippet\":\"Sobre a razão de não optar por contratar tal serviço, 26,1% não o adquiriam por considerá-lo caro e 62,2% por não haver interesse pelo serviço, em 2025. Esses dois foram os principais motivos, abrangendo 88,3% desses domicílios.\"},{\"position\":10,\"provider_rank\":10,\"title\":\"IBGE | Biblioteca\",\"url\":\"https://biblioteca.ibge.gov.br/index.php/biblioteca-catalogo?view=detalhes&id=55762\",\"snippet\":\"Aqui você pode realizar buscas no catálogo on-line, bem como fazer download de parte do nosso acervo. Além disso, disponibilizamos informações sobre a biblioteca, tais como histórico, serviços oferecidos, links relacionados, etc.\"}],\"has_next_page\":true,\"fetched_at\":\"2026-11-05T19:59:07.344Z\",\"content_sha256\":\"3006720a5ec25cdcb628fcaa60ee3a762677ce7c0b8c394c276f5299e2b1f67d\",\"acquisition_complete\":true,\"cache_hit\":false}"
+    }
+  ],
+  "structuredContent": {
+    "schema_version": 1,
+    "source_id": "863488fc-e64c-4f93-ab5a-95b10e0b2c2d",
+    "provider": "http:duckduckgo",
+    "engine": "duckduckgo",
+    "parser_version": "http-serp-v1",
+    "fallback_reason": null,
+    "query": "site:ibge.gov.br 2024 internet não saber usar serviços públicos",
+    "page": 0,
+    "locale": {
+      "language": "pt-BR",
+      "country": "BR"
+    },
+    "results": [
+      {
+        "position": 1,
+        "provider_rank": 1,
+        "title": "IBGE | Portal do IBGE | IBGE",
+        "url": "https://www.ibge.gov.br/",
+        "snippet": "Nossos serviços estão apresentando instabilidade no momento. Algumas informações podem não estar disponíveis."
+      },
+      {
+        "position": 2,
+        "provider_rank": 2,
+        "title": "Pela primeira vez, mais da metade da população acessa a internet pela ...",
+        "url": "https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/44033-pela-primeira-vez-mais-da-metade-da-populacao-acessa-a-internet-pela-tv",
+        "snippet": "Em 2024, 10,9% das pessoas de 10 anos ou mais de idade (ou 20,5 milhões de pessoas) não utilizaram a Internet no período de referência, frente a 12,0% em 2023 e 20,5% em 2019. Os dois motivos mais apontados para não acessar a internet foram não saber utilizar (45,6%) e não ter necessidade (28,5%)."
+      },
+      {
+        "position": 3,
+        "provider_rank": 3,
+        "title": "PDF Pesquisa Nacional por Amostra de Domicílios Contínua",
+        "url": "https://biblioteca.ibge.gov.br/visualizacao/livros/liv102193_informativo.pdf",
+        "snippet": "Em 2024, no total de domicílios do País, o percentual daqueles em que o serviço de rede móvel celular funcionava, para Internet ou para telefonia, foi de 92,0%, no total; 95,3%, em área urbana; e 65,8%, em área rural."
+      },
+      {
+        "position": 4,
+        "provider_rank": 4,
+        "title": "PDF PNADC - TIC 2024 - divulgação",
+        "url": "https://agenciadenoticias.ibge.gov.br/media/com_mediaibge/arquivos/7552c746f69b9cb9b436b44bdce6b60a.pdf",
+        "snippet": "No período 2022-2024, entre a população mais jovem e entre os estudantes, nota-se que a preocupação com privacidade ou segurança aumentou, ano a ano, a sua participação como principal motivo de não utilização da Internet."
+      },
+      {
+        "position": 5,
+        "provider_rank": 5,
+        "title": "92,5% domicílios tinham acesso à Internet no Brasil - IBGE",
+        "url": "https://educa.ibge.gov.br/jovens/materias-especiais/21581-informacoes-atualizadas-sobre-tecnologias-da-informacao-e-comunicacao.html",
+        "snippet": "A pesquisa identificou que 5,9 milhões de domicílios do país não utilizavam a Internet, sendo os principais motivos> nenhum morador sabia usar a Internet (33,2%), serviço de acesso à Internet caro (30,0%) e falta de necessidade em acessar a Internet (23,4%)."
+      },
+      {
+        "position": 6,
+        "provider_rank": 6,
+        "title": "Pnsb 2024",
+        "url": "https://pnsb2024.ibge.gov.br/Home/index",
+        "snippet": "Com esses resultados, o IBGE pretende formular e disponibilizar indicadores capazes de apresentar um cenário atualizado sobre os serviços mencionados em todos os municípios brasileiros, além de possibilitar análises das condições ambientais e suas implicações diretas com a saúde e qualidade de vida da população."
+      },
+      {
+        "position": 7,
+        "provider_rank": 7,
+        "title": "Divulgação anual | IBGE",
+        "url": "https://www.ibge.gov.br/estatisticas/multidominio/ciencia-tecnologia-e-inovacao/17270-pnad-continua-acesso-a-internet-e-a-televisao.html",
+        "snippet": "Erro, identificado pelo IBGE, pelo não cumprimento da data de divulgação dos resultados da Pesquisa Nacional por Amostra de Domicílios Contínua do 3º trimestre de 2024, conforme calendário anteriormente disponibilizado."
+      },
+      {
+        "position": 8,
+        "provider_rank": 8,
+        "title": "IBGE | Questionários Eletrônicos",
+        "url": "https://questionarios.ibge.gov.br/",
+        "snippet": "Baixe os programas para o preenchimento eletrônico dos questionários das pesquisas do IBGE. Aqui você pode enviar o questionário com as informações econômicas desua empresa. Pode também consultar o cadastro das empresas que respondem às nossas pesquisas. A busca é feita pelo CNPJ."
+      },
+      {
+        "position": 9,
+        "provider_rank": 9,
+        "title": "PNAD investiga posse de televisão, computador, celular e o acesso à ...",
+        "url": "https://educa.ibge.gov.br/jovens/materias-especiais/23338-pnad-investiga-posse-de-televisao-computador-celular-e-o-acesso-a-internet.html",
+        "snippet": "Sobre a razão de não optar por contratar tal serviço, 26,1% não o adquiriam por considerá-lo caro e 62,2% por não haver interesse pelo serviço, em 2025. Esses dois foram os principais motivos, abrangendo 88,3% desses domicílios."
+      },
+      {
+        "position": 10,
+        "provider_rank": 10,
+        "title": "IBGE | Biblioteca",
+        "url": "https://biblioteca.ibge.gov.br/index.php/biblioteca-catalogo?view=detalhes&id=55762",
+        "snippet": "Aqui você pode realizar buscas no catálogo on-line, bem como fazer download de parte do nosso acervo. Além disso, disponibilizamos informações sobre a biblioteca, tais como histórico, serviços oferecidos, links relacionados, etc."
+      }
+    ],
+    "has_next_page": true,
+    "fetched_at": "2026-11-05T19:59:07.344Z",
+    "content_sha256": "3006720a5ec25cdcb628fcaa60ee3a762677ce7c0b8c394c276f5299e2b1f67d",
+    "acquisition_complete": true,
+    "cache_hit": false
+  },
+  "isError": false
+}

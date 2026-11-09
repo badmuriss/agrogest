@@ -1,0 +1,205 @@
+{
+  "date": "2026-11-06",
+  "scope": "Public documentation, model cards/licenses and unauthenticated public model catalog only",
+  "model_weights_downloaded": false,
+  "inference_calls": 0,
+  "account_or_balance_queries": 0,
+  "application_deployments": 0,
+  "models": [
+    {
+      "id": "PaddlePaddle/PP-OCRv5_mobile_det",
+      "sha": "0d63e78e2b680928f6b1747d76a08db6e645efb7",
+      "pipeline_tag": "image-to-text",
+      "library_name": "PaddleOCR",
+      "gated": false,
+      "disabled": false,
+      "safetensors": null,
+      "license": "apache-2.0",
+      "source": "https://huggingface.co/PaddlePaddle/PP-OCRv5_mobile_det",
+      "card_sha256": "4cc20ad6d41af86b3ce9885ffb0956e152574a2eb14179aeb07fd2d3956161ca"
+    },
+    {
+      "id": "PaddlePaddle/PaddleOCR-VL-1.5",
+      "sha": "1e5216083435c7851caad5d691ef55aab81b5949",
+      "pipeline_tag": "image-text-to-text",
+      "library_name": "PaddleOCR",
+      "gated": false,
+      "disabled": false,
+      "safetensors": {
+        "parameters": {
+          "BF16": 958588736
+        },
+        "total": 958588736
+      },
+      "license": "apache-2.0",
+      "source": "https://huggingface.co/PaddlePaddle/PaddleOCR-VL-1.5",
+      "card_sha256": "0eeebf42ca617495dec7343909667a79840b240d7cb6c5572e221fad0b128557",
+      "license_sha256": "b8c4d7deccd236af023af1c88c4d4e8f0fc2f41914e0fb23a3ec9678fb5a8456"
+    },
+    {
+      "id": "PaddlePaddle/PaddleOCR-VL-1.6",
+      "sha": "132c45f52c0a26ed5a6b2f6bd8e3985794cc27dd",
+      "pipeline_tag": "image-text-to-text",
+      "library_name": "PaddleOCR",
+      "gated": false,
+      "safetensors": {
+        "parameters": {
+          "BF16": 958588736
+        },
+        "total": 958588736
+      },
+      "license": "apache-2.0",
+      "source": "https://huggingface.co/PaddlePaddle/PaddleOCR-VL-1.6",
+      "card_sha256": "d6c5b77a660577f6e18021defccd835bdc93a8c6538f5a479d597f3e94288abf",
+      "license_sha256": "b8c4d7deccd236af023af1c88c4d4e8f0fc2f41914e0fb23a3ec9678fb5a8456"
+    },
+    {
+      "id": "PaddlePaddle/latin_PP-OCRv5_mobile_rec",
+      "sha": "ab2cd5cc5fa6309be2e5acdfe66eca2c2c127d57",
+      "pipeline_tag": "image-to-text",
+      "library_name": "PaddleOCR",
+      "gated": false,
+      "disabled": false,
+      "safetensors": null,
+      "license": "apache-2.0",
+      "source": "https://huggingface.co/PaddlePaddle/latin_PP-OCRv5_mobile_rec",
+      "card_sha256": "897e932f55386124163c5d051ee42a7481fad52ea447c9e3b009d22e5424bada"
+    },
+    {
+      "id": "Qwen/Qwen2.5-VL-3B-Instruct",
+      "sha": "66285546d2b821cf421d4f5eb2576359d3770cd3",
+      "pipeline_tag": "image-text-to-text",
+      "library_name": "transformers",
+      "gated": false,
+      "disabled": false,
+      "safetensors": {
+        "parameters": {
+          "BF16": 3754622976
+        },
+        "total": 3754622976
+      },
+      "license": null,
+      "source": "https://huggingface.co/Qwen/Qwen2.5-VL-3B-Instruct",
+      "card_sha256": "0b6da5a154b923da4dc66e416140c9b7f235f9b08fbbcc27fd9df7b586e3150d",
+      "license_sha256": "b5c0e5cf74cf51af1ecbc4af597cfcd13fd9925611838884a681070838a14a50",
+      "license_from_LICENSE_file": "Qwen Research License Agreement; non-commercial only; commercial use requires requesting a license"
+    }
+  ],
+  "openrouter_catalog_source": "https://openrouter.ai/api/v1/models",
+  "openrouter_public_catalog_selected": [
+    {
+      "id": "google/gemini-2.5-flash",
+      "name": "Google: Gemini 2.5 Flash",
+      "context_length": 1048576,
+      "architecture": {
+        "modality": "text+image+file+audio+video->text",
+        "input_modalities": [
+          "file",
+          "image",
+          "text",
+          "audio",
+          "video"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "tokenizer": "Gemini",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.0000003",
+        "completion": "0.0000025",
+        "image": "0.0000003",
+        "audio": "0.000001",
+        "input_audio_cache": "0.0000001",
+        "web_search": "0.014",
+        "internal_reasoning": "0.0000025",
+        "input_cache_read": "0.00000003",
+        "input_cache_write": "0.0000000833333333333333"
+      },
+      "supported_parameters": [
+        "include_reasoning",
+        "max_tokens",
+        "reasoning",
+        "response_format",
+        "seed",
+        "stop",
+        "structured_outputs",
+        "temperature",
+        "tool_choice",
+        "tools",
+        "top_p"
+      ],
+      "top_provider": {
+        "context_length": 1048576,
+        "max_completion_tokens": 65535,
+        "is_moderated": false
+      }
+    },
+    {
+      "id": "meta-llama/llama-4-scout",
+      "name": "Meta: Llama 4 Scout",
+      "context_length": 1310720,
+      "architecture": {
+        "modality": "text+image->text",
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "tokenizer": "Llama4",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.0000001",
+        "completion": "0.0000003"
+      },
+      "supported_parameters": [
+        "frequency_penalty",
+        "logit_bias",
+        "max_tokens",
+        "min_p",
+        "presence_penalty",
+        "repetition_penalty",
+        "response_format",
+        "seed",
+        "stop",
+        "structured_outputs",
+        "temperature",
+        "tool_choice",
+        "tools",
+        "top_k",
+        "top_p"
+      ],
+      "top_provider": {
+        "context_length": 327680,
+        "max_completion_tokens": 16384,
+        "is_moderated": false
+      }
+    }
+  ],
+  "documentation": [
+    "https://developers.cloudflare.com/workers-ai/get-started/rest-api/",
+    "https://developers.cloudflare.com/workers-ai/models/llama-4-scout-17b-16e-instruct/",
+    "https://developers.cloudflare.com/workers-ai/platform/pricing/",
+    "https://developers.cloudflare.com/workers-ai/platform/data-usage/",
+    "https://openrouter.ai/docs/guides/overview/multimodal/image-understanding",
+    "https://openrouter.ai/docs/guides/features/structured-outputs",
+    "https://openrouter.ai/docs/guides/routing/provider-selection",
+    "https://openrouter.ai/docs/guides/privacy/logging",
+    "https://openrouter.ai/docs/guides/privacy/data-collection",
+    "https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables",
+    "https://openrouter.ai/docs/api/api-reference/models/list-all-models-and-their-properties"
+  ],
+  "expected_environment_presence": {
+    "WORKERS_AI_ACCOUNT_ID": false,
+    "WORKERS_AI_API_TOKEN": false,
+    "CLOUDFLARE_ACCOUNT_ID": false,
+    "CLOUDFLARE_API_TOKEN": false,
+    "OPENROUTER_API_KEY": false
+  },
+  "credential_values_printed_or_persisted": false,
+  "credential_check_scope": "Presence of the explicitly named environment variables only; no private profile or secret store inspected"
+}

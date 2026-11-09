@@ -1,0 +1,100 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"schema_version\":1,\"source_id\":\"6bcba353-8868-4eb7-8b3a-811ed3e5ffe3\",\"provider\":\"http:duckduckgo\",\"engine\":\"duckduckgo\",\"parser_version\":\"http-serp-v1\",\"fallback_reason\":null,\"query\":\"site:gov.br assistente virtual inteligência artificial cidadãos serviços gov.br\",\"page\":0,\"locale\":{\"language\":\"pt-BR\",\"country\":\"BR\"},\"results\":[{\"position\":1,\"provider_rank\":1,\"title\":\"Como faço para acessar a Assistente IA dentro do SOUGOV.BR?\",\"url\":\"https://www.gov.br/servidor/pt-br/acesso-a-informacao/faq/sou-gov.br/assistente-ia/como-faco-para-acessar-a-assistente-dentro-do-sougov-br\",\"snippet\":\"Por meio do uso de Inteligência Artificial (IA) e da tecnologia de Processamento de Linguagem Natural, a Assistente entende a pergunta feita pelo usuário e apresenta respostas relacionadas à legislação de pessoal da administração pública federal, tudo de forma simples e prática.\"},{\"position\":2,\"provider_rank\":2,\"title\":\"CeLesTe: MTE apresenta assistente virtual para facilitar acesso a ...\",\"url\":\"https://www.gov.br/trabalho-e-emprego/pt-br/noticias-e-conteudo/2025/outubro/celeste-mte-apresenta-assistente-virtual-para-facilitar-acesso-a-informacoes-trabalhistas\",\"snippet\":\"O Ministério do Trabalho e Emprego (MTE) lançou, nesta quinta-feira (30), a CeLesTe, assistente virtual que oferece orientação a empresas e cidadãos sobre os serviços do ministério.\"},{\"position\":3,\"provider_rank\":3,\"title\":\"Nova assistente virtual do INSS esclarece dúvidas do cidadão\",\"url\":\"http://www.iprc.sp.gov.br/nova-assistente-virtual-do-inss-esclarece-duvidas-do-cidadao/\",\"snippet\":\"Como se trata de uma inteligência artificial, a assistente responde às dúvidas e perguntas simples relacionadas aos serviços e benefícios do órgão. De acordo com a demanda, se aprimorará cada vez mais para interagir de forma ainda mais eficaz com o cidadão.\"},{\"position\":4,\"provider_rank\":4,\"title\":\"CEIA MT - Centro de Excelência em Inteligência Artificial de Mato Grosso\",\"url\":\"https://ceia.mt.gov.br/\",\"snippet\":\"Descubra como transformar documentos e dados em conhecimento estratégico por meio da Inteligência Artificial. Aprenda a criar agentes personalizados para automatizar tarefas e otimizar processos do dia a dia no serviço público.\"},{\"position\":5,\"provider_rank\":5,\"title\":\"GurIA - RS.GOV.BR - Portal de Serviços Digitais\",\"url\":\"https://rs.gov.br/guria\",\"snippet\":\"GurIA A tua nova assistente digital Oi! Eu sou a GurIA, a inteligência artificial do portal rs.gov.br e vou te ajudar em tudo que for preciso pra facilitar a tua vida no acesso a serviços do estado. Pode me chamar que eu te ajudo a encontrar os serviços, te digo passo a passo e tiro todas as tuas dúvidas!\"},{\"position\":6,\"provider_rank\":6,\"title\":\"Primeira Assistente Virtual baseada em inteligência artificial ...\",\"url\":\"https://rondonia.ro.gov.br/primeira-assistente-virtual-baseada-em-inteligencia-artificial-simplifica-atendimento-ao-cidadao/\",\"snippet\":\"Com o objetivo de promover a transformação digital e atender diretamente à população, o governo de Rondônia inova com o lançamento da primeira Assistente Virtual baseada em Inteligência Artificial (IA), no Portal da Transparência do estado.\"},{\"position\":7,\"provider_rank\":7,\"title\":\"Portal Logado\",\"url\":\"https://servicos.acesso.gov.br/\",\"snippet\":\"Acesse o Portal Logado para gerenciar sua identidade digital e acessar serviços governamentais de forma segura.\"},{\"position\":8,\"provider_rank\":8,\"title\":\"Saquarema utiliza inteligência artificial para otimizar atendimento ...\",\"url\":\"https://www.saquarema.rj.gov.br/saquarema-utiliza-inteligencia-artificial-para-otimizar-atendimento-digital-ao-cidadao-com-servidor-virtual/\",\"snippet\":\"Integrado aos canais digitais da Prefeitura e ao E-CAC, o assistente virtual utiliza inteligência artificial para responder dúvidas e orientar cidadãos, empreendedores, contadores e servidores públicos sobre diferentes serviços oferecidos pelo Município.\"},{\"position\":9,\"provider_rank\":9,\"title\":\"Ferramenta de inteligência artificial serve de apoio aos servidores do ...\",\"url\":\"https://estado.rs.gov.br/ferramenta-de-inteligencia-artificial-serve-de-apoio-aos-servidores-do-estado-em-tarefas-de-diferentes-segmentos\",\"snippet\":\"Além disso, o governo do Estado disponibilizou aos cidadãos a GurIA, assistente virtual baseada em IA que oferece informações e orientações pelos canais digitais. A GurIA foi lançada na quinta-feira (5/6) pelo governador Eduardo Leite e pela titular da Secretaria de Planejamento, Governança e Gestão (SPGG), Danielle Calazans.\"},{\"position\":10,\"provider_rank\":10,\"title\":\"Nova fase do portal rs.gov.br facilita a vida do cidadão com ...\",\"url\":\"https://edp.rs.gov.br/nova-fase-do-portal-rs-gov-br-facilita-a-vida-do-cidadao-com-inteligencia-artificial-e-atendimento-personalizado\",\"snippet\":\"Uma atendente virtual com tecnologia de Inteligência Artificial (IA) generativa, que atende por texto ou voz, diretamente no portal ou pelo WhatsApp. Ela ajuda a tirar dúvidas e encontrar informações sobre serviços públicos estaduais.\"}],\"has_next_page\":true,\"fetched_at\":\"2026-11-05T20:00:11.614Z\",\"content_sha256\":\"fbe71613818f56a0f5e2108cd772f1320827abf7c929b440d632919a8bbe0935\",\"acquisition_complete\":true,\"cache_hit\":false}"
+    }
+  ],
+  "structuredContent": {
+    "schema_version": 1,
+    "source_id": "6bcba353-8868-4eb7-8b3a-811ed3e5ffe3",
+    "provider": "http:duckduckgo",
+    "engine": "duckduckgo",
+    "parser_version": "http-serp-v1",
+    "fallback_reason": null,
+    "query": "site:gov.br assistente virtual inteligência artificial cidadãos serviços gov.br",
+    "page": 0,
+    "locale": {
+      "language": "pt-BR",
+      "country": "BR"
+    },
+    "results": [
+      {
+        "position": 1,
+        "provider_rank": 1,
+        "title": "Como faço para acessar a Assistente IA dentro do SOUGOV.BR?",
+        "url": "https://www.gov.br/servidor/pt-br/acesso-a-informacao/faq/sou-gov.br/assistente-ia/como-faco-para-acessar-a-assistente-dentro-do-sougov-br",
+        "snippet": "Por meio do uso de Inteligência Artificial (IA) e da tecnologia de Processamento de Linguagem Natural, a Assistente entende a pergunta feita pelo usuário e apresenta respostas relacionadas à legislação de pessoal da administração pública federal, tudo de forma simples e prática."
+      },
+      {
+        "position": 2,
+        "provider_rank": 2,
+        "title": "CeLesTe: MTE apresenta assistente virtual para facilitar acesso a ...",
+        "url": "https://www.gov.br/trabalho-e-emprego/pt-br/noticias-e-conteudo/2025/outubro/celeste-mte-apresenta-assistente-virtual-para-facilitar-acesso-a-informacoes-trabalhistas",
+        "snippet": "O Ministério do Trabalho e Emprego (MTE) lançou, nesta quinta-feira (30), a CeLesTe, assistente virtual que oferece orientação a empresas e cidadãos sobre os serviços do ministério."
+      },
+      {
+        "position": 3,
+        "provider_rank": 3,
+        "title": "Nova assistente virtual do INSS esclarece dúvidas do cidadão",
+        "url": "http://www.iprc.sp.gov.br/nova-assistente-virtual-do-inss-esclarece-duvidas-do-cidadao/",
+        "snippet": "Como se trata de uma inteligência artificial, a assistente responde às dúvidas e perguntas simples relacionadas aos serviços e benefícios do órgão. De acordo com a demanda, se aprimorará cada vez mais para interagir de forma ainda mais eficaz com o cidadão."
+      },
+      {
+        "position": 4,
+        "provider_rank": 4,
+        "title": "CEIA MT - Centro de Excelência em Inteligência Artificial de Mato Grosso",
+        "url": "https://ceia.mt.gov.br/",
+        "snippet": "Descubra como transformar documentos e dados em conhecimento estratégico por meio da Inteligência Artificial. Aprenda a criar agentes personalizados para automatizar tarefas e otimizar processos do dia a dia no serviço público."
+      },
+      {
+        "position": 5,
+        "provider_rank": 5,
+        "title": "GurIA - RS.GOV.BR - Portal de Serviços Digitais",
+        "url": "https://rs.gov.br/guria",
+        "snippet": "GurIA A tua nova assistente digital Oi! Eu sou a GurIA, a inteligência artificial do portal rs.gov.br e vou te ajudar em tudo que for preciso pra facilitar a tua vida no acesso a serviços do estado. Pode me chamar que eu te ajudo a encontrar os serviços, te digo passo a passo e tiro todas as tuas dúvidas!"
+      },
+      {
+        "position": 6,
+        "provider_rank": 6,
+        "title": "Primeira Assistente Virtual baseada em inteligência artificial ...",
+        "url": "https://rondonia.ro.gov.br/primeira-assistente-virtual-baseada-em-inteligencia-artificial-simplifica-atendimento-ao-cidadao/",
+        "snippet": "Com o objetivo de promover a transformação digital e atender diretamente à população, o governo de Rondônia inova com o lançamento da primeira Assistente Virtual baseada em Inteligência Artificial (IA), no Portal da Transparência do estado."
+      },
+      {
+        "position": 7,
+        "provider_rank": 7,
+        "title": "Portal Logado",
+        "url": "https://servicos.acesso.gov.br/",
+        "snippet": "Acesse o Portal Logado para gerenciar sua identidade digital e acessar serviços governamentais de forma segura."
+      },
+      {
+        "position": 8,
+        "provider_rank": 8,
+        "title": "Saquarema utiliza inteligência artificial para otimizar atendimento ...",
+        "url": "https://www.saquarema.rj.gov.br/saquarema-utiliza-inteligencia-artificial-para-otimizar-atendimento-digital-ao-cidadao-com-servidor-virtual/",
+        "snippet": "Integrado aos canais digitais da Prefeitura e ao E-CAC, o assistente virtual utiliza inteligência artificial para responder dúvidas e orientar cidadãos, empreendedores, contadores e servidores públicos sobre diferentes serviços oferecidos pelo Município."
+      },
+      {
+        "position": 9,
+        "provider_rank": 9,
+        "title": "Ferramenta de inteligência artificial serve de apoio aos servidores do ...",
+        "url": "https://estado.rs.gov.br/ferramenta-de-inteligencia-artificial-serve-de-apoio-aos-servidores-do-estado-em-tarefas-de-diferentes-segmentos",
+        "snippet": "Além disso, o governo do Estado disponibilizou aos cidadãos a GurIA, assistente virtual baseada em IA que oferece informações e orientações pelos canais digitais. A GurIA foi lançada na quinta-feira (5/6) pelo governador Eduardo Leite e pela titular da Secretaria de Planejamento, Governança e Gestão (SPGG), Danielle Calazans."
+      },
+      {
+        "position": 10,
+        "provider_rank": 10,
+        "title": "Nova fase do portal rs.gov.br facilita a vida do cidadão com ...",
+        "url": "https://edp.rs.gov.br/nova-fase-do-portal-rs-gov-br-facilita-a-vida-do-cidadao-com-inteligencia-artificial-e-atendimento-personalizado",
+        "snippet": "Uma atendente virtual com tecnologia de Inteligência Artificial (IA) generativa, que atende por texto ou voz, diretamente no portal ou pelo WhatsApp. Ela ajuda a tirar dúvidas e encontrar informações sobre serviços públicos estaduais."
+      }
+    ],
+    "has_next_page": true,
+    "fetched_at": "2026-11-05T20:00:11.614Z",
+    "content_sha256": "fbe71613818f56a0f5e2108cd772f1320827abf7c929b440d632919a8bbe0935",
+    "acquisition_complete": true,
+    "cache_hit": false
+  },
+  "isError": false
+}

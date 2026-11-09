@@ -1,0 +1,100 @@
+{
+  "request": {
+    "schema_version": 1,
+    "project_scope": "gs-final-fiap-citizentech-20261105",
+    "operation": "search.web",
+    "input": {
+      "query": "site.ufsc.br Libras segunda língua ouvintes ensino produção compreensão vídeo feedback",
+      "engine": "duckduckgo",
+      "page": 0,
+      "limit": 10
+    },
+    "execution": "browser",
+    "limits": {
+      "timeout_ms": 60000,
+      "attempts": 1,
+      "response_bytes": 1048576,
+      "browser_bytes": 5242880,
+      "browser_ms": 30000
+    },
+    "cache": {
+      "mode": "default",
+      "max_age_s": 900
+    }
+  },
+  "admission": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"client_request_id\":\"gs2-libras-lingua-ufsc-01\",\"http_status\":202,\"schema_version\":1,\"job_id\":\"7e8b3412-4ff0-41ed-939c-6b8acd09cea0\",\"operation\":\"search.web\",\"project_scope\":\"gs-final-fiap-citizentech-20261105\",\"status\":\"queued\",\"cache_hit\":false,\"max_age_s\":900,\"created_at\":1793931027753,\"deadline\":1793931087753,\"usage\":{\"attempts\":0,\"bytes\":0,\"browser_ms\":0},\"usage_basis\":\"proxy_transport_or_reserved_envelope\",\"proxy\":{\"mode\":\"backbone_rotating\"},\"source_id\":null,\"source_export_formats\":[\"bundle\"],\"source_export_batch_limit\":5,\"errors\":[],\"next_poll_after_ms\":1000}"
+      }
+    ],
+    "structuredContent": {
+      "client_request_id": "gs2-libras-lingua-ufsc-01",
+      "http_status": 202,
+      "schema_version": 1,
+      "job_id": "7e8b3412-4ff0-41ed-939c-6b8acd09cea0",
+      "operation": "search.web",
+      "project_scope": "gs-final-fiap-citizentech-20261105",
+      "status": "queued",
+      "cache_hit": false,
+      "max_age_s": 900,
+      "created_at": 1793931027753,
+      "deadline": 1793931087753,
+      "usage": {
+        "attempts": 0,
+        "bytes": 0,
+        "browser_ms": 0
+      },
+      "usage_basis": "proxy_transport_or_reserved_envelope",
+      "proxy": {
+        "mode": "backbone_rotating"
+      },
+      "source_id": null,
+      "source_export_formats": [
+        "bundle"
+      ],
+      "source_export_batch_limit": 5,
+      "errors": [],
+      "next_poll_after_ms": 1000
+    },
+    "isError": false
+  },
+  "status": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"schema_version\":1,\"job_id\":\"7e8b3412-4ff0-41ed-939c-6b8acd09cea0\",\"operation\":\"search.web\",\"project_scope\":\"gs-final-fiap-citizentech-20261105\",\"status\":\"succeeded\",\"cache_hit\":false,\"max_age_s\":900,\"created_at\":1793931027753,\"deadline\":1793931087753,\"usage\":{\"attempts\":1,\"bytes\":48421,\"browser_ms\":0},\"usage_basis\":\"proxy_transport_or_reserved_envelope\",\"proxy\":{\"mode\":\"backbone_rotating\"},\"source_id\":\"7e8b3412-4ff0-41ed-939c-6b8acd09cea0\",\"source_export_formats\":[\"bundle\"],\"source_export_batch_limit\":5,\"errors\":[],\"next_poll_after_ms\":1000}"
+      }
+    ],
+    "structuredContent": {
+      "schema_version": 1,
+      "job_id": "7e8b3412-4ff0-41ed-939c-6b8acd09cea0",
+      "operation": "search.web",
+      "project_scope": "gs-final-fiap-citizentech-20261105",
+      "status": "succeeded",
+      "cache_hit": false,
+      "max_age_s": 900,
+      "created_at": 1793931027753,
+      "deadline": 1793931087753,
+      "usage": {
+        "attempts": 1,
+        "bytes": 48421,
+        "browser_ms": 0
+      },
+      "usage_basis": "proxy_transport_or_reserved_envelope",
+      "proxy": {
+        "mode": "backbone_rotating"
+      },
+      "source_id": "7e8b3412-4ff0-41ed-939c-6b8acd09cea0",
+      "source_export_formats": [
+        "bundle"
+      ],
+      "source_export_batch_limit": 5,
+      "errors": [],
+      "next_poll_after_ms": 1000
+    },
+    "isError": false
+  },
+  "raw_verification": "not performed; normalized MCP text, not raw HTTP bytes"
+}

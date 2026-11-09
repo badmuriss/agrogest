@@ -1,0 +1,101 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"schema_version\":1,\"source_id\":\"9812bb90-6c21-4ad1-b6a0-28c7183a7c10\",\"provider\":\"http:duckduckgo\",\"engine\":\"duckduckgo\",\"parser_version\":\"http-serp-v1\",\"fallback_reason\":null,\"query\":\"site:photomath.com scan step by step explanations\",\"page\":0,\"locale\":{\"language\":\"pt-BR\",\"country\":\"BR\"},\"results\":[{\"position\":1,\"provider_rank\":1,\"title\":\"Photomath - The Ultimate Math Help App | Math Explained\",\"url\":\"https://photomath.com/\",\"snippet\":\"Our step-by-step explanations help you break down problems so you can learn as you go. Having trouble? Just scan the problem with our app—even word problems. You can also use the smart calculator to input a problem. A solution will pop up for your exact problem. There might even be multiple methods to choose from.\"},{\"position\":2,\"provider_rank\":2,\"title\":\"Photomath 101: Get Math with Photomath\",\"url\":\"https://photomath.com/articles/photomath-101-get-math-with-photomath/\",\"snippet\":\"You can download Photomath and see basic step-by-step explanations at no charge. If you want to go deeper, there are additional features and resources available with Photomath Plus.\"},{\"position\":3,\"provider_rank\":3,\"title\":\"Math from all angles: Photomath for different learning styles\",\"url\":\"https://photomath.com/articles/math-from-all-angles-photomath-for-different-learning-styles/\",\"snippet\":\"Our detailed explanations break your problem into bite-sized bits that allow you to set your own pace. While virtually every learner can benefit from this step-by-step approach, we think our in-depth explanations are especially helpful for visual, verbal, and logical learners.\"},{\"position\":4,\"provider_rank\":4,\"title\":\"How Photomath Helps with More than Just Homework\",\"url\":\"https://photomath.com/articles/how-photomath-helps-with-more-than-just-homework/\",\"snippet\":\"Lucky for you, steps are kind of our thing here at Photomath. We'll break everything down into bite-sized pieces to help you understand the \\\"how,\\\" \\\"what,\\\" and \\\"why\\\" behind the math — not just the answer itself.\"},{\"position\":5,\"provider_rank\":5,\"title\":\"Algebra Study Guide | Examples and Practice Problems - Photomath\",\"url\":\"https://photomath.com/articles/algebra-study-guide-examples-and-practice-problems/\",\"snippet\":\"Sharpen your algebra skills. Our comprehensive algebra study guide provides clear step-by-step explanations with practical examples.\"},{\"position\":6,\"provider_rank\":6,\"title\":\"What math problems can Photomath solve?\",\"url\":\"https://photomath.com/articles/what-math-problems-can-photomath-solve/\",\"snippet\":\"So if you need to figure out which train got to the station first, or how many apples Deborah sold on Tuesday, you can now do that with us, step by step. And if we can't find your exact problem, we'll show you something similar so that you can put the pieces together like the smarty-pants you are.\"},{\"position\":7,\"provider_rank\":7,\"title\":\"Arithmetic Basics: Meaning, Operations, Examples & Practice\",\"url\":\"https://photomath.com/articles/arithmetic-basics-meaning-operations-examples-practice/\",\"snippet\":\"If you find yourself struggling with a particular example, don't forget to use your Photomath app to scan the problem so we can walk you through it. For now, let's get a good picture of arithmetic as a field of study.\"},{\"position\":8,\"provider_rank\":8,\"title\":\"BUILD YOUR MATH MIND — Photomath\",\"url\":\"https://photomath.com/articles/\",\"snippet\":\"Articles about math including arithmatic, algebra, and calculus, as well as tips and tricks to help you understand math problems.\"},{\"position\":9,\"provider_rank\":9,\"title\":\"Higher-order derivatives — Photomath\",\"url\":\"https://photomath.com/articles/higher-order-derivatives/\",\"snippet\":\"If you're getting stuck, scan the problem with your Photomath app and we'll explain in step in as much detail as you need! Here's a sneak peek of what you'll see:\"},{\"position\":10,\"provider_rank\":10,\"title\":\"Download Photomath\",\"url\":\"https://photomath.com/install/\",\"snippet\":\"Get it today to help with math practice and homework.\"}],\"has_next_page\":true,\"fetched_at\":\"2026-11-05T20:03:51.839Z\",\"content_sha256\":\"64bf04f20996b28ed691711bcce663fa7508c421030aee7149dbf0f3b97c91a6\",\"acquisition_complete\":true,\"cache_hit\":false}"
+    }
+  ],
+  "structuredContent": {
+    "schema_version": 1,
+    "source_id": "9812bb90-6c21-4ad1-b6a0-28c7183a7c10",
+    "provider": "http:duckduckgo",
+    "engine": "duckduckgo",
+    "parser_version": "http-serp-v1",
+    "fallback_reason": null,
+    "query": "site:photomath.com scan step by step explanations",
+    "page": 0,
+    "locale": {
+      "language": "pt-BR",
+      "country": "BR"
+    },
+    "results": [
+      {
+        "position": 1,
+        "provider_rank": 1,
+        "title": "Photomath - The Ultimate Math Help App | Math Explained",
+        "url": "https://photomath.com/",
+        "snippet": "Our step-by-step explanations help you break down problems so you can learn as you go. Having trouble? Just scan the problem with our app—even word problems. You can also use the smart calculator to input a problem. A solution will pop up for your exact problem. There might even be multiple methods to choose from."
+      },
+      {
+        "position": 2,
+        "provider_rank": 2,
+        "title": "Photomath 101: Get Math with Photomath",
+        "url": "https://photomath.com/articles/photomath-101-get-math-with-photomath/",
+        "snippet": "You can download Photomath and see basic step-by-step explanations at no charge. If you want to go deeper, there are additional features and resources available with Photomath Plus."
+      },
+      {
+        "position": 3,
+        "provider_rank": 3,
+        "title": "Math from all angles: Photomath for different learning styles",
+        "url": "https://photomath.com/articles/math-from-all-angles-photomath-for-different-learning-styles/",
+        "snippet": "Our detailed explanations break your problem into bite-sized bits that allow you to set your own pace. While virtually every learner can benefit from this step-by-step approach, we think our in-depth explanations are especially helpful for visual, verbal, and logical learners."
+      },
+      {
+        "position": 4,
+        "provider_rank": 4,
+        "title": "How Photomath Helps with More than Just Homework",
+        "url": "https://photomath.com/articles/how-photomath-helps-with-more-than-just-homework/",
+        "snippet": "Lucky for you, steps are kind of our thing here at Photomath. We'll break everything down into bite-sized pieces to help you understand the \"how,\" \"what,\" and \"why\" behind the math — not just the answer itself."
+      },
+      {
+        "position": 5,
+        "provider_rank": 5,
+        "title": "Algebra Study Guide | Examples and Practice Problems - Photomath",
+        "url": "https://photomath.com/articles/algebra-study-guide-examples-and-practice-problems/",
+        "snippet": "Sharpen your algebra skills. Our comprehensive algebra study guide provides clear step-by-step explanations with practical examples."
+      },
+      {
+        "position": 6,
+        "provider_rank": 6,
+        "title": "What math problems can Photomath solve?",
+        "url": "https://photomath.com/articles/what-math-problems-can-photomath-solve/",
+        "snippet": "So if you need to figure out which train got to the station first, or how many apples Deborah sold on Tuesday, you can now do that with us, step by step. And if we can't find your exact problem, we'll show you something similar so that you can put the pieces together like the smarty-pants you are."
+      },
+      {
+        "position": 7,
+        "provider_rank": 7,
+        "title": "Arithmetic Basics: Meaning, Operations, Examples & Practice",
+        "url": "https://photomath.com/articles/arithmetic-basics-meaning-operations-examples-practice/",
+        "snippet": "If you find yourself struggling with a particular example, don't forget to use your Photomath app to scan the problem so we can walk you through it. For now, let's get a good picture of arithmetic as a field of study."
+      },
+      {
+        "position": 8,
+        "provider_rank": 8,
+        "title": "BUILD YOUR MATH MIND — Photomath",
+        "url": "https://photomath.com/articles/",
+        "snippet": "Articles about math including arithmatic, algebra, and calculus, as well as tips and tricks to help you understand math problems."
+      },
+      {
+        "position": 9,
+        "provider_rank": 9,
+        "title": "Higher-order derivatives — Photomath",
+        "url": "https://photomath.com/articles/higher-order-derivatives/",
+        "snippet": "If you're getting stuck, scan the problem with your Photomath app and we'll explain in step in as much detail as you need! Here's a sneak peek of what you'll see:"
+      },
+      {
+        "position": 10,
+        "provider_rank": 10,
+        "title": "Download Photomath",
+        "url": "https://photomath.com/install/",
+        "snippet": "Get it today to help with math practice and homework."
+      }
+    ],
+    "has_next_page": true,
+    "fetched_at": "2026-11-05T20:03:51.839Z",
+    "content_sha256": "64bf04f20996b28ed691711bcce663fa7508c421030aee7149dbf0f3b97c91a6",
+    "acquisition_complete": true,
+    "cache_hit": false
+  },
+  "isError": false
+}
+

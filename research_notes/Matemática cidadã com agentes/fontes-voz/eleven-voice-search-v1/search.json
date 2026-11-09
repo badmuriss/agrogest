@@ -1,0 +1,101 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"schema_version\":1,\"source_id\":\"f40775da-3457-4097-8c8c-b53c762725fc\",\"provider\":\"http:duckduckgo\",\"engine\":\"duckduckgo\",\"parser_version\":\"http-serp-v1\",\"fallback_reason\":null,\"query\":\"site:elevenlabs.io/docs agents react interruptions streaming sendContextualUpdate\",\"page\":0,\"locale\":{\"language\":\"pt-BR\",\"country\":\"BR\"},\"results\":[{\"position\":1,\"provider_rank\":1,\"title\":\"Client events | ElevenLabs Documentation\",\"url\":\"https://elevenlabs.io/docs/eleven-agents/customization/events/client-events\",\"snippet\":\"For information on events you can send from the client to the server, see the Client-to-server events documentation. Client events are essential for maintaining the real-time nature of conversations. They provide everything from initialization metadata to processed audio and agent responses.\"},{\"position\":2,\"provider_rank\":2,\"title\":\"React SDK | ElevenLabs Documentation\",\"url\":\"https://elevenlabs.io/docs/eleven-agents/libraries/react\",\"snippet\":\"Notifies the agent about user activity to prevent interruptions. Useful for when the user is actively using the app and the agent should pause speaking, i.e. when the user is typing in a chat.\"},{\"position\":3,\"provider_rank\":3,\"title\":\"SDK React | ElevenLabs Documentation\",\"url\":\"https://elevenlabs.io/docs/pt/eleven-agents/libraries/react\",\"snippet\":\"O método startSession estabelece a conexão e começa a usar o microfone para se comunicar com o agente do ElevenLabs Agents. O método aceita um objeto de opções, sendo obrigatório informar signedUrl, conversationToken ou agentId.\"},{\"position\":4,\"provider_rank\":4,\"title\":\"Client to server events | ElevenLabs Documentation\",\"url\":\"https://elevenlabs.io/docs/eleven-agents/customization/events/client-to-server-events\",\"snippet\":\"Send contextual information from the client to enhance conversational applications in real-time. Client-to-server events are messages that your application proactively sends to the server to provide additional context during conversations.\"},{\"position\":5,\"provider_rank\":5,\"title\":\"Eventos do cliente para o servidor | ElevenLabs Documentation\",\"url\":\"https://elevenlabs.io/docs/pt/eleven-agents/customization/events/client-to-server-events\",\"snippet\":\"Eventos do cliente para o servidor são mensagens que sua aplicação envia proativamente ao servidor para fornecer contexto adicional durante as conversas. Esses eventos permitem aprimorar a conversa com informações relevantes sem interromper o fluxo conversacional.\"},{\"position\":6,\"provider_rank\":6,\"title\":\"Events | ElevenLabs Documentation\",\"url\":\"https://elevenlabs.io/docs/eleven-agents/customization/events\",\"snippet\":\"Events are the foundation of real-time communication in ElevenLabs Agents applications using WebSockets. They facilitate the exchange of information like audio streams, transcriptions, agent responses, and contextual updates between the client application and the server infrastructure.\"},{\"position\":7,\"provider_rank\":7,\"title\":\"Interrupções de ferramentas | ElevenLabs Documentation\",\"url\":\"https://elevenlabs.io/docs/pt/eleven-agents/customization/tools/tool-configuration/tool-interruptions\",\"snippet\":\"Um servidor MCP tem seu próprio interruption_mode, que se aplica a todas as ferramentas que ele expõe. Ferramentas individuais podem substituí-lo por meio de tool_config_overrides do servidor, em que o valor definido em uma ferramenta tem precedência sobre o padrão do servidor.\"},{\"position\":8,\"provider_rank\":8,\"title\":\"Tool interruptions | ElevenLabs Documentation\",\"url\":\"https://elevenlabs.io/docs/eleven-agents/customization/tools/tool-configuration/tool-interruptions\",\"snippet\":\"By default a user can interrupt the agent at any point, including while a tool is executing. For some tools this is undesirable: a payment confirmation or a compliance disclaimer read out after a lookup should be delivered in full.\"},{\"position\":9,\"provider_rank\":9,\"title\":\"Eventos do cliente | ElevenLabs Documentation\",\"url\":\"https://elevenlabs.io/docs/pt/eleven-agents/customization/events/client-events\",\"snippet\":\"Eventos do cliente são eventos de nível de sistema enviados do servidor para o cliente que facilitam a comunicação em tempo real. Esses eventos fornecem áudio, transcrição, respostas do agente e outras informações essenciais à aplicação cliente.\"},{\"position\":10,\"provider_rank\":10,\"title\":\"elevenlabs.io\",\"url\":\"https://elevenlabs.io/docs/eleven-agents/libraries/react.md\",\"snippet\":\"Useful for when the user is actively using the app and the agent should pause speaking, i.e. when the user is typing in a chat.\"}],\"has_next_page\":true,\"fetched_at\":\"2026-11-05T20:22:10.899Z\",\"content_sha256\":\"580a51d1afd12e78d769f2d20c90486309b103ead0742a3319f97131fcbd9659\",\"acquisition_complete\":true,\"cache_hit\":false}"
+    }
+  ],
+  "structuredContent": {
+    "schema_version": 1,
+    "source_id": "f40775da-3457-4097-8c8c-b53c762725fc",
+    "provider": "http:duckduckgo",
+    "engine": "duckduckgo",
+    "parser_version": "http-serp-v1",
+    "fallback_reason": null,
+    "query": "site:elevenlabs.io/docs agents react interruptions streaming sendContextualUpdate",
+    "page": 0,
+    "locale": {
+      "language": "pt-BR",
+      "country": "BR"
+    },
+    "results": [
+      {
+        "position": 1,
+        "provider_rank": 1,
+        "title": "Client events | ElevenLabs Documentation",
+        "url": "https://elevenlabs.io/docs/eleven-agents/customization/events/client-events",
+        "snippet": "For information on events you can send from the client to the server, see the Client-to-server events documentation. Client events are essential for maintaining the real-time nature of conversations. They provide everything from initialization metadata to processed audio and agent responses."
+      },
+      {
+        "position": 2,
+        "provider_rank": 2,
+        "title": "React SDK | ElevenLabs Documentation",
+        "url": "https://elevenlabs.io/docs/eleven-agents/libraries/react",
+        "snippet": "Notifies the agent about user activity to prevent interruptions. Useful for when the user is actively using the app and the agent should pause speaking, i.e. when the user is typing in a chat."
+      },
+      {
+        "position": 3,
+        "provider_rank": 3,
+        "title": "SDK React | ElevenLabs Documentation",
+        "url": "https://elevenlabs.io/docs/pt/eleven-agents/libraries/react",
+        "snippet": "O método startSession estabelece a conexão e começa a usar o microfone para se comunicar com o agente do ElevenLabs Agents. O método aceita um objeto de opções, sendo obrigatório informar signedUrl, conversationToken ou agentId."
+      },
+      {
+        "position": 4,
+        "provider_rank": 4,
+        "title": "Client to server events | ElevenLabs Documentation",
+        "url": "https://elevenlabs.io/docs/eleven-agents/customization/events/client-to-server-events",
+        "snippet": "Send contextual information from the client to enhance conversational applications in real-time. Client-to-server events are messages that your application proactively sends to the server to provide additional context during conversations."
+      },
+      {
+        "position": 5,
+        "provider_rank": 5,
+        "title": "Eventos do cliente para o servidor | ElevenLabs Documentation",
+        "url": "https://elevenlabs.io/docs/pt/eleven-agents/customization/events/client-to-server-events",
+        "snippet": "Eventos do cliente para o servidor são mensagens que sua aplicação envia proativamente ao servidor para fornecer contexto adicional durante as conversas. Esses eventos permitem aprimorar a conversa com informações relevantes sem interromper o fluxo conversacional."
+      },
+      {
+        "position": 6,
+        "provider_rank": 6,
+        "title": "Events | ElevenLabs Documentation",
+        "url": "https://elevenlabs.io/docs/eleven-agents/customization/events",
+        "snippet": "Events are the foundation of real-time communication in ElevenLabs Agents applications using WebSockets. They facilitate the exchange of information like audio streams, transcriptions, agent responses, and contextual updates between the client application and the server infrastructure."
+      },
+      {
+        "position": 7,
+        "provider_rank": 7,
+        "title": "Interrupções de ferramentas | ElevenLabs Documentation",
+        "url": "https://elevenlabs.io/docs/pt/eleven-agents/customization/tools/tool-configuration/tool-interruptions",
+        "snippet": "Um servidor MCP tem seu próprio interruption_mode, que se aplica a todas as ferramentas que ele expõe. Ferramentas individuais podem substituí-lo por meio de tool_config_overrides do servidor, em que o valor definido em uma ferramenta tem precedência sobre o padrão do servidor."
+      },
+      {
+        "position": 8,
+        "provider_rank": 8,
+        "title": "Tool interruptions | ElevenLabs Documentation",
+        "url": "https://elevenlabs.io/docs/eleven-agents/customization/tools/tool-configuration/tool-interruptions",
+        "snippet": "By default a user can interrupt the agent at any point, including while a tool is executing. For some tools this is undesirable: a payment confirmation or a compliance disclaimer read out after a lookup should be delivered in full."
+      },
+      {
+        "position": 9,
+        "provider_rank": 9,
+        "title": "Eventos do cliente | ElevenLabs Documentation",
+        "url": "https://elevenlabs.io/docs/pt/eleven-agents/customization/events/client-events",
+        "snippet": "Eventos do cliente são eventos de nível de sistema enviados do servidor para o cliente que facilitam a comunicação em tempo real. Esses eventos fornecem áudio, transcrição, respostas do agente e outras informações essenciais à aplicação cliente."
+      },
+      {
+        "position": 10,
+        "provider_rank": 10,
+        "title": "elevenlabs.io",
+        "url": "https://elevenlabs.io/docs/eleven-agents/libraries/react.md",
+        "snippet": "Useful for when the user is actively using the app and the agent should pause speaking, i.e. when the user is typing in a chat."
+      }
+    ],
+    "has_next_page": true,
+    "fetched_at": "2026-11-05T20:22:10.899Z",
+    "content_sha256": "580a51d1afd12e78d769f2d20c90486309b103ead0742a3319f97131fcbd9659",
+    "acquisition_complete": true,
+    "cache_hit": false
+  },
+  "isError": false
+}
+

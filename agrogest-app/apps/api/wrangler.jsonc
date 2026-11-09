@@ -1,0 +1,32 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "agrogest-faculdade-local",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-11-06",
+  "workers_dev": false,
+  "preview_urls": false,
+  "send_metrics": false,
+  "d1_databases": [{
+    "binding": "DB",
+    "database_name": "agrogest-local",
+    "database_id": "00000000-0000-0000-0000-000000000001",
+    "migrations_dir": "migrations",
+    "remote": false
+  }],
+  "r2_buckets": [{ "binding": "DOCUMENTS", "bucket_name": "agrogest-documents-local", "remote": false }],
+  "vars": {
+    "APP_ENV": "local",
+    "INFERENCE_PROVIDER": "local",
+    "INFERENCE_REMOTE_ALLOWED": "false",
+    "LOCAL_OCR_BASE_URL": "http://127.0.0.1:8091",
+    "INFERENCE_TIMEOUT_MS": "45000",
+    "INFERENCE_MAX_OUTPUT_TOKENS": "1200",
+    "FRONTEND_ORIGIN": "http://localhost:8081"
+  },
+  "assets": {
+    "directory": "../mobile/dist",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": true
+  }
+}

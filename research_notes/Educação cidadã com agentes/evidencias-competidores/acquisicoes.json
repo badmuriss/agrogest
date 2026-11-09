@@ -1,0 +1,715 @@
+{
+  "scope": "gs-final-fiap-educacao-20261105",
+  "access_date": "2026-11-05",
+  "route": "Scrapinho MCP directly, one attempt, bounded limits",
+  "raw_export": "not requested; MCP normalized text only; service SHA not locally verified",
+  "credits_or_dollar_cost": "unknown; service reports attempts/bytes",
+  "entries": [
+    {
+      "key": "gs2-edu-khanmigo-20261105-v1",
+      "input": "site:khanacademy.org Khanmigo \"teach\" AI",
+      "admission": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"client_request_id\":\"gs2-edu-khanmigo-20261105-v1\",\"http_status\":202,\"schema_version\":1,\"job_id\":\"680efb98-ee2e-4714-9a17-fa724712584a\",\"operation\":\"search.web\",\"project_scope\":\"gs-final-fiap-educacao-20261105\",\"status\":\"queued\",\"cache_hit\":false,\"max_age_s\":900,\"created_at\":1793909027447,\"deadline\":1793909087447,\"usage\":{\"attempts\":0,\"bytes\":0,\"browser_ms\":0},\"usage_basis\":\"proxy_transport_or_reserved_envelope\",\"proxy\":{\"mode\":\"backbone_rotating\"},\"source_id\":null,\"source_export_formats\":[\"bundle\"],\"source_export_batch_limit\":5,\"errors\":[],\"next_poll_after_ms\":1000}"
+          }
+        ],
+        "structuredContent": {
+          "client_request_id": "gs2-edu-khanmigo-20261105-v1",
+          "http_status": 202,
+          "schema_version": 1,
+          "job_id": "680efb98-ee2e-4714-9a17-fa724712584a",
+          "operation": "search.web",
+          "project_scope": "gs-final-fiap-educacao-20261105",
+          "status": "queued",
+          "cache_hit": false,
+          "max_age_s": 900,
+          "created_at": 1793909027447,
+          "deadline": 1793909087447,
+          "usage": {
+            "attempts": 0,
+            "bytes": 0,
+            "browser_ms": 0
+          },
+          "usage_basis": "proxy_transport_or_reserved_envelope",
+          "proxy": {
+            "mode": "backbone_rotating"
+          },
+          "source_id": null,
+          "source_export_formats": [
+            "bundle"
+          ],
+          "source_export_batch_limit": 5,
+          "errors": [],
+          "next_poll_after_ms": 1000
+        },
+        "isError": false
+      },
+      "final": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"schema_version\":1,\"job_id\":\"680efb98-ee2e-4714-9a17-fa724712584a\",\"operation\":\"search.web\",\"project_scope\":\"gs-final-fiap-educacao-20261105\",\"status\":\"failed\",\"cache_hit\":false,\"max_age_s\":900,\"created_at\":1793909027447,\"deadline\":1793909087447,\"usage\":{\"attempts\":1,\"bytes\":27908,\"browser_ms\":0},\"usage_basis\":\"proxy_transport_or_reserved_envelope\",\"proxy\":{\"mode\":\"backbone_rotating\"},\"source_id\":null,\"source_export_formats\":[\"bundle\"],\"source_export_batch_limit\":5,\"errors\":[{\"code\":\"serp_unusable_results\"}],\"next_poll_after_ms\":1000}"
+          }
+        ],
+        "structuredContent": {
+          "schema_version": 1,
+          "job_id": "680efb98-ee2e-4714-9a17-fa724712584a",
+          "operation": "search.web",
+          "project_scope": "gs-final-fiap-educacao-20261105",
+          "status": "failed",
+          "cache_hit": false,
+          "max_age_s": 900,
+          "created_at": 1793909027447,
+          "deadline": 1793909087447,
+          "usage": {
+            "attempts": 1,
+            "bytes": 27908,
+            "browser_ms": 0
+          },
+          "usage_basis": "proxy_transport_or_reserved_envelope",
+          "proxy": {
+            "mode": "backbone_rotating"
+          },
+          "source_id": null,
+          "source_export_formats": [
+            "bundle"
+          ],
+          "source_export_batch_limit": 5,
+          "errors": [
+            {
+              "code": "serp_unusable_results"
+            }
+          ],
+          "next_poll_after_ms": 1000
+        },
+        "isError": true
+      }
+    },
+    {
+      "key": "gs2-edu-photomath-20261105-v1",
+      "input": "site:photomath.com scan step by step explanations",
+      "admission": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"client_request_id\":\"gs2-edu-photomath-20261105-v1\",\"http_status\":202,\"schema_version\":1,\"job_id\":\"9812bb90-6c21-4ad1-b6a0-28c7183a7c10\",\"operation\":\"search.web\",\"project_scope\":\"gs-final-fiap-educacao-20261105\",\"status\":\"queued\",\"cache_hit\":false,\"max_age_s\":900,\"created_at\":1793909027893,\"deadline\":1793909087893,\"usage\":{\"attempts\":0,\"bytes\":0,\"browser_ms\":0},\"usage_basis\":\"proxy_transport_or_reserved_envelope\",\"proxy\":{\"mode\":\"backbone_rotating\"},\"source_id\":null,\"source_export_formats\":[\"bundle\"],\"source_export_batch_limit\":5,\"errors\":[],\"next_poll_after_ms\":1000}"
+          }
+        ],
+        "structuredContent": {
+          "client_request_id": "gs2-edu-photomath-20261105-v1",
+          "http_status": 202,
+          "schema_version": 1,
+          "job_id": "9812bb90-6c21-4ad1-b6a0-28c7183a7c10",
+          "operation": "search.web",
+          "project_scope": "gs-final-fiap-educacao-20261105",
+          "status": "queued",
+          "cache_hit": false,
+          "max_age_s": 900,
+          "created_at": 1793909027893,
+          "deadline": 1793909087893,
+          "usage": {
+            "attempts": 0,
+            "bytes": 0,
+            "browser_ms": 0
+          },
+          "usage_basis": "proxy_transport_or_reserved_envelope",
+          "proxy": {
+            "mode": "backbone_rotating"
+          },
+          "source_id": null,
+          "source_export_formats": [
+            "bundle"
+          ],
+          "source_export_batch_limit": 5,
+          "errors": [],
+          "next_poll_after_ms": 1000
+        },
+        "isError": false
+      },
+      "final": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"schema_version\":1,\"job_id\":\"9812bb90-6c21-4ad1-b6a0-28c7183a7c10\",\"operation\":\"search.web\",\"project_scope\":\"gs-final-fiap-educacao-20261105\",\"status\":\"succeeded\",\"cache_hit\":false,\"max_age_s\":900,\"created_at\":1793909027893,\"deadline\":1793909087893,\"usage\":{\"attempts\":1,\"bytes\":55719,\"browser_ms\":0},\"usage_basis\":\"proxy_transport_or_reserved_envelope\",\"proxy\":{\"mode\":\"backbone_rotating\"},\"source_id\":\"9812bb90-6c21-4ad1-b6a0-28c7183a7c10\",\"source_export_formats\":[\"bundle\"],\"source_export_batch_limit\":5,\"errors\":[],\"next_poll_after_ms\":1000}"
+          }
+        ],
+        "structuredContent": {
+          "schema_version": 1,
+          "job_id": "9812bb90-6c21-4ad1-b6a0-28c7183a7c10",
+          "operation": "search.web",
+          "project_scope": "gs-final-fiap-educacao-20261105",
+          "status": "succeeded",
+          "cache_hit": false,
+          "max_age_s": 900,
+          "created_at": 1793909027893,
+          "deadline": 1793909087893,
+          "usage": {
+            "attempts": 1,
+            "bytes": 55719,
+            "browser_ms": 0
+          },
+          "usage_basis": "proxy_transport_or_reserved_envelope",
+          "proxy": {
+            "mode": "backbone_rotating"
+          },
+          "source_id": "9812bb90-6c21-4ad1-b6a0-28c7183a7c10",
+          "source_export_formats": [
+            "bundle"
+          ],
+          "source_export_batch_limit": 5,
+          "errors": [],
+          "next_poll_after_ms": 1000
+        },
+        "isError": false
+      }
+    },
+    {
+      "key": "gs2-edu-teachable-20261105-v1",
+      "input": "TeachYou teachable agent learning by teaching university",
+      "admission": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"client_request_id\":\"gs2-edu-teachable-20261105-v1\",\"http_status\":202,\"schema_version\":1,\"job_id\":\"4bc13f7d-9e6a-447d-8c56-818134374ca3\",\"operation\":\"search.web\",\"project_scope\":\"gs-final-fiap-educacao-20261105\",\"status\":\"queued\",\"cache_hit\":false,\"max_age_s\":900,\"created_at\":1793909028325,\"deadline\":1793909088325,\"usage\":{\"attempts\":0,\"bytes\":0,\"browser_ms\":0},\"usage_basis\":\"proxy_transport_or_reserved_envelope\",\"proxy\":{\"mode\":\"backbone_rotating\"},\"source_id\":null,\"source_export_formats\":[\"bundle\"],\"source_export_batch_limit\":5,\"errors\":[],\"next_poll_after_ms\":1000}"
+          }
+        ],
+        "structuredContent": {
+          "client_request_id": "gs2-edu-teachable-20261105-v1",
+          "http_status": 202,
+          "schema_version": 1,
+          "job_id": "4bc13f7d-9e6a-447d-8c56-818134374ca3",
+          "operation": "search.web",
+          "project_scope": "gs-final-fiap-educacao-20261105",
+          "status": "queued",
+          "cache_hit": false,
+          "max_age_s": 900,
+          "created_at": 1793909028325,
+          "deadline": 1793909088325,
+          "usage": {
+            "attempts": 0,
+            "bytes": 0,
+            "browser_ms": 0
+          },
+          "usage_basis": "proxy_transport_or_reserved_envelope",
+          "proxy": {
+            "mode": "backbone_rotating"
+          },
+          "source_id": null,
+          "source_export_formats": [
+            "bundle"
+          ],
+          "source_export_batch_limit": 5,
+          "errors": [],
+          "next_poll_after_ms": 1000
+        },
+        "isError": false
+      },
+      "final": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"schema_version\":1,\"job_id\":\"4bc13f7d-9e6a-447d-8c56-818134374ca3\",\"operation\":\"search.web\",\"project_scope\":\"gs-final-fiap-educacao-20261105\",\"status\":\"succeeded\",\"cache_hit\":false,\"max_age_s\":900,\"created_at\":1793909028325,\"deadline\":1793909088325,\"usage\":{\"attempts\":1,\"bytes\":45096,\"browser_ms\":0},\"usage_basis\":\"proxy_transport_or_reserved_envelope\",\"proxy\":{\"mode\":\"backbone_rotating\"},\"source_id\":\"4bc13f7d-9e6a-447d-8c56-818134374ca3\",\"source_export_formats\":[\"bundle\"],\"source_export_batch_limit\":5,\"errors\":[],\"next_poll_after_ms\":1000}"
+          }
+        ],
+        "structuredContent": {
+          "schema_version": 1,
+          "job_id": "4bc13f7d-9e6a-447d-8c56-818134374ca3",
+          "operation": "search.web",
+          "project_scope": "gs-final-fiap-educacao-20261105",
+          "status": "succeeded",
+          "cache_hit": false,
+          "max_age_s": 900,
+          "created_at": 1793909028325,
+          "deadline": 1793909088325,
+          "usage": {
+            "attempts": 1,
+            "bytes": 45096,
+            "browser_ms": 0
+          },
+          "usage_basis": "proxy_transport_or_reserved_envelope",
+          "proxy": {
+            "mode": "backbone_rotating"
+          },
+          "source_id": "4bc13f7d-9e6a-447d-8c56-818134374ca3",
+          "source_export_formats": [
+            "bundle"
+          ],
+          "source_export_batch_limit": 5,
+          "errors": [],
+          "next_poll_after_ms": 1000
+        },
+        "isError": false
+      }
+    },
+    {
+      "key": "gs2-edu-photomath-page-20261105-v1",
+      "input": "https://photomath.com/",
+      "admission": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"client_request_id\":\"gs2-edu-photomath-page-20261105-v1\",\"http_status\":202,\"schema_version\":1,\"job_id\":\"02f4d6e7-9e49-4d50-a26a-8f2506ea4085\",\"operation\":\"fetch.page\",\"project_scope\":\"gs-final-fiap-educacao-20261105\",\"status\":\"queued\",\"cache_hit\":false,\"max_age_s\":900,\"created_at\":1793909190023,\"deadline\":1793909250023,\"usage\":{\"attempts\":0,\"bytes\":0,\"browser_ms\":0},\"usage_basis\":\"proxy_transport_or_reserved_envelope\",\"proxy\":{\"mode\":\"backbone_rotating\"},\"source_id\":null,\"source_export_formats\":[\"bundle\"],\"source_export_batch_limit\":5,\"errors\":[],\"next_poll_after_ms\":1000}"
+          }
+        ],
+        "structuredContent": {
+          "client_request_id": "gs2-edu-photomath-page-20261105-v1",
+          "http_status": 202,
+          "schema_version": 1,
+          "job_id": "02f4d6e7-9e49-4d50-a26a-8f2506ea4085",
+          "operation": "fetch.page",
+          "project_scope": "gs-final-fiap-educacao-20261105",
+          "status": "queued",
+          "cache_hit": false,
+          "max_age_s": 900,
+          "created_at": 1793909190023,
+          "deadline": 1793909250023,
+          "usage": {
+            "attempts": 0,
+            "bytes": 0,
+            "browser_ms": 0
+          },
+          "usage_basis": "proxy_transport_or_reserved_envelope",
+          "proxy": {
+            "mode": "backbone_rotating"
+          },
+          "source_id": null,
+          "source_export_formats": [
+            "bundle"
+          ],
+          "source_export_batch_limit": 5,
+          "errors": [],
+          "next_poll_after_ms": 1000
+        },
+        "isError": false
+      },
+      "final": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"schema_version\":1,\"job_id\":\"02f4d6e7-9e49-4d50-a26a-8f2506ea4085\",\"operation\":\"fetch.page\",\"project_scope\":\"gs-final-fiap-educacao-20261105\",\"status\":\"succeeded\",\"cache_hit\":false,\"max_age_s\":900,\"created_at\":1793909190023,\"deadline\":1793909250023,\"usage\":{\"attempts\":1,\"bytes\":68998,\"browser_ms\":0},\"usage_basis\":\"proxy_transport_or_reserved_envelope\",\"proxy\":{\"mode\":\"backbone_rotating\"},\"source_id\":\"02f4d6e7-9e49-4d50-a26a-8f2506ea4085\",\"source_export_formats\":[\"bundle\"],\"source_export_batch_limit\":5,\"errors\":[],\"next_poll_after_ms\":1000}"
+          }
+        ],
+        "structuredContent": {
+          "schema_version": 1,
+          "job_id": "02f4d6e7-9e49-4d50-a26a-8f2506ea4085",
+          "operation": "fetch.page",
+          "project_scope": "gs-final-fiap-educacao-20261105",
+          "status": "succeeded",
+          "cache_hit": false,
+          "max_age_s": 900,
+          "created_at": 1793909190023,
+          "deadline": 1793909250023,
+          "usage": {
+            "attempts": 1,
+            "bytes": 68998,
+            "browser_ms": 0
+          },
+          "usage_basis": "proxy_transport_or_reserved_envelope",
+          "proxy": {
+            "mode": "backbone_rotating"
+          },
+          "source_id": "02f4d6e7-9e49-4d50-a26a-8f2506ea4085",
+          "source_export_formats": [
+            "bundle"
+          ],
+          "source_export_batch_limit": 5,
+          "errors": [],
+          "next_poll_after_ms": 1000
+        },
+        "isError": false
+      }
+    },
+    {
+      "key": "gs2-edu-teachyou-page-20261105-v1",
+      "input": "https://teachyou.kixlab.org/",
+      "admission": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"client_request_id\":\"gs2-edu-teachyou-page-20261105-v1\",\"http_status\":202,\"schema_version\":1,\"job_id\":\"eec1b8d1-031c-48c6-bdf9-6fb30a5717f6\",\"operation\":\"fetch.page\",\"project_scope\":\"gs-final-fiap-educacao-20261105\",\"status\":\"queued\",\"cache_hit\":false,\"max_age_s\":900,\"created_at\":1793909190883,\"deadline\":1793909250883,\"usage\":{\"attempts\":0,\"bytes\":0,\"browser_ms\":0},\"usage_basis\":\"proxy_transport_or_reserved_envelope\",\"proxy\":{\"mode\":\"backbone_rotating\"},\"source_id\":null,\"source_export_formats\":[\"bundle\"],\"source_export_batch_limit\":5,\"errors\":[],\"next_poll_after_ms\":1000}"
+          }
+        ],
+        "structuredContent": {
+          "client_request_id": "gs2-edu-teachyou-page-20261105-v1",
+          "http_status": 202,
+          "schema_version": 1,
+          "job_id": "eec1b8d1-031c-48c6-bdf9-6fb30a5717f6",
+          "operation": "fetch.page",
+          "project_scope": "gs-final-fiap-educacao-20261105",
+          "status": "queued",
+          "cache_hit": false,
+          "max_age_s": 900,
+          "created_at": 1793909190883,
+          "deadline": 1793909250883,
+          "usage": {
+            "attempts": 0,
+            "bytes": 0,
+            "browser_ms": 0
+          },
+          "usage_basis": "proxy_transport_or_reserved_envelope",
+          "proxy": {
+            "mode": "backbone_rotating"
+          },
+          "source_id": null,
+          "source_export_formats": [
+            "bundle"
+          ],
+          "source_export_batch_limit": 5,
+          "errors": [],
+          "next_poll_after_ms": 1000
+        },
+        "isError": false
+      },
+      "final": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"schema_version\":1,\"job_id\":\"eec1b8d1-031c-48c6-bdf9-6fb30a5717f6\",\"operation\":\"fetch.page\",\"project_scope\":\"gs-final-fiap-educacao-20261105\",\"status\":\"succeeded\",\"cache_hit\":false,\"max_age_s\":900,\"created_at\":1793909190883,\"deadline\":1793909250883,\"usage\":{\"attempts\":1,\"bytes\":71683,\"browser_ms\":0},\"usage_basis\":\"proxy_transport_or_reserved_envelope\",\"proxy\":{\"mode\":\"backbone_rotating\"},\"source_id\":\"eec1b8d1-031c-48c6-bdf9-6fb30a5717f6\",\"source_export_formats\":[\"bundle\"],\"source_export_batch_limit\":5,\"errors\":[],\"next_poll_after_ms\":1000}"
+          }
+        ],
+        "structuredContent": {
+          "schema_version": 1,
+          "job_id": "eec1b8d1-031c-48c6-bdf9-6fb30a5717f6",
+          "operation": "fetch.page",
+          "project_scope": "gs-final-fiap-educacao-20261105",
+          "status": "succeeded",
+          "cache_hit": false,
+          "max_age_s": 900,
+          "created_at": 1793909190883,
+          "deadline": 1793909250883,
+          "usage": {
+            "attempts": 1,
+            "bytes": 71683,
+            "browser_ms": 0
+          },
+          "usage_basis": "proxy_transport_or_reserved_envelope",
+          "proxy": {
+            "mode": "backbone_rotating"
+          },
+          "source_id": "eec1b8d1-031c-48c6-bdf9-6fb30a5717f6",
+          "source_export_formats": [
+            "bundle"
+          ],
+          "source_export_batch_limit": 5,
+          "errors": [],
+          "next_poll_after_ms": 1000
+        },
+        "isError": false
+      }
+    },
+    {
+      "key": "gs2-edu-khanmigo-search-20261105-v2",
+      "input": "Khanmigo Khan Academy official AI tutor",
+      "admission": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"client_request_id\":\"gs2-edu-khanmigo-search-20261105-v2\",\"http_status\":202,\"schema_version\":1,\"job_id\":\"a8b7979d-7215-41e4-aaa2-b7d8690056c2\",\"operation\":\"search.web\",\"project_scope\":\"gs-final-fiap-educacao-20261105\",\"status\":\"queued\",\"cache_hit\":false,\"max_age_s\":900,\"created_at\":1793909191730,\"deadline\":1793909251730,\"usage\":{\"attempts\":0,\"bytes\":0,\"browser_ms\":0},\"usage_basis\":\"proxy_transport_or_reserved_envelope\",\"proxy\":{\"mode\":\"backbone_rotating\"},\"source_id\":null,\"source_export_formats\":[\"bundle\"],\"source_export_batch_limit\":5,\"errors\":[],\"next_poll_after_ms\":1000}"
+          }
+        ],
+        "structuredContent": {
+          "client_request_id": "gs2-edu-khanmigo-search-20261105-v2",
+          "http_status": 202,
+          "schema_version": 1,
+          "job_id": "a8b7979d-7215-41e4-aaa2-b7d8690056c2",
+          "operation": "search.web",
+          "project_scope": "gs-final-fiap-educacao-20261105",
+          "status": "queued",
+          "cache_hit": false,
+          "max_age_s": 900,
+          "created_at": 1793909191730,
+          "deadline": 1793909251730,
+          "usage": {
+            "attempts": 0,
+            "bytes": 0,
+            "browser_ms": 0
+          },
+          "usage_basis": "proxy_transport_or_reserved_envelope",
+          "proxy": {
+            "mode": "backbone_rotating"
+          },
+          "source_id": null,
+          "source_export_formats": [
+            "bundle"
+          ],
+          "source_export_batch_limit": 5,
+          "errors": [],
+          "next_poll_after_ms": 1000
+        },
+        "isError": false
+      },
+      "final": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"schema_version\":1,\"job_id\":\"a8b7979d-7215-41e4-aaa2-b7d8690056c2\",\"operation\":\"search.web\",\"project_scope\":\"gs-final-fiap-educacao-20261105\",\"status\":\"succeeded\",\"cache_hit\":false,\"max_age_s\":900,\"created_at\":1793909191730,\"deadline\":1793909251730,\"usage\":{\"attempts\":1,\"bytes\":45666,\"browser_ms\":0},\"usage_basis\":\"proxy_transport_or_reserved_envelope\",\"proxy\":{\"mode\":\"backbone_rotating\"},\"source_id\":\"a8b7979d-7215-41e4-aaa2-b7d8690056c2\",\"source_export_formats\":[\"bundle\"],\"source_export_batch_limit\":5,\"errors\":[],\"next_poll_after_ms\":1000}"
+          }
+        ],
+        "structuredContent": {
+          "schema_version": 1,
+          "job_id": "a8b7979d-7215-41e4-aaa2-b7d8690056c2",
+          "operation": "search.web",
+          "project_scope": "gs-final-fiap-educacao-20261105",
+          "status": "succeeded",
+          "cache_hit": false,
+          "max_age_s": 900,
+          "created_at": 1793909191730,
+          "deadline": 1793909251730,
+          "usage": {
+            "attempts": 1,
+            "bytes": 45666,
+            "browser_ms": 0
+          },
+          "usage_basis": "proxy_transport_or_reserved_envelope",
+          "proxy": {
+            "mode": "backbone_rotating"
+          },
+          "source_id": "a8b7979d-7215-41e4-aaa2-b7d8690056c2",
+          "source_export_formats": [
+            "bundle"
+          ],
+          "source_export_batch_limit": 5,
+          "errors": [],
+          "next_poll_after_ms": 1000
+        },
+        "isError": false
+      }
+    },
+    {
+      "key": "gs2-edu-khanmigo-page-20261105-v1",
+      "input": "https://www.khanmigo.ai/learners",
+      "admission": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"client_request_id\":\"gs2-edu-khanmigo-page-20261105-v1\",\"http_status\":202,\"schema_version\":1,\"job_id\":\"d8aec514-8299-40d6-9aba-8949c7e20d4c\",\"operation\":\"fetch.page\",\"project_scope\":\"gs-final-fiap-educacao-20261105\",\"status\":\"queued\",\"cache_hit\":false,\"max_age_s\":900,\"created_at\":1793909256663,\"deadline\":1793909316663,\"usage\":{\"attempts\":0,\"bytes\":0,\"browser_ms\":0},\"usage_basis\":\"proxy_transport_or_reserved_envelope\",\"proxy\":{\"mode\":\"backbone_rotating\"},\"source_id\":null,\"source_export_formats\":[\"bundle\"],\"source_export_batch_limit\":5,\"errors\":[],\"next_poll_after_ms\":1000}"
+          }
+        ],
+        "structuredContent": {
+          "client_request_id": "gs2-edu-khanmigo-page-20261105-v1",
+          "http_status": 202,
+          "schema_version": 1,
+          "job_id": "d8aec514-8299-40d6-9aba-8949c7e20d4c",
+          "operation": "fetch.page",
+          "project_scope": "gs-final-fiap-educacao-20261105",
+          "status": "queued",
+          "cache_hit": false,
+          "max_age_s": 900,
+          "created_at": 1793909256663,
+          "deadline": 1793909316663,
+          "usage": {
+            "attempts": 0,
+            "bytes": 0,
+            "browser_ms": 0
+          },
+          "usage_basis": "proxy_transport_or_reserved_envelope",
+          "proxy": {
+            "mode": "backbone_rotating"
+          },
+          "source_id": null,
+          "source_export_formats": [
+            "bundle"
+          ],
+          "source_export_batch_limit": 5,
+          "errors": [],
+          "next_poll_after_ms": 1000
+        },
+        "isError": false
+      },
+      "final": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"schema_version\":1,\"job_id\":\"d8aec514-8299-40d6-9aba-8949c7e20d4c\",\"operation\":\"fetch.page\",\"project_scope\":\"gs-final-fiap-educacao-20261105\",\"status\":\"succeeded\",\"cache_hit\":false,\"max_age_s\":900,\"created_at\":1793909256663,\"deadline\":1793909316663,\"usage\":{\"attempts\":1,\"bytes\":48160,\"browser_ms\":0},\"usage_basis\":\"proxy_transport_or_reserved_envelope\",\"proxy\":{\"mode\":\"backbone_rotating\"},\"source_id\":\"d8aec514-8299-40d6-9aba-8949c7e20d4c\",\"source_export_formats\":[\"bundle\"],\"source_export_batch_limit\":5,\"errors\":[],\"next_poll_after_ms\":1000}"
+          }
+        ],
+        "structuredContent": {
+          "schema_version": 1,
+          "job_id": "d8aec514-8299-40d6-9aba-8949c7e20d4c",
+          "operation": "fetch.page",
+          "project_scope": "gs-final-fiap-educacao-20261105",
+          "status": "succeeded",
+          "cache_hit": false,
+          "max_age_s": 900,
+          "created_at": 1793909256663,
+          "deadline": 1793909316663,
+          "usage": {
+            "attempts": 1,
+            "bytes": 48160,
+            "browser_ms": 0
+          },
+          "usage_basis": "proxy_transport_or_reserved_envelope",
+          "proxy": {
+            "mode": "backbone_rotating"
+          },
+          "source_id": "d8aec514-8299-40d6-9aba-8949c7e20d4c",
+          "source_export_formats": [
+            "bundle"
+          ],
+          "source_export_batch_limit": 5,
+          "errors": [],
+          "next_poll_after_ms": 1000
+        },
+        "isError": false
+      }
+    },
+    {
+      "key": "gs2-edu-onu-goal4-20261105-v1",
+      "input": "https://sdgs.un.org/goals/goal4",
+      "admission": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"client_request_id\":\"gs2-edu-onu-goal4-20261105-v1\",\"http_status\":202,\"schema_version\":1,\"job_id\":\"625b9dcc-1282-4da8-9cb0-7adae52566a2\",\"operation\":\"fetch.page\",\"project_scope\":\"gs-final-fiap-educacao-20261105\",\"status\":\"queued\",\"cache_hit\":false,\"max_age_s\":900,\"created_at\":1793909257573,\"deadline\":1793909317573,\"usage\":{\"attempts\":0,\"bytes\":0,\"browser_ms\":0},\"usage_basis\":\"proxy_transport_or_reserved_envelope\",\"proxy\":{\"mode\":\"backbone_rotating\"},\"source_id\":null,\"source_export_formats\":[\"bundle\"],\"source_export_batch_limit\":5,\"errors\":[],\"next_poll_after_ms\":1000}"
+          }
+        ],
+        "structuredContent": {
+          "client_request_id": "gs2-edu-onu-goal4-20261105-v1",
+          "http_status": 202,
+          "schema_version": 1,
+          "job_id": "625b9dcc-1282-4da8-9cb0-7adae52566a2",
+          "operation": "fetch.page",
+          "project_scope": "gs-final-fiap-educacao-20261105",
+          "status": "queued",
+          "cache_hit": false,
+          "max_age_s": 900,
+          "created_at": 1793909257573,
+          "deadline": 1793909317573,
+          "usage": {
+            "attempts": 0,
+            "bytes": 0,
+            "browser_ms": 0
+          },
+          "usage_basis": "proxy_transport_or_reserved_envelope",
+          "proxy": {
+            "mode": "backbone_rotating"
+          },
+          "source_id": null,
+          "source_export_formats": [
+            "bundle"
+          ],
+          "source_export_batch_limit": 5,
+          "errors": [],
+          "next_poll_after_ms": 1000
+        },
+        "isError": false
+      },
+      "final": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"schema_version\":1,\"job_id\":\"625b9dcc-1282-4da8-9cb0-7adae52566a2\",\"operation\":\"fetch.page\",\"project_scope\":\"gs-final-fiap-educacao-20261105\",\"status\":\"succeeded\",\"cache_hit\":false,\"max_age_s\":900,\"created_at\":1793909257573,\"deadline\":1793909317573,\"usage\":{\"attempts\":1,\"bytes\":126432,\"browser_ms\":0},\"usage_basis\":\"proxy_transport_or_reserved_envelope\",\"proxy\":{\"mode\":\"backbone_rotating\"},\"source_id\":\"625b9dcc-1282-4da8-9cb0-7adae52566a2\",\"source_export_formats\":[\"bundle\"],\"source_export_batch_limit\":5,\"errors\":[],\"next_poll_after_ms\":1000}"
+          }
+        ],
+        "structuredContent": {
+          "schema_version": 1,
+          "job_id": "625b9dcc-1282-4da8-9cb0-7adae52566a2",
+          "operation": "fetch.page",
+          "project_scope": "gs-final-fiap-educacao-20261105",
+          "status": "succeeded",
+          "cache_hit": false,
+          "max_age_s": 900,
+          "created_at": 1793909257573,
+          "deadline": 1793909317573,
+          "usage": {
+            "attempts": 1,
+            "bytes": 126432,
+            "browser_ms": 0
+          },
+          "usage_basis": "proxy_transport_or_reserved_envelope",
+          "proxy": {
+            "mode": "backbone_rotating"
+          },
+          "source_id": "625b9dcc-1282-4da8-9cb0-7adae52566a2",
+          "source_export_formats": [
+            "bundle"
+          ],
+          "source_export_batch_limit": 5,
+          "errors": [],
+          "next_poll_after_ms": 1000
+        },
+        "isError": false
+      }
+    },
+    {
+      "key": "gs2-edu-onu-goal10-20261105-v1",
+      "input": "https://sdgs.un.org/goals/goal10",
+      "admission": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"client_request_id\":\"gs2-edu-onu-goal10-20261105-v1\",\"http_status\":202,\"schema_version\":1,\"job_id\":\"80c478f4-58b4-4829-bc9a-31b0d5ad9b0e\",\"operation\":\"fetch.page\",\"project_scope\":\"gs-final-fiap-educacao-20261105\",\"status\":\"queued\",\"cache_hit\":false,\"max_age_s\":900,\"created_at\":1793909259673,\"deadline\":1793909319673,\"usage\":{\"attempts\":0,\"bytes\":0,\"browser_ms\":0},\"usage_basis\":\"proxy_transport_or_reserved_envelope\",\"proxy\":{\"mode\":\"backbone_rotating\"},\"source_id\":null,\"source_export_formats\":[\"bundle\"],\"source_export_batch_limit\":5,\"errors\":[],\"next_poll_after_ms\":1000}"
+          }
+        ],
+        "structuredContent": {
+          "client_request_id": "gs2-edu-onu-goal10-20261105-v1",
+          "http_status": 202,
+          "schema_version": 1,
+          "job_id": "80c478f4-58b4-4829-bc9a-31b0d5ad9b0e",
+          "operation": "fetch.page",
+          "project_scope": "gs-final-fiap-educacao-20261105",
+          "status": "queued",
+          "cache_hit": false,
+          "max_age_s": 900,
+          "created_at": 1793909259673,
+          "deadline": 1793909319673,
+          "usage": {
+            "attempts": 0,
+            "bytes": 0,
+            "browser_ms": 0
+          },
+          "usage_basis": "proxy_transport_or_reserved_envelope",
+          "proxy": {
+            "mode": "backbone_rotating"
+          },
+          "source_id": null,
+          "source_export_formats": [
+            "bundle"
+          ],
+          "source_export_batch_limit": 5,
+          "errors": [],
+          "next_poll_after_ms": 1000
+        },
+        "isError": false
+      },
+      "final": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"schema_version\":1,\"job_id\":\"80c478f4-58b4-4829-bc9a-31b0d5ad9b0e\",\"operation\":\"fetch.page\",\"project_scope\":\"gs-final-fiap-educacao-20261105\",\"status\":\"succeeded\",\"cache_hit\":false,\"max_age_s\":900,\"created_at\":1793909259673,\"deadline\":1793909319673,\"usage\":{\"attempts\":1,\"bytes\":123236,\"browser_ms\":0},\"usage_basis\":\"proxy_transport_or_reserved_envelope\",\"proxy\":{\"mode\":\"backbone_rotating\"},\"source_id\":\"80c478f4-58b4-4829-bc9a-31b0d5ad9b0e\",\"source_export_formats\":[\"bundle\"],\"source_export_batch_limit\":5,\"errors\":[],\"next_poll_after_ms\":1000}"
+          }
+        ],
+        "structuredContent": {
+          "schema_version": 1,
+          "job_id": "80c478f4-58b4-4829-bc9a-31b0d5ad9b0e",
+          "operation": "fetch.page",
+          "project_scope": "gs-final-fiap-educacao-20261105",
+          "status": "succeeded",
+          "cache_hit": false,
+          "max_age_s": 900,
+          "created_at": 1793909259673,
+          "deadline": 1793909319673,
+          "usage": {
+            "attempts": 1,
+            "bytes": 123236,
+            "browser_ms": 0
+          },
+          "usage_basis": "proxy_transport_or_reserved_envelope",
+          "proxy": {
+            "mode": "backbone_rotating"
+          },
+          "source_id": "80c478f4-58b4-4829-bc9a-31b0d5ad9b0e",
+          "source_export_formats": [
+            "bundle"
+          ],
+          "source_export_batch_limit": 5,
+          "errors": [],
+          "next_poll_after_ms": 1000
+        },
+        "isError": false
+      }
+    }
+  ]
+}

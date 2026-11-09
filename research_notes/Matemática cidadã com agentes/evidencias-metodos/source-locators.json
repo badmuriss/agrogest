@@ -1,0 +1,119 @@
+{
+  "accessed": "2026-11-05",
+  "question": "Evidência para concreto-pictórico-abstrato/CRA e aprendizagem por domínio em matemática, aplicável a laboratório visual de frações/proporções.",
+  "route": "Host web para literatura acadêmica primária, pois índice Firecrawl MCP/CLI e Scholar especializados ausentes, conforme verificação do coordenador.",
+  "evidence_type": "Full-text excerpts and section locators; not raw HTTP or complete PDF byte exports; no raw hash verification.",
+  "sources": [
+    {
+      "key": "CPA-CRA2025",
+      "authors": "Sara Ebner;Mary K.MacDonald;Paulina Grekov;Kathleen B.Aspiranti",
+      "title": "A Meta-Analytic Review of the Concrete-Representational-Abstract Math Approach",
+      "url": "https://journals.sagepub.com/doi/10.1177/09388982241292299",
+      "doi": "10.1177/09388982241292299",
+      "status": "Online2024-10-24; issue2025-02; peer-reviewed Learning Disabilities Research & Practice40(1),31–42",
+      "reading": "Primary long web result provided Methods/Search Procedures,Coding/Data Extraction/Analysis and Discussion; source opened, subsequent find requests timed out. Completeness of entire article extraction not established.",
+      "locators": [
+        "Methods: searchJune2022;30single-case experimental studies",
+        "Discussion:116participants;20studies by two groups;80% basic operations;67%studies disability",
+        "Abstract:Tau-BC0.9965,95%CI0.9947–0.9983"
+      ],
+      "limits": [
+        "Tau-BC is baseline-corrected nonoverlap statistic,not standardized g or percent improvement",
+        "CRA variants include explicit instruction/modeling/guided practice;not isolated effect of concrete objects",
+        "Separate transfer outcome synthesis not verified",
+        "Minimum effective dose not established"
+      ]
+    },
+    {
+      "key": "EEF-mastery-toolkit",
+      "url": "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/mastery-learning",
+      "status": "Independent synthesis page,review last updatedSeptember2021; accessed2026",
+      "locators": [
+        "What is it?:distinguishes mastery learning from teaching for mastery",
+        "How secure?:80studies,evidence low;few recent and many nonrandomized",
+        "How could implement?:typically academic year,can be half a term"
+      ],
+      "limits": [
+        "Reported+5months is average over year,not guarantee or short pilot outcome",
+        "Not math-exclusive,not AI-specific",
+        "No universal validated threshold"
+      ]
+    },
+    {
+      "key": "EEF-MathMastery-RCT2015",
+      "authors": "Anna Vignoles;John Jerrim;Richard Cowan",
+      "url": "https://d2tic4wvo1iusb.cloudfront.net/documents/projects/EEF_Project_Report_MathematicsMasteryPrimary.pdf?v=1630926115",
+      "status": "Independent primary evaluation,February2015",
+      "locators": [
+        "p17 flow:90schools/5108pupils randomized,45perarm",
+        "p21:4176analysis sample",
+        "p22:overallg0.10,95%CI−0.01to0.21,p0.07",
+        "p4–5 conclusions:individualprimarytrialinconclusive;pooledwithsecondarysmallpositiveeffect"
+      ],
+      "limits": [
+        "Wholecurricularpackage+teachertraining+resources,not isolated mastery criterion orCPA",
+        "Firstyear implementation;attainment measure,notspecific fractions transfer"
+      ]
+    },
+    {
+      "key": "FFT-KS2-2021",
+      "authors": "Natasha Plaister;Dave Thomson",
+      "url": "https://ffteducationdatalab.org.uk/wp-content/uploads/2021/07/Mathematics-Mastery-KS2.pdf",
+      "status": "FFT Education Datalab evaluation for Mathematics Mastery,June2021;commissioned not fully independent funding",
+      "locators": [
+        "Executive summary:matched schools,NPD,intention-to-treat",
+        "p9 Table3:2018,number of schools22,number of pupils2135,ES0.00;2019,number of schools63,number of pupils6475,ES0.03. Counts refer to reported model samples; treatment/comparator denominator not adjudicated here.",
+        "p10–11:nonrandomized,CIcrosszero,matching/comparisonlimitations"
+      ],
+      "limits": [
+        "Report addressed to programme operator;not randomized",
+        "School/pupil counts wording must follow reportTable3 not imply all students treated",
+        "No decisive effect onKS2score;not proof mastery canneverwork"
+      ]
+    },
+    {
+      "key": "MasteryThresholds2025",
+      "authors": "Jeffrey Matayoshi;Eric Cosyn;Hasan Uzun;Eyad Kurd-Misto",
+      "url": "https://jedm.educationaldatamining.org/index.php/JEDM/article/download/900/253",
+      "status": "Journal of Educational Data Mining17(1),2025,308–336;allauthors McGrawHillALEKS",
+      "locators": [
+        "Section5:randomassignmentattopicattemptlevel5%high5%low;Apr2023–Nov2024",
+        "Section6Table2:~33mlearningsequences;mean6.6vs5.1minutes,notminimumdose",
+        "Section7:retentionanalysis1404725datapoints,806279uniquelearners;conditionalonsuccessfullearning",
+        "Discussion:retentiondifferenceafterseveralweeks<.02;diminisheswithtime"
+      ],
+      "limits": [
+        "Provider-authoredresearch,not independent programmeevaluation",
+        "Compare thresholds insideALEKS,notmasteryvsnomastery",
+        "Retentionmodeledwithinplatformassessments;notexternalfartransfer",
+        "Conditioningonsuccesscreatesselectionbiasauthorsdonotseparatefrompractice"
+      ]
+    }
+  ],
+  "excluded_or_limited": [
+    {
+      "title": "Connecting concrete objects and abstract symbols promotes children’s place value knowledge",
+      "authors": "Andrea Marquardt Donovan;EmilyR.Fyfe",
+      "year": 2022,
+      "url": "https://www.tandfonline.com/doi/full/10.1080/01443410.2022.2077915",
+      "reason": "Fulltext403;authors/universitypublicationlistverified;noresultsormethoddetailsusedasbodyevidence"
+    },
+    {
+      "title": "Exploring the impact of a fraction sense intervention in authentic school environments",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0022096524000948",
+      "reason": "Fulltext403,notretried;abstractonlyexcludedfromefficacysynthesis"
+    },
+    {
+      "title": "Learning with visualizations helps:Ameta-analysisofvisualizationinterventionsinmathematicseducation",
+      "url": "https://doi.org/10.1016/j.edurev.2024.100639",
+      "reason": "Fulltext403,notretried;notusedasverifiedoutcomeevidence"
+    }
+  ],
+  "boundaries": [
+    "No sites blocked in previous nonacademic scope reopened",
+    "No claim methodBrazilianisuniformorcomparativelyworse",
+    "Countryrankingdoesnotidentifycausaleffect",
+    "No learner interviews orfieldtestperformed",
+    "NominimumeffectivedoseorBrazilianEJAgeneralizationestablished"
+  ]
+}

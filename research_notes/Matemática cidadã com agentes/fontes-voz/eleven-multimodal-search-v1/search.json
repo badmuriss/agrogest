@@ -1,0 +1,66 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"schema_version\":1,\"source_id\":\"096eaac1-f0ed-4e28-aa57-e3dd10215972\",\"provider\":\"http:duckduckgo\",\"engine\":\"duckduckgo\",\"parser_version\":\"http-serp-v1\",\"fallback_reason\":null,\"query\":\"site:elevenlabs.io/docs/eleven-agents \\\"Multimodal input\\\"\",\"page\":0,\"locale\":{\"language\":\"pt-BR\",\"country\":\"BR\"},\"results\":[{\"position\":1,\"provider_rank\":1,\"title\":\"Multimodal input | ElevenLabs Documentation\",\"url\":\"https://elevenlabs.io/docs/eleven-agents/customization/multimodal-input\",\"snippet\":\"Multimodal input settings control extra ways users can send information to the agent beyond speech. They live in the agent's Advanced tab, under Multimodal input.\"},{\"position\":2,\"provider_rank\":2,\"title\":\"elevenlabs.io\",\"url\":\"https://elevenlabs.io/docs/eleven-agents/api-reference/agents/create.md\",\"snippet\":\"### FileInputConfig - `enabled` (boolean, optional, default: true) — When enabled, users may attach images, PDFs, or text files in chat when the LLM supports multimodal input. - `max_files_in_memory` (integer, optional, default: 10) — Number of most-recent files kept in memory during a conversation.\"},{\"position\":3,\"provider_rank\":1,\"title\":\"elevenlabs.io\",\"url\":\"https://elevenlabs.io/docs/eleven-agents/api-reference/agents/get.md\",\"snippet\":\"- `enabled` (boolean, optional, default: true) — When enabled, users may attach images, PDFs, or text files in chat when the LLM supports multimodal input. - `max_files_in_memory` (integer, optional, default: 10) — Number of most-recent files kept in memory during a conversation. Older files are summarized and their bytes freed.\"},{\"position\":4,\"provider_rank\":2,\"title\":\"elevenlabs.io\",\"url\":\"https://elevenlabs.io/docs/eleven-agents/api-reference/agents/drafts/create.md\",\"snippet\":\"### FileInputConfigWorkflowOverride - `enabled` (boolean, optional) — When enabled, users may attach images or PDFs in chat when the LLM supports multimodal input. - `max_files_in_memory` (integer, optional) — Number of most-recent files kept in memory during a conversation.\"},{\"position\":5,\"provider_rank\":3,\"title\":\"Slack | ElevenLabs Documentation\",\"url\":\"https://elevenlabs.io/docs/eleven-agents/customization/integrations/slack\",\"snippet\":\"File attachments are only forwarded when the agent's LLM supports multimodal input — image input and/or document (PDF) input, depending on the file type. In the agent configuration, open the Agent tab and check the selected model.\"}],\"has_next_page\":false,\"fetched_at\":\"2026-11-05T20:23:21.519Z\",\"content_sha256\":\"81331e0039e3e3e5feb2ec666fbccb3491417a238df9a4aff8d3858586bc030c\",\"acquisition_complete\":true,\"cache_hit\":false}"
+    }
+  ],
+  "structuredContent": {
+    "schema_version": 1,
+    "source_id": "096eaac1-f0ed-4e28-aa57-e3dd10215972",
+    "provider": "http:duckduckgo",
+    "engine": "duckduckgo",
+    "parser_version": "http-serp-v1",
+    "fallback_reason": null,
+    "query": "site:elevenlabs.io/docs/eleven-agents \"Multimodal input\"",
+    "page": 0,
+    "locale": {
+      "language": "pt-BR",
+      "country": "BR"
+    },
+    "results": [
+      {
+        "position": 1,
+        "provider_rank": 1,
+        "title": "Multimodal input | ElevenLabs Documentation",
+        "url": "https://elevenlabs.io/docs/eleven-agents/customization/multimodal-input",
+        "snippet": "Multimodal input settings control extra ways users can send information to the agent beyond speech. They live in the agent's Advanced tab, under Multimodal input."
+      },
+      {
+        "position": 2,
+        "provider_rank": 2,
+        "title": "elevenlabs.io",
+        "url": "https://elevenlabs.io/docs/eleven-agents/api-reference/agents/create.md",
+        "snippet": "### FileInputConfig - `enabled` (boolean, optional, default: true) — When enabled, users may attach images, PDFs, or text files in chat when the LLM supports multimodal input. - `max_files_in_memory` (integer, optional, default: 10) — Number of most-recent files kept in memory during a conversation."
+      },
+      {
+        "position": 3,
+        "provider_rank": 1,
+        "title": "elevenlabs.io",
+        "url": "https://elevenlabs.io/docs/eleven-agents/api-reference/agents/get.md",
+        "snippet": "- `enabled` (boolean, optional, default: true) — When enabled, users may attach images, PDFs, or text files in chat when the LLM supports multimodal input. - `max_files_in_memory` (integer, optional, default: 10) — Number of most-recent files kept in memory during a conversation. Older files are summarized and their bytes freed."
+      },
+      {
+        "position": 4,
+        "provider_rank": 2,
+        "title": "elevenlabs.io",
+        "url": "https://elevenlabs.io/docs/eleven-agents/api-reference/agents/drafts/create.md",
+        "snippet": "### FileInputConfigWorkflowOverride - `enabled` (boolean, optional) — When enabled, users may attach images or PDFs in chat when the LLM supports multimodal input. - `max_files_in_memory` (integer, optional) — Number of most-recent files kept in memory during a conversation."
+      },
+      {
+        "position": 5,
+        "provider_rank": 3,
+        "title": "Slack | ElevenLabs Documentation",
+        "url": "https://elevenlabs.io/docs/eleven-agents/customization/integrations/slack",
+        "snippet": "File attachments are only forwarded when the agent's LLM supports multimodal input — image input and/or document (PDF) input, depending on the file type. In the agent configuration, open the Agent tab and check the selected model."
+      }
+    ],
+    "has_next_page": false,
+    "fetched_at": "2026-11-05T20:23:21.519Z",
+    "content_sha256": "81331e0039e3e3e5feb2ec666fbccb3491417a238df9a4aff8d3858586bc030c",
+    "acquisition_complete": true,
+    "cache_hit": false
+  },
+  "isError": false
+}
+

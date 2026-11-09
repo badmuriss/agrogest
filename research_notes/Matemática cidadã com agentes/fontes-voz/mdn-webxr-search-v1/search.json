@@ -1,0 +1,101 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"schema_version\":1,\"source_id\":\"1020702e-0716-46ee-9197-e199aaae3a46\",\"provider\":\"http:duckduckgo\",\"engine\":\"duckduckgo\",\"parser_version\":\"http-serp-v1\",\"fallback_reason\":null,\"query\":\"site:developer.mozilla.org WebXR Device API immersive-ar limited availability\",\"page\":0,\"locale\":{\"language\":\"pt-BR\",\"country\":\"BR\"},\"results\":[{\"position\":1,\"provider_rank\":1,\"title\":\"WebXR Device API - Web APIs | MDN - MDN Web Docs\",\"url\":\"https://developer.mozilla.org/en-US/docs/Web/API/WebXR_Device_API\",\"snippet\":\"While the older WebVR API was designed solely to support Virtual Reality (VR), WebXR provides support for both VR and Augmented Reality (AR) on the web. Support for AR functionality is added by the WebXR Augmented Reality Module.\"},{\"position\":2,\"provider_rank\":2,\"title\":\"XRSystem - Web APIs - MDN\",\"url\":\"https://developer.mozilla.org/en-US/docs/Web/API/XRSystem\",\"snippet\":\"This code starts by checking to see if WebXR is available by looking for the navigator.xr property. If it's found, we know WebXR is present, so we proceed by establishing a handler for the button which the user can click to toggle immersive VR mode on and off.\"},{\"position\":3,\"provider_rank\":3,\"title\":\"WebXR application life cycle - Web APIs - MDN\",\"url\":\"https://developer.mozilla.org/en-US/docs/Web/API/WebXR_Device_API/Lifecycle\",\"snippet\":\"Check to see if the user's device and browser are both capable of presenting the XR experience you want to provide. Make sure the WebXR API is available; if navigator.xr is undefined, you can assume the user's browser and/or device doesn't support WebXR.\"},{\"position\":4,\"provider_rank\":4,\"title\":\"XRSystem: isSessionSupported () method - Web APIs | MDN\",\"url\":\"https://developer.mozilla.org/en-US/docs/Web/API/XRSystem/isSessionSupported\",\"snippet\":\"In this example, we see isSessionSupported () used to detect whether or not the device supports VR mode by checking to see if an immersive-vr session is supported.\"},{\"position\":5,\"provider_rank\":5,\"title\":\"Fundamentals of WebXR - Web APIs | MDN - MDN Web Docs\",\"url\":\"https://developer.mozilla.org/en-US/docs/Web/API/WebXR_Device_API/Fundamentals\",\"snippet\":\"WebXR, with the WebXR Device API at its core, provides the functionality needed to bring both augmented and virtual reality (AR and VR) to the web. Together, these technologies are referred to as mixed reality (MR) or cross reality (XR).\"},{\"position\":6,\"provider_rank\":6,\"title\":\"WebXR permissions and security - Web APIs - MDN\",\"url\":\"https://developer.mozilla.org/en-US/docs/Web/API/WebXR_Device_API/Permissions_and_security\",\"snippet\":\"The WebXR Device API is subject to a number of permission and security controls. While not onerous, they are worth being aware of. These mostly revolve around the fully-immersive immersive-vr session mode, but there are things to be aware of when setting up an AR session, as well.\"},{\"position\":7,\"provider_rank\":7,\"title\":\"WebXR DOM overlays - CSS | MDN\",\"url\":\"https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/WebXR_DOM_overlays\",\"snippet\":\"The WebXR DOM overlays module, an immersive web specification, expands the WebXR Device API to allow HTML content — such as text and controls — to be displayed during an immersive virtual reality (VR) or augmented reality (AR) session.\"},{\"position\":8,\"provider_rank\":8,\"title\":\"XRSystem: requestSession () method - Web APIs | MDN\",\"url\":\"https://developer.mozilla.org/en-US/docs/Web/API/XRSystem/requestSession\",\"snippet\":\"immersive-ar: The session's output will be given exclusive access to the immersive device, but the rendered content will be blended with the real-world environment.\"},{\"position\":9,\"provider_rank\":9,\"title\":\"A perspective retrospective for WebXR developers - Web APIs | MDN\",\"url\":\"https://developer.mozilla.org/en-US/docs/Web/API/WebXR_Device_API/Perspective\",\"snippet\":\"In immersive mode, the WebXR system obtains the default viewing frustum from the software provided by the hardware vendor. This viewing frustum is based on some combination of the device's lenses, display hardware, and cameras.\"},{\"position\":10,\"provider_rank\":10,\"title\":\"XRSystem: devicechange event - Web APIs | MDN\",\"url\":\"https://developer.mozilla.org/en-US/docs/Web/API/XRSystem/devicechange_event\",\"snippet\":\"You can use this event to, for example, monitor for the availability of a WebXR-compatible device so that you can enable a UI element which the user can use to activate immersive mode.\"}],\"has_next_page\":true,\"fetched_at\":\"2026-11-05T20:22:10.604Z\",\"content_sha256\":\"45e4a0ee7136d1f762908d39a4d78996c8eec05c10da350fd597d13e7dd16431\",\"acquisition_complete\":true,\"cache_hit\":false}"
+    }
+  ],
+  "structuredContent": {
+    "schema_version": 1,
+    "source_id": "1020702e-0716-46ee-9197-e199aaae3a46",
+    "provider": "http:duckduckgo",
+    "engine": "duckduckgo",
+    "parser_version": "http-serp-v1",
+    "fallback_reason": null,
+    "query": "site:developer.mozilla.org WebXR Device API immersive-ar limited availability",
+    "page": 0,
+    "locale": {
+      "language": "pt-BR",
+      "country": "BR"
+    },
+    "results": [
+      {
+        "position": 1,
+        "provider_rank": 1,
+        "title": "WebXR Device API - Web APIs | MDN - MDN Web Docs",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebXR_Device_API",
+        "snippet": "While the older WebVR API was designed solely to support Virtual Reality (VR), WebXR provides support for both VR and Augmented Reality (AR) on the web. Support for AR functionality is added by the WebXR Augmented Reality Module."
+      },
+      {
+        "position": 2,
+        "provider_rank": 2,
+        "title": "XRSystem - Web APIs - MDN",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/API/XRSystem",
+        "snippet": "This code starts by checking to see if WebXR is available by looking for the navigator.xr property. If it's found, we know WebXR is present, so we proceed by establishing a handler for the button which the user can click to toggle immersive VR mode on and off."
+      },
+      {
+        "position": 3,
+        "provider_rank": 3,
+        "title": "WebXR application life cycle - Web APIs - MDN",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebXR_Device_API/Lifecycle",
+        "snippet": "Check to see if the user's device and browser are both capable of presenting the XR experience you want to provide. Make sure the WebXR API is available; if navigator.xr is undefined, you can assume the user's browser and/or device doesn't support WebXR."
+      },
+      {
+        "position": 4,
+        "provider_rank": 4,
+        "title": "XRSystem: isSessionSupported () method - Web APIs | MDN",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/API/XRSystem/isSessionSupported",
+        "snippet": "In this example, we see isSessionSupported () used to detect whether or not the device supports VR mode by checking to see if an immersive-vr session is supported."
+      },
+      {
+        "position": 5,
+        "provider_rank": 5,
+        "title": "Fundamentals of WebXR - Web APIs | MDN - MDN Web Docs",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebXR_Device_API/Fundamentals",
+        "snippet": "WebXR, with the WebXR Device API at its core, provides the functionality needed to bring both augmented and virtual reality (AR and VR) to the web. Together, these technologies are referred to as mixed reality (MR) or cross reality (XR)."
+      },
+      {
+        "position": 6,
+        "provider_rank": 6,
+        "title": "WebXR permissions and security - Web APIs - MDN",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebXR_Device_API/Permissions_and_security",
+        "snippet": "The WebXR Device API is subject to a number of permission and security controls. While not onerous, they are worth being aware of. These mostly revolve around the fully-immersive immersive-vr session mode, but there are things to be aware of when setting up an AR session, as well."
+      },
+      {
+        "position": 7,
+        "provider_rank": 7,
+        "title": "WebXR DOM overlays - CSS | MDN",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/WebXR_DOM_overlays",
+        "snippet": "The WebXR DOM overlays module, an immersive web specification, expands the WebXR Device API to allow HTML content — such as text and controls — to be displayed during an immersive virtual reality (VR) or augmented reality (AR) session."
+      },
+      {
+        "position": 8,
+        "provider_rank": 8,
+        "title": "XRSystem: requestSession () method - Web APIs | MDN",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/API/XRSystem/requestSession",
+        "snippet": "immersive-ar: The session's output will be given exclusive access to the immersive device, but the rendered content will be blended with the real-world environment."
+      },
+      {
+        "position": 9,
+        "provider_rank": 9,
+        "title": "A perspective retrospective for WebXR developers - Web APIs | MDN",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebXR_Device_API/Perspective",
+        "snippet": "In immersive mode, the WebXR system obtains the default viewing frustum from the software provided by the hardware vendor. This viewing frustum is based on some combination of the device's lenses, display hardware, and cameras."
+      },
+      {
+        "position": 10,
+        "provider_rank": 10,
+        "title": "XRSystem: devicechange event - Web APIs | MDN",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/API/XRSystem/devicechange_event",
+        "snippet": "You can use this event to, for example, monitor for the availability of a WebXR-compatible device so that you can enable a UI element which the user can use to activate immersive mode."
+      }
+    ],
+    "has_next_page": true,
+    "fetched_at": "2026-11-05T20:22:10.604Z",
+    "content_sha256": "45e4a0ee7136d1f762908d39a4d78996c8eec05c10da350fd597d13e7dd16431",
+    "acquisition_complete": true,
+    "cache_hit": false
+  },
+  "isError": false
+}
+

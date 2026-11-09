@@ -1,0 +1,77 @@
+{
+  "submit": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"client_request_id\":\"gs2-libras-produto-search-brasil\",\"http_status\":202,\"schema_version\":1,\"job_id\":\"ef31e952-9fb1-47ca-a3f5-9e3d2147d511\",\"operation\":\"search.web\",\"project_scope\":\"gs-final-fiap-citizentech-20261105\",\"status\":\"queued\",\"cache_hit\":false,\"max_age_s\":900,\"created_at\":1793930982816,\"deadline\":1793931042816,\"usage\":{\"attempts\":0,\"bytes\":0,\"browser_ms\":0},\"usage_basis\":\"proxy_transport_or_reserved_envelope\",\"proxy\":{\"mode\":\"backbone_rotating\"},\"source_id\":null,\"source_export_formats\":[\"bundle\"],\"source_export_batch_limit\":5,\"errors\":[],\"next_poll_after_ms\":1000}"
+      }
+    ],
+    "structuredContent": {
+      "client_request_id": "gs2-libras-produto-search-brasil",
+      "http_status": 202,
+      "schema_version": 1,
+      "job_id": "ef31e952-9fb1-47ca-a3f5-9e3d2147d511",
+      "operation": "search.web",
+      "project_scope": "gs-final-fiap-citizentech-20261105",
+      "status": "queued",
+      "cache_hit": false,
+      "max_age_s": 900,
+      "created_at": 1793930982816,
+      "deadline": 1793931042816,
+      "usage": {
+        "attempts": 0,
+        "bytes": 0,
+        "browser_ms": 0
+      },
+      "usage_basis": "proxy_transport_or_reserved_envelope",
+      "proxy": {
+        "mode": "backbone_rotating"
+      },
+      "source_id": null,
+      "source_export_formats": [
+        "bundle"
+      ],
+      "source_export_batch_limit": 5,
+      "errors": [],
+      "next_poll_after_ms": 1000
+    },
+    "isError": false
+  },
+  "job": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"schema_version\":1,\"job_id\":\"ef31e952-9fb1-47ca-a3f5-9e3d2147d511\",\"operation\":\"search.web\",\"project_scope\":\"gs-final-fiap-citizentech-20261105\",\"status\":\"succeeded\",\"cache_hit\":false,\"max_age_s\":900,\"created_at\":1793930982816,\"deadline\":1793931042816,\"usage\":{\"attempts\":1,\"bytes\":36366,\"browser_ms\":0},\"usage_basis\":\"proxy_transport_or_reserved_envelope\",\"proxy\":{\"mode\":\"backbone_rotating\"},\"source_id\":\"ef31e952-9fb1-47ca-a3f5-9e3d2147d511\",\"source_export_formats\":[\"bundle\"],\"source_export_batch_limit\":5,\"errors\":[],\"next_poll_after_ms\":1000}"
+      }
+    ],
+    "structuredContent": {
+      "schema_version": 1,
+      "job_id": "ef31e952-9fb1-47ca-a3f5-9e3d2147d511",
+      "operation": "search.web",
+      "project_scope": "gs-final-fiap-citizentech-20261105",
+      "status": "succeeded",
+      "cache_hit": false,
+      "max_age_s": 900,
+      "created_at": 1793930982816,
+      "deadline": 1793931042816,
+      "usage": {
+        "attempts": 1,
+        "bytes": 36366,
+        "browser_ms": 0
+      },
+      "usage_basis": "proxy_transport_or_reserved_envelope",
+      "proxy": {
+        "mode": "backbone_rotating"
+      },
+      "source_id": "ef31e952-9fb1-47ca-a3f5-9e3d2147d511",
+      "source_export_formats": [
+        "bundle"
+      ],
+      "source_export_batch_limit": 5,
+      "errors": [],
+      "next_poll_after_ms": 1000
+    },
+    "isError": false
+  },
+  "raw_sha256_verified": false
+}

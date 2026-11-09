@@ -1,0 +1,8 @@
+{
+  "session": "final validation after local asset/cache corrections",
+  "http_requests_by_host": {
+    "127.0.0.1": 109
+  },
+  "non_loopback_hosts": {},
+  "local_animation_wasm_requested": true
+}

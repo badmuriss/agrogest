@@ -1,0 +1,79 @@
+{
+  "date": "2026-11-06",
+  "environment": "local Chromium, Wrangler/workerd, D1/R2 emulated, Tesseract 5.5.4",
+  "source_commit": "7f0bb66d764eadc8f48be016280414d77a1d4799",
+  "automated": {
+    "inherited_domain_sqlite_pglite": 216,
+    "worker_d1_r2_integration": 10,
+    "ocr_python": 5,
+    "total_passed": 231,
+    "failed": 0,
+    "check_command": "npm run check",
+    "check_exit_code": 0,
+    "typecheck": "passed: mobile and API",
+    "lint": "passed: mobile, no warnings",
+    "web_build": "passed",
+    "expo_export": [
+      "web",
+      "android",
+      "ios"
+    ],
+    "native_device_tested": false
+  },
+  "browser": {
+    "real_image_001_amount_cents": 125040,
+    "real_image_002_amount_cents": 8990,
+    "human_description_edit": "Sal mineral para bovinos · revisado",
+    "approved_by_other_partner": true,
+    "original_document_opened_by_partner": true,
+    "duplicate_image_offers_existing_expense": true,
+    "offline_expense_queued_then_synced": true,
+    "offline_approval_survived_reload_as_intention": true,
+    "reconnection_confirmed_once": true,
+    "cold_offline_reload": true,
+    "cross_origin_isolated_after_fix": true,
+    "first_approved_lot_cost_cents": 1125040,
+    "final_two_approved_lot_cost_cents": 1134030,
+    "final_cost_per_head_cents": 113403,
+    "final_heads": 10,
+    "javascript_page_errors_final": 0,
+    "note": "Manual browser interaction through agent-browser in independent sessions; not counted as extra automated tests."
+  },
+  "network": {
+    "application_deployed": false,
+    "infrastructure_provisioned_remotely": false,
+    "remote_inference_executed": false,
+    "inference_provider_executed": "local Tesseract",
+    "credentials_available": false,
+    "final_browser_network_record": "rede-navegador-final-20261106.json",
+    "diagnostic_correction": "An inherited animation player initially fetched its public WASM from jsDelivr. The build now copies its pinned binary and MIT license locally; final independent browser session requested local WASM and only loopback HTTP hosts. Offline cache/version/header defects were corrected before final validation."
+  },
+  "repository": {
+    "independent_head_preserved": "e4a5e8671d9cd80bfe3992b0dc3b77ef759c316e",
+    "remotes": [],
+    "original_repository_modified": false,
+    "fork_or_push": false,
+    "nested_git": false,
+    "baseline_114_tap_sha256": "3da4b0e25e5b3029cade1b8dda159e714fa3a0ecd9692b55d0926e1fca885368"
+  },
+  "limits": [
+    "Remote Workers AI/OpenRouter inference awaits private credentials and actual validation.",
+    "RF-20 partial: image receipts, not PDF/XML or complete fiscal extraction.",
+    "Authentication limited to local password-verified demonstration accounts; no signup/email/recovery.",
+    "No real cloud usage demonstrated by local emulation.",
+    "Two synthetic legible images are not a field accuracy benchmark.",
+    "Web Chromium tested; native exports are not device/build-signing evidence.",
+    "Single OPFS database pool per browser profile/origin; use one tab."
+  ],
+  "evidence_sha256": {
+    "check-final-20261106.log": "33c789841413f4b48a98112988cdc0c6f73a0eb17e5eee255dca3672649686d0",
+    "desenvolvimento-base-20261106.tap": "2e5adbed27695e100824847bb5f383e09fdf1007a6fc695aac5e66837855c2df",
+    "desenvolvimento-api-20261106.tap": "90164aed851ed58d2a5d9c5ce5f7f96d6143cfbc309573134f1d2af1fd4d5b2d",
+    "ocr-20261106.log": "0dd6969d903fe8c5514dec989c48561c20bc0584929fe0700dbb007ee0fe9249",
+    "tipos-20261106.log": "00c61aeb0a3c60c6136cff27a11054fffa6f32e9658953cc1e14c5465d20f2a5",
+    "lint-20261106.log": "b96e066b33c633aab0e128882da4139ae0bdc9991a06933ef29a20d4bf42773e",
+    "build-web-20261106.log": "917a30956ddb5f746874374f03c6fa383067bd6278fad423f99268c60c20c8ea",
+    "export-plataformas-20261106.log": "2ddea7ff015d8aa53c89cf3d49d766d78171660ca3d14987a14c0e9fccb9617d",
+    "check-final-20261106.txt": "33c789841413f4b48a98112988cdc0c6f73a0eb17e5eee255dca3672649686d0"
+  }
+}

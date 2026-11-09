@@ -1,0 +1,698 @@
+TAP version 13
+# Subtest: each action reads as a short sentence with the object in evidence and no money
+ok 1 - each action reads as a short sentence with the object in evidence and no money
+  ---
+  duration_ms: 3.43494
+  type: 'test'
+  ...
+# Subtest: days read as Hoje/Ontem/date and plain dates have no time
+ok 2 - days read as Hoje/Ontem/date and plain dates have no time
+  ---
+  duration_ms: 0.774925
+  type: 'test'
+  ...
+# Subtest: the local prototype builds activity from entry history, newest first, merging created+sent
+ok 3 - the local prototype builds activity from entry history, newest first, merging created+sent
+  ---
+  duration_ms: 1.575077
+  type: 'test'
+  ...
+# Subtest: callback screen only finishes after verified success with a session
+ok 4 - callback screen only finishes after verified success with a session
+  ---
+  duration_ms: 0.753292
+  type: 'test'
+  ...
+# Subtest: password recovery keeps priority over the confirmation result
+ok 5 - password recovery keeps priority over the confirmation result
+  ---
+  duration_ms: 0.16034
+  type: 'test'
+  ...
+# Subtest: app stays closed while a PKCE session is unverified or rejected
+ok 6 - app stays closed while a PKCE session is unverified or rejected
+  ---
+  duration_ms: 2.019654
+  type: 'test'
+  ...
+# Subtest: a link refused before creating a session keeps the existing session open
+ok 7 - a link refused before creating a session keeps the existing session open
+  ---
+  duration_ms: 0.143475
+  type: 'test'
+  ...
+# Subtest: signup cooldown and simultaneous resends never create users or send twice
+ok 8 - signup cooldown and simultaneous resends never create users or send twice
+  ---
+  duration_ms: 2.160782
+  type: 'test'
+  ...
+# Subtest: failed delivery reserves cooldown, maps rate limiting and ignores replies after reset
+ok 9 - failed delivery reserves cooldown, maps rate limiting and ignores replies after reset
+  ---
+  duration_ms: 0.421403
+  type: 'test'
+  ...
+# Subtest: missing session cannot claim that the email was confirmed
+ok 10 - missing session cannot claim that the email was confirmed
+  ---
+  duration_ms: 0.318802
+  type: 'test'
+  ...
+# Subtest: verification after a returning link waits for an in-flight resend
+ok 11 - verification after a returning link waits for an in-flight resend
+  ---
+  duration_ms: 0.278868
+  type: 'test'
+  ...
+# Subtest: confirmation requires a server-verified confirmed user in the same current session
+ok 12 - confirmation requires a server-verified confirmed user in the same current session
+  ---
+  duration_ms: 1.097015
+  type: 'test'
+  ...
+# Subtest: sign-out or account switch during verification cannot return the old session
+ok 13 - sign-out or account switch during verification cannot return the old session
+  ---
+  duration_ms: 0.243494
+  type: 'test'
+  ...
+# Subtest: validation and network/expiry failures remain explicit without throwing raw provider errors
+ok 14 - validation and network/expiry failures remain explicit without throwing raw provider errors
+  ---
+  duration_ms: 0.325574
+  type: 'test'
+  ...
+# Subtest: callback accepts exact app locations and preserves the SDK PKCE flow ID
+ok 15 - callback accepts exact app locations and preserves the SDK PKCE flow ID
+  ---
+  duration_ms: 0.447258
+  type: 'test'
+  ...
+# Subtest: live weight becomes carcass arrobas with the reference yield (300 kg vivos = 10 @)
+ok 16 - live weight becomes carcass arrobas with the reference yield (300 kg vivos = 10 @)
+  ---
+  duration_ms: 0.682768
+  type: 'test'
+  ...
+# Subtest: break-even price per arroba divides the remaining cost by the estimated arrobas
+ok 17 - break-even price per arroba divides the remaining cost by the estimated arrobas
+  ---
+  duration_ms: 0.203584
+  type: 'test'
+  ...
+# Subtest: no heads, no weight or no cost gives no break-even
+ok 18 - no heads, no weight or no cost gives no break-even
+  ---
+  duration_ms: 0.16578
+  type: 'test'
+  ...
+# Subtest: issue example: Roda 650, pastagens 400, mão de obra 700; no duplicate parent/child or financial records
+ok 19 - issue example: Roda 650, pastagens 400, mão de obra 700; no duplicate parent/child or financial records
+  ---
+  duration_ms: 5.066803
+  type: 'test'
+  ...
+# Subtest: unclassified history, previous period, combined farm/category/center filters and inactive references
+ok 20 - unclassified history, previous period, combined farm/category/center filters and inactive references
+  ---
+  duration_ms: 0.543037
+  type: 'test'
+  ...
+# Subtest: cash uses partial settlements and proportionate extras, never unpaid installments or reversed/conflicting payments
+ok 21 - cash uses partial settlements and proportionate extras, never unpaid installments or reversed/conflicting payments
+  ---
+  duration_ms: 1.352224
+  type: 'test'
+  ...
+# Subtest: cash from renegotiated expenses remains attributable to each original center without duplication
+ok 22 - cash from renegotiated expenses remains attributable to each original center without duplication
+  ---
+  duration_ms: 0.576388
+  type: 'test'
+  ...
+# Subtest: local access mirrors partner-only backend; inactive and foreign centers cannot be selected
+ok 23 - local access mirrors partner-only backend; inactive and foreign centers cannot be selected
+  ---
+  duration_ms: 1.859705
+  type: 'test'
+  ...
+# Subtest: nested renegotiations retain non-expense shares and rounding reconciles exactly
+ok 24 - nested renegotiations retain non-expense shares and rounding reconciles exactly
+  ---
+  duration_ms: 0.430899
+  type: 'test'
+  ...
+# Subtest: card purchases become cash spending only on actual partial invoice payments, preserving opening debt and farm scope
+ok 25 - card purchases become cash spending only on actual partial invoice payments, preserving opening debt and farm scope
+  ---
+  duration_ms: 1.096946
+  type: 'test'
+  ...
+# Subtest: invoice partial cents reconcile per original expense; partner reimbursement never repeats supplier spending
+ok 26 - invoice partial cents reconcile per original expense; partner reimbursement never repeats supplier spending
+  ---
+  duration_ms: 0.46461
+  type: 'test'
+  ...
+# Subtest: web access-handle errors explain previous openings and other tabs without requiring either
+ok 27 - web access-handle errors explain previous openings and other tabs without requiring either
+  ---
+  duration_ms: 1.11001
+  type: 'test'
+  ...
+# Subtest: migration and unknown errors keep a generic actionable message on both platforms
+ok 28 - migration and unknown errors keep a generic actionable message on both platforms
+  ---
+  duration_ms: 0.206584
+  type: 'test'
+  ...
+# Subtest: initialization releases an opened database if its migration fails, preserving the original error
+ok 29 - initialization releases an opened database if its migration fails, preserving the original error
+  ---
+  duration_ms: 0.71288
+  type: 'test'
+  ...
+# Subtest: successful initialization retains the connection and reuses the existing database version
+ok 30 - successful initialization retains the connection and reuses the existing database version
+  ---
+  duration_ms: 0.188341
+  type: 'test'
+  ...
+# Subtest: acceptance: a R$ 12.000 purchase in 3 installments stays in October; cash changes only on each payment
+ok 31 - acceptance: a R$ 12.000 purchase in 3 installments stays in October; cash changes only on each payment
+  ---
+  duration_ms: 4.240057
+  type: 'test'
+  ...
+# Subtest: acceptance: transfers, partner contributions and financing releases change balances, not the result
+ok 32 - acceptance: transfers, partner contributions and financing releases change balances, not the result
+  ---
+  duration_ms: 2.291716
+  type: 'test'
+  ...
+# Subtest: acceptance: DRE and cash flow of the same period reconcile exactly through the bridge
+ok 33 - acceptance: DRE and cash flow of the same period reconcile exactly through the bridge
+  ---
+  duration_ms: 1.290237
+  type: 'test'
+  ...
+# Subtest: acceptance: an expense paid with own money becomes a reimbursement payable to the partner
+ok 34 - acceptance: an expense paid with own money becomes a reimbursement payable to the partner
+  ---
+  duration_ms: 1.166893
+  type: 'test'
+  ...
+# Subtest: a client advance is compensated on the receivable without moving cash twice
+ok 35 - a client advance is compensated on the receivable without moving cash twice
+  ---
+  duration_ms: 0.721114
+  type: 'test'
+  ...
+# Subtest: card purchases go to the invoice of the cycle; paying the invoice is a transfer that leaves cash
+ok 36 - card purchases go to the invoice of the cycle; paying the invoice is a transfer that leaves cash
+  ---
+  duration_ms: 1.48689
+  type: 'test'
+  ...
+# Subtest: renegotiation: the originals close at what was paid; new installments carry the rest; cancelling closes without new ones
+ok 37 - renegotiation: the originals close at what was paid; new installments carry the rest; cancelling closes without new ones
+  ---
+  duration_ms: 2.120768
+  type: 'test'
+  ...
+# Subtest: recurring expenses: monthly forecasts until launched; one expense per month
+ok 38 - recurring expenses: monthly forecasts until launched; one expense per month
+  ---
+  duration_ms: 1.1907
+  type: 'test'
+  ...
+# Subtest: projected cash flow starts from today, counts overdue items today and warns of a negative balance
+ok 39 - projected cash flow starts from today, counts overdue items today and warns of a negative balance
+  ---
+  duration_ms: 0.297843
+  type: 'test'
+  ...
+# Subtest: aging, spending by category and budget variance
+ok 40 - aging, spending by category and budget variance
+  ---
+  duration_ms: 1.245604
+  type: 'test'
+  ...
+# Subtest: distribution by share closes the cents exactly; SAC schedule amortizes the contract
+ok 41 - distribution by share closes the cents exactly; SAC schedule amortizes the contract
+  ---
+  duration_ms: 0.615669
+  type: 'test'
+  ...
+# Subtest: movement rules mirror the server
+ok 42 - movement rules mirror the server
+  ---
+  duration_ms: 0.402715
+  type: 'test'
+  ...
+# Subtest: bank statements: OFX and CSV lines, match suggestions and already imported lines
+ok 43 - bank statements: OFX and CSV lines, match suggestions and already imported lines
+  ---
+  duration_ms: 1.811578
+  type: 'test'
+  ...
+# Subtest: bank matching keeps direction, exact open amount, ten-day limits and stable order for ties
+ok 44 - bank matching keeps direction, exact open amount, ten-day limits and stable order for ties
+  ---
+  duration_ms: 0.389767
+  type: 'test'
+  ...
+# Subtest: report and export installment lookups keep indexes, first references and farm filters
+ok 45 - report and export installment lookups keep indexes, first references and farm filters
+  ---
+  duration_ms: 1.091632
+  type: 'test'
+  ...
+# Subtest: spreadsheet import: titles with stable keys, opening balances and line errors
+ok 46 - spreadsheet import: titles with stable keys, opening balances and line errors
+  ---
+  duration_ms: 1.230986
+  type: 'test'
+  ...
+# Subtest: exports: CSV with Brazilian decimals, a multi-sheet workbook and a printable report
+ok 47 - exports: CSV with Brazilian decimals, a multi-sheet workbook and a printable report
+  ---
+  duration_ms: 0.965976
+  type: 'test'
+  ...
+# Subtest: alerts: chosen advance, card invoices and a daily overdue reminder
+ok 48 - alerts: chosen advance, card invoices and a daily overdue reminder
+  ---
+  duration_ms: 0.432921
+  type: 'test'
+  ...
+# Subtest: missing purchase payments follow transferred animals back to the original purchase exactly once
+ok 49 - missing purchase payments follow transferred animals back to the original purchase exactly once
+  ---
+  duration_ms: 1.850509
+  type: 'test'
+  ...
+# Subtest: missing purchase payment reminders include closed purchases and freight, skip zero values, and tolerate broken transfer chains
+ok 50 - missing purchase payment reminders include closed purchases and freight, skip zero values, and tolerate broken transfer chains
+  ---
+  duration_ms: 0.227233
+  type: 'test'
+  ...
+# Subtest: a purchase in 3 installments is one obligation with 3 payables; pending and rejected entries owe nothing yet
+ok 51 - a purchase in 3 installments is one obligation with 3 payables; pending and rejected entries owe nothing yet
+  ---
+  duration_ms: 1.122828
+  type: 'test'
+  ...
+# Subtest: old expenses with installments become open payables without any copy; old sales receive the net on the sale date
+ok 52 - old expenses with installments become open payables without any copy; old sales receive the net on the sale date
+  ---
+  duration_ms: 0.555195
+  type: 'test'
+  ...
+# Subtest: partial and multiple payments: the rest stays open, a reversed payment stops counting, and interest/discount move only cash
+ok 53 - partial and multiple payments: the rest stays open, a reversed payment stops counting, and interest/discount move only cash
+  ---
+  duration_ms: 0.630697
+  type: 'test'
+  ...
+# Subtest: payment conflicts: beyond the open amount, an unapproved obligation, another operation or direction
+ok 54 - payment conflicts: beyond the open amount, an unapproved obligation, another operation or direction
+  ---
+  duration_ms: 0.906242
+  type: 'test'
+  ...
+# Subtest: payment form validation: account, values, dates and duplicated installments
+ok 55 - payment form validation: account, values, dates and duplicated installments
+  ---
+  duration_ms: 0.477564
+  type: 'test'
+  ...
+# Subtest: account statement: opening balance, receipts in, payments out, conflicts and reversals ignored
+ok 56 - account statement: opening balance, receipts in, payments out, conflicts and reversals ignored
+  ---
+  duration_ms: 1.129319
+  type: 'test'
+  ...
+# Subtest: due alerts 3 days before and on the day, only for open installments, never in the past
+ok 57 - due alerts 3 days before and on the day, only for open installments, never in the past
+  ---
+  duration_ms: 0.716396
+  type: 'test'
+  ...
+# Subtest: due summary splits overdue and the next 7 days
+ok 58 - due summary splits overdue and the next 7 days
+  ---
+  duration_ms: 0.411044
+  type: 'test'
+  ...
+# Subtest: a stock purchase is a payable in the stock category; categories resolve by id or by the old name
+ok 59 - a stock purchase is a payable in the stock category; categories resolve by id or by the old name
+  ---
+  duration_ms: 0.204127
+  type: 'test'
+  ...
+# Subtest: a lot purchase becomes payables only when its payment is informed; old lots stay out
+ok 60 - a lot purchase becomes payables only when its payment is informed; old lots stay out
+  ---
+  duration_ms: 0.374096
+  type: 'test'
+  ...
+# Subtest: the purchase plan closes each part of the lot cost
+ok 61 - the purchase plan closes each part of the lot cost
+  ---
+  duration_ms: 0.469159
+  type: 'test'
+  ...
+# Subtest: paying the lot purchase: open amount, overpayment and the lock on editing the plan
+ok 62 - paying the lot purchase: open amount, overpayment and the lock on editing the plan
+  ---
+  duration_ms: 0.488099
+  type: 'test'
+  ...
+# Subtest: area and perimeter match a 1 km square within 1%
+ok 63 - area and perimeter match a 1 km square within 1%
+  ---
+  duration_ms: 0.972806
+  type: 'test'
+  ...
+# Subtest: rings open and close without duplicating vertices
+ok 64 - rings open and close without duplicating vertices
+  ---
+  duration_ms: 0.673523
+  type: 'test'
+  ...
+# Subtest: self-intersecting, degenerate and out-of-range rings are rejected
+ok 65 - self-intersecting, degenerate and out-of-range rings are rejected
+  ---
+  duration_ms: 0.337398
+  type: 'test'
+  ...
+# Subtest: centroid and point-in-polygon work for lot pins
+ok 66 - centroid and point-in-polygon work for lot pins
+  ---
+  duration_ms: 0.23468
+  type: 'test'
+  ...
+# Subtest: a pasture point on the farm fence is not "outside"; one 50 m beyond it is
+ok 67 - a pasture point on the farm fence is not "outside"; one 50 m beyond it is
+  ---
+  duration_ms: 0.286327
+  type: 'test'
+  ...
+# Subtest: typed coordinates are read as latitude, longitude
+ok 68 - typed coordinates are read as latitude, longitude
+  ---
+  duration_ms: 0.301834
+  type: 'test'
+  ...
+# Subtest: a full transfer preserves total heads and invested capital without fabricating a sale or expense
+ok 69 - a full transfer preserves total heads and invested capital without fabricating a sale or expense
+  ---
+  duration_ms: 8.125337
+  type: 'test'
+  ...
+# Subtest: the domain rejects same-farm, pending and stale transfer previews
+ok 70 - the domain rejects same-farm, pending and stale transfer previews
+  ---
+  duration_ms: 1.577112
+  type: 'test'
+  ...
+# Subtest: network snapshots cannot overwrite a transfer and a failed request releases the queue
+ok 71 - network snapshots cannot overwrite a transfer and a failed request releases the queue
+  ---
+  duration_ms: 3.896024
+  type: 'test'
+  ...
+# Subtest: NativeWind keeps styled components and forwards the real RN asset registry
+ok 72 - NativeWind keeps styled components and forwards the real RN asset registry
+  ---
+  duration_ms: 6.362398
+  type: 'test'
+  ...
+# Subtest: legacy pasture ids are stable md5 UUIDs of farm and normalized name
+ok 73 - legacy pasture ids are stable md5 UUIDs of farm and normalized name
+  ---
+  duration_ms: 2.406737
+  type: 'test'
+  ...
+# Subtest: pasture validation requires name, positive area and forage, and rejects duplicate names in the farm
+ok 74 - pasture validation requires name, positive area and forage, and rejects duplicate names in the farm
+  ---
+  duration_ms: 0.955102
+  type: 'test'
+  ...
+# Subtest: partial and total moves keep lot heads, cost and history while groups change pasture
+ok 75 - partial and total moves keep lot heads, cost and history while groups change pasture
+  ---
+  duration_ms: 1.983681
+  type: 'test'
+  ...
+# Subtest: moves above the pasture balance, to the same pasture, before entry or contradicting later records conflict
+ok 76 - moves above the pasture balance, to the same pasture, before entry or contradicting later records conflict
+  ---
+  duration_ms: 1.058757
+  type: 'test'
+  ...
+# Subtest: two devices reserving the same heads: the second delivery conflicts, the first approves
+ok 77 - two devices reserving the same heads: the second delivery conflicts, the first approves
+  ---
+  duration_ms: 0.855864
+  type: 'test'
+  ...
+# Subtest: GMD is attributed only to weighings of the same group in the same pasture
+ok 78 - GMD is attributed only to weighings of the same group in the same pasture
+  ---
+  duration_ms: 1.839599
+  type: 'test'
+  ...
+# Subtest: pasture status: occupied since the current lots arrived, resting since the last exit, or never used
+ok 79 - pasture status: occupied since the current lots arrived, resting since the last exit, or never used
+  ---
+  duration_ms: 0.582832
+  type: 'test'
+  ...
+# Subtest: a pasture can be deleted only while no lot or entry of any status uses it
+ok 80 - a pasture can be deleted only while no lot or entry of any status uses it
+  ---
+  duration_ms: 0.21734
+  type: 'test'
+  ...
+# Subtest: estimates are flagged, measured-only and period filters can leave "insufficient data"
+ok 81 - estimates are flagged, measured-only and period filters can leave "insufficient data"
+  ---
+  duration_ms: 0.883012
+  type: 'test'
+  ...
+# Subtest: a whole-lot weighing while split is not attributed, and a transferred entry weight is not a base
+ok 82 - a whole-lot weighing while split is not attributed, and a transferred entry weight is not a base
+  ---
+  duration_ms: 0.325056
+  type: 'test'
+  ...
+# Subtest: lot edit limits include moves and the farm transfer lands in a pasture of the destination
+ok 83 - lot edit limits include moves and the farm transfer lands in a pasture of the destination
+  ---
+  duration_ms: 0.657106
+  type: 'test'
+  ...
+# Subtest: same data keeps the previous snapshot, ignoring only the last sync time
+ok 84 - same data keeps the previous snapshot, ignoring only the last sync time
+  ---
+  duration_ms: 1.109787
+  type: 'test'
+  ...
+# Subtest: a changed table is replaced while equal tables keep their reference
+ok 85 - a changed table is replaced while equal tables keep their reference
+  ---
+  duration_ms: 0.268192
+  type: 'test'
+  ...
+# Subtest: any other setting change counts as new data
+ok 86 - any other setting change counts as new data
+  ---
+  duration_ms: 0.156808
+  type: 'test'
+  ...
+# Subtest: structural equality distinguishes order, missing keys, null and arrays
+ok 87 - structural equality distinguishes order, missing keys, null and arrays
+  ---
+  duration_ms: 0.139376
+  type: 'test'
+  ...
+# Subtest: the first read is used as is
+ok 88 - the first read is used as is
+  ---
+  duration_ms: 0.130507
+  type: 'test'
+  ...
+# Subtest: sharing unchanged data never preserves financial access after a role downgrade
+ok 89 - sharing unchanged data never preserves financial access after a role downgrade
+  ---
+  duration_ms: 4.50577
+  type: 'test'
+  ...
+# Subtest: membership removal takes effect even when every farm and lot stays unchanged
+ok 90 - membership removal takes effect even when every farm and lot stays unchanged
+  ---
+  duration_ms: 1.089733
+  type: 'test'
+  ...
+# Subtest: salt truck: 12 t in 3 installments enters the stock and the payables, without any cost in the lots
+ok 91 - salt truck: 12 t in 3 installments enters the stock and the payables, without any cost in the lots
+  ---
+  duration_ms: 2.845341
+  type: 'test'
+  ...
+# Subtest: 5 bags a week leave the stock at the average cost and the lots receive exactly that value
+ok 92 - 5 bags a week leave the stock at the average cost and the lots receive exactly that value
+  ---
+  duration_ms: 2.247905
+  type: 'test'
+  ...
+# Subtest: weighted average across purchases, and the last unit takes exactly what is left (no cent lost)
+ok 93 - weighted average across purchases, and the last unit takes exactly what is left (no cent lost)
+  ---
+  duration_ms: 0.374477
+  type: 'test'
+  ...
+# Subtest: consumption above the balance, before the purchase, or contradicting a later one is a conflict
+ok 94 - consumption above the balance, before the purchase, or contradicting a later one is a conflict
+  ---
+  duration_ms: 0.857314
+  type: 'test'
+  ...
+# Subtest: two devices: pending consumptions reserve the stock, pending purchases do not add to it
+ok 95 - two devices: pending consumptions reserve the stock, pending purchases do not add to it
+  ---
+  duration_ms: 0.812815
+  type: 'test'
+  ...
+# Subtest: transfer between farms keeps the average cost; losses leave the stock and never reach the lots
+ok 96 - transfer between farms keeps the average cost; losses leave the stock and never reach the lots
+  ---
+  duration_ms: 0.388202
+  type: 'test'
+  ...
+# Subtest: allocation basis uses the herd on the consumption date, or head-days over a period
+ok 97 - allocation basis uses the herd on the consumption date, or head-days over a period
+  ---
+  duration_ms: 0.698094
+  type: 'test'
+  ...
+# Subtest: stock positions: balance, value, average cost, days left from the last 30 days and the low alert
+ok 98 - stock positions: balance, value, average cost, days left from the last 30 days and the low alert
+  ---
+  duration_ms: 0.433951
+  type: 'test'
+  ...
+# Subtest: head-days include both endpoints, stop on the transfer date and honor same-day approved changes
+ok 99 - head-days include both endpoints, stop on the transfer date and honor same-day approved changes
+  ---
+  duration_ms: 0.194889
+  type: 'test'
+  ...
+# Subtest: historical allocation matches chronological lot reconstruction across dates, statuses and weight ties
+ok 100 - historical allocation matches chronological lot reconstruction across dates, statuses and weight ties
+  ---
+  duration_ms: 10.217445
+  type: 'test'
+  ...
+# Subtest: supply validation and quantity formatting
+ok 101 - supply validation and quantity formatting
+  ---
+  duration_ms: 0.215799
+  type: 'test'
+  ...
+# (node:2192704) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///tmp/agrogest-audit-local-20261106-8vctfe6a/agrogest-app/apps/mobile/src/services/due-alerts.ts?missing-native is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /tmp/agrogest-audit-local-20261106-8vctfe6a/agrogest-app/apps/mobile/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: cost centers and historical classification survive queue retry and snapshot roundtrip without rewriting expenses
+ok 102 - cost centers and historical classification survive queue retry and snapshot roundtrip without rewriting expenses
+  ---
+  duration_ms: 8.839688
+  type: 'test'
+  ...
+# Subtest: automatic sync only runs in foreground while connected and releases all listeners
+ok 103 - automatic sync only runs in foreground while connected and releases all listeners
+  ---
+  duration_ms: 0.721295
+  type: 'test'
+  ...
+# Subtest: the queue badge counts in SQLite without fetching or parsing payloads
+ok 104 - the queue badge counts in SQLite without fetching or parsing payloads
+  ---
+  duration_ms: 2.391699
+  type: 'test'
+  ...
+# Subtest: simultaneous sync triggers share one request and preserve edits queued during its reply
+ok 105 - simultaneous sync triggers share one request and preserve edits queued during its reply
+  ---
+  duration_ms: 2.603729
+  type: 'test'
+  ...
+# Subtest: an account mismatch never sends queued data and a later retry keeps its command ID
+ok 106 - an account mismatch never sends queued data and a later retry keeps its command ID
+  ---
+  duration_ms: 4.316773
+  type: 'test'
+  ...
+# Subtest: missing native topic support never evaluates the notifications entry point
+ok 107 - missing native topic support never evaluates the notifications entry point
+  ---
+  duration_ms: 6.051032
+  type: 'test'
+  ...
+# Subtest: logout reconciles after a slow native schedule so the previous account leaves no alerts
+ok 108 - logout reconciles after a slow native schedule so the previous account leaves no alerts
+  ---
+  duration_ms: 2.115158
+  type: 'test'
+  ...
+# Subtest: workspace projections retain member visibility, partner-only finance, farm context and sign-out
+ok 109 - workspace projections retain member visibility, partner-only finance, farm context and sign-out
+  ---
+  duration_ms: 4.407262
+  type: 'test'
+  ...
+# Subtest: lot indexing preserves approved, pending, rejected, shared allocations and transfers without mutating input
+ok 110 - lot indexing preserves approved, pending, rejected, shared allocations and transfers without mutating input
+  ---
+  duration_ms: 0.94935
+  type: 'test'
+  ...
+# Subtest: stock grouping preserves multi-item purchases, pending previews, transfers and rejected records
+ok 111 - stock grouping preserves multi-item purchases, pending previews, transfers and rejected records
+  ---
+  duration_ms: 0.566838
+  type: 'test'
+  ...
+# Subtest: payment history keeps order and reversals, counts repeated references once and settles only binding statuses
+ok 112 - payment history keeps order and reversals, counts repeated references once and settles only binding statuses
+  ---
+  duration_ms: 0.624617
+  type: 'test'
+  ...
+# Subtest: purchase installment positions stay within each component in the fixed animals, commission, freight order
+ok 113 - purchase installment positions stay within each component in the fixed animals, commission, freight order
+  ---
+  duration_ms: 0.23266
+  type: 'test'
+  ...
+# Subtest: shared month arithmetic and reused number formatters preserve displayed values
+ok 114 - shared month arithmetic and reused number formatters preserve displayed values
+  ---
+  duration_ms: 0.955671
+  type: 'test'
+  ...
+1..114
+# tests 114
+# suites 0
+# pass 114
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 205.830806

@@ -1,0 +1,89 @@
+{
+  "scope": "gs-final-fiap-citizentech-20261105",
+  "acquisition_key": "gs2-renda-wheelmap-page-01",
+  "request": {
+    "url": "https://wheelmap.org/en"
+  },
+  "admission": {
+    "status": "fulfilled",
+    "value": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"client_request_id\":\"gs2-renda-wheelmap-page-01\",\"http_status\":202,\"schema_version\":1,\"job_id\":\"ebb9dfd3-a477-4618-b8d1-f92209eb1894\",\"operation\":\"fetch.page\",\"project_scope\":\"gs-final-fiap-citizentech-20261105\",\"status\":\"queued\",\"cache_hit\":false,\"max_age_s\":900,\"created_at\":1793908774294,\"deadline\":1793908834294,\"usage\":{\"attempts\":0,\"bytes\":0,\"browser_ms\":0},\"usage_basis\":\"proxy_transport_or_reserved_envelope\",\"proxy\":{\"mode\":\"backbone_rotating\"},\"source_id\":null,\"source_export_formats\":[\"bundle\"],\"source_export_batch_limit\":5,\"errors\":[],\"next_poll_after_ms\":1000}"
+        }
+      ],
+      "structuredContent": {
+        "client_request_id": "gs2-renda-wheelmap-page-01",
+        "http_status": 202,
+        "schema_version": 1,
+        "job_id": "ebb9dfd3-a477-4618-b8d1-f92209eb1894",
+        "operation": "fetch.page",
+        "project_scope": "gs-final-fiap-citizentech-20261105",
+        "status": "queued",
+        "cache_hit": false,
+        "max_age_s": 900,
+        "created_at": 1793908774294,
+        "deadline": 1793908834294,
+        "usage": {
+          "attempts": 0,
+          "bytes": 0,
+          "browser_ms": 0
+        },
+        "usage_basis": "proxy_transport_or_reserved_envelope",
+        "proxy": {
+          "mode": "backbone_rotating"
+        },
+        "source_id": null,
+        "source_export_formats": [
+          "bundle"
+        ],
+        "source_export_batch_limit": 5,
+        "errors": [],
+        "next_poll_after_ms": 1000
+      },
+      "isError": false
+    }
+  },
+  "status": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"schema_version\":1,\"job_id\":\"ebb9dfd3-a477-4618-b8d1-f92209eb1894\",\"operation\":\"fetch.page\",\"project_scope\":\"gs-final-fiap-citizentech-20261105\",\"status\":\"forbidden\",\"cache_hit\":false,\"max_age_s\":900,\"created_at\":1793908774294,\"deadline\":1793908834294,\"usage\":{\"attempts\":1,\"bytes\":13640,\"browser_ms\":0},\"usage_basis\":\"proxy_transport_or_reserved_envelope\",\"proxy\":{\"mode\":\"backbone_rotating\"},\"source_id\":null,\"source_export_formats\":[\"bundle\"],\"source_export_batch_limit\":5,\"errors\":[{\"code\":\"target_forbidden\"}],\"next_poll_after_ms\":1000}"
+      }
+    ],
+    "structuredContent": {
+      "schema_version": 1,
+      "job_id": "ebb9dfd3-a477-4618-b8d1-f92209eb1894",
+      "operation": "fetch.page",
+      "project_scope": "gs-final-fiap-citizentech-20261105",
+      "status": "forbidden",
+      "cache_hit": false,
+      "max_age_s": 900,
+      "created_at": 1793908774294,
+      "deadline": 1793908834294,
+      "usage": {
+        "attempts": 1,
+        "bytes": 13640,
+        "browser_ms": 0
+      },
+      "usage_basis": "proxy_transport_or_reserved_envelope",
+      "proxy": {
+        "mode": "backbone_rotating"
+      },
+      "source_id": null,
+      "source_export_formats": [
+        "bundle"
+      ],
+      "source_export_batch_limit": 5,
+      "errors": [
+        {
+          "code": "target_forbidden"
+        }
+      ],
+      "next_poll_after_ms": 1000
+    },
+    "isError": true
+  },
+  "raw_verification": "unavailable; MCP normalized text was read; raw export was not performed"
+}

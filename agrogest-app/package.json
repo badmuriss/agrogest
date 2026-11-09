@@ -1,0 +1,13 @@
+{
+  "name": "agrogest-backend",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --import ./tests/resolve-ts.mjs --test \"tests/*.test.mjs\"",
+    "test:database": "npm test",
+    "benchmark:domain": "node --import ./tests/resolve-ts.mjs tests/benchmark-domain.mjs"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "0.5.10"
+  }
+}

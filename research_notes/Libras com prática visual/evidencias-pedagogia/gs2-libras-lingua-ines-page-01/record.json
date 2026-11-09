@@ -1,0 +1,97 @@
+{
+  "request": {
+    "schema_version": 1,
+    "project_scope": "gs-final-fiap-citizentech-20261105",
+    "operation": "fetch.page",
+    "input": {
+      "url": "https://www.gov.br/ines/pt-br/central-de-conteudos/publicacoes-1/todas-as-publicacoes/gramatica-da-libras-volume-2"
+    },
+    "execution": "static",
+    "limits": {
+      "timeout_ms": 60000,
+      "attempts": 1,
+      "response_bytes": 1048576,
+      "browser_bytes": 5242880,
+      "browser_ms": 30000
+    },
+    "cache": {
+      "mode": "default",
+      "max_age_s": 900
+    }
+  },
+  "admission": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"client_request_id\":\"gs2-libras-lingua-ines-page-01\",\"http_status\":202,\"schema_version\":1,\"job_id\":\"89b51f5e-5dc8-4242-aeda-a9c0343ce2c6\",\"operation\":\"fetch.page\",\"project_scope\":\"gs-final-fiap-citizentech-20261105\",\"status\":\"queued\",\"cache_hit\":false,\"max_age_s\":900,\"created_at\":1793931092105,\"deadline\":1793931152105,\"usage\":{\"attempts\":0,\"bytes\":0,\"browser_ms\":0},\"usage_basis\":\"proxy_transport_or_reserved_envelope\",\"proxy\":{\"mode\":\"backbone_rotating\"},\"source_id\":null,\"source_export_formats\":[\"bundle\"],\"source_export_batch_limit\":5,\"errors\":[],\"next_poll_after_ms\":1000}"
+      }
+    ],
+    "structuredContent": {
+      "client_request_id": "gs2-libras-lingua-ines-page-01",
+      "http_status": 202,
+      "schema_version": 1,
+      "job_id": "89b51f5e-5dc8-4242-aeda-a9c0343ce2c6",
+      "operation": "fetch.page",
+      "project_scope": "gs-final-fiap-citizentech-20261105",
+      "status": "queued",
+      "cache_hit": false,
+      "max_age_s": 900,
+      "created_at": 1793931092105,
+      "deadline": 1793931152105,
+      "usage": {
+        "attempts": 0,
+        "bytes": 0,
+        "browser_ms": 0
+      },
+      "usage_basis": "proxy_transport_or_reserved_envelope",
+      "proxy": {
+        "mode": "backbone_rotating"
+      },
+      "source_id": null,
+      "source_export_formats": [
+        "bundle"
+      ],
+      "source_export_batch_limit": 5,
+      "errors": [],
+      "next_poll_after_ms": 1000
+    },
+    "isError": false
+  },
+  "status": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"schema_version\":1,\"job_id\":\"89b51f5e-5dc8-4242-aeda-a9c0343ce2c6\",\"operation\":\"fetch.page\",\"project_scope\":\"gs-final-fiap-citizentech-20261105\",\"status\":\"succeeded\",\"cache_hit\":false,\"max_age_s\":900,\"created_at\":1793931092105,\"deadline\":1793931152105,\"usage\":{\"attempts\":1,\"bytes\":337528,\"browser_ms\":0},\"usage_basis\":\"proxy_transport_or_reserved_envelope\",\"proxy\":{\"mode\":\"backbone_rotating\"},\"source_id\":\"89b51f5e-5dc8-4242-aeda-a9c0343ce2c6\",\"source_export_formats\":[\"bundle\"],\"source_export_batch_limit\":5,\"errors\":[],\"next_poll_after_ms\":1000}"
+      }
+    ],
+    "structuredContent": {
+      "schema_version": 1,
+      "job_id": "89b51f5e-5dc8-4242-aeda-a9c0343ce2c6",
+      "operation": "fetch.page",
+      "project_scope": "gs-final-fiap-citizentech-20261105",
+      "status": "succeeded",
+      "cache_hit": false,
+      "max_age_s": 900,
+      "created_at": 1793931092105,
+      "deadline": 1793931152105,
+      "usage": {
+        "attempts": 1,
+        "bytes": 337528,
+        "browser_ms": 0
+      },
+      "usage_basis": "proxy_transport_or_reserved_envelope",
+      "proxy": {
+        "mode": "backbone_rotating"
+      },
+      "source_id": "89b51f5e-5dc8-4242-aeda-a9c0343ce2c6",
+      "source_export_formats": [
+        "bundle"
+      ],
+      "source_export_batch_limit": 5,
+      "errors": [],
+      "next_poll_after_ms": 1000
+    },
+    "isError": false
+  },
+  "raw_verification": "not performed; normalized MCP text, not raw HTTP bytes"
+}

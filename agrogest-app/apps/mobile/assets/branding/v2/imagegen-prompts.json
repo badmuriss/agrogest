@@ -1,0 +1,86 @@
+[
+  {
+    "name": "logo-light-v2",
+    "dir": "branding",
+    "transparent": true,
+    "prompt": "Use case: logo-brand. Input image is the identity reference. Create one production AgroGest V2 asset. Horizontal full logo for LIGHT theme: the exact green and orange bull symbol on LEFT, exact uppercase text AGROGEST to RIGHT, AGRO dark green #0C502F and GEST orange #FF6F1E. Bold sans serif matching reference. Wide 3:1 layout with tight transparent margins. Preserve the EXACT reference bull design, curved horns, right-facing head, ears, muzzle and neck, and sweeping strokes. Clean vector-like flat solid fills, pristine edges. No grain, texture, shadows, gradients, glow, mockup, labels or watermark. Only requested asset. Transparent means real alpha, never simulated checkerboard.",
+    "output": "Generated images are saved to C:\\Users\\gabri\\.codex\\generated_images\\01a13a70-a212-7311-b92e-4e756b4d3c02 as C:\\Users\\gabri\\.codex\\generated_images\\01a13a70-a212-7311-b92e-4e756b4d3c02\\exec-b7a17016-52dd-4b27-bf19-0b7a5695e1ac.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  },
+  {
+    "name": "logo-dark-v2",
+    "dir": "branding",
+    "transparent": true,
+    "prompt": "Use case: logo-brand. Input image is the identity reference. Create one production AgroGest V2 asset. Horizontal full logo for DARK theme: same bull symbol on LEFT, but all green portions white and orange preserved #FF6F1E; uppercase AGROGEST to RIGHT, AGRO white and GEST orange. Bold sans serif matching reference. Wide 3:1 layout with tight transparent margins. Preserve the EXACT reference bull design, curved horns, right-facing head, ears, muzzle and neck, and sweeping strokes. Clean vector-like flat solid fills, pristine edges. No grain, texture, shadows, gradients, glow, mockup, labels or watermark. Only requested asset. Transparent means real alpha, never simulated checkerboard.",
+    "output": "Generated images are saved to C:\\Users\\gabri\\.codex\\generated_images\\01a13a70-a212-7311-b92e-4e756b4d3c02 as C:\\Users\\gabri\\.codex\\generated_images\\01a13a70-a212-7311-b92e-4e756b4d3c02\\exec-3b98b2ac-6a3a-4171-8adc-dfd1fd92c3f1.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  },
+  {
+    "name": "mark-dark-v2",
+    "dir": "branding",
+    "transparent": true,
+    "prompt": "Use case: logo-brand. Input image is the identity reference. Create one production AgroGest V2 asset. SYMBOL only for DARK theme: remove all text; use exactly the reference bull silhouette with all green areas WHITE, preserve orange strokes #FF6F1E. Square canvas narrow transparent padding. Preserve the EXACT reference bull design, curved horns, right-facing head, ears, muzzle and neck, and sweeping strokes. Clean vector-like flat solid fills, pristine edges. No grain, texture, shadows, gradients, glow, mockup, labels or watermark. Only requested asset. Transparent means real alpha, never simulated checkerboard.",
+    "output": "Generated images are saved to C:\\Users\\gabri\\.codex\\generated_images\\01a13a70-a212-7311-b92e-4e756b4d3c02 as C:\\Users\\gabri\\.codex\\generated_images\\01a13a70-a212-7311-b92e-4e756b4d3c02\\exec-79b77574-e047-4416-9b33-c1cb1cbf86e0.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  },
+  {
+    "name": "wordmark-light-v2",
+    "dir": "branding",
+    "transparent": true,
+    "prompt": "Use case: logo-brand. Create one AgroGest V2 production asset, using input as exact brand reference. WORDMARK ONLY for light theme. No bull, no strokes, no icon. Exact text AGROGEST uppercase, AGRO dark green #0C502F and GEST orange #FF6F1E. Exact bold sans serif lettering of reference, single line. Wide canvas tightly framed. Match reference silhouette and lettering. Flat solid fills, impeccable smooth antialiased edges. Absolutely no grunge, grain, noise, speckles, outlines, gradients, shadows or mockups. Clean geometric brand art. Transparent output must have genuine alpha with perfectly intact solid interiors.",
+    "output": "Generated images are saved to C:\\Users\\gabri\\.codex\\generated_images\\01a13a70-a212-7311-b92e-4e756b4d3c02 as C:\\Users\\gabri\\.codex\\generated_images\\01a13a70-a212-7311-b92e-4e756b4d3c02\\exec-443f1fe8-fc04-42a0-911b-183e37fbe6a7.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  },
+  {
+    "name": "wordmark-dark-v2",
+    "dir": "branding",
+    "transparent": true,
+    "prompt": "Use case: logo-brand. Create one AgroGest V2 production asset, using input as exact brand reference. WORDMARK ONLY for dark theme. No bull, no strokes, no icon. Exact text AGROGEST uppercase, AGRO WHITE and GEST orange #FF6F1E. Exact bold sans serif lettering of reference, single line. Wide canvas tightly framed. Match reference silhouette and lettering. Flat solid fills, impeccable smooth antialiased edges. Absolutely no grunge, grain, noise, speckles, outlines, gradients, shadows or mockups. Clean geometric brand art. Transparent output must have genuine alpha with perfectly intact solid interiors.",
+    "output": "Generated images are saved to C:\\Users\\gabri\\.codex\\generated_images\\01a13a70-a212-7311-b92e-4e756b4d3c02 as C:\\Users\\gabri\\.codex\\generated_images\\01a13a70-a212-7311-b92e-4e756b4d3c02\\exec-1e4645a4-afc3-4f64-9852-b50fdabc1edf.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  },
+  {
+    "name": "icon-v2",
+    "dir": "images",
+    "transparent": false,
+    "prompt": "Use case: logo-brand. Create one AgroGest V2 production asset, using input as exact brand reference. Square app icon. Full bleed flat solid green #0C502F background, no rounded corners. Center exact reference bull symbol, green portions changed to WHITE and orange strokes preserved. Symbol fits centered inside 66 percent of canvas width and height. No text. Match reference silhouette and lettering. Flat solid fills, impeccable smooth antialiased edges. Absolutely no grunge, grain, noise, speckles, outlines, gradients, shadows or mockups. Clean geometric brand art. Transparent output must have genuine alpha with perfectly intact solid interiors.",
+    "output": "Generated images are saved to C:\\Users\\gabri\\.codex\\generated_images\\01a13a70-a212-7311-b92e-4e756b4d3c02 as C:\\Users\\gabri\\.codex\\generated_images\\01a13a70-a212-7311-b92e-4e756b4d3c02\\exec-c3f4008b-7c8e-41a2-aff6-cf64646dce16.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  },
+  {
+    "name": "favicon-v2",
+    "dir": "images",
+    "transparent": false,
+    "prompt": "Use case: logo-brand. Create one AgroGest V2 production asset, using input as exact brand reference. Square web favicon, crisp simplified only as needed for small size. Full bleed solid green #0C502F background. Exact bull silhouette white with orange strokes, centered at 75 percent of canvas, no text, no rounded corners. Match reference silhouette and lettering. Flat solid fills, impeccable smooth antialiased edges. Absolutely no grunge, grain, noise, speckles, outlines, gradients, shadows or mockups. Clean geometric brand art. Transparent output must have genuine alpha with perfectly intact solid interiors.",
+    "output": "Generated images are saved to C:\\Users\\gabri\\.codex\\generated_images\\01a13a70-a212-7311-b92e-4e756b4d3c02 as C:\\Users\\gabri\\.codex\\generated_images\\01a13a70-a212-7311-b92e-4e756b4d3c02\\exec-0dd5d28c-95fb-479e-bda4-e70d8520750e.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  },
+  {
+    "name": "splash-icon-v2",
+    "dir": "images",
+    "transparent": true,
+    "prompt": "Use case: logo-brand. Single AgroGest V2 mobile production asset. Native LIGHT splash SYMBOL only. Exact green #0C502F bull and orange #FF6F1E strokes from reference. No text. Center square transparent canvas with 4 percent padding, sharp clean flat colors. Reference is exact design. Clean flat brand art, sharp smooth edges, solid interiors, no grain, texture, grunge, splatter, noise, outlines, gradients, shading, mockups or watermark. ",
+    "output": "Generated images are saved to C:\\Users\\gabri\\.codex\\generated_images\\01a13a70-a212-7311-b92e-4e756b4d3c02 as C:\\Users\\gabri\\.codex\\generated_images\\01a13a70-a212-7311-b92e-4e756b4d3c02\\exec-9b1fd1b3-540a-45b1-ba79-3d354cee0296.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  },
+  {
+    "name": "splash-icon-dark-v2",
+    "dir": "images",
+    "transparent": true,
+    "prompt": "Use case: logo-brand. Single AgroGest V2 mobile production asset. Native DARK splash SYMBOL only. Exact bull from reference, all green shapes changed to WHITE, orange #FF6F1E strokes unchanged. No text. Center square transparent canvas with 4 percent padding, sharp clean flat colors. Reference is exact design. Clean flat brand art, sharp smooth edges, solid interiors, no grain, texture, grunge, splatter, noise, outlines, gradients, shading, mockups or watermark. ",
+    "output": "Generated images are saved to C:\\Users\\gabri\\.codex\\generated_images\\01a13a70-a212-7311-b92e-4e756b4d3c02 as C:\\Users\\gabri\\.codex\\generated_images\\01a13a70-a212-7311-b92e-4e756b4d3c02\\exec-fdfd8c3e-06ad-4e48-bf48-c522c70cbf3c.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  },
+  {
+    "name": "android-icon-foreground-v2",
+    "dir": "images",
+    "transparent": true,
+    "prompt": "Use case: logo-brand. Single AgroGest V2 mobile production asset. Android adaptive icon foreground, 1024 square transparent canvas. Exact bull symbol from reference, green parts changed WHITE and orange strokes preserved. NO text. Entire symbol fits within center 52 percent of canvas in both dimensions, generous transparent safe margins. Reference is exact design. Clean flat brand art, sharp smooth edges, solid interiors, no grain, texture, grunge, splatter, noise, outlines, gradients, shading, mockups or watermark. ",
+    "output": "Generated images are saved to C:\\Users\\gabri\\.codex\\generated_images\\01a13a70-a212-7311-b92e-4e756b4d3c02 as C:\\Users\\gabri\\.codex\\generated_images\\01a13a70-a212-7311-b92e-4e756b4d3c02\\exec-fea156f1-927d-4bf5-b1b6-fbc0e58f0f41.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  },
+  {
+    "name": "android-icon-background-v2",
+    "dir": "images",
+    "transparent": false,
+    "prompt": "Use case: logo-brand. Single AgroGest V2 mobile production asset. Android adaptive icon BACKGROUND layer only: square flat solid uniform green #0C502F entire canvas edge to edge. NO bull, NO icon, NO text, NO shapes, NO texture, NO shading, NO border. Just one uniform green. Reference is exact design. Clean flat brand art, sharp smooth edges, solid interiors, no grain, texture, grunge, splatter, noise, outlines, gradients, shading, mockups or watermark. ",
+    "output": "Generated images are saved to C:\\Users\\gabri\\.codex\\generated_images\\01a13a70-a212-7311-b92e-4e756b4d3c02 as C:\\Users\\gabri\\.codex\\generated_images\\01a13a70-a212-7311-b92e-4e756b4d3c02\\exec-e6b35782-0f08-47be-8780-fa35eb0a6f5b.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  },
+  {
+    "name": "android-icon-monochrome-v2",
+    "dir": "images",
+    "transparent": true,
+    "prompt": "Use case: logo-brand. Single AgroGest V2 mobile production asset. Android adaptive monochrome icon: reference bull including horns, head, neck and sweeping strokes, all shapes PURE WHITE, no other colors. NO text. Whole silhouette fits inside center 52 percent of square transparent canvas in both dimensions. Flat white alpha mask, large transparent safe margins. Reference is exact design. Clean flat brand art, sharp smooth edges, solid interiors, no grain, texture, grunge, splatter, noise, outlines, gradients, shading, mockups or watermark. ",
+    "output": "Generated images are saved to C:\\Users\\gabri\\.codex\\generated_images\\01a13a70-a212-7311-b92e-4e756b4d3c02 as C:\\Users\\gabri\\.codex\\generated_images\\01a13a70-a212-7311-b92e-4e756b4d3c02\\exec-83c0e336-97d5-4ce4-b0c0-02846cae2031.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  }
+]

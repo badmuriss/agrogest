@@ -1,0 +1,100 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"schema_version\":1,\"source_id\":\"e51d309b-dcb0-43fd-93b1-5b0f79d531b2\",\"provider\":\"http:duckduckgo\",\"engine\":\"duckduckgo\",\"parser_version\":\"http-serp-v1\",\"fallback_reason\":null,\"query\":\"site.gov.br ines Libras língua gramática expressões faciais variação linguística\",\"page\":0,\"locale\":{\"language\":\"pt-BR\",\"country\":\"BR\"},\"results\":[{\"position\":1,\"provider_rank\":1,\"title\":\"Gramática da Libras, Volume 1 - gov\",\"url\":\"https://www.gov.br/ines/pt-br/central-de-conteudos/publicacoes-1/todas-as-publicacoes/gramatica-da-libras-volume-1\",\"snippet\":\"Pedimos desculpas pelo inconveniente, mas você não tem permissões neste recurso.\"},{\"position\":2,\"provider_rank\":2,\"title\":\"Gramática da Libras Volume 2 - gov\",\"url\":\"https://www.gov.br/ines/pt-br/central-de-conteudos/publicacoes-1/todas-as-publicacoes/gramatica-da-libras-volume-2\",\"snippet\":\"A obra trata do funcionamento linguístico-gramatical e lexical da Libras abrangendo aspectos sintáticos, fonéticos, fonológicos, morfossintáticos, dentre outros, além da história dessa língua, suas variedades e a existência de outras línguas de sinais no Brasil.\"},{\"position\":3,\"provider_rank\":3,\"title\":\"gov - Dicionário Libras\",\"url\":\"https://dicionario.ines.gov.br/\",\"snippet\":\"Financiamento do Projeto Presidência da República Secretaria Especial de Direitos Humanos Coordenadoria Nacional de Deficiência - CORDE Para Obter uma cópia do dicionário LIBRAS em cd, entre em contato com o INES (http://ines.org.br) Rua das Laranjeiras, 232 - Laranjeiras - Rio de Janeiro - RJ Tel: (21) 2285-7692 / 2285-5107 / 2285-7546\"},{\"position\":4,\"provider_rank\":4,\"title\":\"Gramática da Libras | Libras - UFF\",\"url\":\"https://libras.uff.br/gramatica-da-libras/\",\"snippet\":\"Gramática da Libras Este material nos traz uma apresentação geral da gramática e explicação da estrutura organizada nesta gramática virtual.\"},{\"position\":5,\"provider_rank\":5,\"title\":\"Expressão Não-Manual (ENM): gramática facial e corporal da Libras\",\"url\":\"https://libras.se/glossario/expressao-nao-manual/\",\"snippet\":\"Componentes faciais e corporais com função gramatical na Libras. Indispensáveis para diferenciar tipos de oração, marcar intensidade e construir frases gramaticalmente corretas na língua de sinais.\"},{\"position\":6,\"provider_rank\":6,\"title\":\"Gramática Da Libras\",\"url\":\"https://www.libras.ufsc.br/arquivos/vbooks/gramatica/index.php\",\"snippet\":\"1.1 Objetivos da gramática 1.2 O que é uma gramática 1.3 Os tipos de gramática 1.4 O tipo de gramática que estamos apresentando aqui 1.5 O Corpus de Libras: os Surdos de Referência 1.6 Os dados da Libras apresentados com base nos usos 1.7 Os estudos gramaticais da Libras: os autores\"},{\"position\":7,\"provider_rank\":7,\"title\":\"Sintaxe e Expressões Faciais em LIBRAS | PDF | Linguística | Gramática\",\"url\":\"https://pt.scribd.com/document/325512130/Lingua-de-Sinais-II-Expressoes-Faciais-Gramaticais\",\"snippet\":\"[1] O documento discute a sintaxe da Língua Brasileira de Sinais (LIBRAS), especificamente o uso de expressões faciais e a estrutura das frases. [2] As expressões faciais podem ser afetivas ou gramaticais, sendo que estas últimas indicam elementos como negação, interrogativas e afirmações. [3]\"},{\"position\":8,\"provider_rank\":8,\"title\":\"Libras: O que é? Origem, Parâmetros, Gramática e Legislação\",\"url\":\"https://www.libras.com.br/o-que-e-libras.\",\"snippet\":\"Descubra o que é Libras, a Língua Brasileira de Sinais. Conheça sua história no INES, os 5 parâmetros linguísticos, gramática, regionalismos e legislação.\"},{\"position\":9,\"provider_rank\":9,\"title\":\"Gramática da Libras: Volume 1 | PDF | Linguagem de sinais | Fonética\",\"url\":\"https://pt.scribd.com/document/897216595/Gramatica-da-libras\",\"snippet\":\"A obra aborda aspectos linguísticos e gramaticais da Língua Brasileira de Sinais (Libras), incluindo sua história, variedades e a relação com outras línguas de sinais no Brasil.\"},{\"position\":10,\"provider_rank\":10,\"title\":\"PDF INTRODUÇÃO À GRAMÁTICA DE LIBRAS - Instituto INE\",\"url\":\"https://institutoine.com.br/arquivos/_5ed9316f58489.pdf\",\"snippet\":\"Compreender a gramática de uma língua é apreender as regras de formação e de combinação dos elementos desta língua. Nesta introdução, a LIBRAS pôde ser percebida a partir de algumas classes gramaticais.\"}],\"has_next_page\":true,\"fetched_at\":\"2026-11-06T02:10:31.376Z\",\"content_sha256\":\"471ba12ef7dd05f8355707d917e6dbd1ba8dcf86ddfc71494a2da6ae85320b0d\",\"acquisition_complete\":true,\"cache_hit\":false}"
+    }
+  ],
+  "structuredContent": {
+    "schema_version": 1,
+    "source_id": "e51d309b-dcb0-43fd-93b1-5b0f79d531b2",
+    "provider": "http:duckduckgo",
+    "engine": "duckduckgo",
+    "parser_version": "http-serp-v1",
+    "fallback_reason": null,
+    "query": "site.gov.br ines Libras língua gramática expressões faciais variação linguística",
+    "page": 0,
+    "locale": {
+      "language": "pt-BR",
+      "country": "BR"
+    },
+    "results": [
+      {
+        "position": 1,
+        "provider_rank": 1,
+        "title": "Gramática da Libras, Volume 1 - gov",
+        "url": "https://www.gov.br/ines/pt-br/central-de-conteudos/publicacoes-1/todas-as-publicacoes/gramatica-da-libras-volume-1",
+        "snippet": "Pedimos desculpas pelo inconveniente, mas você não tem permissões neste recurso."
+      },
+      {
+        "position": 2,
+        "provider_rank": 2,
+        "title": "Gramática da Libras Volume 2 - gov",
+        "url": "https://www.gov.br/ines/pt-br/central-de-conteudos/publicacoes-1/todas-as-publicacoes/gramatica-da-libras-volume-2",
+        "snippet": "A obra trata do funcionamento linguístico-gramatical e lexical da Libras abrangendo aspectos sintáticos, fonéticos, fonológicos, morfossintáticos, dentre outros, além da história dessa língua, suas variedades e a existência de outras línguas de sinais no Brasil."
+      },
+      {
+        "position": 3,
+        "provider_rank": 3,
+        "title": "gov - Dicionário Libras",
+        "url": "https://dicionario.ines.gov.br/",
+        "snippet": "Financiamento do Projeto Presidência da República Secretaria Especial de Direitos Humanos Coordenadoria Nacional de Deficiência - CORDE Para Obter uma cópia do dicionário LIBRAS em cd, entre em contato com o INES (http://ines.org.br) Rua das Laranjeiras, 232 - Laranjeiras - Rio de Janeiro - RJ Tel: (21) 2285-7692 / 2285-5107 / 2285-7546"
+      },
+      {
+        "position": 4,
+        "provider_rank": 4,
+        "title": "Gramática da Libras | Libras - UFF",
+        "url": "https://libras.uff.br/gramatica-da-libras/",
+        "snippet": "Gramática da Libras Este material nos traz uma apresentação geral da gramática e explicação da estrutura organizada nesta gramática virtual."
+      },
+      {
+        "position": 5,
+        "provider_rank": 5,
+        "title": "Expressão Não-Manual (ENM): gramática facial e corporal da Libras",
+        "url": "https://libras.se/glossario/expressao-nao-manual/",
+        "snippet": "Componentes faciais e corporais com função gramatical na Libras. Indispensáveis para diferenciar tipos de oração, marcar intensidade e construir frases gramaticalmente corretas na língua de sinais."
+      },
+      {
+        "position": 6,
+        "provider_rank": 6,
+        "title": "Gramática Da Libras",
+        "url": "https://www.libras.ufsc.br/arquivos/vbooks/gramatica/index.php",
+        "snippet": "1.1 Objetivos da gramática 1.2 O que é uma gramática 1.3 Os tipos de gramática 1.4 O tipo de gramática que estamos apresentando aqui 1.5 O Corpus de Libras: os Surdos de Referência 1.6 Os dados da Libras apresentados com base nos usos 1.7 Os estudos gramaticais da Libras: os autores"
+      },
+      {
+        "position": 7,
+        "provider_rank": 7,
+        "title": "Sintaxe e Expressões Faciais em LIBRAS | PDF | Linguística | Gramática",
+        "url": "https://pt.scribd.com/document/325512130/Lingua-de-Sinais-II-Expressoes-Faciais-Gramaticais",
+        "snippet": "[1] O documento discute a sintaxe da Língua Brasileira de Sinais (LIBRAS), especificamente o uso de expressões faciais e a estrutura das frases. [2] As expressões faciais podem ser afetivas ou gramaticais, sendo que estas últimas indicam elementos como negação, interrogativas e afirmações. [3]"
+      },
+      {
+        "position": 8,
+        "provider_rank": 8,
+        "title": "Libras: O que é? Origem, Parâmetros, Gramática e Legislação",
+        "url": "https://www.libras.com.br/o-que-e-libras.",
+        "snippet": "Descubra o que é Libras, a Língua Brasileira de Sinais. Conheça sua história no INES, os 5 parâmetros linguísticos, gramática, regionalismos e legislação."
+      },
+      {
+        "position": 9,
+        "provider_rank": 9,
+        "title": "Gramática da Libras: Volume 1 | PDF | Linguagem de sinais | Fonética",
+        "url": "https://pt.scribd.com/document/897216595/Gramatica-da-libras",
+        "snippet": "A obra aborda aspectos linguísticos e gramaticais da Língua Brasileira de Sinais (Libras), incluindo sua história, variedades e a relação com outras línguas de sinais no Brasil."
+      },
+      {
+        "position": 10,
+        "provider_rank": 10,
+        "title": "PDF INTRODUÇÃO À GRAMÁTICA DE LIBRAS - Instituto INE",
+        "url": "https://institutoine.com.br/arquivos/_5ed9316f58489.pdf",
+        "snippet": "Compreender a gramática de uma língua é apreender as regras de formação e de combinação dos elementos desta língua. Nesta introdução, a LIBRAS pôde ser percebida a partir de algumas classes gramaticais."
+      }
+    ],
+    "has_next_page": true,
+    "fetched_at": "2026-11-06T02:10:31.376Z",
+    "content_sha256": "471ba12ef7dd05f8355707d917e6dbd1ba8dcf86ddfc71494a2da6ae85320b0d",
+    "acquisition_complete": true,
+    "cache_hit": false
+  },
+  "isError": false
+}

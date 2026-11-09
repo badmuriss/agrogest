@@ -1,0 +1,101 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"schema_version\":1,\"source_id\":\"4bc13f7d-9e6a-447d-8c56-818134374ca3\",\"provider\":\"http:duckduckgo\",\"engine\":\"duckduckgo\",\"parser_version\":\"http-serp-v1\",\"fallback_reason\":null,\"query\":\"TeachYou teachable agent learning by teaching university\",\"page\":0,\"locale\":{\"language\":\"pt-BR\",\"country\":\"BR\"},\"results\":[{\"position\":1,\"provider_rank\":1,\"title\":\"KIXLAB - TeachYou\",\"url\":\"https://teachyou.kixlab.org/\",\"snippet\":\"TeachYou is a tool that college-level students can use to learn programming by teaching a conversational AI tutee, AlgoBo. Student-initiated explanations and discussions with AlgoBo on real-world examples of algorithms can improve students' knowledge-building skills.\"},{\"position\":2,\"provider_rank\":2,\"title\":\"\\\"Teach AI How to Code\\\": Using Large Language Models as Teachable Agents ...\",\"url\":\"https://arxiv.org/pdf/2309.14534v1\",\"snippet\":\"work investigates large language models (LLMs) as teachable agents for learning by teaching (LBT) LBT with teachable agents helps learners identify their knowledge gaps and discover n. w knowledge. However, teachable agents require expensive programming of subject-specific knowledg.\"},{\"position\":3,\"provider_rank\":3,\"title\":\"Teach AI How to Code: Using Large Language Models as Teachable Agents ...\",\"url\":\"https://arxiv.org/html/2309.14534\",\"snippet\":\"Abstract. This work investigates large language models (LLMs) as teachable agents for learning by teaching (LBT). LBT with teachable agents helps learners identify knowledge gaps and discover new knowledge. However, teachable agents require expensive programming of subject-specific knowledge.\"},{\"position\":4,\"provider_rank\":4,\"title\":\"PDF Pedagogical Agents for Learning by Teaching: Teachable Agents\",\"url\":\"http://aaalab.stanford.edu/papers/Teachable_Agent_Lite.pdf\",\"snippet\":\"We describe pedagogical agents called Teachable Agents (TAs) where students learn by teaching the computer. We describe an example of a TA, and discuss the features that allow students to capitalize on learning-by-teaching interactions.\"},{\"position\":5,\"provider_rank\":5,\"title\":\"Learning by teaching with ChatGPT: The effect of teachable ChatGPT ...\",\"url\":\"https://bera-journals.onlinelibrary.wiley.com/doi/10.1111/bjet.70001\",\"snippet\":\"This study investigates the potential of using ChatGPT as a teachable agent to support students' learning through teaching, specifically in programming education.\"},{\"position\":6,\"provider_rank\":6,\"title\":\"Teach AI How to Code: Using Large Language Models as Teachable Agents ...\",\"url\":\"https://dl.acm.org/doi/10.1145/3613904.3642349\",\"snippet\":\"In this paper, rather than constructing teachable agents from the ground up, we propose a top-down methodology in which we use versatile Large Language Models (LLMs) to simulate tutees.\"},{\"position\":7,\"provider_rank\":7,\"title\":\"Pedagogical Agents for Learning by Teaching: Teachable Agents\",\"url\":\"https://www.academia.edu/23867094/Pedagogical_Agents_for_Learning_by_Teaching_Teachable_Agents\",\"snippet\":\"We describe pedagogical agents called Teachable Agents (TAs) where students learn by teaching the computer. We describe an example of a TA, and discuss the features that allow students to capitalize on learning-by-teaching interactions.\"},{\"position\":8,\"provider_rank\":8,\"title\":\"Pedagogical Agents for Learning by Teaching: Teachable Agents\",\"url\":\"https://www.researchgate.net/publication/240718276_Pedagogical_Agents_for_Learning_by_Teaching_Teachable_Agents\",\"snippet\":\"We describe pedagogical agents called Teachable Agents (TAs) where students learn by teaching the computer. We describe an example of a TA, and discuss the features that allow students to...\"},{\"position\":9,\"provider_rank\":9,\"title\":\"Teach AI How to Code: Using Large Language Models as Teachable Agents ...\",\"url\":\"https://llm4csedu.github.io/548/\",\"snippet\":\"This work investigates large language models (LLMs) as teachable agents for learning by teaching (LBT). LBT with teachable agents helps learners identify knowledge gaps and discover new knowledge.\"},{\"position\":10,\"provider_rank\":10,\"title\":\"Teach AI How to Code: Using Large Language Models as Teachable Agents ...\",\"url\":\"https://scale.stanford.edu/ai/repository/teach-ai-how-code-using-large-language-models-teachable-agents-programming-education\",\"snippet\":\"This work investigates large language models (LLMs) as teachable agents for learning by teaching (LBT). LBT with teachable agents helps learners identify knowledge gaps and discover new knowledge.\"}],\"has_next_page\":true,\"fetched_at\":\"2026-11-05T20:03:52.174Z\",\"content_sha256\":\"8a98c37bcbe7a4a106cd900305c96cb78070bf02029ff61873e84da415ab08e1\",\"acquisition_complete\":true,\"cache_hit\":false}"
+    }
+  ],
+  "structuredContent": {
+    "schema_version": 1,
+    "source_id": "4bc13f7d-9e6a-447d-8c56-818134374ca3",
+    "provider": "http:duckduckgo",
+    "engine": "duckduckgo",
+    "parser_version": "http-serp-v1",
+    "fallback_reason": null,
+    "query": "TeachYou teachable agent learning by teaching university",
+    "page": 0,
+    "locale": {
+      "language": "pt-BR",
+      "country": "BR"
+    },
+    "results": [
+      {
+        "position": 1,
+        "provider_rank": 1,
+        "title": "KIXLAB - TeachYou",
+        "url": "https://teachyou.kixlab.org/",
+        "snippet": "TeachYou is a tool that college-level students can use to learn programming by teaching a conversational AI tutee, AlgoBo. Student-initiated explanations and discussions with AlgoBo on real-world examples of algorithms can improve students' knowledge-building skills."
+      },
+      {
+        "position": 2,
+        "provider_rank": 2,
+        "title": "\"Teach AI How to Code\": Using Large Language Models as Teachable Agents ...",
+        "url": "https://arxiv.org/pdf/2309.14534v1",
+        "snippet": "work investigates large language models (LLMs) as teachable agents for learning by teaching (LBT) LBT with teachable agents helps learners identify their knowledge gaps and discover n. w knowledge. However, teachable agents require expensive programming of subject-specific knowledg."
+      },
+      {
+        "position": 3,
+        "provider_rank": 3,
+        "title": "Teach AI How to Code: Using Large Language Models as Teachable Agents ...",
+        "url": "https://arxiv.org/html/2309.14534",
+        "snippet": "Abstract. This work investigates large language models (LLMs) as teachable agents for learning by teaching (LBT). LBT with teachable agents helps learners identify knowledge gaps and discover new knowledge. However, teachable agents require expensive programming of subject-specific knowledge."
+      },
+      {
+        "position": 4,
+        "provider_rank": 4,
+        "title": "PDF Pedagogical Agents for Learning by Teaching: Teachable Agents",
+        "url": "http://aaalab.stanford.edu/papers/Teachable_Agent_Lite.pdf",
+        "snippet": "We describe pedagogical agents called Teachable Agents (TAs) where students learn by teaching the computer. We describe an example of a TA, and discuss the features that allow students to capitalize on learning-by-teaching interactions."
+      },
+      {
+        "position": 5,
+        "provider_rank": 5,
+        "title": "Learning by teaching with ChatGPT: The effect of teachable ChatGPT ...",
+        "url": "https://bera-journals.onlinelibrary.wiley.com/doi/10.1111/bjet.70001",
+        "snippet": "This study investigates the potential of using ChatGPT as a teachable agent to support students' learning through teaching, specifically in programming education."
+      },
+      {
+        "position": 6,
+        "provider_rank": 6,
+        "title": "Teach AI How to Code: Using Large Language Models as Teachable Agents ...",
+        "url": "https://dl.acm.org/doi/10.1145/3613904.3642349",
+        "snippet": "In this paper, rather than constructing teachable agents from the ground up, we propose a top-down methodology in which we use versatile Large Language Models (LLMs) to simulate tutees."
+      },
+      {
+        "position": 7,
+        "provider_rank": 7,
+        "title": "Pedagogical Agents for Learning by Teaching: Teachable Agents",
+        "url": "https://www.academia.edu/23867094/Pedagogical_Agents_for_Learning_by_Teaching_Teachable_Agents",
+        "snippet": "We describe pedagogical agents called Teachable Agents (TAs) where students learn by teaching the computer. We describe an example of a TA, and discuss the features that allow students to capitalize on learning-by-teaching interactions."
+      },
+      {
+        "position": 8,
+        "provider_rank": 8,
+        "title": "Pedagogical Agents for Learning by Teaching: Teachable Agents",
+        "url": "https://www.researchgate.net/publication/240718276_Pedagogical_Agents_for_Learning_by_Teaching_Teachable_Agents",
+        "snippet": "We describe pedagogical agents called Teachable Agents (TAs) where students learn by teaching the computer. We describe an example of a TA, and discuss the features that allow students to..."
+      },
+      {
+        "position": 9,
+        "provider_rank": 9,
+        "title": "Teach AI How to Code: Using Large Language Models as Teachable Agents ...",
+        "url": "https://llm4csedu.github.io/548/",
+        "snippet": "This work investigates large language models (LLMs) as teachable agents for learning by teaching (LBT). LBT with teachable agents helps learners identify knowledge gaps and discover new knowledge."
+      },
+      {
+        "position": 10,
+        "provider_rank": 10,
+        "title": "Teach AI How to Code: Using Large Language Models as Teachable Agents ...",
+        "url": "https://scale.stanford.edu/ai/repository/teach-ai-how-code-using-large-language-models-teachable-agents-programming-education",
+        "snippet": "This work investigates large language models (LLMs) as teachable agents for learning by teaching (LBT). LBT with teachable agents helps learners identify knowledge gaps and discover new knowledge."
+      }
+    ],
+    "has_next_page": true,
+    "fetched_at": "2026-11-05T20:03:52.174Z",
+    "content_sha256": "8a98c37bcbe7a4a106cd900305c96cb78070bf02029ff61873e84da415ab08e1",
+    "acquisition_complete": true,
+    "cache_hit": false
+  },
+  "isError": false
+}
+

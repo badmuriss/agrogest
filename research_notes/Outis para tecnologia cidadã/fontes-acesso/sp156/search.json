@@ -1,0 +1,100 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"schema_version\":1,\"source_id\":\"df7d0c4e-03ab-497e-9823-63bc7766f5b7\",\"provider\":\"http:duckduckgo\",\"engine\":\"duckduckgo\",\"parser_version\":\"http-serp-v1\",\"fallback_reason\":null,\"query\":\"SP156 inteligência artificial foto zeladoria aplicativo Descomplica atendimento\",\"page\":0,\"locale\":{\"language\":\"pt-BR\",\"country\":\"BR\"},\"results\":[{\"position\":1,\"provider_rank\":1,\"title\":\"SP156 utiliza Inteligência Artificial para facilitar o atendimento aos ...\",\"url\":\"https://prefeitura.sp.gov.br/web/inovacao/w/sp156-utiliza-intelig%C3%AAncia-artificial-para-facilitar-o-atendimento-aos-cidad%C3%A3os\",\"snippet\":\"A Secretaria Municipal de Inovação e Tecnologia (SMIT) lançou no aplicativo SP156 a nova funcionalidade Solicitação Inteligente, que utiliza Inteligência Artificial (IA) para identificar, a partir do envio de imagem pelo munícipe, qual o serviço ideal que o solicitante está buscando.\"},{\"position\":2,\"provider_rank\":2,\"title\":\"Serviços Online — Portal - SP 156\",\"url\":\"https://sp156.prefeitura.sp.gov.br/portal/servicos-online\",\"snippet\":\"Todos os serviços online do portal SP156 também podem ser realizados de maneira presencial no Descomplica Digital. Lá você pode utilizar os equipamentos e a internet e ainda contar com o apoio de um atendente.\"},{\"position\":3,\"provider_rank\":3,\"title\":\"SP156 utiliza Inteligência Artificial para facilitar o atendimento aos ...\",\"url\":\"https://autodromodeinterlagos.prefeitura.sp.gov.br/web/inovacao/w/sp156-utiliza-intelig%C3%AAncia-artificial-para-facilitar-o-atendimento-aos-cidad%C3%A3os\",\"snippet\":\"A Secretaria Municipal de Inovação e Tecnologia (SMIT) lançou no aplicativo SP156 a nova funcionalidade Solicitação Inteligente, que utiliza Inteligência Artificial (IA) para identificar, a partir do envio de imagem pelo munícipe, qual o serviço ideal que o solicitante está buscando.\"},{\"position\":4,\"provider_rank\":4,\"title\":\"Serviços — Portal - SP 156\",\"url\":\"https://sp156.prefeitura.sp.gov.br/portal/servicos\",\"snippet\":\"SEJA BEM-VINDA (O) AO PORTAL DE ATENDIMENTO SP156 DA CIDADE DE SÃO PAULO. ESCOLHA UM ASSUNTO EM DESTAQUE. A página será redirecionada para o serviço selecionado.\"},{\"position\":5,\"provider_rank\":5,\"title\":\"Aplicativo SP156 passa a utilizar IA para agilizar atendimentos\",\"url\":\"https://www.gazetavirtual.com.br/aplicativo-sp156-passa-a-utilizar-ia-para-agilizar-atendimentos/\",\"snippet\":\"A Prefeitura de São Paulo passou a utilizar inteligência artificial para identificar, a partir do envio de uma imagem, qual serviço o munícipe está buscando no aplicativo SP156. Em fase inicial, a opção conta com seis serviços mapeados (veja a relação abaixo).\"},{\"position\":6,\"provider_rank\":6,\"title\":\"Com nova funcionalidade, aplicativo SP156 passa a utilizar inteligência ...\",\"url\":\"https://gruposulnews.com.br/com-nova-funcionalidade-aplicativo-sp156-passa-a-utilizar-inteligencia-artificial-para-agilizar-atendimentos/\",\"snippet\":\"Com a intenção de reforçar o compromisso com a inovação tecnológica para facilitar a vida dos paulistanos, a Prefeitura de São Paulo passou a utilizar inteligência artificial para identificar, a partir do envio de uma imagem, qual serviço o munícipe está buscando no aplicativo SP156.\"},{\"position\":7,\"provider_rank\":7,\"title\":\"IA a serviço do cidadão: SP156 turbinado com inteligência artificial\",\"url\":\"https://www.iahoje.com/2025/06/ia-servico-do-cidadao-sp156-turbinado.html\",\"snippet\":\"A Prefeitura de São Paulo inovou ao implementar inteligência artificial no aplicativo SP156, visando otimizar e agilizar o atendimento aos cidadãos. A nova funcionalidade promete transformar a maneira como os serviços públicos são acessados na capital paulista.\"},{\"position\":8,\"provider_rank\":8,\"title\":\"Aplicativo SP156 passa a utilizar inteligência artificial para agilizar ...\",\"url\":\"https://jornaldagente.tudoeste.com.br/2025/06/21/aplicativo-sp156-passa-a-utilizar-inteligencia-artificial-para-agilizar-atendimentos/\",\"snippet\":\"A Prefeitura de São Paulo passou a utilizar inteligência artificial para identificar, a partir do envio de uma imagem, qual serviço o munícipe está buscando no aplicativo SP156.\"},{\"position\":9,\"provider_rank\":9,\"title\":\"Serviços do SP156 - Estadão Expresso São Paulo\",\"url\":\"https://expresso.estadao.com.br/sao-paulo/2025/06/17/sp156-testa-inteligencia-artificial-para-agilizar-atendimentos/\",\"snippet\":\"A Prefeitura de São Paulo começou a testar o uso de inteligência artificial no aplicativo SP156 para facilitar a identificação de serviços públicos. A partir de agora, o usuário pode tirar uma foto ou selecionar uma imagem da galeria e enviá-la ao sistema.\"},{\"position\":10,\"provider_rank\":10,\"title\":\"Descomplica Sp 156 - Instagram\",\"url\":\"https://www.instagram.com/popular/descomplica-sp-156/\",\"snippet\":\"Trata-se de um mutirão de serviços de zeladoria que visa promover mais limpeza, cuidado com o espaço público e bem-estar para a população. As ações acontecem aos sábados, com equipes operacionais atuando em locais previamente definidos.\"}],\"has_next_page\":false,\"fetched_at\":\"2026-11-05T19:59:07.616Z\",\"content_sha256\":\"3601629eaeb725514df85c8e69a36e4db46f52fbd6145df66bae096951fd6e0e\",\"acquisition_complete\":true,\"cache_hit\":false}"
+    }
+  ],
+  "structuredContent": {
+    "schema_version": 1,
+    "source_id": "df7d0c4e-03ab-497e-9823-63bc7766f5b7",
+    "provider": "http:duckduckgo",
+    "engine": "duckduckgo",
+    "parser_version": "http-serp-v1",
+    "fallback_reason": null,
+    "query": "SP156 inteligência artificial foto zeladoria aplicativo Descomplica atendimento",
+    "page": 0,
+    "locale": {
+      "language": "pt-BR",
+      "country": "BR"
+    },
+    "results": [
+      {
+        "position": 1,
+        "provider_rank": 1,
+        "title": "SP156 utiliza Inteligência Artificial para facilitar o atendimento aos ...",
+        "url": "https://prefeitura.sp.gov.br/web/inovacao/w/sp156-utiliza-intelig%C3%AAncia-artificial-para-facilitar-o-atendimento-aos-cidad%C3%A3os",
+        "snippet": "A Secretaria Municipal de Inovação e Tecnologia (SMIT) lançou no aplicativo SP156 a nova funcionalidade Solicitação Inteligente, que utiliza Inteligência Artificial (IA) para identificar, a partir do envio de imagem pelo munícipe, qual o serviço ideal que o solicitante está buscando."
+      },
+      {
+        "position": 2,
+        "provider_rank": 2,
+        "title": "Serviços Online — Portal - SP 156",
+        "url": "https://sp156.prefeitura.sp.gov.br/portal/servicos-online",
+        "snippet": "Todos os serviços online do portal SP156 também podem ser realizados de maneira presencial no Descomplica Digital. Lá você pode utilizar os equipamentos e a internet e ainda contar com o apoio de um atendente."
+      },
+      {
+        "position": 3,
+        "provider_rank": 3,
+        "title": "SP156 utiliza Inteligência Artificial para facilitar o atendimento aos ...",
+        "url": "https://autodromodeinterlagos.prefeitura.sp.gov.br/web/inovacao/w/sp156-utiliza-intelig%C3%AAncia-artificial-para-facilitar-o-atendimento-aos-cidad%C3%A3os",
+        "snippet": "A Secretaria Municipal de Inovação e Tecnologia (SMIT) lançou no aplicativo SP156 a nova funcionalidade Solicitação Inteligente, que utiliza Inteligência Artificial (IA) para identificar, a partir do envio de imagem pelo munícipe, qual o serviço ideal que o solicitante está buscando."
+      },
+      {
+        "position": 4,
+        "provider_rank": 4,
+        "title": "Serviços — Portal - SP 156",
+        "url": "https://sp156.prefeitura.sp.gov.br/portal/servicos",
+        "snippet": "SEJA BEM-VINDA (O) AO PORTAL DE ATENDIMENTO SP156 DA CIDADE DE SÃO PAULO. ESCOLHA UM ASSUNTO EM DESTAQUE. A página será redirecionada para o serviço selecionado."
+      },
+      {
+        "position": 5,
+        "provider_rank": 5,
+        "title": "Aplicativo SP156 passa a utilizar IA para agilizar atendimentos",
+        "url": "https://www.gazetavirtual.com.br/aplicativo-sp156-passa-a-utilizar-ia-para-agilizar-atendimentos/",
+        "snippet": "A Prefeitura de São Paulo passou a utilizar inteligência artificial para identificar, a partir do envio de uma imagem, qual serviço o munícipe está buscando no aplicativo SP156. Em fase inicial, a opção conta com seis serviços mapeados (veja a relação abaixo)."
+      },
+      {
+        "position": 6,
+        "provider_rank": 6,
+        "title": "Com nova funcionalidade, aplicativo SP156 passa a utilizar inteligência ...",
+        "url": "https://gruposulnews.com.br/com-nova-funcionalidade-aplicativo-sp156-passa-a-utilizar-inteligencia-artificial-para-agilizar-atendimentos/",
+        "snippet": "Com a intenção de reforçar o compromisso com a inovação tecnológica para facilitar a vida dos paulistanos, a Prefeitura de São Paulo passou a utilizar inteligência artificial para identificar, a partir do envio de uma imagem, qual serviço o munícipe está buscando no aplicativo SP156."
+      },
+      {
+        "position": 7,
+        "provider_rank": 7,
+        "title": "IA a serviço do cidadão: SP156 turbinado com inteligência artificial",
+        "url": "https://www.iahoje.com/2025/06/ia-servico-do-cidadao-sp156-turbinado.html",
+        "snippet": "A Prefeitura de São Paulo inovou ao implementar inteligência artificial no aplicativo SP156, visando otimizar e agilizar o atendimento aos cidadãos. A nova funcionalidade promete transformar a maneira como os serviços públicos são acessados na capital paulista."
+      },
+      {
+        "position": 8,
+        "provider_rank": 8,
+        "title": "Aplicativo SP156 passa a utilizar inteligência artificial para agilizar ...",
+        "url": "https://jornaldagente.tudoeste.com.br/2025/06/21/aplicativo-sp156-passa-a-utilizar-inteligencia-artificial-para-agilizar-atendimentos/",
+        "snippet": "A Prefeitura de São Paulo passou a utilizar inteligência artificial para identificar, a partir do envio de uma imagem, qual serviço o munícipe está buscando no aplicativo SP156."
+      },
+      {
+        "position": 9,
+        "provider_rank": 9,
+        "title": "Serviços do SP156 - Estadão Expresso São Paulo",
+        "url": "https://expresso.estadao.com.br/sao-paulo/2025/06/17/sp156-testa-inteligencia-artificial-para-agilizar-atendimentos/",
+        "snippet": "A Prefeitura de São Paulo começou a testar o uso de inteligência artificial no aplicativo SP156 para facilitar a identificação de serviços públicos. A partir de agora, o usuário pode tirar uma foto ou selecionar uma imagem da galeria e enviá-la ao sistema."
+      },
+      {
+        "position": 10,
+        "provider_rank": 10,
+        "title": "Descomplica Sp 156 - Instagram",
+        "url": "https://www.instagram.com/popular/descomplica-sp-156/",
+        "snippet": "Trata-se de um mutirão de serviços de zeladoria que visa promover mais limpeza, cuidado com o espaço público e bem-estar para a população. As ações acontecem aos sábados, com equipes operacionais atuando em locais previamente definidos."
+      }
+    ],
+    "has_next_page": false,
+    "fetched_at": "2026-11-05T19:59:07.616Z",
+    "content_sha256": "3601629eaeb725514df85c8e69a36e4db46f52fbd6145df66bae096951fd6e0e",
+    "acquisition_complete": true,
+    "cache_hit": false
+  },
+  "isError": false
+}

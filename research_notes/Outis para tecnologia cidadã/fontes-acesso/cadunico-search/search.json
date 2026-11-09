@@ -1,0 +1,100 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"schema_version\":1,\"source_id\":\"259ee4ab-5145-4df7-a09b-7f10658f15d7\",\"provider\":\"http:duckduckgo\",\"engine\":\"duckduckgo\",\"parser_version\":\"http-serp-v1\",\"fallback_reason\":null,\"query\":\"site:prefeitura.sp.gov.br Cadastro Único agendamento atualização documentos comunicado\",\"page\":0,\"locale\":{\"language\":\"pt-BR\",\"country\":\"BR\"},\"results\":[{\"position\":1,\"provider_rank\":1,\"title\":\"Prefeitura do Município de São Paulo\",\"url\":\"https://agendacadunico.prefeitura.sp.gov.br/forms/BemVindo.aspx\",\"snippet\":\"Para emitir 2ª via de protocolo, reagendar ou cancelar um agendamento, acesse o menu, opção Consultar Agendamento. Atualmente, existem 17 serviços associados ao Cadastro Único. Não há necessidade de agendar o atendimento para mais de um serviço da lista.\"},{\"position\":2,\"provider_rank\":2,\"title\":\"Informações sobre CadÚnico - Fazer ou atualizar cadastro — Serviços ...\",\"url\":\"https://sp156.prefeitura.sp.gov.br/portal/servicos/informacao?conteudo=2674\",\"snippet\":\"Na cidade de São Paulo, a entrevista para inserção ou atualização do CadÚnico deve ser prioritariamente agendada. E ainda, há possibilidade de atendimento por encaixe nas unidades do Descomplica e CRAS, quando há falta de cidadão agendado.\"},{\"position\":3,\"provider_rank\":3,\"title\":\"Prefeitura do Município de São Paulo\",\"url\":\"https://agendacadunico.prefeitura.sp.gov.br/forms/Agendarp1.aspx\",\"snippet\":\"Para agendar o seu atendimento preencha os campos abaixo: * campos obrigatórios DADOS CADASTRAIS * CPF:\"},{\"position\":4,\"provider_rank\":4,\"title\":\"CadÚnico: agendamento para atendimento nas unidades do ... - Prefeitura\",\"url\":\"https://prefeitura.sp.gov.br/w/noticia/cadunico-agendamento-para-atendimento-nas-unidades-do-cras-pode-ser-feito-online\",\"snippet\":\"Precisa atualizar ou efetuar a sua inscrição no Cadastro Único (CadÚnico) para programas sociais do Governo Federal? Desde 2019 a Prefeitura de São Paulo disponibiliza o agendamento online para esse tipo de atendimento nas unidades do Centro de Referência de Assistência Social (CRAS) do município.\"},{\"position\":5,\"provider_rank\":5,\"title\":\"CadÚnico - Secretaria Municipal de Assistência e Desenvolvimento Social ...\",\"url\":\"https://www2.prefeitura.sp.gov.br/web/assistencia_social/w/gestao_de_beneficios/327306\",\"snippet\":\"Na cidade de São Paulo, a entrevista para inserção ou atualização do CadÚnico deve ser prioritariamente agendada. E ainda, há possibilidade de atendimento por encaixe nas unidades do Descomplica e CRAS, quando há falta de cidadão agendado.\"},{\"position\":6,\"provider_rank\":6,\"title\":\"Prefeitura do Município de São Paulo\",\"url\":\"http://agendamentosf.prefeitura.sp.gov.br/forms/AgendarP1.aspx\",\"snippet\":\"Para dar continuidade com o agendamento, leia os avisos e clique no botão \\\"Prosseguir\\\" no final da página. Se o serviço desejado não estiver disponível para agendamento, veja abaixo se é possível ser atendido por outro canal. - Importante: é obrigatório o agendamento para ser atendido nas Subprefeituras e no Descomplica.\"},{\"position\":7,\"provider_rank\":7,\"title\":\"Home | Agendamento SIGA\",\"url\":\"https://agendadesc.prefeitura.sp.gov.br/agendamento/\",\"snippet\":\"Como funciona? Veja como é simples fazer o agendamento online do seu atendimento: 1. Faça seu cadastro para ter acesso aos nossos serviços 2. Se já possui um cadastro, clique em \\\"ENTRAR\\\" para fazer o login e visualizar seus atendimentos 3. Escolha a cidade e o serviço desejado Escolha o serviço desejado\"},{\"position\":8,\"provider_rank\":8,\"title\":\"Gerenciador de Agendamentos\",\"url\":\"https://smulweb.prefeitura.sp.gov.br/agendamento/portal\",\"snippet\":\"Tenha em mãos o número do processo (se houver), documento de identidade e documentos relacionados ao seu atendimento. Recomendamos chegar com pelo menos 15 minutos de antecedência para garantir o atendimento no horário agendado. Aqui você encontra resposta para as dúvidas mais comuns.\"},{\"position\":9,\"provider_rank\":9,\"title\":\"Descomplica SP - Prefeitura perto da sua casa\",\"url\":\"https://descomplicasp.prefeitura.sp.gov.br/\",\"snippet\":\"Para menores de 5 anos, não será necessária a apresentação de comprovante. A unidade está localizada dentro do Supermercado Negreiros. Avenida Dra. Ruth Cardoso, 7123 - Pinheiros.\"},{\"position\":10,\"provider_rank\":10,\"title\":\"Prefeitura do Município de São Paulo\",\"url\":\"https://agendamentosf.prefeitura.sp.gov.br/forms/FAQ.aspx\",\"snippet\":\"Quais documentos são necessários para ser atendido pelo agendamento? O contribuinte deverá comparecer com um documento de identidade, o protocolo de agendamento impresso e toda a documentação solicitada no próprio protocolo para o (s) serviço (s) agendado (s).\"}],\"has_next_page\":false,\"fetched_at\":\"2026-11-05T19:59:58.452Z\",\"content_sha256\":\"63b95e6eb7c6f7848a011a819fce26a79b22a4133bb270b8e09e1348cb7839f1\",\"acquisition_complete\":true,\"cache_hit\":false}"
+    }
+  ],
+  "structuredContent": {
+    "schema_version": 1,
+    "source_id": "259ee4ab-5145-4df7-a09b-7f10658f15d7",
+    "provider": "http:duckduckgo",
+    "engine": "duckduckgo",
+    "parser_version": "http-serp-v1",
+    "fallback_reason": null,
+    "query": "site:prefeitura.sp.gov.br Cadastro Único agendamento atualização documentos comunicado",
+    "page": 0,
+    "locale": {
+      "language": "pt-BR",
+      "country": "BR"
+    },
+    "results": [
+      {
+        "position": 1,
+        "provider_rank": 1,
+        "title": "Prefeitura do Município de São Paulo",
+        "url": "https://agendacadunico.prefeitura.sp.gov.br/forms/BemVindo.aspx",
+        "snippet": "Para emitir 2ª via de protocolo, reagendar ou cancelar um agendamento, acesse o menu, opção Consultar Agendamento. Atualmente, existem 17 serviços associados ao Cadastro Único. Não há necessidade de agendar o atendimento para mais de um serviço da lista."
+      },
+      {
+        "position": 2,
+        "provider_rank": 2,
+        "title": "Informações sobre CadÚnico - Fazer ou atualizar cadastro — Serviços ...",
+        "url": "https://sp156.prefeitura.sp.gov.br/portal/servicos/informacao?conteudo=2674",
+        "snippet": "Na cidade de São Paulo, a entrevista para inserção ou atualização do CadÚnico deve ser prioritariamente agendada. E ainda, há possibilidade de atendimento por encaixe nas unidades do Descomplica e CRAS, quando há falta de cidadão agendado."
+      },
+      {
+        "position": 3,
+        "provider_rank": 3,
+        "title": "Prefeitura do Município de São Paulo",
+        "url": "https://agendacadunico.prefeitura.sp.gov.br/forms/Agendarp1.aspx",
+        "snippet": "Para agendar o seu atendimento preencha os campos abaixo: * campos obrigatórios DADOS CADASTRAIS * CPF:"
+      },
+      {
+        "position": 4,
+        "provider_rank": 4,
+        "title": "CadÚnico: agendamento para atendimento nas unidades do ... - Prefeitura",
+        "url": "https://prefeitura.sp.gov.br/w/noticia/cadunico-agendamento-para-atendimento-nas-unidades-do-cras-pode-ser-feito-online",
+        "snippet": "Precisa atualizar ou efetuar a sua inscrição no Cadastro Único (CadÚnico) para programas sociais do Governo Federal? Desde 2019 a Prefeitura de São Paulo disponibiliza o agendamento online para esse tipo de atendimento nas unidades do Centro de Referência de Assistência Social (CRAS) do município."
+      },
+      {
+        "position": 5,
+        "provider_rank": 5,
+        "title": "CadÚnico - Secretaria Municipal de Assistência e Desenvolvimento Social ...",
+        "url": "https://www2.prefeitura.sp.gov.br/web/assistencia_social/w/gestao_de_beneficios/327306",
+        "snippet": "Na cidade de São Paulo, a entrevista para inserção ou atualização do CadÚnico deve ser prioritariamente agendada. E ainda, há possibilidade de atendimento por encaixe nas unidades do Descomplica e CRAS, quando há falta de cidadão agendado."
+      },
+      {
+        "position": 6,
+        "provider_rank": 6,
+        "title": "Prefeitura do Município de São Paulo",
+        "url": "http://agendamentosf.prefeitura.sp.gov.br/forms/AgendarP1.aspx",
+        "snippet": "Para dar continuidade com o agendamento, leia os avisos e clique no botão \"Prosseguir\" no final da página. Se o serviço desejado não estiver disponível para agendamento, veja abaixo se é possível ser atendido por outro canal. - Importante: é obrigatório o agendamento para ser atendido nas Subprefeituras e no Descomplica."
+      },
+      {
+        "position": 7,
+        "provider_rank": 7,
+        "title": "Home | Agendamento SIGA",
+        "url": "https://agendadesc.prefeitura.sp.gov.br/agendamento/",
+        "snippet": "Como funciona? Veja como é simples fazer o agendamento online do seu atendimento: 1. Faça seu cadastro para ter acesso aos nossos serviços 2. Se já possui um cadastro, clique em \"ENTRAR\" para fazer o login e visualizar seus atendimentos 3. Escolha a cidade e o serviço desejado Escolha o serviço desejado"
+      },
+      {
+        "position": 8,
+        "provider_rank": 8,
+        "title": "Gerenciador de Agendamentos",
+        "url": "https://smulweb.prefeitura.sp.gov.br/agendamento/portal",
+        "snippet": "Tenha em mãos o número do processo (se houver), documento de identidade e documentos relacionados ao seu atendimento. Recomendamos chegar com pelo menos 15 minutos de antecedência para garantir o atendimento no horário agendado. Aqui você encontra resposta para as dúvidas mais comuns."
+      },
+      {
+        "position": 9,
+        "provider_rank": 9,
+        "title": "Descomplica SP - Prefeitura perto da sua casa",
+        "url": "https://descomplicasp.prefeitura.sp.gov.br/",
+        "snippet": "Para menores de 5 anos, não será necessária a apresentação de comprovante. A unidade está localizada dentro do Supermercado Negreiros. Avenida Dra. Ruth Cardoso, 7123 - Pinheiros."
+      },
+      {
+        "position": 10,
+        "provider_rank": 10,
+        "title": "Prefeitura do Município de São Paulo",
+        "url": "https://agendamentosf.prefeitura.sp.gov.br/forms/FAQ.aspx",
+        "snippet": "Quais documentos são necessários para ser atendido pelo agendamento? O contribuinte deverá comparecer com um documento de identidade, o protocolo de agendamento impresso e toda a documentação solicitada no próprio protocolo para o (s) serviço (s) agendado (s)."
+      }
+    ],
+    "has_next_page": false,
+    "fetched_at": "2026-11-05T19:59:58.452Z",
+    "content_sha256": "63b95e6eb7c6f7848a011a819fce26a79b22a4133bb270b8e09e1348cb7839f1",
+    "acquisition_complete": true,
+    "cache_hit": false
+  },
+  "isError": false
+}

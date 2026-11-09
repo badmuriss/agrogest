@@ -1,0 +1,30 @@
+[
+  {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"schema_version\":1,\"source_id\":\"02f4d6e7-9e49-4d50-a26a-8f2506ea4085\",\"project_scope\":\"gs-final-fiap-educacao-20261105\",\"view\":\"full\",\"text\":\"Skip to main content\\nGet app\\nNeed math help?\\nMeet Photomath.\\nDon’t stress—not everyone gets math on their first try. Our step-by-step explanations help you break down problems so you can learn as you go.\\nScan\\nHaving trouble? Just scan the problem with our app—even word problems. You can also use the smart calculator to input a problem.\\nSolve\\nA solution will pop up for your exact problem. There might even be multiple methods to choose from.\\nLearn\\nPhotomath is designed for learning. Check out each step to make sure you understand the solution. We’re here to help.\\nGet personal math help.\\nAnytime. Anywhere.\\nYou may feel like the only one who’s confused, but you’re not alone. Every single month Photomath helps millions of learners understand their math.\\nGet app\\nMath, explained.\\nFor elementary through college.\\nElementary math\\nAlgebra\\nGeometry\\nTrigonometry\\nStatistics\\nCalculus\\nBuild your math mind\\nMath from all angles: Photomath for different learning styles\\nRead article\\nStudy Tips to Find Your Focus and Ace Your Next Math Test\\nRead article\\nOvercoming Math Anxiety: How to Conquer Fear & Build Confidence\\nRead article\\nHow Photomath Helps with More than Just Homework\\nRead article\\nSee all articles\\nExplore your options\\nBasic\\n$0 USD\\nStep-by-step explanations\\nCustom visual aids\\nExtra “how” and “why” tips\\nGet app\\nBest Value\\nBilled\\nAnnually\\n$69.99 USD\\nStep-by-step explanations\\nCustom visual aids\\nExtra “how” and “why” tips\\nStart trial\\nBilled\\nMonthly\\n$9.99 USD\\nStep-by-step explanations\\nCustom visual aids\\nExtra “how” and “why” tips\\nStart trial\\nAbout us\\nBuild your math mind\\nCareers\\nHelp\\nTerms of Service\\nPrivacy Policy\\nFor more information including trader identity, business address, email address, and right of withdrawal, please refer to Terms of Service.\",\"total_chars\":1764,\"next_cursor\":null,\"complete\":true,\"acquisition_complete\":true,\"content_sha256\":\"152b039f3f5905a4cafda2d7641d6b89f410def288ab98e7690944fbea7565e5\",\"fetched_at\":\"2026-11-05T20:06:38.006Z\",\"extraction_method\":\"html-v1\",\"selection_requires_review\":true,\"screenshot\":null,\"cache_hit\":false,\"max_age_s\":900}"
+      }
+    ],
+    "structuredContent": {
+      "schema_version": 1,
+      "source_id": "02f4d6e7-9e49-4d50-a26a-8f2506ea4085",
+      "project_scope": "gs-final-fiap-educacao-20261105",
+      "view": "full",
+      "text": "Skip to main content\nGet app\nNeed math help?\nMeet Photomath.\nDon’t stress—not everyone gets math on their first try. Our step-by-step explanations help you break down problems so you can learn as you go.\nScan\nHaving trouble? Just scan the problem with our app—even word problems. You can also use the smart calculator to input a problem.\nSolve\nA solution will pop up for your exact problem. There might even be multiple methods to choose from.\nLearn\nPhotomath is designed for learning. Check out each step to make sure you understand the solution. We’re here to help.\nGet personal math help.\nAnytime. Anywhere.\nYou may feel like the only one who’s confused, but you’re not alone. Every single month Photomath helps millions of learners understand their math.\nGet app\nMath, explained.\nFor elementary through college.\nElementary math\nAlgebra\nGeometry\nTrigonometry\nStatistics\nCalculus\nBuild your math mind\nMath from all angles: Photomath for different learning styles\nRead article\nStudy Tips to Find Your Focus and Ace Your Next Math Test\nRead article\nOvercoming Math Anxiety: How to Conquer Fear & Build Confidence\nRead article\nHow Photomath Helps with More than Just Homework\nRead article\nSee all articles\nExplore your options\nBasic\n$0 USD\nStep-by-step explanations\nCustom visual aids\nExtra “how” and “why” tips\nGet app\nBest Value\nBilled\nAnnually\n$69.99 USD\nStep-by-step explanations\nCustom visual aids\nExtra “how” and “why” tips\nStart trial\nBilled\nMonthly\n$9.99 USD\nStep-by-step explanations\nCustom visual aids\nExtra “how” and “why” tips\nStart trial\nAbout us\nBuild your math mind\nCareers\nHelp\nTerms of Service\nPrivacy Policy\nFor more information including trader identity, business address, email address, and right of withdrawal, please refer to Terms of Service.",
+      "total_chars": 1764,
+      "next_cursor": null,
+      "complete": true,
+      "acquisition_complete": true,
+      "content_sha256": "152b039f3f5905a4cafda2d7641d6b89f410def288ab98e7690944fbea7565e5",
+      "fetched_at": "2026-11-05T20:06:38.006Z",
+      "extraction_method": "html-v1",
+      "selection_requires_review": true,
+      "screenshot": null,
+      "cache_hit": false,
+      "max_age_s": 900
+    },
+    "isError": false
+  }
+]
+

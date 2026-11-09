@@ -1,0 +1,55 @@
+# Dependências e builds (em qualquer subpasta)
+node_modules/
+.next/
+.expo/
+out/
+build/
+dist/
+coverage/
+*.tsbuildinfo
+next-env.d.ts
+
+# Variáveis de ambiente
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+
+# Sistema e ferramentas
+.DS_Store
+Thumbs.db
+.vercel
+supabase/.temp/
+
+# Memória local do assistente
+/memory/
+
+# Rascunhos do ImageGen e anexos de ferramentas
+imagegen-drafts/
+.codex-attachments/
+.codex-remote-attachments/
+
+# Configuração privada da adaptação; exemplos sem segredos podem ser versionados
+.dev.vars
+.dev.vars.*
+!.dev.vars.example
+!.dev.vars.*.example
+.wrangler/
+/local-data/
+/local-models/
+.hf-cache/
+*.gguf
+*.safetensors
+*.pem
+*.key
+.local/
+.models/
+*.traineddata
+
+# Generated from the pinned npm package by build:web
+/agrogest-app/apps/mobile/public/dotlottie-player.wasm
+__pycache__/
+
+/agrogest-app/apps/mobile/public/dotlottie-LICENSE.txt

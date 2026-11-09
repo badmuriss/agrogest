@@ -1,0 +1,86 @@
+{
+  "scope": "gs-final-fiap-citizentech-20261105",
+  "acquisition_key": "gs2-renda-acessibilidade-ibge-01",
+  "request": {
+    "key": "gs2-renda-acessibilidade-ibge-01",
+    "q": "site.ibge.gov.br calçadas rampas acessibilidade entorno domicílios 2022 2025"
+  },
+  "admission": {
+    "status": "fulfilled",
+    "value": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"client_request_id\":\"gs2-renda-acessibilidade-ibge-01\",\"http_status\":202,\"schema_version\":1,\"job_id\":\"d609c749-664f-48c3-9f83-249e94b46cc8\",\"operation\":\"search.web\",\"project_scope\":\"gs-final-fiap-citizentech-20261105\",\"status\":\"queued\",\"cache_hit\":false,\"max_age_s\":900,\"created_at\":1793908720002,\"deadline\":1793908780002,\"usage\":{\"attempts\":0,\"bytes\":0,\"browser_ms\":0},\"usage_basis\":\"proxy_transport_or_reserved_envelope\",\"proxy\":{\"mode\":\"backbone_rotating\"},\"source_id\":null,\"source_export_formats\":[\"bundle\"],\"source_export_batch_limit\":5,\"errors\":[],\"next_poll_after_ms\":1000}"
+        }
+      ],
+      "structuredContent": {
+        "client_request_id": "gs2-renda-acessibilidade-ibge-01",
+        "http_status": 202,
+        "schema_version": 1,
+        "job_id": "d609c749-664f-48c3-9f83-249e94b46cc8",
+        "operation": "search.web",
+        "project_scope": "gs-final-fiap-citizentech-20261105",
+        "status": "queued",
+        "cache_hit": false,
+        "max_age_s": 900,
+        "created_at": 1793908720002,
+        "deadline": 1793908780002,
+        "usage": {
+          "attempts": 0,
+          "bytes": 0,
+          "browser_ms": 0
+        },
+        "usage_basis": "proxy_transport_or_reserved_envelope",
+        "proxy": {
+          "mode": "backbone_rotating"
+        },
+        "source_id": null,
+        "source_export_formats": [
+          "bundle"
+        ],
+        "source_export_batch_limit": 5,
+        "errors": [],
+        "next_poll_after_ms": 1000
+      },
+      "isError": false
+    }
+  },
+  "status": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"schema_version\":1,\"job_id\":\"d609c749-664f-48c3-9f83-249e94b46cc8\",\"operation\":\"search.web\",\"project_scope\":\"gs-final-fiap-citizentech-20261105\",\"status\":\"succeeded\",\"cache_hit\":false,\"max_age_s\":900,\"created_at\":1793908720002,\"deadline\":1793908780002,\"usage\":{\"attempts\":1,\"bytes\":47470,\"browser_ms\":0},\"usage_basis\":\"proxy_transport_or_reserved_envelope\",\"proxy\":{\"mode\":\"backbone_rotating\"},\"source_id\":\"d609c749-664f-48c3-9f83-249e94b46cc8\",\"source_export_formats\":[\"bundle\"],\"source_export_batch_limit\":5,\"errors\":[],\"next_poll_after_ms\":1000}"
+      }
+    ],
+    "structuredContent": {
+      "schema_version": 1,
+      "job_id": "d609c749-664f-48c3-9f83-249e94b46cc8",
+      "operation": "search.web",
+      "project_scope": "gs-final-fiap-citizentech-20261105",
+      "status": "succeeded",
+      "cache_hit": false,
+      "max_age_s": 900,
+      "created_at": 1793908720002,
+      "deadline": 1793908780002,
+      "usage": {
+        "attempts": 1,
+        "bytes": 47470,
+        "browser_ms": 0
+      },
+      "usage_basis": "proxy_transport_or_reserved_envelope",
+      "proxy": {
+        "mode": "backbone_rotating"
+      },
+      "source_id": "d609c749-664f-48c3-9f83-249e94b46cc8",
+      "source_export_formats": [
+        "bundle"
+      ],
+      "source_export_batch_limit": 5,
+      "errors": [],
+      "next_poll_after_ms": 1000
+    },
+    "isError": false
+  },
+  "raw_verification": "unavailable; MCP normalized text was read; raw export was not performed"
+}

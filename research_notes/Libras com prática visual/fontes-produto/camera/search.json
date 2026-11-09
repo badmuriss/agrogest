@@ -1,0 +1,100 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"schema_version\":1,\"source_id\":\"c73b2aa4-ef90-4951-9715-20ff1b1defcc\",\"provider\":\"http:duckduckgo\",\"engine\":\"duckduckgo\",\"parser_version\":\"http-serp-v1\",\"fallback_reason\":null,\"query\":\"Lingvano ASL Bloom SignAll learn camera automatic feedback sign mirror official\",\"page\":0,\"locale\":{\"language\":\"pt-BR\",\"country\":\"BR\"},\"results\":[{\"position\":1,\"provider_rank\":1,\"title\":\"Lingvano - Learn American Sign Language online\",\"url\":\"https://www.lingvano.com/asl\",\"snippet\":\"Our sign recognition technology analyzes how you spell each letter and gives you instant feedback. Know instantly if your hand shape and motion are correct! Mastering the alphabet is essential, since fingerspelling is used constantly in real ASL conversations.\"},{\"position\":2,\"provider_rank\":2,\"title\":\"ASL Bloom | Learn American Sign Language (ASL) Online\",\"url\":\"https://www.aslbloom.com/\",\"snippet\":\"Learn American Sign Language (ASL) with quick, bite-sized lessons. Unlock new levels and master ASL in only 5 minutes a day! Let Bloom and her dog Joy guide you through the Deaf world. Build a learning habit while exploring Deaf culture and everyday life.\"},{\"position\":3,\"provider_rank\":3,\"title\":\"Lingvano - Learn Sign Language - App Store\",\"url\":\"https://apps.apple.com/us/app/lingvano-learn-sign-language/id1547252782\",\"snippet\":\"Join 3 million people and start building bridges by learning ASL with the most popular sign language learning app. Lingvano is the perfect starting point for beginners, with video lessons made by Deaf teachers that can be done anywhere, anytime.\"},{\"position\":4,\"provider_rank\":4,\"title\":\"ASL Bloom\",\"url\":\"https://www.app.aslbloom.com/\",\"snippet\":\"Welcome!\"},{\"position\":5,\"provider_rank\":5,\"title\":\"Lingvano: Sign Language - ASL - Apps on Google Play\",\"url\":\"https://play.google.com/store/apps/details?id=com.lingvano.app&hl=en\",\"snippet\":\"Join 5 million people and start building bridges by learning ASL with the most popular sign language learning app. Lingvano is the perfect starting point for beginners, with video lessons...\"},{\"position\":6,\"provider_rank\":6,\"title\":\"Lingvano\",\"url\":\"https://app.lingvano.com/\",\"snippet\":\"Learn to sign. Join 5 million learners.\"},{\"position\":7,\"provider_rank\":7,\"title\":\"Lingvano: Sign Language - ASL - App Store\",\"url\":\"https://apps.apple.com/ca/app/lingvano-sign-language-asl/id1547252782\",\"snippet\":\"Lingvano is the fun, fast and easy way to learn Sign Language! Our bite-sized, interactive lessons in combination with our ASL dictionary will help you develop the skills you need for real-life communication. Learn American Sign Language (ASL) hands-on and build bridges!\"},{\"position\":8,\"provider_rank\":8,\"title\":\"Lingvano Review 2026: Learn ASL and BSL From Deaf Teachers — The Sign ...\",\"url\":\"https://inclusiveinfohub.com/lingvano-review-2026-learn-asl-and-bsl-from-deaf-teachers-the-sign-language-app-3-million-people-trust\",\"snippet\":\"Lingvano is a sign language learning app for ASL, BSL, and Auslan with video lessons taught by Deaf teachers, Sign Mirror feedback, and interactive quizzes. Available on iOS and Android. Full 2026 review for learners in Pakistan, Asia, the US, and UK.\"},{\"position\":9,\"provider_rank\":9,\"title\":\"Lingvano - Learn Sign Language - Education App | MWM\",\"url\":\"https://mwm.ai/apps/lingvano-learn-sign-language/1547252782\",\"snippet\":\"Join 5 million people and start building bridges by learning ASL with the most popular sign language learning app. Lingvano is the perfect starting point for beginners, with video lessons made by Deaf teachers that can be done anywhere, anytime.\"},{\"position\":10,\"provider_rank\":10,\"title\":\"Lingvano Sign Language - Learn ASL Free | Official App\",\"url\":\"https://app.offerratings.com/app/lingvano-sign-language-asl/\",\"snippet\":\"For those eager to bridge communication gaps and learn American Sign Language (ASL) in a structured yet engaging way, Lingvano offers a promising digital gateway.\"}],\"has_next_page\":true,\"fetched_at\":\"2026-11-06T02:09:47.140Z\",\"content_sha256\":\"27a5cdacad1aca199517c3d55d7914280fa81903af61f1ff3516367395273fb7\",\"acquisition_complete\":true,\"cache_hit\":false}"
+    }
+  ],
+  "structuredContent": {
+    "schema_version": 1,
+    "source_id": "c73b2aa4-ef90-4951-9715-20ff1b1defcc",
+    "provider": "http:duckduckgo",
+    "engine": "duckduckgo",
+    "parser_version": "http-serp-v1",
+    "fallback_reason": null,
+    "query": "Lingvano ASL Bloom SignAll learn camera automatic feedback sign mirror official",
+    "page": 0,
+    "locale": {
+      "language": "pt-BR",
+      "country": "BR"
+    },
+    "results": [
+      {
+        "position": 1,
+        "provider_rank": 1,
+        "title": "Lingvano - Learn American Sign Language online",
+        "url": "https://www.lingvano.com/asl",
+        "snippet": "Our sign recognition technology analyzes how you spell each letter and gives you instant feedback. Know instantly if your hand shape and motion are correct! Mastering the alphabet is essential, since fingerspelling is used constantly in real ASL conversations."
+      },
+      {
+        "position": 2,
+        "provider_rank": 2,
+        "title": "ASL Bloom | Learn American Sign Language (ASL) Online",
+        "url": "https://www.aslbloom.com/",
+        "snippet": "Learn American Sign Language (ASL) with quick, bite-sized lessons. Unlock new levels and master ASL in only 5 minutes a day! Let Bloom and her dog Joy guide you through the Deaf world. Build a learning habit while exploring Deaf culture and everyday life."
+      },
+      {
+        "position": 3,
+        "provider_rank": 3,
+        "title": "Lingvano - Learn Sign Language - App Store",
+        "url": "https://apps.apple.com/us/app/lingvano-learn-sign-language/id1547252782",
+        "snippet": "Join 3 million people and start building bridges by learning ASL with the most popular sign language learning app. Lingvano is the perfect starting point for beginners, with video lessons made by Deaf teachers that can be done anywhere, anytime."
+      },
+      {
+        "position": 4,
+        "provider_rank": 4,
+        "title": "ASL Bloom",
+        "url": "https://www.app.aslbloom.com/",
+        "snippet": "Welcome!"
+      },
+      {
+        "position": 5,
+        "provider_rank": 5,
+        "title": "Lingvano: Sign Language - ASL - Apps on Google Play",
+        "url": "https://play.google.com/store/apps/details?id=com.lingvano.app&hl=en",
+        "snippet": "Join 5 million people and start building bridges by learning ASL with the most popular sign language learning app. Lingvano is the perfect starting point for beginners, with video lessons..."
+      },
+      {
+        "position": 6,
+        "provider_rank": 6,
+        "title": "Lingvano",
+        "url": "https://app.lingvano.com/",
+        "snippet": "Learn to sign. Join 5 million learners."
+      },
+      {
+        "position": 7,
+        "provider_rank": 7,
+        "title": "Lingvano: Sign Language - ASL - App Store",
+        "url": "https://apps.apple.com/ca/app/lingvano-sign-language-asl/id1547252782",
+        "snippet": "Lingvano is the fun, fast and easy way to learn Sign Language! Our bite-sized, interactive lessons in combination with our ASL dictionary will help you develop the skills you need for real-life communication. Learn American Sign Language (ASL) hands-on and build bridges!"
+      },
+      {
+        "position": 8,
+        "provider_rank": 8,
+        "title": "Lingvano Review 2026: Learn ASL and BSL From Deaf Teachers — The Sign ...",
+        "url": "https://inclusiveinfohub.com/lingvano-review-2026-learn-asl-and-bsl-from-deaf-teachers-the-sign-language-app-3-million-people-trust",
+        "snippet": "Lingvano is a sign language learning app for ASL, BSL, and Auslan with video lessons taught by Deaf teachers, Sign Mirror feedback, and interactive quizzes. Available on iOS and Android. Full 2026 review for learners in Pakistan, Asia, the US, and UK."
+      },
+      {
+        "position": 9,
+        "provider_rank": 9,
+        "title": "Lingvano - Learn Sign Language - Education App | MWM",
+        "url": "https://mwm.ai/apps/lingvano-learn-sign-language/1547252782",
+        "snippet": "Join 5 million people and start building bridges by learning ASL with the most popular sign language learning app. Lingvano is the perfect starting point for beginners, with video lessons made by Deaf teachers that can be done anywhere, anytime."
+      },
+      {
+        "position": 10,
+        "provider_rank": 10,
+        "title": "Lingvano Sign Language - Learn ASL Free | Official App",
+        "url": "https://app.offerratings.com/app/lingvano-sign-language-asl/",
+        "snippet": "For those eager to bridge communication gaps and learn American Sign Language (ASL) in a structured yet engaging way, Lingvano offers a promising digital gateway."
+      }
+    ],
+    "has_next_page": true,
+    "fetched_at": "2026-11-06T02:09:47.140Z",
+    "content_sha256": "27a5cdacad1aca199517c3d55d7914280fa81903af61f1ff3516367395273fb7",
+    "acquisition_complete": true,
+    "cache_hit": false
+  },
+  "isError": false
+}

@@ -1,0 +1,26 @@
+
+> test:api
+> npm --prefix agrogest-app/apps/api test
+
+
+> test
+> node --import ../../tests/resolve-ts.mjs --test tests/*.test.mjs
+
+✔ D1/R2: real image → actual OCR → reviewed expense → another partner approval → calculated indicator (676.415834ms)
+✔ authorization isolates workspaces, employees and tampered operations (7.063231ms)
+✔ duplicate command IDs, stale approvals and concurrent commands never duplicate effects (19.03074ms)
+✔ two concurrent payments cannot settle the same obligation twice; reversal preserves expense cost (13.355042ms)
+✔ integer money, balanced installments and lot ownership are enforced on server (14.328828ms)
+✔ cost classification, recurrences, budgets and spreadsheet opening titles preserve the original expense (23.122154ms)
+✔ treasury uses account ownership, financing release limits and reversible renegotiation (17.914358ms)
+✔ lot transfer carries the computed value once, closes source and preserves account separation (22.833217ms)
+✔ discarding an unsent documentary draft releases its link without deleting the original image (151.951185ms)
+✔ demotion and session revocation are rechecked even when replaying an acknowledged financial command (13.956019ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1194.049629

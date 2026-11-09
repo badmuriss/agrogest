@@ -1,0 +1,100 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"schema_version\":1,\"source_id\":\"0cad7a5b-90a8-4a58-98bc-4a80f1cb12dc\",\"provider\":\"http:duckduckgo\",\"engine\":\"duckduckgo\",\"parser_version\":\"http-serp-v1\",\"fallback_reason\":null,\"query\":\"site:cetic.br TIC Domicílios 2024 habilidades digitais segurança internet educação\",\"page\":0,\"locale\":{\"language\":\"pt-BR\",\"country\":\"BR\"},\"results\":[{\"position\":1,\"provider_rank\":1,\"title\":\"Cetic.br - TIC Domicílios\",\"url\":\"https://cetic.br/pesquisa/domicilios/\",\"snippet\":\"Realizada anualmente desde 2005, a pesquisa TIC Domicílios tem o objetivo de mapear o acesso às tecnologias de informação e comunicação (TIC) nos domicílios urbanos e rurais do Brasil, bem como as suas formas de uso por indivíduos de 10 anos de idade ou mais.\"},{\"position\":2,\"provider_rank\":2,\"title\":\"TIC Domicílios\",\"url\":\"https://cetic.br/pt/tics/domicilios/2024/domicilios/\",\"snippet\":\"Em 2012, o Cetic.br tornou-se um Centro de Categoria 2 da UNESCO, o primeiro do tipo dedicado ao desenvolvimento das sociedades da informação e do conhecimento. O Centro está vinculado ao Setor de Comunicação e Informação (CI), uma das cinco áreas da UNESCO.\"},{\"position\":3,\"provider_rank\":3,\"title\":\"PDF TIC Domicílios\",\"url\":\"https://cetic.br/media/docs/publicacoes/2/20250512120132/tic_domicilios_2024_livro_eletronico.pdf\",\"snippet\":\"A pesquisa TIC Domicílios 2024 apontou que 46% dos usuários de Internet compraram produtos ou serviços pela Internet nos 12 meses anteriores ao estudo, o que representa 73 milhões de pessoas.\"},{\"position\":4,\"provider_rank\":4,\"title\":\"PDF Pesquisa TIC Domicílios 2024 — RESUMO EXECUTIVO\",\"url\":\"https://cetic.br/media/docs/publicacoes/2/20250512115624/tic_domicilios_2024_resumo_executivo.pdf\",\"snippet\":\"Entre os usuários de Internet de 10 a 15 anos, 88% realizaram atividades ou pesquisas escolares e 65% estudaram pela Internet por conta própria, enquanto 34% dos usuários de 16 a 24 anos buscaram informações\"},{\"position\":5,\"provider_rank\":5,\"title\":\"PDF TIC Domicílios 2024 Lançamento dos dados Semana de Inovação 2024\",\"url\":\"https://cetic.br/media/analises/tic_domicilios_2024_principais_resultados.pdf\",\"snippet\":\"Pesquisa sobre o uso das tecnologias de informação e comunicação nos domicílios brasileiros: TIC Domicílios 2024. * Inclui os usuários de Internet, os usuários de Internet no telefone celular e os usuários de aplicações que necessitam de conexão à Internet. Fonte: NIC.br. (2023).\"},{\"position\":6,\"provider_rank\":6,\"title\":\"TIC Domicílios - Cetic.br\",\"url\":\"https://cetic.br/pt/pesquisa/domicilios/publicacoes/\",\"snippet\":\"O Centro está vinculado ao Setor de Comunicação e Informação (CI), uma das cinco áreas da UNESCO. Ele contribui para que os objetivos estratégicos da organização sejam atingidos, fortalecendo seus esforços para monitorar a construção de sociedades da informação e do conhecimento.\"},{\"position\":7,\"provider_rank\":7,\"title\":\"Tic Domicílios 2024\",\"url\":\"https://cetic.br/pt/tics/domicilios/2024/individuos/I1A/expandido/\",\"snippet\":\"Pesquisa sobre o uso das tecnologias de informação e comunicação nos domicílios brasileiros: TIC Domicílios 2024 [Tabelas].\"},{\"position\":8,\"provider_rank\":8,\"title\":\"Cetic.br - Home\",\"url\":\"https://cetic.br/\",\"snippet\":\"O Cetic.br é o centro do NIC.br responsável por produzir indicadores e análises sobre o acesso, o uso e a apropriação das TIC no Brasil, divulgando pesquisas e informações periódicas que subsidiam políticas públicas voltadas à transformação digital.\"},{\"position\":9,\"provider_rank\":9,\"title\":\"Cetic.br - TIC Domicílios\",\"url\":\"https://cetic.br/pt/pesquisa/domicilios/indicadores/\",\"snippet\":\"Em 2012, o Cetic.br tornou-se um Centro de Categoria 2 da UNESCO, o primeiro do tipo dedicado ao desenvolvimento das sociedades da informação e do conhecimento. O Centro está vinculado ao Setor de Comunicação e Informação (CI), uma das cinco áreas da UNESCO.\"},{\"position\":10,\"provider_rank\":10,\"title\":\"Cetic.br - TIC Domicílios\",\"url\":\"https://cetic.br/pt/pesquisa/domicilios/analises/\",\"snippet\":\"O Centro está vinculado ao Setor de Comunicação e Informação (CI), uma das cinco áreas da UNESCO. Ele contribui para que os objetivos estratégicos da organização sejam atingidos, fortalecendo seus esforços para monitorar a construção de sociedades da informação e do conhecimento.\"}],\"has_next_page\":true,\"fetched_at\":\"2026-11-05T21:41:04.444Z\",\"content_sha256\":\"9f26d940b820793e14ed6d754e3e3e4527f48229b21cad75f7918019f65fc4b5\",\"acquisition_complete\":true,\"cache_hit\":false}"
+    }
+  ],
+  "structuredContent": {
+    "schema_version": 1,
+    "source_id": "0cad7a5b-90a8-4a58-98bc-4a80f1cb12dc",
+    "provider": "http:duckduckgo",
+    "engine": "duckduckgo",
+    "parser_version": "http-serp-v1",
+    "fallback_reason": null,
+    "query": "site:cetic.br TIC Domicílios 2024 habilidades digitais segurança internet educação",
+    "page": 0,
+    "locale": {
+      "language": "pt-BR",
+      "country": "BR"
+    },
+    "results": [
+      {
+        "position": 1,
+        "provider_rank": 1,
+        "title": "Cetic.br - TIC Domicílios",
+        "url": "https://cetic.br/pesquisa/domicilios/",
+        "snippet": "Realizada anualmente desde 2005, a pesquisa TIC Domicílios tem o objetivo de mapear o acesso às tecnologias de informação e comunicação (TIC) nos domicílios urbanos e rurais do Brasil, bem como as suas formas de uso por indivíduos de 10 anos de idade ou mais."
+      },
+      {
+        "position": 2,
+        "provider_rank": 2,
+        "title": "TIC Domicílios",
+        "url": "https://cetic.br/pt/tics/domicilios/2024/domicilios/",
+        "snippet": "Em 2012, o Cetic.br tornou-se um Centro de Categoria 2 da UNESCO, o primeiro do tipo dedicado ao desenvolvimento das sociedades da informação e do conhecimento. O Centro está vinculado ao Setor de Comunicação e Informação (CI), uma das cinco áreas da UNESCO."
+      },
+      {
+        "position": 3,
+        "provider_rank": 3,
+        "title": "PDF TIC Domicílios",
+        "url": "https://cetic.br/media/docs/publicacoes/2/20250512120132/tic_domicilios_2024_livro_eletronico.pdf",
+        "snippet": "A pesquisa TIC Domicílios 2024 apontou que 46% dos usuários de Internet compraram produtos ou serviços pela Internet nos 12 meses anteriores ao estudo, o que representa 73 milhões de pessoas."
+      },
+      {
+        "position": 4,
+        "provider_rank": 4,
+        "title": "PDF Pesquisa TIC Domicílios 2024 — RESUMO EXECUTIVO",
+        "url": "https://cetic.br/media/docs/publicacoes/2/20250512115624/tic_domicilios_2024_resumo_executivo.pdf",
+        "snippet": "Entre os usuários de Internet de 10 a 15 anos, 88% realizaram atividades ou pesquisas escolares e 65% estudaram pela Internet por conta própria, enquanto 34% dos usuários de 16 a 24 anos buscaram informações"
+      },
+      {
+        "position": 5,
+        "provider_rank": 5,
+        "title": "PDF TIC Domicílios 2024 Lançamento dos dados Semana de Inovação 2024",
+        "url": "https://cetic.br/media/analises/tic_domicilios_2024_principais_resultados.pdf",
+        "snippet": "Pesquisa sobre o uso das tecnologias de informação e comunicação nos domicílios brasileiros: TIC Domicílios 2024. * Inclui os usuários de Internet, os usuários de Internet no telefone celular e os usuários de aplicações que necessitam de conexão à Internet. Fonte: NIC.br. (2023)."
+      },
+      {
+        "position": 6,
+        "provider_rank": 6,
+        "title": "TIC Domicílios - Cetic.br",
+        "url": "https://cetic.br/pt/pesquisa/domicilios/publicacoes/",
+        "snippet": "O Centro está vinculado ao Setor de Comunicação e Informação (CI), uma das cinco áreas da UNESCO. Ele contribui para que os objetivos estratégicos da organização sejam atingidos, fortalecendo seus esforços para monitorar a construção de sociedades da informação e do conhecimento."
+      },
+      {
+        "position": 7,
+        "provider_rank": 7,
+        "title": "Tic Domicílios 2024",
+        "url": "https://cetic.br/pt/tics/domicilios/2024/individuos/I1A/expandido/",
+        "snippet": "Pesquisa sobre o uso das tecnologias de informação e comunicação nos domicílios brasileiros: TIC Domicílios 2024 [Tabelas]."
+      },
+      {
+        "position": 8,
+        "provider_rank": 8,
+        "title": "Cetic.br - Home",
+        "url": "https://cetic.br/",
+        "snippet": "O Cetic.br é o centro do NIC.br responsável por produzir indicadores e análises sobre o acesso, o uso e a apropriação das TIC no Brasil, divulgando pesquisas e informações periódicas que subsidiam políticas públicas voltadas à transformação digital."
+      },
+      {
+        "position": 9,
+        "provider_rank": 9,
+        "title": "Cetic.br - TIC Domicílios",
+        "url": "https://cetic.br/pt/pesquisa/domicilios/indicadores/",
+        "snippet": "Em 2012, o Cetic.br tornou-se um Centro de Categoria 2 da UNESCO, o primeiro do tipo dedicado ao desenvolvimento das sociedades da informação e do conhecimento. O Centro está vinculado ao Setor de Comunicação e Informação (CI), uma das cinco áreas da UNESCO."
+      },
+      {
+        "position": 10,
+        "provider_rank": 10,
+        "title": "Cetic.br - TIC Domicílios",
+        "url": "https://cetic.br/pt/pesquisa/domicilios/analises/",
+        "snippet": "O Centro está vinculado ao Setor de Comunicação e Informação (CI), uma das cinco áreas da UNESCO. Ele contribui para que os objetivos estratégicos da organização sejam atingidos, fortalecendo seus esforços para monitorar a construção de sociedades da informação e do conhecimento."
+      }
+    ],
+    "has_next_page": true,
+    "fetched_at": "2026-11-05T21:41:04.444Z",
+    "content_sha256": "9f26d940b820793e14ed6d754e3e3e4527f48229b21cad75f7918019f65fc4b5",
+    "acquisition_complete": true,
+    "cache_hit": false
+  },
+  "isError": false
+}

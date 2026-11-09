@@ -1,0 +1,308 @@
+
+> check
+> npm run typecheck && npm run lint && npm test && npm run test:api && npm run test:ocr
+
+
+> typecheck
+> npm --prefix agrogest-app/apps/mobile run typecheck && npm --prefix agrogest-app/apps/api run typecheck
+
+
+> agrogest-mobile@0.1.0 typecheck
+> tsc --noEmit
+
+
+> typecheck
+> tsc --noEmit
+
+
+> lint
+> npm --prefix agrogest-app/apps/mobile run lint
+
+
+> agrogest-mobile@0.1.0 lint
+> expo lint
+
+
+> test
+> npm --prefix agrogest-app test
+
+
+> test
+> node --import ./tests/resolve-ts.mjs --test "tests/*.test.mjs"
+
+✔ each action reads as a short sentence with the object in evidence and no money (2.016165ms)
+✔ days read as Hoje/Ontem/date and plain dates have no time (0.685706ms)
+✔ the local prototype builds activity from entry history, newest first, merging created+sent (2.688685ms)
+✔ callback screen only finishes after verified success with a session (1.594692ms)
+✔ password recovery keeps priority over the confirmation result (0.19003ms)
+✔ app stays closed while a PKCE session is unverified or rejected (1.493904ms)
+✔ a link refused before creating a session keeps the existing session open (0.148966ms)
+✔ signup cooldown and simultaneous resends never create users or send twice (1.942706ms)
+✔ failed delivery reserves cooldown, maps rate limiting and ignores replies after reset (0.322334ms)
+✔ missing session cannot claim that the email was confirmed (0.545935ms)
+✔ verification after a returning link waits for an in-flight resend (0.230907ms)
+✔ confirmation requires a server-verified confirmed user in the same current session (1.25296ms)
+✔ sign-out or account switch during verification cannot return the old session (0.27727ms)
+✔ validation and network/expiry failures remain explicit without throwing raw provider errors (0.383522ms)
+✔ callback accepts exact app locations and preserves the SDK PKCE flow ID (0.897078ms)
+✔ live weight becomes carcass arrobas with the reference yield (300 kg vivos = 10 @) (0.919369ms)
+✔ break-even price per arroba divides the remaining cost by the estimated arrobas (0.366796ms)
+✔ no heads, no weight or no cost gives no break-even (0.233426ms)
+✔ centers: isolation, groups, concurrency, inactivation, immutable grouping and idempotency (1828.276443ms)
+✔ historical classification audits changes without touching entries, payments, approval or version (79.700312ms)
+✔ recurrence center survives create, update, workspace reload and expense launch (18.756343ms)
+✔ offline chained edits use revisions rather than client/server clock equality (11.634244ms)
+✔ issue example: Roda 650, pastagens 400, mão de obra 700; no duplicate parent/child or financial records (8.844753ms)
+✔ unclassified history, previous period, combined farm/category/center filters and inactive references (1.382265ms)
+✔ cash uses partial settlements and proportionate extras, never unpaid installments or reversed/conflicting payments (1.65758ms)
+✔ cash from renegotiated expenses remains attributable to each original center without duplication (0.544078ms)
+✔ local access mirrors partner-only backend; inactive and foreign centers cannot be selected (2.15971ms)
+✔ nested renegotiations retain non-expense shares and rounding reconciles exactly (0.527297ms)
+✔ card purchases become cash spending only on actual partial invoice payments, preserving opening debt and farm scope (1.006053ms)
+✔ invoice partial cents reconcile per original expense; partner reimbursement never repeats supplier spending (0.42573ms)
+✔ web access-handle errors explain previous openings and other tabs without requiring either (1.383295ms)
+✔ migration and unknown errors keep a generic actionable message on both platforms (0.244549ms)
+✔ initialization releases an opened database if its migration fails, preserving the original error (0.731697ms)
+✔ successful initialization retains the connection and reuses the existing database version (0.704853ms)
+✔ a transient web OPFS lock retries once, with a cooldown and no retry for migration errors (0.198247ms)
+✔ SQLite v12 upgrade keeps the outbox, owner and membership edits after reopening (1701.989232ms)
+✔ a permission error refreshes demoted access without losing the queued commands or another operation (5.522996ms)
+✔ SQLite upgrade preserves existing v2 lots and creates the durable outbox (2.264647ms)
+✔ SQLite v3 upgrade preserves pending commands and document numbers round-trip (3.821318ms)
+✔ SQLite v4 upgrade adds the farm boundary and lot location (2.051566ms)
+▶ AgroGest command API: isolation, replay, approvals and balances
+  ✔ anonymous callers cannot read or write (6.43009ms)
+  ✔ farm creation is atomic and idempotent (77.462282ms)
+  ✔ lot scope and integer cents are validated (37.373556ms)
+  ✔ solo operational entries are confirmed only by the server (10.305508ms)
+  ✔ an invitation can only be accepted by its verified email owner (32.182277ms)
+  ✔ employees cannot extract purchase costs or become partners (10.823203ms)
+  ✔ installments and allocations must close exactly, another partner approves (26.285712ms)
+  ✔ two deliveries cannot reserve more heads than available (13.712305ms)
+  ✔ employees receive sale quantities for accurate herd balances without financial data (17.29732ms)
+  ✔ partners edit lot root data without breaking balances or history (52.348151ms)
+  ✔ farm boundary and lot pins: roles, validation, conflicts and projection (91.813577ms)
+  ✔ unrelated accounts still have no access after sharing and approvals (3.600229ms)
+  ✔ a revoked partner immediately loses server reads and commands (7.207422ms)
+✔ AgroGest command API: isolation, replay, approvals and balances (389.143878ms)
+✔ SQLite v5 upgrade preserves invites and their display context survives reopening (4.024648ms)
+✔ whole-lot transfers carry remaining cost atomically, isolate history and reject stale or unauthorized moves (81.775615ms)
+✔ SQLite v6 upgrade preserves the outbox and round-trips both sides of a transfer (2.410063ms)
+✔ SQLite v7 upgrade converts free-text pastures into farm pastures without losing the text (2.532833ms)
+✔ SQLite v8 upgrade adds the optional pasture outline and keeps the pastures (1.533519ms)
+✔ SQLite v10 upgrade adds finance and stock tables, keeps entries and the outbox, and round-trips them (2.01597ms)
+✔ SQLite v11 upgrade adds the lot purchase plan, keeps old lots without one, and round-trips it (1.94058ms)
+▶ pastures and moves: registry, legacy conversion, balances per pasture, approvals and projection
+  ✔ partners register pastures; names are unique per farm and area/forage are validated (22.128216ms)
+  ✔ lots reference an active pasture of their farm; old clients get a converted pasture (17.311797ms)
+  ✔ employees move animals; partial and total moves keep the economic lot intact (32.516975ms)
+  ✔ moves above the pasture balance, invalid pastures and future dates are refused or conflict (9.464491ms)
+  ✔ two devices cannot reserve the same heads, and approval rechecks confirmed history (19.878836ms)
+  ✔ exits and weighings tied to a pasture must fit that group; retroactive moves cannot break later history (24.385813ms)
+  ✔ editing a pasture detects conflicts, renames the lot text and cannot inactivate an occupied pasture (62.058523ms)
+  ✔ the server conversion is idempotent and matches the app id for existing lots (10.545162ms)
+  ✔ a farm transfer lands in an active pasture of the destination farm (23.938878ms)
+  ✔ partners may draw an optional pasture outline; it is validated, conflict-checked and projected (53.661312ms)
+  ✔ only a never-used pasture can be deleted; one with history must be inactivated (25.596537ms)
+  ✔ the activity log names who did what, without money, and employees see field activity only (32.145785ms)
+  ✔ a lot transferred out leaves its pastures, which can then be inactivated (9.89754ms)
+  ✔ employees receive the pasture of masked sales, so their occupancy matches the partners (49.223166ms)
+✔ pastures and moves: registry, legacy conversion, balances per pasture, approvals and projection (396.242888ms)
+✔ people: email-only invitations resolve account names, role changes revoke privileges, and removals preserve history (134.085885ms)
+✔ SQLite v14→v15 preserves account and outbox; image drafts survive authoritative snapshot replacement (1.356158ms)
+✔ the plan of accounts is the same in the app and in the database (1784.1344ms)
+▶ finance base: registry, payments, conflicts, reversals and the employee projection
+  ✔ only partners register accounts, categories and contacts; employees receive none of it (46.685586ms)
+  ✔ expenses accept the plan and the registered supplier; unknown references are refused (22.844979ms)
+  ✔ a payment against an obligation still waiting for approval is a conflict, not an error (5.319653ms)
+  ✔ after approval: partial payment, replay of the same command and the rest still open (14.90368ms)
+  ✔ two devices settling the same installment: the second one beyond the open amount conflicts (5.495179ms)
+  ✔ one payment settles several installments, with interest, fine and discount moving only cash (4.796769ms)
+  ✔ reversal reopens the installment; a conflict is dismissed; nothing is deleted (18.574317ms)
+  ✔ sales are received in installments that close the net amount; direction must match (38.874897ms)
+  ✔ an expense saved before the finance base (no category, no contact) is an open payable (6.668698ms)
+  ✔ account rules: edits need the previous state, the opening stays before payments, inactive or older dates conflict (16.052613ms)
+  ✔ activity shows payments without amounts, only to partners (16.850782ms)
+✔ finance base: registry, payments, conflicts, reversals and the employee projection (199.583919ms)
+▶ lot purchase: the informed payment plan becomes payables; values are locked once paid
+  ✔ the plan is set apart from the lot, by a partner, and must close each part (40.467148ms)
+  ✔ installments are paid like any payable, in the fixed order animals, commission, freight (8.579963ms)
+  ✔ purchase values are locked while paid; after reversals, a change drops the plan (30.894526ms)
+  ✔ activity shows the plan to partners only, without values (15.258838ms)
+✔ lot purchase: the informed payment plan becomes payables; values are locked once paid (95.758332ms)
+✔ card accounts need the closing and due days; employees never receive the new finance data (1912.371951ms)
+▶ movements: transfers, partner contributions and withdrawals change balances, not results; conflicts never block the queue
+  ✔ a transfer needs two different accounts of the operation; it is idempotent (10.265501ms)
+  ✔ contributions and withdrawals belong to a partner of the operation (11.652014ms)
+  ✔ an inactive account or a date before its opening is a conflict (5.633102ms)
+  ✔ paying the card invoice is a transfer to the card with the invoice month (5.428633ms)
+  ✔ reversal requires a reason and keeps the row (10.780936ms)
+✔ movements: transfers, partner contributions and withdrawals change balances, not results; conflicts never block the queue (44.736573ms)
+✔ an expense paid by a partner with own money becomes a reimbursement payable to them (42.488121ms)
+✔ a client advance is cash in, then compensated on the sale receivable without moving cash again (30.3244ms)
+▶ financings: the release is cash in without result; installments are payables (principal + interest)
+  ✔ the schedule must amortize exactly the contracted amount (6.828586ms)
+  ✔ releases cannot exceed the contract (4.995081ms)
+  ✔ installments are paid like any payable (6.527631ms)
+✔ financings: the release is cash in without result; installments are payables (principal + interest) (18.842443ms)
+▶ renegotiation closes the originals at what was paid and creates the new installments; undo is auditable
+  ✔ the reason is required; the frozen paid amount comes from the server (6.904957ms)
+  ✔ the originals take no more payments; the new installments do (10.123567ms)
+  ✔ a renegotiated renegotiation must be undone first; undoing reopens the originals (9.947902ms)
+  ✔ cancelling (no new installments) closes the installment at what was paid (3.317188ms)
+  ✔ a paid installment cannot be renegotiated; the conflict keeps the queue moving (5.813384ms)
+✔ renegotiation closes the originals at what was paid and creates the new installments; undo is auditable (44.202547ms)
+✔ other revenues need another partner to approve; employees neither register nor approve them (39.380624ms)
+✔ recurring expenses: the template is versioned and each month is launched once (34.044821ms)
+✔ budgets are one value per category and month (20.004254ms)
+✔ imported titles are opening payables and receivables; importing again does not duplicate (44.07657ms)
+✔ activity shows the new finance actions without amounts, only to partners (20.125047ms)
+✔ acceptance: a R$ 12.000 purchase in 3 installments stays in October; cash changes only on each payment (3.950284ms)
+✔ acceptance: transfers, partner contributions and financing releases change balances, not the result (1.923958ms)
+✔ acceptance: DRE and cash flow of the same period reconcile exactly through the bridge (1.159796ms)
+✔ acceptance: an expense paid with own money becomes a reimbursement payable to the partner (0.918862ms)
+✔ a client advance is compensated on the receivable without moving cash twice (0.712159ms)
+✔ card purchases go to the invoice of the cycle; paying the invoice is a transfer that leaves cash (1.548946ms)
+✔ renegotiation: the originals close at what was paid; new installments carry the rest; cancelling closes without new ones (1.303967ms)
+✔ recurring expenses: monthly forecasts until launched; one expense per month (0.873912ms)
+✔ projected cash flow starts from today, counts overdue items today and warns of a negative balance (0.271234ms)
+✔ aging, spending by category and budget variance (1.099148ms)
+✔ distribution by share closes the cents exactly; SAC schedule amortizes the contract (0.729101ms)
+✔ movement rules mirror the server (0.362919ms)
+✔ bank statements: OFX and CSV lines, match suggestions and already imported lines (1.509756ms)
+✔ bank matching keeps direction, exact open amount, ten-day limits and stable order for ties (0.326ms)
+✔ report and export installment lookups keep indexes, first references and farm filters (1.002812ms)
+✔ spreadsheet import: titles with stable keys, opening balances and line errors (1.067969ms)
+✔ exports: CSV with Brazilian decimals, a multi-sheet workbook and a printable report (0.936543ms)
+✔ alerts: chosen advance, card invoices and a daily overdue reminder (0.377657ms)
+✔ missing purchase payments follow transferred animals back to the original purchase exactly once (2.219464ms)
+✔ missing purchase payment reminders include closed purchases and freight, skip zero values, and tolerate broken transfer chains (0.260267ms)
+✔ a purchase in 3 installments is one obligation with 3 payables; pending and rejected entries owe nothing yet (1.246807ms)
+✔ old expenses with installments become open payables without any copy; old sales receive the net on the sale date (0.592128ms)
+✔ partial and multiple payments: the rest stays open, a reversed payment stops counting, and interest/discount move only cash (0.508172ms)
+✔ payment conflicts: beyond the open amount, an unapproved obligation, another operation or direction (1.005998ms)
+✔ payment form validation: account, values, dates and duplicated installments (0.468243ms)
+✔ account statement: opening balance, receipts in, payments out, conflicts and reversals ignored (3.019265ms)
+✔ due alerts 3 days before and on the day, only for open installments, never in the past (0.715887ms)
+✔ due summary splits overdue and the next 7 days (0.382349ms)
+✔ a stock purchase is a payable in the stock category; categories resolve by id or by the old name (1.012469ms)
+✔ a lot purchase becomes payables only when its payment is informed; old lots stay out (0.38633ms)
+✔ the purchase plan closes each part of the lot cost (0.484424ms)
+✔ paying the lot purchase: open amount, overpayment and the lock on editing the plan (0.592601ms)
+✔ area and perimeter match a 1 km square within 1% (0.908358ms)
+✔ rings open and close without duplicating vertices (0.678055ms)
+✔ self-intersecting, degenerate and out-of-range rings are rejected (0.342608ms)
+✔ centroid and point-in-polygon work for lot pins (0.297876ms)
+✔ a pasture point on the farm fence is not "outside"; one 50 m beyond it is (0.300966ms)
+✔ typed coordinates are read as latitude, longitude (0.305365ms)
+✔ a full transfer preserves total heads and invested capital without fabricating a sale or expense (8.708843ms)
+✔ the domain rejects same-farm, pending and stale transfer previews (0.552395ms)
+✔ network snapshots cannot overwrite a transfer and a failed request releases the queue (4.259371ms)
+✔ NativeWind keeps styled components and forwards the real RN asset registry (3.347518ms)
+✔ legacy pasture ids are stable md5 UUIDs of farm and normalized name (2.342138ms)
+✔ pasture validation requires name, positive area and forage, and rejects duplicate names in the farm (1.01683ms)
+✔ partial and total moves keep lot heads, cost and history while groups change pasture (2.173459ms)
+✔ moves above the pasture balance, to the same pasture, before entry or contradicting later records conflict (1.082435ms)
+✔ two devices reserving the same heads: the second delivery conflicts, the first approves (0.861278ms)
+✔ GMD is attributed only to weighings of the same group in the same pasture (1.822852ms)
+✔ pasture status: occupied since the current lots arrived, resting since the last exit, or never used (0.616524ms)
+✔ a pasture can be deleted only while no lot or entry of any status uses it (0.2395ms)
+✔ estimates are flagged, measured-only and period filters can leave "insufficient data" (1.05542ms)
+✔ a whole-lot weighing while split is not attributed, and a transferred entry weight is not a base (0.446649ms)
+✔ lot edit limits include moves and the farm transfer lands in a pasture of the destination (0.700048ms)
+✔ same data keeps the previous snapshot, ignoring only the last sync time (0.898879ms)
+✔ a changed table is replaced while equal tables keep their reference (0.222899ms)
+✔ any other setting change counts as new data (0.138183ms)
+✔ structural equality distinguishes order, missing keys, null and arrays (0.142301ms)
+✔ the first read is used as is (0.10406ms)
+✔ sharing unchanged data never preserves financial access after a role downgrade (5.778887ms)
+✔ membership removal takes effect even when every farm and lot stays unchanged (1.592249ms)
+▶ stock: supplies, purchases, consumption with reservations, adjustments, transfers and the employee projection
+  ✔ only partners register supplies; everyone sees them; the unit is fixed after use (25.838373ms)
+  ✔ a stock purchase closes the items, has no lot allocation, and becomes payables without lot cost (23.311872ms)
+  ✔ consumption needs approved stock: a pending purchase does not count (16.181198ms)
+  ✔ 5 bags a week: recorded by the employee, approved by anyone else; the balance follows (8.648914ms)
+  ✔ two devices: pending consumptions reserve the stock; the second beyond the balance conflicts (11.76362ms)
+  ✔ consumption rules: no amount, no future date, lots of the farm, period and manual percentages (11.508838ms)
+  ✔ stock adjustments: approved only by another partner; a loss leaves the stock (12.667906ms)
+  ✔ transfer to another farm of the operation, at the average cost, arriving only when approved (10.55333ms)
+  ✔ employees receive the stock movements and masked purchases, never values (11.568085ms)
+  ✔ supply edits need the previous state and keep the unit once used (8.93756ms)
+✔ stock: supplies, purchases, consumption with reservations, adjustments, transfers and the employee projection (1998.140389ms)
+✔ the app replay (stockLedger) gives the same balances and values as the server for the same entries (55.776898ms)
+✔ salt truck: 12 t in 3 installments enters the stock and the payables, without any cost in the lots (3.046759ms)
+✔ 5 bags a week leave the stock at the average cost and the lots receive exactly that value (1.387429ms)
+✔ weighted average across purchases, and the last unit takes exactly what is left (no cent lost) (0.345416ms)
+✔ consumption above the balance, before the purchase, or contradicting a later one is a conflict (0.847269ms)
+✔ two devices: pending consumptions reserve the stock, pending purchases do not add to it (0.833261ms)
+✔ transfer between farms keeps the average cost; losses leave the stock and never reach the lots (0.397159ms)
+✔ allocation basis uses the herd on the consumption date, or head-days over a period (0.7942ms)
+✔ stock positions: balance, value, average cost, days left from the last 30 days and the low alert (0.610009ms)
+✔ head-days include both endpoints, stop on the transfer date and honor same-day approved changes (0.27639ms)
+✔ historical allocation matches chronological lot reconstruction across dates, statuses and weight ties (17.106496ms)
+✔ supply validation and quantity formatting (0.302236ms)
+(node:2514260) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///data/projects/hobby/gs-final-fiap/agrogest-app/apps/mobile/src/services/due-alerts.ts?missing-native is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /data/projects/hobby/gs-final-fiap/agrogest-app/apps/mobile/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ cost centers and historical classification survive queue retry and snapshot roundtrip without rewriting expenses (8.775562ms)
+✔ automatic sync only runs in foreground while connected and releases all listeners (0.422205ms)
+✔ the queue badge counts in SQLite without fetching or parsing payloads (1.51716ms)
+✔ simultaneous sync triggers share one request and preserve edits queued during its reply (1.585968ms)
+✔ an account mismatch never sends queued data and a later retry keeps its command ID (2.22846ms)
+✔ missing native topic support never evaluates the notifications entry point (5.558946ms)
+✔ logout reconciles after a slow native schedule so the previous account leaves no alerts (1.576996ms)
+✔ workspace projections retain member visibility, partner-only finance, farm context and sign-out (7.350022ms)
+✔ lot indexing preserves approved, pending, rejected, shared allocations and transfers without mutating input (1.123921ms)
+✔ stock grouping preserves multi-item purchases, pending previews, transfers and rejected records (1.453414ms)
+✔ payment history keeps order and reversals, counts repeated references once and settles only binding statuses (1.070507ms)
+✔ purchase installment positions stay within each component in the fixed animals, commission, freight order (0.379097ms)
+✔ shared month arithmetic and reused number formatters preserve displayed values (1.813559ms)
+ℹ tests 216
+ℹ suites 0
+ℹ pass 216
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2966.540738
+
+> test:api
+> npm --prefix agrogest-app/apps/api test
+
+
+> test
+> node --import ../../tests/resolve-ts.mjs --test tests/*.test.mjs
+
+✔ D1/R2: real image → actual OCR → reviewed expense → another partner approval → calculated indicator (693.129969ms)
+✔ authorization isolates workspaces, employees and tampered operations (6.989946ms)
+✔ duplicate command IDs, stale approvals and concurrent commands never duplicate effects (21.513527ms)
+✔ two concurrent payments cannot settle the same obligation twice; reversal preserves expense cost (12.286428ms)
+✔ integer money, balanced installments and lot ownership are enforced on server (15.519896ms)
+✔ cost classification, recurrences, budgets and spreadsheet opening titles preserve the original expense (23.779706ms)
+✔ treasury uses account ownership, financing release limits and reversible renegotiation (18.541497ms)
+✔ lot transfer carries the computed value once, closes source and preserves account separation (20.519065ms)
+✔ discarding an unsent documentary draft releases its link without deleting the original image (149.121608ms)
+✔ demotion and session revocation are rechecked even when replaying an acknowledged financial command (10.041517ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1211.276323
+
+> test:ocr
+> python -m unittest discover -s agrogest-app/services/extraction -p 'test_*.py' -v
+
+test_conflicting_totals_and_invalid_calendar_are_not_guessed (test_extraction.ExtractionTests.test_conflicting_totals_and_invalid_calendar_are_not_guessed) ... ok
+test_corrupted_and_non_image_inputs_fail (test_extraction.ExtractionTests.test_corrupted_and_non_image_inputs_fail) ... ok
+test_missing_fields_stay_missing (test_extraction.ExtractionTests.test_missing_fields_stay_missing) ... ok
+test_other_image_is_not_a_constant_sample (test_extraction.ExtractionTests.test_other_image_is_not_a_constant_sample) ... ok
+test_real_portuguese_image (test_extraction.ExtractionTests.test_real_portuguese_image) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.317s
+
+OK

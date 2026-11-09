@@ -1,0 +1,101 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"schema_version\":1,\"source_id\":\"1d39b9c9-c2f2-4d65-989d-1188aaabf2b6\",\"provider\":\"http:duckduckgo\",\"engine\":\"duckduckgo\",\"parser_version\":\"http-serp-v1\",\"fallback_reason\":null,\"query\":\"site:elevenlabs.io/docs agents image input visual contextual update\",\"page\":0,\"locale\":{\"language\":\"pt-BR\",\"country\":\"BR\"},\"results\":[{\"position\":1,\"provider_rank\":1,\"title\":\"Update agent | ElevenLabs Documentation\",\"url\":\"https://elevenlabs.io/docs/api-reference/agents/update\",\"snippet\":\"Workflow for the agent. This is used to define the flow of the conversation and how the agent interacts with tools.\"},{\"position\":2,\"provider_rank\":2,\"title\":\"Update agent branch | ElevenLabs Documentation\",\"url\":\"https://elevenlabs.io/docs/api-reference/agents/branches/update\",\"snippet\":\"Update agent branch properties such as name, description, archiving status, protection level, and auto-rebase onto main\"},{\"position\":3,\"provider_rank\":3,\"title\":\"elevenlabs.io\",\"url\":\"https://elevenlabs.io/docs/eleven-agents/customization/agent-workflows.md\",\"snippet\":\"Workflows are stored in the agent's top-level `workflow` field, so you can also pull, edit, and push the JSON via the CLI or update it via the SDK — useful for version control and CI/CD.\"},{\"position\":4,\"provider_rank\":4,\"title\":\"Update state | ElevenLabs Documentation\",\"url\":\"https://elevenlabs.io/docs/eleven-agents/customization/tools/system-tools/update-state\",\"snippet\":\"The Update state tool lets your agent set one or more dynamic variables while a conversation is in progress. Like other system tools, it only changes the internal state of the conversation — it never calls an external API or a client-side function.\"},{\"position\":5,\"provider_rank\":5,\"title\":\"Workflows | ElevenLabs Documentation\",\"url\":\"https://elevenlabs.io/docs/eleven-agents/customization/agent-workflows\",\"snippet\":\"Agent Workflows provide a powerful visual interface for designing complex conversation flows in ElevenAgents. Instead of relying on linear conversation paths, workflows enable you to create sophisticated, branching conversation graphs that adapt dynamically to user needs.\"},{\"position\":6,\"provider_rank\":6,\"title\":\"Update Procedure Draft | ElevenLabs Documentation\",\"url\":\"https://elevenlabs.io/docs/api-reference/agents/procedures/update\",\"snippet\":\"When the agent should use this procedure. Empty string means this is a sub-procedure that should only start when another procedure references it.\"},{\"position\":7,\"provider_rank\":7,\"title\":\"elevenlabs.io\",\"url\":\"https://elevenlabs.io/docs/pt/eleven-agents/customization/tools/system-tools/update-state.md\",\"snippet\":\"Para aplicar atualizações de estado em um ponto fixo de um [workflow] (/docs/pt/eleven-agents/customization/agent-workflows), em vez de sempre que o LLM chama uma ferramenta, use um [nó de atualização de estado] (/docs/pt/eleven-agents/customization/agent-workflows#update-state-node).\"},{\"position\":8,\"provider_rank\":8,\"title\":\"Workflows | ElevenLabs Documentation\",\"url\":\"https://elevenlabs.io/docs/pt/eleven-agents/customization/agent-workflows\",\"snippet\":\"Abra seu agente no painel, acesse a aba Workflow e use o editor visual para adicionar nós, configurar o comportamento dos subagentes e conectar arestas. Salve suas alterações. Os workflows são compostos por diferentes tipos de nós, cada um com uma finalidade específica no fluxo da sua conversa.\"},{\"position\":9,\"provider_rank\":9,\"title\":\"Como criamos o agente de documentação da ElevenLabs\",\"url\":\"https://elevenlabs.io/docs/pt/eleven-agents/guides/elevenlabs-docs-agent\",\"snippet\":\"Nosso agente de documentação, Alexis, atua como uma assistente interativa no site de documentação da ElevenLabs, ajudando usuários a navegar por nossas ofertas de produtos e documentação técnica. Este guia mostra como desenvolvemos a Alexis para oferecer orientações naturais e úteis com o ElevenLabs Agents.\"},{\"position\":10,\"provider_rank\":10,\"title\":\"elevenlabs.io\",\"url\":\"https://elevenlabs.io/docs/eleven-agents/customization/knowledge-base.md\",\"snippet\":\"When a document is attached to an agent, the agent can draw on its contents to answer questions accurately and consistently. To create, edit, and organize documents, see [Manage documents] (/docs/eleven-agents/customization/knowledge-base/manage-documents).\"}],\"has_next_page\":true,\"fetched_at\":\"2026-11-05T20:22:12.443Z\",\"content_sha256\":\"1226441becc1daf7fe0ba1350fbf13cde3d6404b13180c93558115eaf4f08501\",\"acquisition_complete\":true,\"cache_hit\":false}"
+    }
+  ],
+  "structuredContent": {
+    "schema_version": 1,
+    "source_id": "1d39b9c9-c2f2-4d65-989d-1188aaabf2b6",
+    "provider": "http:duckduckgo",
+    "engine": "duckduckgo",
+    "parser_version": "http-serp-v1",
+    "fallback_reason": null,
+    "query": "site:elevenlabs.io/docs agents image input visual contextual update",
+    "page": 0,
+    "locale": {
+      "language": "pt-BR",
+      "country": "BR"
+    },
+    "results": [
+      {
+        "position": 1,
+        "provider_rank": 1,
+        "title": "Update agent | ElevenLabs Documentation",
+        "url": "https://elevenlabs.io/docs/api-reference/agents/update",
+        "snippet": "Workflow for the agent. This is used to define the flow of the conversation and how the agent interacts with tools."
+      },
+      {
+        "position": 2,
+        "provider_rank": 2,
+        "title": "Update agent branch | ElevenLabs Documentation",
+        "url": "https://elevenlabs.io/docs/api-reference/agents/branches/update",
+        "snippet": "Update agent branch properties such as name, description, archiving status, protection level, and auto-rebase onto main"
+      },
+      {
+        "position": 3,
+        "provider_rank": 3,
+        "title": "elevenlabs.io",
+        "url": "https://elevenlabs.io/docs/eleven-agents/customization/agent-workflows.md",
+        "snippet": "Workflows are stored in the agent's top-level `workflow` field, so you can also pull, edit, and push the JSON via the CLI or update it via the SDK — useful for version control and CI/CD."
+      },
+      {
+        "position": 4,
+        "provider_rank": 4,
+        "title": "Update state | ElevenLabs Documentation",
+        "url": "https://elevenlabs.io/docs/eleven-agents/customization/tools/system-tools/update-state",
+        "snippet": "The Update state tool lets your agent set one or more dynamic variables while a conversation is in progress. Like other system tools, it only changes the internal state of the conversation — it never calls an external API or a client-side function."
+      },
+      {
+        "position": 5,
+        "provider_rank": 5,
+        "title": "Workflows | ElevenLabs Documentation",
+        "url": "https://elevenlabs.io/docs/eleven-agents/customization/agent-workflows",
+        "snippet": "Agent Workflows provide a powerful visual interface for designing complex conversation flows in ElevenAgents. Instead of relying on linear conversation paths, workflows enable you to create sophisticated, branching conversation graphs that adapt dynamically to user needs."
+      },
+      {
+        "position": 6,
+        "provider_rank": 6,
+        "title": "Update Procedure Draft | ElevenLabs Documentation",
+        "url": "https://elevenlabs.io/docs/api-reference/agents/procedures/update",
+        "snippet": "When the agent should use this procedure. Empty string means this is a sub-procedure that should only start when another procedure references it."
+      },
+      {
+        "position": 7,
+        "provider_rank": 7,
+        "title": "elevenlabs.io",
+        "url": "https://elevenlabs.io/docs/pt/eleven-agents/customization/tools/system-tools/update-state.md",
+        "snippet": "Para aplicar atualizações de estado em um ponto fixo de um [workflow] (/docs/pt/eleven-agents/customization/agent-workflows), em vez de sempre que o LLM chama uma ferramenta, use um [nó de atualização de estado] (/docs/pt/eleven-agents/customization/agent-workflows#update-state-node)."
+      },
+      {
+        "position": 8,
+        "provider_rank": 8,
+        "title": "Workflows | ElevenLabs Documentation",
+        "url": "https://elevenlabs.io/docs/pt/eleven-agents/customization/agent-workflows",
+        "snippet": "Abra seu agente no painel, acesse a aba Workflow e use o editor visual para adicionar nós, configurar o comportamento dos subagentes e conectar arestas. Salve suas alterações. Os workflows são compostos por diferentes tipos de nós, cada um com uma finalidade específica no fluxo da sua conversa."
+      },
+      {
+        "position": 9,
+        "provider_rank": 9,
+        "title": "Como criamos o agente de documentação da ElevenLabs",
+        "url": "https://elevenlabs.io/docs/pt/eleven-agents/guides/elevenlabs-docs-agent",
+        "snippet": "Nosso agente de documentação, Alexis, atua como uma assistente interativa no site de documentação da ElevenLabs, ajudando usuários a navegar por nossas ofertas de produtos e documentação técnica. Este guia mostra como desenvolvemos a Alexis para oferecer orientações naturais e úteis com o ElevenLabs Agents."
+      },
+      {
+        "position": 10,
+        "provider_rank": 10,
+        "title": "elevenlabs.io",
+        "url": "https://elevenlabs.io/docs/eleven-agents/customization/knowledge-base.md",
+        "snippet": "When a document is attached to an agent, the agent can draw on its contents to answer questions accurately and consistently. To create, edit, and organize documents, see [Manage documents] (/docs/eleven-agents/customization/knowledge-base/manage-documents)."
+      }
+    ],
+    "has_next_page": true,
+    "fetched_at": "2026-11-05T20:22:12.443Z",
+    "content_sha256": "1226441becc1daf7fe0ba1350fbf13cde3d6404b13180c93558115eaf4f08501",
+    "acquisition_complete": true,
+    "cache_hit": false
+  },
+  "isError": false
+}
+

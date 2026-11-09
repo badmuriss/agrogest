@@ -1,0 +1,100 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"schema_version\":1,\"source_id\":\"7f037f30-6007-4d9e-91de-6f5402196acb\",\"provider\":\"http:duckduckgo\",\"engine\":\"duckduckgo\",\"parser_version\":\"http-serp-v1\",\"fallback_reason\":null,\"query\":\"site.ufsc.br Libras corpus termos de uso licença Creative Commons\",\"page\":0,\"locale\":{\"language\":\"pt-BR\",\"country\":\"BR\"},\"results\":[{\"position\":1,\"provider_rank\":1,\"title\":\"UFSC - Corpus Libras - Início\",\"url\":\"https://corpuslibras.ufsc.br/\",\"snippet\":\"O que significa Corpus de Libras? É um conjunto de produções em Libras que resultam de projetos de pesquisa. Em que isso ajuda? Se alguém estiver interessado, pode acessar e escolher os dados que precisar para sua pesquisa. Os materiais salvos aqui no Corpus também apresentam variações linguísticas e culturais.\"},{\"position\":2,\"provider_rank\":2,\"title\":\"Corpus Libras - Início\",\"url\":\"https://corpuslibras.ufsc.br/?lang=ptbr\",\"snippet\":\"Bem vindo à página do Corpus de LIBRAS! O Corpus de Libras envolve um conjunto de dados e metadados da língua brasileira de sinais que passa a estar acessível a todas as pessoas interessadas.\"},{\"position\":3,\"provider_rank\":3,\"title\":\"Portal Libras\",\"url\":\"https://libras.ufsc.br/\",\"snippet\":\"Caso ainda tenha dúvidas de porque está vendo essa página, abra um chamado no sistema de atendimento da SeTIC.\"},{\"position\":4,\"provider_rank\":4,\"title\":\"Corpus Libras - UFSC\",\"url\":\"https://repositorio.ufsc.br/handle/123456789/115687\",\"snippet\":\"Junior, Wander Alves Oliveira (2) ... View More Subject Libras, Literatura surda, Literatura e Glossário (321) entrevista (12) poesia (9) libras (5) surdo referencia (4) vocabulario (4) Escrita de Sinais (2) Libras (2) Narrativa (2) Amazônia; Lendas; ;Literatura Surda (1) ... View More Date Issued 2020 - 2025 (315) 2010 - 2019 (3619) 2004 ...\"},{\"position\":5,\"provider_rank\":5,\"title\":\"Corpus de Libras - repositorio.ufsc.br\",\"url\":\"https://repositorio.ufsc.br/handle/123456789/115550\",\"snippet\":\"Unknown author (2015-03-16) Tema 2 - Porguês - Nível Superior - 2006 Unknown author (2015-03-13) Tema 6- Libras - Nível Superior - 2007 Unknown author (2015-03-13) Tema 1 - Português - Nível Médio - 2007 Unknown author (2015-03-12)\"},{\"position\":6,\"provider_rank\":6,\"title\":\"Corpus de Libras | NALS\",\"url\":\"https://nals.cce.ufsc.br/?page_id=71\",\"snippet\":\"Contribuindo para a reversão deste quadro, o presente projeto tem como objetivo constituir um corpus de libras abrangente e consistente, sistematizando os procedimentos de registro, documentação e recuperação de dados e metadados relativos a libras.\"},{\"position\":7,\"provider_rank\":7,\"title\":\"Departamento de Libras (LSB/CCE) - UFSC\",\"url\":\"https://dlsb.paginas.ufsc.br/portal-de-libras/\",\"snippet\":\"Simplifique! Comunica BR Participe Acesso à informação Legislação Canais O conteúdo desse portal pode ser acessível em Libras usando o VLibras\"},{\"position\":8,\"provider_rank\":8,\"title\":\"CorpusLibras - INCLUA\",\"url\":\"https://inclua.ipea.gov.br/recurso/corpuslibras/\",\"snippet\":\"Desenvolvido pela Universidade Federal de Santa Catarina, o Corpus Libras realiza pesquisas, cataloga e difunde a língua de sinais valorizando a cultura surda.\"},{\"position\":9,\"provider_rank\":9,\"title\":\"Biblioteca Universitária\",\"url\":\"https://portal.bu.ufsc.br/\",\"snippet\":\"Durante o mês de novembro, a Biblioteca Central receberá seis exposições que convidam a comunidade a apreciar diferentes expressões artísticas, conhecer novos olhares e refletir sobre memória, cultura e diversidade.\"},{\"position\":10,\"provider_rank\":10,\"title\":\"CC Search Portal - Creative Commons license\",\"url\":\"https://search.creativecommons.org/?lang=pt\",\"snippet\":\"Find content you can share, use, and remix. The Creative Commons (CC) Search Portal helps you search CC licensed works across multiple platforms.\"}],\"has_next_page\":true,\"fetched_at\":\"2026-11-06T02:10:30.867Z\",\"content_sha256\":\"bf8ee0300d43b01fea7a3aa77ad4a16d76a719249c3dd089fc7618db0c467c08\",\"acquisition_complete\":true,\"cache_hit\":false}"
+    }
+  ],
+  "structuredContent": {
+    "schema_version": 1,
+    "source_id": "7f037f30-6007-4d9e-91de-6f5402196acb",
+    "provider": "http:duckduckgo",
+    "engine": "duckduckgo",
+    "parser_version": "http-serp-v1",
+    "fallback_reason": null,
+    "query": "site.ufsc.br Libras corpus termos de uso licença Creative Commons",
+    "page": 0,
+    "locale": {
+      "language": "pt-BR",
+      "country": "BR"
+    },
+    "results": [
+      {
+        "position": 1,
+        "provider_rank": 1,
+        "title": "UFSC - Corpus Libras - Início",
+        "url": "https://corpuslibras.ufsc.br/",
+        "snippet": "O que significa Corpus de Libras? É um conjunto de produções em Libras que resultam de projetos de pesquisa. Em que isso ajuda? Se alguém estiver interessado, pode acessar e escolher os dados que precisar para sua pesquisa. Os materiais salvos aqui no Corpus também apresentam variações linguísticas e culturais."
+      },
+      {
+        "position": 2,
+        "provider_rank": 2,
+        "title": "Corpus Libras - Início",
+        "url": "https://corpuslibras.ufsc.br/?lang=ptbr",
+        "snippet": "Bem vindo à página do Corpus de LIBRAS! O Corpus de Libras envolve um conjunto de dados e metadados da língua brasileira de sinais que passa a estar acessível a todas as pessoas interessadas."
+      },
+      {
+        "position": 3,
+        "provider_rank": 3,
+        "title": "Portal Libras",
+        "url": "https://libras.ufsc.br/",
+        "snippet": "Caso ainda tenha dúvidas de porque está vendo essa página, abra um chamado no sistema de atendimento da SeTIC."
+      },
+      {
+        "position": 4,
+        "provider_rank": 4,
+        "title": "Corpus Libras - UFSC",
+        "url": "https://repositorio.ufsc.br/handle/123456789/115687",
+        "snippet": "Junior, Wander Alves Oliveira (2) ... View More Subject Libras, Literatura surda, Literatura e Glossário (321) entrevista (12) poesia (9) libras (5) surdo referencia (4) vocabulario (4) Escrita de Sinais (2) Libras (2) Narrativa (2) Amazônia; Lendas; ;Literatura Surda (1) ... View More Date Issued 2020 - 2025 (315) 2010 - 2019 (3619) 2004 ..."
+      },
+      {
+        "position": 5,
+        "provider_rank": 5,
+        "title": "Corpus de Libras - repositorio.ufsc.br",
+        "url": "https://repositorio.ufsc.br/handle/123456789/115550",
+        "snippet": "Unknown author (2015-03-16) Tema 2 - Porguês - Nível Superior - 2006 Unknown author (2015-03-13) Tema 6- Libras - Nível Superior - 2007 Unknown author (2015-03-13) Tema 1 - Português - Nível Médio - 2007 Unknown author (2015-03-12)"
+      },
+      {
+        "position": 6,
+        "provider_rank": 6,
+        "title": "Corpus de Libras | NALS",
+        "url": "https://nals.cce.ufsc.br/?page_id=71",
+        "snippet": "Contribuindo para a reversão deste quadro, o presente projeto tem como objetivo constituir um corpus de libras abrangente e consistente, sistematizando os procedimentos de registro, documentação e recuperação de dados e metadados relativos a libras."
+      },
+      {
+        "position": 7,
+        "provider_rank": 7,
+        "title": "Departamento de Libras (LSB/CCE) - UFSC",
+        "url": "https://dlsb.paginas.ufsc.br/portal-de-libras/",
+        "snippet": "Simplifique! Comunica BR Participe Acesso à informação Legislação Canais O conteúdo desse portal pode ser acessível em Libras usando o VLibras"
+      },
+      {
+        "position": 8,
+        "provider_rank": 8,
+        "title": "CorpusLibras - INCLUA",
+        "url": "https://inclua.ipea.gov.br/recurso/corpuslibras/",
+        "snippet": "Desenvolvido pela Universidade Federal de Santa Catarina, o Corpus Libras realiza pesquisas, cataloga e difunde a língua de sinais valorizando a cultura surda."
+      },
+      {
+        "position": 9,
+        "provider_rank": 9,
+        "title": "Biblioteca Universitária",
+        "url": "https://portal.bu.ufsc.br/",
+        "snippet": "Durante o mês de novembro, a Biblioteca Central receberá seis exposições que convidam a comunidade a apreciar diferentes expressões artísticas, conhecer novos olhares e refletir sobre memória, cultura e diversidade."
+      },
+      {
+        "position": 10,
+        "provider_rank": 10,
+        "title": "CC Search Portal - Creative Commons license",
+        "url": "https://search.creativecommons.org/?lang=pt",
+        "snippet": "Find content you can share, use, and remix. The Creative Commons (CC) Search Portal helps you search CC licensed works across multiple platforms."
+      }
+    ],
+    "has_next_page": true,
+    "fetched_at": "2026-11-06T02:10:30.867Z",
+    "content_sha256": "bf8ee0300d43b01fea7a3aa77ad4a16d76a719249c3dd089fc7618db0c467c08",
+    "acquisition_complete": true,
+    "cache_hit": false
+  },
+  "isError": false
+}

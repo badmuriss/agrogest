@@ -1,0 +1,25 @@
+{
+  "name": "agrogest",
+  "private": true,
+  "engines": {
+    "node": ">=24.10.0 <25"
+  },
+  "scripts": {
+    "start": "node scripts/dev-local.mjs",
+    "web": "npm --prefix agrogest-app/apps/mobile run web",
+    "typecheck": "npm --prefix agrogest-app/apps/mobile run typecheck && npm --prefix agrogest-app/apps/api run typecheck",
+    "lint": "npm --prefix agrogest-app/apps/mobile run lint",
+    "test": "npm --prefix agrogest-app test",
+    "check": "npm run typecheck && npm run lint && npm test && npm run test:api && npm run test:ocr",
+    "benchmark:domain": "npm --prefix agrogest-app run benchmark:domain",
+    "export:check": "npm --prefix agrogest-app/apps/mobile run export:check",
+    "dev:local": "node scripts/dev-local.mjs",
+    "build:web": "node scripts/build-web.mjs",
+    "api:local": "npm --prefix agrogest-app/apps/api run dev",
+    "db:local": "npm --prefix agrogest-app/apps/api run migrate",
+    "ocr:local": "python agrogest-app/services/extraction/server.py",
+    "test:api": "npm --prefix agrogest-app/apps/api test",
+    "setup:local": "npm --prefix agrogest-app ci --no-audit --no-fund && npm --prefix agrogest-app/apps/mobile ci --no-audit --no-fund && npm --prefix agrogest-app/apps/api ci --no-audit --no-fund && python agrogest-app/services/extraction/setup.py",
+    "test:ocr": "python -m unittest discover -s agrogest-app/services/extraction -p 'test_*.py' -v"
+  }
+}

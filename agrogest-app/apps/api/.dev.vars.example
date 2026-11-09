@@ -1,0 +1,18 @@
+# Private backend configuration. Copy to .dev.vars (ignored) and edit locally.
+# Do not use EXPO_PUBLIC_ for any provider credential. No deployment is required.
+APP_ENV=local
+INFERENCE_PROVIDER=local
+INFERENCE_REMOTE_ALLOWED=false
+LOCAL_OCR_BASE_URL=http://127.0.0.1:8091
+INFERENCE_TIMEOUT_MS=45000
+INFERENCE_MAX_OUTPUT_TOKENS=1200
+FRONTEND_ORIGIN=http://localhost:8081
+
+# Optional authorized remote inference: provider workers-ai OR openrouter.
+# Set INFERENCE_REMOTE_ALLOWED=true only when intentionally selecting remote inference.
+WORKERS_AI_ACCOUNT_ID=
+WORKERS_AI_API_TOKEN=
+WORKERS_AI_MODEL=@cf/meta/llama-4-scout-17b-16e-instruct
+OPENROUTER_API_KEY=
+OPENROUTER_MODEL=
+OPENROUTER_PROVIDER=

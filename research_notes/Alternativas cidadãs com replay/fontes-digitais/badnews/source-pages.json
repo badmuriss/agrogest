@@ -1,0 +1,29 @@
+[
+  {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"schema_version\":1,\"source_id\":\"e31d8b78-16a5-4d0e-8cb7-f3333a555e6b\",\"project_scope\":\"gs-final-fiap-citizentech-20261105\",\"view\":\"full\",\"text\":\"Secret Link\\n We use cookies to ensure that we give you the best experience on our website. If you continue to use this site we will assume that you are happy with it.Ok\",\"total_chars\":168,\"next_cursor\":null,\"complete\":true,\"acquisition_complete\":true,\"content_sha256\":\"645d699fc1eaeb62374c33aa588df18883fc3bf9b42719e0de736d8f91cfb4a4\",\"fetched_at\":\"2026-11-05T21:42:11.934Z\",\"extraction_method\":\"html-v1\",\"selection_requires_review\":true,\"screenshot\":null,\"cache_hit\":false,\"max_age_s\":900}"
+      }
+    ],
+    "structuredContent": {
+      "schema_version": 1,
+      "source_id": "e31d8b78-16a5-4d0e-8cb7-f3333a555e6b",
+      "project_scope": "gs-final-fiap-citizentech-20261105",
+      "view": "full",
+      "text": "Secret Link\n We use cookies to ensure that we give you the best experience on our website. If you continue to use this site we will assume that you are happy with it.Ok",
+      "total_chars": 168,
+      "next_cursor": null,
+      "complete": true,
+      "acquisition_complete": true,
+      "content_sha256": "645d699fc1eaeb62374c33aa588df18883fc3bf9b42719e0de736d8f91cfb4a4",
+      "fetched_at": "2026-11-05T21:42:11.934Z",
+      "extraction_method": "html-v1",
+      "selection_requires_review": true,
+      "screenshot": null,
+      "cache_hit": false,
+      "max_age_s": 900
+    },
+    "isError": false
+  }
+]
