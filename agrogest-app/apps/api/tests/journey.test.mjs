@@ -76,6 +76,23 @@ test('D1/R2: real image → actual OCR → reviewed expense → another partner 
   assert.equal((await call('campo', `/api/documents/${document.id}/content`)).status, 403);
 });
 
+test('legacy OCR cache is replaced without changing an approved expense; explicit retry reprocesses the image', async () => {
+  const before = await workspace('ana');
+  const entry = before.entries.find((e) => e.id === 'gs-e2e-ocr');
+  const id = entry.payload.sourceDocumentId;
+  await db.prepare('UPDATE documents SET extraction=? WHERE id=?').bind(JSON.stringify({ provider: 'local', model: 'legacy', fields: { amountCents: null }, text: '5\t1\tbad\tTSV' }), id).run();
+  const repaired = await call('ana', `/api/documents/${id}/extract`, {});
+  assert.equal(repaired.status, 200); assert.equal(repaired.body.fields.amountCents, 125040);
+  assert.ok(repaired.body.pipelineVersion); assert.equal(repaired.body.text.includes('\t'), false);
+  assert.deepEqual((await workspace('ana')).entries.find((e) => e.id === entry.id), entry);
+  await db.prepare('UPDATE documents SET extraction=? WHERE id=?').bind(JSON.stringify({ ...repaired.body, extractedAt: '2000-01-01T00:00:00Z' }), id).run();
+  const cached = await call('ana', `/api/documents/${id}/extract`, {});
+  assert.equal(cached.body.extractedAt, '2000-01-01T00:00:00Z');
+  const forced = await call('ana', `/api/documents/${id}/extract`, { force: true });
+  assert.equal(forced.status, 200); assert.notEqual(forced.body.extractedAt, '2000-01-01T00:00:00Z');
+  assert.equal((await workspace('ana')).entries.length, before.entries.length);
+});
+
 test('authorization isolates workspaces, employees and tampered operations', async () => {
   const isolated = await workspace('isolado'); assert.equal(isolated.farms.length, 1); assert.equal(isolated.farms[0].id, 'gs-fazenda-isolada'); assert.equal(isolated.entries.length, 0);
   const employee = await workspace('campo'); assert.equal(employee.financialAccounts.length, 0); assert.equal(employee.entries.some((e) => e.id === 'gs-e2e-ocr'), false); assert.equal(employee.lots[0].purchaseCents, 0);

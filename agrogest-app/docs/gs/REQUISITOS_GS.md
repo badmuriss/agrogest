@@ -60,4 +60,4 @@ Vídeo-pitch de até **3 minutos**, estilo Startup-One, com storytelling, proble
 
 ## Aplicação na fase atual
 
-O usuário determinou que a próxima etapa seja análise e plano de migração para Cloudflare, com aplicativo/dados **locais**, sem deploy do aplicativo. Depois autorizou inferência remota usando Workers AI ou OpenRouter na sua conta; visão/OCR local é preferência, não obrigação. Ver `ATUALIZACAO_IA_E_REPOSITORIO.md`. A matriz deve separar infraestrutura preparada/emulada de serviços de inferência que tenham sido efetivamente utilizados na nuvem, sem anunciar testes ou chamadas ainda não executados.
+O usuário determinou que a próxima etapa seja análise e plano de migração para Cloudflare, com aplicativo/dados **locais**, sem deploy do aplicativo. Depois autorizou inferência remota usando Workers AI ou OpenRouter na sua conta; visão/OCR local é preferência, não obrigação. Ver `agrogest-app/docs/arquivo/transferencias/ATUALIZACAO_IA_E_REPOSITORIO.md`. A matriz deve separar infraestrutura preparada/emulada de serviços de inferência que tenham sido efetivamente utilizados na nuvem, sem anunciar testes ou chamadas ainda não executados.

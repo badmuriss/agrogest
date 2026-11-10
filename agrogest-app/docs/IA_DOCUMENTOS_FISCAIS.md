@@ -1,12 +1,12 @@
 # AgroGest — IA para Leitura e Lançamento de Notas Fiscais
 
-> **Atualização acadêmica · 09/11/2026:** extração real de imagens/comprovantes para despesa, revisão e anexo D1/R2 **implementados localmente**. OCR Tesseract português fixado agora é empacotado em container local por CPU; não exige GPU. Workers AI/OpenRouter possuem adaptadores, sem teste remoto por falta de credencial. A amostra constante foi retirada do runtime. [Contrato/execução e limites](CLOUDFLARE_LOCAL.md#inferência-e-credenciais-transferíveis).
+> **Atualização acadêmica · 10/11/2026:** extração real de imagens/comprovantes para despesa, revisão e anexo D1/R2 **implementados localmente**. OCR Tesseract português fixado em container CPU e opção de IA visual Qwen3-VL-2B local, que lê a imagem e devolve campos em uma etapa, com validação e revisão. O modo GPU é opcional; não é requisito do caminho CPU. Workers AI/OpenRouter possuem adaptadores, sem teste remoto por falta de credencial. A amostra constante foi retirada do runtime. [Contrato/execução e limites](CLOUDFLARE_LOCAL.md#inferência-e-credenciais-transferíveis).
 >
 > **Tipo do restante deste documento:** referência da integração fiscal completa ainda futura. PDF/XML, itens estruturados, classificação fiscal e validação ampla de qualidade permanecem propostas; não confundir com o importador mínimo de despesas.
 > **Conferência documental:** 26/10/2026. Necessidade confirmada; contratos abaixo são propostas.\
 > **Prioridade:** alta — funcionalidade central do produto, não apenas evolução opcional.\
 > **Registrado em:** 14/10/2026 às 07:32 (America/Sao_Paulo, UTC−03:00)\
-> **Relacionado:** [Requisitos](./REQUISITOS_PRODUTO.md) (RF-20) · [Arquitetura](./ARQUITETURA_TECNICA.md) · [Experiência do usuário](./EXPERIENCIA_USUARIO.md).
+> **Relacionado:** [Requisitos](REQUISITOS_PRODUTO.md) (RF-20) · [Arquitetura](ARQUITETURA_TECNICA.md) · [Experiência do usuário](EXPERIENCIA_USUARIO.md).
 
 ## 1. Problema e objetivo
 

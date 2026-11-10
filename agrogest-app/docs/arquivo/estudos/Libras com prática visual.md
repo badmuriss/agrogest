@@ -84,6 +84,6 @@ O próximo avanço verificável é uma experiência em que a pessoa consiga prat
 
 ## Evidências e estado desta definição
 
-As fontes materiais foram conferidas nos artefatos primários preservados em `research_notes/Libras com prática visual/`: páginas de produto, documentação MediaPipe e referências INES/UFSC/ONU, além das passagens do Web SMILE. A página UFSC lida é a primeira de uma unidade de 18 páginas. Sites comerciais sustentam funcionalidades anunciadas, sem auditoria de eficácia. As referências e suas licenças não constituem um acervo pronto do projeto.
+As fontes materiais foram conferidas nos artefatos primários preservados em `agrogest-app/docs/arquivo/pesquisas/Libras com prática visual/`: páginas de produto, documentação MediaPipe e referências INES/UFSC/ONU, além das passagens do Web SMILE. A página UFSC lida é a primeira de uma unidade de 18 páginas. Sites comerciais sustentam funcionalidades anunciadas, sem auditoria de eficácia. As referências e suas licenças não constituem um acervo pronto do projeto.
 
 A pesquisa pública utilizou Scrapinho MCP e a acadêmica, fontes primárias pela ferramenta web do host após indisponibilidade dos índices configurados. Não houve nova coleta para esta síntese, código executado, câmera acionada, vídeo baixado/republicado ou teste de plataforma. Não foram verificados desempenho, latência ou custo. As notas registram cobertura, falhas e proveniência; não houve verificação de hash de bytes brutos.

@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { Button } from './ui/controls';
 import type { ImageCaptureProps } from './image-capture.types';
 
-export function ImageCapture({ disabled, onImage, onError }: ImageCaptureProps) {
+export function ImageCapture({ disabled, title = 'Escolher comprovante', onImage, onError }: ImageCaptureProps) {
   const pick = async (camera: boolean) => {
     try {
       if (camera && !(await ImagePicker.requestCameraPermissionsAsync()).granted) { onError('Autorize a câmera ou escolha uma imagem.'); return; }
@@ -16,5 +16,5 @@ export function ImageCapture({ disabled, onImage, onError }: ImageCaptureProps) 
       }
     } catch { onError('Não foi possível abrir esta imagem. Escolha PNG ou JPEG.'); }
   };
-  return <View style={{ gap: 8 }}><Button title="Escolher imagem" icon="image-outline" disabled={disabled} onPress={() => void pick(false)} /><Button title="Fotografar comprovante" icon="camera-outline" variant="secondary" disabled={disabled} onPress={() => void pick(true)} /></View>;
+  return <View style={{ gap: 8 }}><Button title={title} icon="image-outline" disabled={disabled} onPress={() => void pick(false)} /><Button title="Fotografar comprovante" icon="camera-outline" variant="secondary" disabled={disabled} onPress={() => void pick(true)} /></View>;
 }

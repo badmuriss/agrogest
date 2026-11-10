@@ -24,6 +24,8 @@
     "setup:ocr:native": "python agrogest-app/services/extraction/setup.py",
     "test:api": "npm --prefix agrogest-app/apps/api test",
     "setup:local": "npm --prefix agrogest-app ci --no-audit --no-fund && npm --prefix agrogest-app/apps/mobile ci --no-audit --no-fund && npm --prefix agrogest-app/apps/api ci --no-audit --no-fund && npm run ocr:build",
-    "test:ocr": "node --test agrogest-app/services/extraction/container.test.mjs && node agrogest-app/services/extraction/container.mjs test"
+    "test:ocr": "node --test agrogest-app/services/extraction/container.test.mjs && node agrogest-app/services/extraction/container.mjs test",
+    "setup:vision": "python agrogest-app/services/extraction/vision-local.py setup",
+    "vision:local": "python agrogest-app/services/extraction/vision-local.py serve"
   }
 }

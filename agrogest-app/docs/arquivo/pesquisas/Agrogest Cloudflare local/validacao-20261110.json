@@ -1,0 +1,123 @@
+{
+  "date": "2026-11-10",
+  "baseCommit": "a6359228db5be73e45f327523d49295adac89a65",
+  "environment": "local",
+  "remoteAppDeploy": false,
+  "remoteProvisioning": false,
+  "remoteInference": false,
+  "tests": {
+    "domainSqlitePGlite": 216,
+    "apiIntegrationAndContracts": 16,
+    "dockerLocalGuard": 1,
+    "pythonOcrContainer": 7,
+    "total": 240,
+    "types": "passed",
+    "lint": "passed",
+    "log": "check-final-20261110.txt",
+    "rawLogSha256": "db223895bdf60e7f20dcbc2e49ab1ef2a1e7619fe7847abcd06637bbdf418289",
+    "logNormalization": "Somente espaços ao fim de linhas do Compose foram removidos."
+  },
+  "builds": {
+    "web": "passed",
+    "webAndroidIosExports": "passed",
+    "nativeDeviceTest": false
+  },
+  "ai": {
+    "provider": "local-vision",
+    "model": "Qwen/Qwen3-VL-2B-Instruct-GGUF",
+    "revision": "52d6c8ffea26cc873ac5ad116f8631268d7eb503",
+    "runtime": "llama.cpp b12246, CUDA 12.8",
+    "gpu": "RTX 4070 SUPER, 12 GiB",
+    "observedGpuMemoryMiB": 3004,
+    "observationsBeforeHostRestart": [
+      {
+        "case": "foto fornecida pelo usuário, não versionada",
+        "amountCents": 4700,
+        "occurredAt": "2018-09-21",
+        "supplierMissing": true,
+        "descriptionIdentified": true,
+        "latencyMs": 770
+      },
+      {
+        "name": "gs-001",
+        "fields": {
+          "amountCents": 125040,
+          "occurredAt": "2026-11-06",
+          "supplier": "Cooperativa Campo Verde",
+          "description": "Sal mineral para bovinos",
+          "document": "GS-001"
+        },
+        "latencyMs": 600
+      },
+      {
+        "name": "gs-002",
+        "fields": {
+          "amountCents": 8990,
+          "occurredAt": "2026-11-05",
+          "supplier": "Oficina Rural",
+          "description": "Trator - troca de filtro",
+          "document": "GS-002"
+        },
+        "latencyMs": 539
+      },
+      {
+        "name": "gs-004",
+        "fields": {
+          "amountCents": 4250,
+          "occurredAt": "2026-11-10",
+          "supplier": "Agro Rural",
+          "description": "Mineral para bovinos",
+          "document": "GS-004"
+        },
+        "latencyMs": 586
+      }
+    ],
+    "scope": "Observações locais com servidor aquecido, sem SLA ou benchmark de campo."
+  },
+  "manualBrowser": {
+    "browser": "Chromium",
+    "oneGestureFileInputClickCount": 1,
+    "privatePhotoRead": true,
+    "privatePhotoPublished": false,
+    "reviewEditPreservedOnReopen": true,
+    "rawTsvHidden": true,
+    "approvalAndIndicator": {
+      "before": {
+        "entryId": "fa608dfd-3f16-4b21-b826-4513803046c8",
+        "entryCount": 4,
+        "status": "aguardando_aprovacao",
+        "amountCents": 4250,
+        "totalCostCents": 1157790
+      },
+      "after": {
+        "entryId": "fa608dfd-3f16-4b21-b826-4513803046c8",
+        "status": "aprovado",
+        "totalCostCents": 1162040,
+        "deltaCents": 4250,
+        "entryCount": 4,
+        "r2HashMatches": true,
+        "repeatedUploadSameDocument": true,
+        "sourceDocumentId": "2bb66089-d343-4aea-88f3-e5191df6b9c8"
+      }
+    },
+    "pageErrors": 0,
+    "fullOfflineDisconnectionRehearsalRepeated": false
+  },
+  "documentation": {
+    "movedFiles": 319,
+    "nonMarkdownMovedBytesPreserved": 217,
+    "missingMovedFiles": [],
+    "newBrokenRelativeLinks": [],
+    "rootMarkdown": [
+      "README.md",
+      "AGENTS.md"
+    ]
+  },
+  "baseline114Sha256": "3da4b0e25e5b3029cade1b8dda159e714fa3a0ecd9692b55d0926e1fca885368",
+  "limits": [
+    "Recibos sintéticos e uma foto fornecida; sem corpus anotado amplo ou piloto de campo.",
+    "Workers AI/OpenRouter continuam sem chamada real por falta de configuração de credenciais.",
+    "Modelo local opcional validado somente neste Linux x86_64 com GPU; CPU VLM/Windows/macOS/ARM não validados.",
+    "Registros de sistema e foto fornecida permanecem privados, fora do Git."
+  ]
+}

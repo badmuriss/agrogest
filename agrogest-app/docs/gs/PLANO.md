@@ -1,7 +1,9 @@
 # AgroGest — plano e estado da implementação local
 
-**Revisão 3 · 06/11/2026, atualização operacional em 09/11/2026.** A [autorização de desenvolvimento](AUTORIZACAO_DESENVOLVIMENTO_GS.md) substitui a antiga fase de somente análise. O código foi adaptado na cópia própria; aplicativo e dados continuam locais. O OCR passa a ser empacotado em container Docker local por CPU, com modelo incluído e o mesmo contrato HTTP; [execução e limites](agrogest-app/docs/CLOUDFLARE_LOCAL.md#ciclo-do-container-ocr). O repositório independente público é [badmuriss/agrogest](https://github.com/badmuriss/agrogest), publicado por autorização posterior do usuário. A análise v2, seu inventário, riscos, pesquisa e os 114 testes iniciais estão preservados abaixo como registro anterior à implementação.
+**Revisão 4 · 10/11/2026, preservando a implementação de 06–09/11 e a análise v2.** A [autorização de desenvolvimento](../arquivo/transferencias/AUTORIZACAO_DESENVOLVIMENTO_GS.md) substitui a antiga fase de somente análise. O código foi adaptado na cópia própria; aplicativo e dados continuam locais. O OCR passa a ser empacotado em container Docker local por CPU, com modelo incluído e o mesmo contrato HTTP; [execução e limites](../CLOUDFLARE_LOCAL.md#ciclo-do-container-ocr). O repositório independente público é [badmuriss/agrogest](https://github.com/badmuriss/agrogest), publicado por autorização posterior do usuário. A análise v2, seu inventário, riscos, pesquisa e os 114 testes iniciais estão preservados abaixo como registro anterior à implementação.
 
+
+Atualização: IA visual local Qwen3-VL-2B quantizada, executando na GPU desta máquina, integra imagem → campos em uma chamada. A revisão foi simplificada e a escolha da imagem abre diretamente no formulário de despesa. O parser TSV do OCR CPU e a invalidação de cache foram corrigidos. Setup, contas e limites permanecem no [guia operacional](../CLOUDFLARE_LOCAL.md); [evidências datadas](../HISTORICO_REVISOES.md) distinguem esta validação dos 114 testes iniciais e das execuções de 06 e 09 de novembro. Planos, transferências, pesquisas e origem foram agrupados nesta documentação; a raiz ficou voltada aos avaliadores.
 ## Entrega implementada nesta revisão
 
 - **Frontend:** Expo SDK 58/React Native web preservado, cliente HTTP próprio, sem SDK/conexão Supabase. `services/supabase.ts` é apenas fachada de compatibilidade para a outbox. A rota fiscal antiga encaminha para captura real; a amostra constante saiu do runtime.
@@ -13,7 +15,7 @@
 - **Indicadores:** funções originais de centavos, rateio, aprovação, custo e financeiro reutilizadas. A despesa de R$ 1.250,40 só passa a compor custo após aprovação de outro sócio. Pagamento/estorno altera caixa, sem reescrever custo.
 - **Inferência remota:** adaptadores Workers AI REST e OpenRouter Responses implementados com configuração no backend, timeout, schema, seleção explícita e sem fallback. Não testados com conta real: credenciais ausentes. Isso não é evidência de cloud executada.
 
-O [guia atual](agrogest-app/docs/CLOUDFLARE_LOCAL.md) é a fonte operacional para comandos, arquitetura/contratos implementados, armazenamento, contas, transferência e testes. A execução usa `npm start` e **http://127.0.0.1:8787**; não há deploy ou provisionamento.
+O [guia atual](../CLOUDFLARE_LOCAL.md) é a fonte operacional para comandos, arquitetura/contratos implementados, armazenamento, contas, transferência e testes. A execução usa `npm start` e **http://127.0.0.1:8787**; não há deploy ou provisionamento.
 
 ## Arquitetura aplicada e diferenças para a proposta
 
@@ -38,9 +40,9 @@ Auth web ainda usa sessão no localStorage da origem; cookie HttpOnly/identidade
 
 ## Aceite e evidências atuais
 
-A matriz T01–T24 da análise abaixo permanece como contrato amplo. A execução atual comprova as fatias de imagem/extração real, revisão, autorização, outbox, aprovação, centavos, duplicação, concorrência e indicador cobertas pelos testes/roteiro do [histórico](agrogest-app/docs/HISTORICO_REVISOES.md). A suíte herdada agora inclui PGlite local; suas migrations PostgreSQL não foram aplicadas remotamente nem convertidas em evidência D1.
+A matriz T01–T24 da análise abaixo permanece como contrato amplo. A execução atual comprova as fatias de imagem/extração real, revisão, autorização, outbox, aprovação, centavos, duplicação, concorrência e indicador cobertas pelos testes/roteiro do [histórico](../HISTORICO_REVISOES.md). A suíte herdada agora inclui PGlite local; suas migrations PostgreSQL não foram aplicadas remotamente nem convertidas em evidência D1.
 
-O hardware foi usado para OCR português; a pesquisa Hugging Face abaixo continua válida como lista de candidatos licenciados, não como benchmark local executado. Workers AI não se tornou inferência local. A conta temporária de inferência do usuário segue separada da futura hospedagem/manutenção pelo amigo. O exemplo consumido agora é `agrogest-app/apps/api/.dev.vars.example`; `config/inference.env.example` foi marcado como referência histórica.
+O hardware foi usado para OCR português; a pesquisa Hugging Face abaixo continua válida como lista de candidatos licenciados, não como benchmark local executado. Workers AI não se tornou inferência local. A conta temporária de inferência do usuário segue separada da futura hospedagem/manutenção pelo amigo. O exemplo consumido agora é `agrogest-app/apps/api/.dev.vars.example`; `agrogest-app/docs/arquivo/inference.env.example` foi marcado como referência histórica.
 
 **Nenhum deploy do aplicativo, provisionamento remoto, remote:true, Worker AI binding remoto, Supabase remoto ou fork foi realizado.** O push autorizado foi somente para o repositório próprio público; a origem do amigo não foi alterada. Os resultados de navegador e as contagens atuais são datados no histórico; os 114 testes anteriores e seus hashes permanecem inalterados.
 
@@ -51,7 +53,7 @@ O hardware foi usado para OCR português; a pesquisa Hugging Face abaixo continu
 Os verbos “planejado”, “futuro” e “não executado” no registro abaixo descrevem a revisão 2. O estado vigente e seus desvios estão nas seções acima e no guia operacional atual.
 
 
-Revisão **2**, em **06/11/2026**, America/Sao_Paulo. Base: `freitasbtw/agrogest`, commit **`7f0bb66d764eadc8f48be016280414d77a1d4799`**, de 27/10/2026. Escopo de produto: **`agrogest-app/`**. A [atualização do usuário](ATUALIZACAO_IA_E_REPOSITORIO.md) substitui a restrição anterior de inferência exclusivamente local. A cópia independente foi preparada; **nenhuma migração funcional do aplicativo foi iniciada**.
+Revisão **2**, em **06/11/2026**, America/Sao_Paulo. Base: `freitasbtw/agrogest`, commit **`7f0bb66d764eadc8f48be016280414d77a1d4799`**, de 27/10/2026. Escopo de produto: **`agrogest-app/`**. A [atualização do usuário](../arquivo/transferencias/ATUALIZACAO_IA_E_REPOSITORIO.md) substitui a restrição anterior de inferência exclusivamente local. A cópia independente foi preparada; **nenhuma migração funcional do aplicativo foi iniciada**.
 
 ## 1. Decisão recomendada e limite desta entrega
 
@@ -67,7 +69,7 @@ O requisito acadêmico de cloud **ainda não foi demonstrado por esta equipe**. 
 
 ### Evidências da primeira análise, preservadas
 
-- Leitura integral do [handoff](HANDOFF_AGROGEST_CLOUDFLARE_LOCAL.md), dos [requisitos da GS](GLOBAL_SOLUTION_2_REQUISITOS.md), do [README](README.md), do [parecer anterior](<reports/Agrogest na Global Solution.md>) e das três notas indicadas em `research_notes/Agrogest na Global Solution/`.
+- Leitura integral do [handoff](../arquivo/transferencias/HANDOFF_AGROGEST_CLOUDFLARE_LOCAL.md), dos [requisitos da GS](REQUISITOS_GS.md), do [README](../../../README.md), do [parecer anterior](<../arquivo/estudos/Agrogest na Global Solution.md>) e das três notas indicadas em `agrogest-app/docs/arquivo/pesquisas/Agrogest na Global Solution/`.
 - Leitura das instruções `AGENTS.md` da origem e do mobile, dos guias de arquitetura/desenvolvimento/produto e inspeção das superfícies de interface, domínio, persistência, Auth, sincronização, migrations, arquivos e testes. O estado final do SQL foi considerado pela cadeia das **18 migrations**, não só pela migration inicial.
 - Extração de 307 arquivos de texto do commit fixado para uma cópia temporária de auditoria; sem `.env`, credenciais, dados de usuários ou importação do app neste workspace. Clone original e repositório do autor preservados.
 - Execução de **16 arquivos de testes existentes: 114 testes passaram, zero falhas**, com Node `v24.22.2` e rede externa indisponível por namespace Linux (`unshare -Urn`). Abrangem domínio, relatórios, SQLite usado pelos serviços, permissões/projeções e sincronização com respostas controladas. Reprodução e limites na seção 12.
@@ -76,8 +78,8 @@ O requisito acadêmico de cloud **ainda não foi demonstrado por esta equipe**. 
 ### O que foi feito nesta revisão
 
 - Leitura da atualização e das correções no handoff/requisitos. Mantidas a análise de domínio, a origem auditada e as evidências dos **114 testes anteriores**; esses testes não foram reexecutados nem reinterpretados como prova de IA.
-- `git clone` público em área externa e importação de **421 arquivos** por snapshot: 418 de `agrogest-app/` e três de apoio. Preservados `.git`, HEAD, histórico próprio, documentos e o log TAP. Preparação detalhada abaixo e em [ORIGEM_AGROGEST.md](ORIGEM_AGROGEST.md).
-- Consulta a model cards/licenças do Hugging Face, documentação Workers AI/OpenRouter, políticas e catálogo público de modelos. Nenhum peso de modelo foi baixado e nenhuma inferência foi executada. Configuração de exemplo sem segredos preparada em [config/inference.env.example](config/inference.env.example).
+- `git clone` público em área externa e importação de **421 arquivos** por snapshot: 418 de `agrogest-app/` e três de apoio. Preservados `.git`, HEAD, histórico próprio, documentos e o log TAP. Preparação detalhada abaixo e em [ORIGEM_AGROGEST.md](../arquivo/ORIGEM.md).
+- Consulta a model cards/licenças do Hugging Face, documentação Workers AI/OpenRouter, políticas e catálogo público de modelos. Nenhum peso de modelo foi baixado e nenhuma inferência foi executada. Configuração de exemplo sem segredos preparada em [config/inference.env.example](../arquivo/inference.env.example).
 - Conferida somente a **presença**, sem inspecionar/exibir valores, das variáveis esperadas de inferência no processo. Não estavam configuradas; nenhum cofre/perfil privado foi vasculhado. Modelo, conta/token, rota e orçamento permanecem dependências para o futuro experimento.
 
 **Continua não executado:** app/browser/mobile, build, lint, typecheck, as cinco suítes com PGlite, Worker, D1/R2 emulados, OCR sobre documentos, benchmark de modelos, inferência Workers AI/OpenRouter ou teste com produtor. Os testes anteriores não comprovam o backend PostgreSQL, o destino Cloudflare nem qualidade de extração.
@@ -88,7 +90,7 @@ O destino é o **Git já existente** em `/data/projects/hobby/gs-final-fiap`, br
 
 O clone de proveniência fica em `/data/projects/hobby/gs-final-fiap-preparacao/agrogest-origem-20261106`; seu remote `source-readonly` serve para leitura pública, com push URL inválida e hook de bloqueio. O histórico de commits da origem foi preservado nesse clone parcial e o commit auditado tem referência local de arquivo. O destino recebeu o snapshot por `git archive`, **sem `.git` aninhado**, sem merge de históricos não relacionados e sem importar `old-agrogest/`. O clone parcial não é um backup completo de todos os blobs históricos.
 
-O [manifesto de importação](<research_notes/Agrogest Cloudflare local/importacao-base-20261106.json>) contém hashes dos arquivos da base. Código, assets e lockfiles do app foram copiados sem adaptação; o `.gitignore` da raiz foi ampliado para segredos, estado e pesos locais. O autor registrado no commit é **Freitassync**, projeto de `freitasbtw`; a versão acadêmica deve distinguir contribuição herdada e trabalho da equipe. Independência não significa reescrita do aplicativo nem nova licença presumida.
+O [manifesto de importação](<../arquivo/pesquisas/Agrogest Cloudflare local/importacao-base-20261106.json>) contém hashes dos arquivos da base. Código, assets e lockfiles do app foram copiados sem adaptação; o `.gitignore` da raiz foi ampliado para segredos, estado e pesos locais. O autor registrado no commit é **Freitassync**, projeto de `freitasbtw`; a versão acadêmica deve distinguir contribuição herdada e trabalho da equipe. Independência não significa reescrita do aplicativo nem nova licença presumida.
 
 **Não foi criado/publicado repositório remoto.** Destino/nome/visibilidade continuam indefinidos. A manutenção pelo amigo poderá usar outro remote e configuração próprios depois, sem fornecer a ele tokens temporários do usuário. Não fazer push no upstream nem apagar histórico/dados para preparar essa passagem.
 
@@ -115,7 +117,7 @@ O enunciado fornecido é a referência acadêmica. Documentação do produto des
 | Diferencial — 3 | Uso de campo, revisão humana, papéis por operação, continuidade offline e cálculo explicável. | Comparar com a rotina real e alternativas que o participante já usa. Demonstrar contribuição de cada tecnologia. | V3: comparação documentada com planilha/registro atual; separar herdado/novo, infraestrutura emulada e inferência local ou cloud realmente executada. |
 | Resultados e impacto esperados — 8 | Há cálculos/testes de software, mas nenhum piloto de utilidade/acurácia do importador. | Reservar tempo para validação, falhas, custos de execução/suporte e sustentabilidade. | V2–V4: planilha/registro de medições com denominadores, limitações e expectativas explícitas; vídeo de até cinco minutos, com espaço substancial para resultados. |
 
-ODS **2.3** é candidato condicionado à validação do público e do acesso útil à gestão. Não afirmar duplicação de renda/produtividade ou contribuição climática comprovada. A relação deve ser justificada pela tarefa e pelos indicadores; os [requisitos fornecidos](GLOBAL_SOLUTION_2_REQUISITOS.md) registram esse limite.
+ODS **2.3** é candidato condicionado à validação do público e do acesso útil à gestão. Não afirmar duplicação de renda/produtividade ou contribuição climática comprovada. A relação deve ser justificada pela tarefa e pelos indicadores; os [requisitos fornecidos](REQUISITOS_GS.md) registram esse limite.
 
 ## 3. Inventário do aplicativo de origem
 
@@ -369,7 +371,7 @@ Interface conceitual `DocumentExtractionProvider`: recebe ID/hash, bytes de imag
 | Auth do aplicativo | Identidade de sócios/funcionários conforme B05; é diferente da conta Cloudflare/OpenRouter que paga inferência. | Preservar autenticação/isolamento do domínio, independentemente de quem financia o modelo. |
 | Pesos locais | Configurar ID, revisão, diretório e licença; sem pesos no Git. | Documentar download/reprodução e recursos mínimos medidos; manter notices/licenças aplicáveis. Não presumir licença comercial por uso acadêmico. |
 
-[config/inference.env.example](config/inference.env.example) contém somente nomes/valores de exemplo do contrato futuro: `INFERENCE_PROVIDER`, `INFERENCE_REMOTE_ALLOWED`, `INFERENCE_RUN_BUDGET_USD`, limites, `LOCAL_MODEL_ID/REVISION/DIR`, `WORKERS_AI_ACCOUNT_ID`, `WORKERS_AI_API_TOKEN`, `WORKERS_AI_MODEL`, `OPENROUTER_API_KEY`, `OPENROUTER_MODEL` e restrições de endpoint. **Ainda não há adapter que consuma esse arquivo.** O padrão fechado do exemplo não revoga a autorização remota: selecionar `workers-ai` ou `openrouter` explicitamente basta dentro do escopo já autorizado, após configurar os parâmetros necessários.
+[config/inference.env.example](../arquivo/inference.env.example) contém somente nomes/valores de exemplo do contrato futuro: `INFERENCE_PROVIDER`, `INFERENCE_REMOTE_ALLOWED`, `INFERENCE_RUN_BUDGET_USD`, limites, `LOCAL_MODEL_ID/REVISION/DIR`, `WORKERS_AI_ACCOUNT_ID`, `WORKERS_AI_API_TOKEN`, `WORKERS_AI_MODEL`, `OPENROUTER_API_KEY`, `OPENROUTER_MODEL` e restrições de endpoint. **Ainda não há adapter que consuma esse arquivo.** O padrão fechado do exemplo não revoga a autorização remota: selecionar `workers-ai` ou `openrouter` explicitamente basta dentro do escopo já autorizado, após configurar os parâmetros necessários.
 
 Valores privados ficam em `.dev.vars`/`config/.env.local` ignorados pelo Git ou no mecanismo seguro do ambiente, nunca em `EXPO_PUBLIC_*`, `app.json`, bundle, comando com chave literal, log ou screenshot. Não reutilizar automaticamente credencial/Account ID de deploy para inferência: os nomes `WORKERS_AI_*` mantêm essa responsabilidade separada. O token deve ser restrito à conta de inferência e às permissões necessárias; a [documentação REST](https://developers.cloudflare.com/workers-ai/get-started/rest-api/) informa **Workers AI Read e Edit** para token customizado, sem exigir permissões de deploy/D1/R2. Para OpenRouter, preferir chave por projeto/ambiente com limite/validade quando suportados; não chave de administração.
 
@@ -553,7 +555,7 @@ Com Node `v24.22.2`, foram executados os arquivos abaixo a partir dessa cópia, 
 | `geo.test.mjs`, `lot-transfer.test.mjs`, `nativewind-assets.test.mjs`, `pasture.test.mjs` |
 | `share-snapshot.test.mjs`, `stock.test.mjs`, `sync-services.test.mjs`, `workspace.test.mjs` |
 
-Resultado: **114 testes, 114 aprovados, 0 falhas, 0 cancelados, 0 ignorados**. Tempo reportado pelo runner: aproximadamente 206 ms; é execução de teste com fixtures, não benchmark de usuário, OCR ou aplicação. [Log TAP preservado](<research_notes/Agrogest Cloudflare local/baseline-local-20261106.tap>), SHA-256 `3da4b0e25e5b3029cade1b8dda159e714fa3a0ecd9692b55d0926e1fca885368`.
+Resultado: **114 testes, 114 aprovados, 0 falhas, 0 cancelados, 0 ignorados**. Tempo reportado pelo runner: aproximadamente 206 ms; é execução de teste com fixtures, não benchmark de usuário, OCR ou aplicação. [Log TAP preservado](<../arquivo/pesquisas/Agrogest Cloudflare local/baseline-local-20261106.tap>), SHA-256 `3da4b0e25e5b3029cade1b8dda159e714fa3a0ecd9692b55d0926e1fca885368`.
 
 Para reproduzir, usar uma cópia local dos mesmos arquivos do commit, Node 24 compatível e executar os 16 arquivos com `node --import ./tests/resolve-ts.mjs --test --test-reporter=tap`, dentro do mesmo isolamento de rede. A seleção usada excluiu os arquivos que importam `@electric-sql/pglite`, dependência não instalada nessa cópia. Não executar `hosted-smoke.mjs`: ele escreve no backend selecionado e não integra esta validação.
 
@@ -563,11 +565,11 @@ Na entrega anterior foram conferidos links/âncoras, referências do commit, cat
 
 ### Evidências adicionais desta revisão
 
-- [Origem e decisão de preservação dos históricos](ORIGEM_AGROGEST.md): clone público externo, snapshot e Git de destino próprios, sem fork/push/publicação.
-- [Manifesto dos 421 arquivos importados](<research_notes/Agrogest Cloudflare local/importacao-base-20261106.json>): hashes da base antes da extensão declarada do `.gitignore`; os 418 arquivos do app permanecem iguais.
-- [Verificação da cópia e da preservação](<research_notes/Agrogest Cloudflare local/verificacao-copia-20261106.json>): 420 arquivos importados idênticos, uma alteração declarada no `.gitignore`, nenhum Git aninhado/remote no destino e metadata/documentos/TAP anteriores preservados.
-- [Fontes e metadados da comparação de IA](<research_notes/Agrogest Cloudflare local/comparacao-ia-fontes-20261106.json>): cinco cards do Hub, revisões/licenças/hashes, catálogo público OpenRouter e fontes oficiais. O arquivo registra **zero chamadas de inferência, zero pesos baixados, zero consultas de conta/saldo e zero deploys** nesta revisão.
-- [Exemplo de configuração de provedor](config/inference.env.example): valores secretos vazios, perfis separados, limites propostos e contrato ainda não consumido pelo runtime.
+- [Origem e decisão de preservação dos históricos](../arquivo/ORIGEM.md): clone público externo, snapshot e Git de destino próprios, sem fork/push/publicação.
+- [Manifesto dos 421 arquivos importados](<../arquivo/pesquisas/Agrogest Cloudflare local/importacao-base-20261106.json>): hashes da base antes da extensão declarada do `.gitignore`; os 418 arquivos do app permanecem iguais.
+- [Verificação da cópia e da preservação](<../arquivo/pesquisas/Agrogest Cloudflare local/verificacao-copia-20261106.json>): 420 arquivos importados idênticos, uma alteração declarada no `.gitignore`, nenhum Git aninhado/remote no destino e metadata/documentos/TAP anteriores preservados.
+- [Fontes e metadados da comparação de IA](<../arquivo/pesquisas/Agrogest Cloudflare local/comparacao-ia-fontes-20261106.json>): cinco cards do Hub, revisões/licenças/hashes, catálogo público OpenRouter e fontes oficiais. O arquivo registra **zero chamadas de inferência, zero pesos baixados, zero consultas de conta/saldo e zero deploys** nesta revisão.
+- [Exemplo de configuração de provedor](../arquivo/inference.env.example): valores secretos vazios, perfis separados, limites propostos e contrato ainda não consumido pelo runtime.
 
 ### Referências primárias do código
 

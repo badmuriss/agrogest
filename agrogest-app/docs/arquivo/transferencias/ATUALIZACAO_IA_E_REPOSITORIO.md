@@ -44,7 +44,7 @@ Pedido explícito: fazer `git clone` da base e preparar OUTRO repositório indep
 
 ## Trabalho imediato da nova sessão
 
-Leia esta atualização, confira o plano já entregue e revise `PLANO_AGROGEST_CLOUDFLARE_LOCAL.md` e README para remover a regra antiga de inferência obrigatoriamente local.
+Leia esta atualização, confira o plano já entregue e revise `agrogest-app/docs/gs/PLANO.md` e README para remover a regra antiga de inferência obrigatoriamente local.
 
 Incluir no plano:
 

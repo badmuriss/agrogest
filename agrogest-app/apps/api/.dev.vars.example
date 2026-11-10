@@ -4,6 +4,13 @@ APP_ENV=local
 INFERENCE_PROVIDER=local
 INFERENCE_REMOTE_ALLOWED=false
 LOCAL_OCR_BASE_URL=http://127.0.0.1:8091
+# Optional direct image -> structured fields with a LOCAL vision-language model.
+# npm run setup:vision prepares the pinned optional Linux/CUDA runtime and private key.
+# Select INFERENCE_PROVIDER=local-vision; remote inference stays false.
+LOCAL_VISION_BASE_URL=http://127.0.0.1:8092
+LOCAL_VISION_MODEL=agrogest-vision
+LOCAL_VISION_REVISION=
+LOCAL_VISION_API_KEY=
 INFERENCE_TIMEOUT_MS=45000
 INFERENCE_MAX_OUTPUT_TOKENS=1200
 FRONTEND_ORIGIN=http://localhost:8081

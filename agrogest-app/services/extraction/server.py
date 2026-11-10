@@ -30,26 +30,26 @@ def fields_from_text(text):
     # Only labelled totals. A missing/ambiguous field stays null for human review.
     totals = []
     for line in lines:
-        if re.search(r'\b(total|valor\s+(?:pago|final|a\s+pagar))\b', line, re.I) and not re.search(r'sub\s*total', line, re.I):
-            values = re.findall(r'(?<!\d)(\d{1,3}(?:\.\d{3})*,\d{2}|\d+,\d{2})(?!\d)', line)
+        if re.search(r'\b(total|valor\s+(?:pago|final|a\s+pagar))\b', line, re.I) and not re.search(r'sub\s*total|tribut|impost|aproximad', line, re.I):
+            values = re.findall(r'(?<!\d)(\d{1,3}(?:\.\d{3})*,\d{2}|\d+[,\.]\d{2})(?!\d)', line)
             if values:
                 totals.append(int(values[-1].replace('.', '').replace(',', '')))
     if len(set(totals)) == 1:
         amount = totals[0]
-    date = None
-    match = re.search(r'\b(\d{2})[/.-](\d{2})[/.-](20\d{2})\b', text)
-    if match:
+    dates = set()
+    for match in re.finditer(r'\b(\d{2})[/.-](\d{2})[/.-](20\d{2})\b', text):
         try:
-            date = datetime.strptime('/'.join(match.groups()), '%d/%m/%Y').strftime('%Y-%m-%d')
+            dates.add(datetime.strptime('/'.join(match.groups()), '%d/%m/%Y').strftime('%Y-%m-%d'))
         except ValueError:
             pass
+    date = next(iter(dates)) if len(dates) == 1 else None
     supplier = None
     for line in lines:
         match = re.match(r'(?:fornecedor|emitente|empresa)\s*[:\-]\s*(.+)', line, re.I)
         if match:
             supplier = match[1][:160]
             break
-    if supplier is None and lines and not re.match(r'(nota|cupom|recibo|documento)\b', lines[0], re.I):
+    if supplier is None and lines and re.search(r'\b(LTDA|EIRELI|COOPERATIVA|COMERCIO|MERCADO|OFICINA)\b', lines[0], re.I):
         supplier = lines[0][:160]
     description = None
     for line in lines:
@@ -64,6 +64,20 @@ def fields_from_text(text):
     return dict(amountCents=amount, occurredAt=date, supplier=supplier, description=description, document=document)
 
 
+def parse_tsv(tsv):
+    words, groups = [], {}
+    # A quote recognized on a receipt is literal, not a CSV field delimiter.
+    for row in csv.DictReader(io.StringIO(tsv), delimiter='\t', quoting=csv.QUOTE_NONE):
+        word = (row.get('text') or '').strip()
+        if row.get('level') != '5' or not word:
+            continue
+        confidence = float(row['conf']) / 100
+        words.append(dict(text=word, confidence=round(max(0, confidence), 3), box=[int(row[k]) for k in ('left', 'top', 'width', 'height')]))
+        key = tuple(row[k] for k in ('page_num', 'block_num', 'par_num', 'line_num'))
+        groups.setdefault(key, []).append(word)
+    return words, '\n'.join(' '.join(items) for items in groups.values())
+
+
 def extract(data):
     if not (data.startswith(b'\x89PNG\r\n\x1a\n') or data.startswith(b'\xff\xd8\xff') or (data[:4] == b'RIFF' and data[8:12] == b'WEBP')):
         raise ValueError('Envie uma imagem PNG, JPEG ou WebP válida.')
@@ -76,16 +90,7 @@ def extract(data):
         result = subprocess.run(['tesseract', str(path), 'stdout', '--tessdata-dir', str(MODEL.parent), '-l', 'por', '--oem', '1', '--psm', '6', '-c', 'tessedit_create_tsv=1'], capture_output=True, timeout=35, env={**os.environ, 'OMP_THREAD_LIMIT': '2'})
         if result.returncode:
             raise ValueError('A imagem não pôde ser decodificada. Fotografe novamente.')
-    words, groups = [], {}
-    for row in csv.DictReader(io.StringIO(result.stdout.decode('utf-8')), delimiter='\t'):
-        word = (row.get('text') or '').strip()
-        if not word:
-            continue
-        confidence = float(row['conf']) / 100
-        words.append(dict(text=word, confidence=round(max(0, confidence), 3), box=[int(row[k]) for k in ('left', 'top', 'width', 'height')]))
-        key = tuple(row[k] for k in ('page_num', 'block_num', 'par_num', 'line_num'))
-        groups.setdefault(key, []).append(word)
-    text = '\n'.join(' '.join(items) for items in groups.values())
+    words, text = parse_tsv(result.stdout.decode('utf-8'))
     fields = fields_from_text(text)
     warnings = ['Revise os campos e a imagem antes de registrar. OCR pode errar.']
     if not text:

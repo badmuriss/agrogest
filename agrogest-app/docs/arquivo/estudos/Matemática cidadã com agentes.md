@@ -95,16 +95,16 @@ Todas as fontes abaixo foram consultadas em **05/11/2026**. As afirmações num�
 
 | Fonte e afirmação aceita | Localizador preservado | Alcance |
 |---|---|---|
-| Inaf: recorte por escolaridade | `research_notes/Outis para tecnologia cidadã/fontes-acesso/inaf-page/page.md`, “Alfabetismo e escolaridade” | Contexto aceito; idade/amostra não verificadas |
-| Sinha e Kapur: comparação de ordens de instrução | `research_notes/Educação cidadã com agentes/fontes-metodos/edu-full-2.json`, Results/Pooled Effect Size Estimates | Síntese aceita; aplicação com IA não testada |
-| Ebner et al.: CRA em casos únicos | `research_notes/Matemática cidadã com agentes/evidencias-metodos/math-discovery-1.json`, Methods/Discussion | Evidência limitada por desenho e população |
+| Inaf: recorte por escolaridade | `agrogest-app/docs/arquivo/pesquisas/Outis para tecnologia cidadã/fontes-acesso/inaf-page/page.md`, “Alfabetismo e escolaridade” | Contexto aceito; idade/amostra não verificadas |
+| Sinha e Kapur: comparação de ordens de instrução | `agrogest-app/docs/arquivo/pesquisas/Educação cidadã com agentes/fontes-metodos/edu-full-2.json`, Results/Pooled Effect Size Estimates | Síntese aceita; aplicação com IA não testada |
+| Ebner et al.: CRA em casos únicos | `agrogest-app/docs/arquivo/pesquisas/Matemática cidadã com agentes/evidencias-metodos/math-discovery-1.json`, Methods/Discussion | Evidência limitada por desenho e população |
 | EEF: distinções e segurança da síntese | `evidencias-metodos/math-evidence-3.json`, página Mastery learning; paths relativos à pasta de matemática | Síntese consultada, atualização de 2021 |
 | Mathematics Mastery: avaliação do pacote | `evidencias-metodos/math-details-5.json`, relatório, pp. 17/21/22 | Resultado aceito; componente não isolado |
-| Liu/StudentBench: desfechos imediatos | `research_notes/Educação cidadã com agentes/fontes-tutoria/latest-read.json`, versões 6/2 | Resultados aceitos no contexto; retenção longa não medida |
-| StratL: estratégia explícita | `research_notes/Educação cidadã com agentes/fontes-metodos/edu-methods-3.json`, §§4–5 | Precedente de engenharia, sem teste independente de aprendizagem |
-| Produtos: funcionalidades anunciadas | `research_notes/Educação cidadã com agentes/evidencias-competidores/`, páginas dos três produtos | Fonte própria; comparação não exaustiva |
+| Liu/StudentBench: desfechos imediatos | `agrogest-app/docs/arquivo/pesquisas/Educação cidadã com agentes/fontes-tutoria/latest-read.json`, versões 6/2 | Resultados aceitos no contexto; retenção longa não medida |
+| StratL: estratégia explícita | `agrogest-app/docs/arquivo/pesquisas/Educação cidadã com agentes/fontes-metodos/edu-methods-3.json`, §§4–5 | Precedente de engenharia, sem teste independente de aprendizagem |
+| Produtos: funcionalidades anunciadas | `agrogest-app/docs/arquivo/pesquisas/Educação cidadã com agentes/evidencias-competidores/`, páginas dos três produtos | Fonte própria; comparação não exaustiva |
 | ONU: metas selecionadas | Mesma pasta, snapshots `625b9dcc-1282-4da8-9cb0-7adae52566a2` e `80c478f4-58b4-4829-bc9a-31b0d5ad9b0e` | Texto oficial aceito; contribuição do produto é proposta |
-| ElevenLabs/WebXR: capacidades documentadas | `research_notes/Matemática cidadã com agentes/fontes-voz/`, snapshots React, multimodal e MDN | Contratos consultados; integração e ganho pedagógico não testados |
+| ElevenLabs/WebXR: capacidades documentadas | `agrogest-app/docs/arquivo/pesquisas/Matemática cidadã com agentes/fontes-voz/`, snapshots React, multimodal e MDN | Contratos consultados; integração e ganho pedagógico não testados |
 
 A rota pública usou Scrapinho MCP; a rota acadêmica usou a ferramenta web do host após ausência verificada do índice Firecrawl e do Scholar configurado. Houve páginas bloqueadas, sem contorno. PISA não entrou na fundamentação: sua fonte não pôde ser lida e nenhum resultado de snippet foi aceito, inclusive a identificação da edição mais recente. Alguns artigos recentes de frações/visualização ficaram fora pela mesma limitação. Não há cobertura exaustiva, auditoria de dados originais ou demonstração de que esta seja a abordagem mais eficaz disponível.
 

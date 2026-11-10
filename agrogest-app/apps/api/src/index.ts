@@ -2,7 +2,7 @@ import { ApiError, cents, ensure, idString, json, saoPauloDay, type Env } from '
 import { authenticate, digest, login, publicUser, type Actor } from './auth.ts';
 import { entityWrites, load, member, project, type State } from './store.ts';
 import { transition } from './commands.ts';
-import { extract } from './inference.ts';
+import { extract, inferenceCacheKey, isRemoteInference } from './inference.ts';
 
 const canonical = (value: any): string => JSON.stringify(value, (_, v) => v && typeof v === 'object' && !Array.isArray(v) ? Object.fromEntries(Object.keys(v).sort().map((k) => [k, v[k]])) : v);
 async function body(request: Request) {
@@ -111,16 +111,19 @@ async function route(request: Request, env: Env) {
       return new Response(obj.body, { headers: { 'Content-Type': doc.mime, 'Content-Length': String(doc.size), 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff', 'Content-Disposition': 'inline' } });
     }
     if (match[2] === '/extract' && request.method === 'POST') {
-      if (doc.extraction && JSON.parse(doc.extraction).provider === env.INFERENCE_PROVIDER) return json(JSON.parse(doc.extraction));
+      const previous = doc.extraction ? JSON.parse(doc.extraction) : null;
+      const options = await request.json().catch(() => ({})) as { force?: boolean };
+      const pipelineVersion = inferenceCacheKey(env);
+      if (!options?.force && previous?.pipelineVersion === pipelineVersion) return json(previous);
       // Remote inference is explicit, with a hard reservation of at most 20 requests/account/day.
-      if (env.INFERENCE_PROVIDER !== 'local') {
+      if (isRemoteInference(env)) {
         ensure(env.INFERENCE_REMOTE_ALLOWED === 'true', 'Inferência remota desativada.', 503);
         try { await env.DB.prepare('INSERT INTO inference_usage(actor_id,day,count) VALUES(?,?,1) ON CONFLICT(actor_id,day) DO UPDATE SET count=count+1').bind(actor.id, saoPauloDay(new Date().toISOString())).run(); }
         catch { throw new ApiError('Limite diário de inferência atingido.', 429); }
       }
       const object = await env.DOCUMENTS.get(doc.object_key); ensure(object, 'Arquivo local ausente.', 404);
       const output = await extract(env, await object.arrayBuffer(), doc.mime);
-      const saved = { ...output, documentId: doc.id, sha256: doc.sha256, extractedAt: new Date().toISOString() };
+      const saved = { ...output, pipelineVersion, documentId: doc.id, sha256: doc.sha256, extractedAt: new Date().toISOString() };
       await env.DB.prepare('UPDATE documents SET extraction=? WHERE id=?').bind(JSON.stringify(saved), doc.id).run();
       return json(saved);
     }

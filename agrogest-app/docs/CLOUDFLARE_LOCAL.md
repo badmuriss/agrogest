@@ -1,6 +1,6 @@
 # Backend e execução locais da versão acadêmica
 
-Conferência funcional inicial: **06/11/2026**. OCR em container local acrescentado em **09/11/2026**; evidências por execução no [histórico](HISTORICO_REVISOES.md). Esta referência substitui a configuração Supabase na cópia da faculdade. A base original, suas migrations PostgreSQL e os documentos de outubro continuam como histórico e regressões; nenhum serviço remoto da aplicação foi usado nesta adaptação.
+Conferência funcional inicial: **06/11/2026**. OCR em container local acrescentado em **09/11/2026** e IA visual local em **10/11/2026**; evidências por execução no [histórico](HISTORICO_REVISOES.md). Esta referência substitui a configuração Supabase na cópia da faculdade. A base original, suas migrations PostgreSQL e os documentos de outubro continuam como histórico e regressões; nenhum serviço remoto da aplicação foi usado nesta adaptação.
 
 ## Primeira execução
 
@@ -50,7 +50,7 @@ A carga inicial tem dados sintéticos: 10 novilhos, compra de R$ 10.000,00, peso
 
 ## Roteiro demonstrável
 
-1. Entre como Ana, abra **Despesa → Importar imagem de comprovante**. A antiga rota Nota fiscal também encaminha para esse importador real.
+1. Entre como Ana, abra **Despesa → Escolher comprovante**. O seletor abre diretamente; após escolher, a captura é salva e a revisão inicia a leitura automaticamente. A antiga rota Nota fiscal também encaminha para esse importador real.
 2. Escolha uma foto PNG/JPEG/WebP de até 8 MiB. Exemplos sintéticos reproduzíveis estão em `agrogest-app/tests/fixtures/comprovante-gs-001.png` e `comprovante-gs-002.png`. São imagens de teste, não notas fiscais autênticas.
 3. A captura é salva no SQLite da conta **antes** do upload. O Worker guarda bytes no R2 local e metadata/hash no D1. O OCR recebe os bytes efetivos e retorna texto, palavras, caixas/confiança e campos; nada usa a antiga amostra constante.
 4. Confira valor, data, fornecedor, descrição e número contra a imagem. Campo ausente permanece vazio; não há substituição silenciosa por resultado inventado. Confirme a revisão e prepare a despesa.
@@ -70,6 +70,7 @@ flowchart LR
   API --> D1[D1 local: domínio, versões, ledger e auditoria]
   API --> R2[R2 local: imagens imutáveis por hash]
   API --> OCR[Container local: Tesseract português / CPU]
+  API --> VLM[IA visual local opcional: imagem para campos]
   API -. configuração explícita .-> REMOTE[Workers AI ou OpenRouter do usuário]
 ```
 
@@ -92,21 +93,45 @@ O ledger tem chave `(ator, comando)` e payload canônico. Aprovação não alter
 
 ## Inferência e credenciais transferíveis
 
-O padrão testado é **`INFERENCE_PROVIDER=local`**. O Tesseract 5 executa reconhecimento neural/CV, com `por.traineddata` do `tessdata_fast`, revisão `87416418657359cb625c412a48b6e1d6d41c29bd`, Apache-2.0, SHA-256 `c4932b937207a9514b7514d518b931a99938c02a28a5a5a553f8599ed58b7deb`. O parser de valor/data é determinístico; ele não é apresentado como um segundo modelo de IA. Três recibos sintéticos legíveis foram processados nas validações datadas, com correção humana do número no terceiro; isso não mede acurácia em fotos rurais difíceis, DANFE, manuscritos ou PDFs.
+O padrão distribuído é **`INFERENCE_PROVIDER=local`**; a opção `local-vision` foi validada em 10/11 e está configurada neste ambiente de desenvolvimento. O Tesseract 5 executa reconhecimento neural/CV, com `por.traineddata` do `tessdata_fast`, revisão `87416418657359cb625c412a48b6e1d6d41c29bd`, Apache-2.0, SHA-256 `c4932b937207a9514b7514d518b931a99938c02a28a5a5a553f8599ed58b7deb`. O parser de valor/data é determinístico; ele não é apresentado como um segundo modelo de IA. Três recibos sintéticos legíveis foram processados nas validações datadas, com correção humana do número no terceiro; isso não mede acurácia em fotos rurais difíceis, DANFE, manuscritos ou PDFs.
 
-Para configuração privada, copie **`agrogest-app/apps/api/.dev.vars.example` → `.dev.vars`**, edite no próprio arquivo e reinicie o Worker. Esse é o exemplo consumível pelo Wrangler. `config/inference.env.example` permanece referência histórica e aponta para ele. Nunca cole chave num comando, screenshot, commit, frontend ou log.
+Para configuração privada, copie **`agrogest-app/apps/api/.dev.vars.example` → `.dev.vars`**, edite no próprio arquivo e reinicie o Worker. Esse é o exemplo consumível pelo Wrangler. `agrogest-app/docs/arquivo/inference.env.example` permanece referência histórica e aponta para ele. Nunca cole chave num comando, screenshot, commit, frontend ou log.
 
 | Seleção | Variáveis do backend e comportamento |
 | --- | --- |
 | Local | `INFERENCE_PROVIDER=local`, `LOCAL_OCR_BASE_URL=http://127.0.0.1:8091`; sem token nem internet de inferência |
+| IA visual local | `INFERENCE_PROVIDER=local-vision`, `LOCAL_VISION_BASE_URL`, `LOCAL_VISION_MODEL`, `LOCAL_VISION_REVISION`, `LOCAL_VISION_API_KEY`; imagem direta para JSON, sem Tesseract intermediário nem permissão de inferência remota |
 | Workers AI | `INFERENCE_PROVIDER=workers-ai`, `INFERENCE_REMOTE_ALLOWED=true`, `WORKERS_AI_ACCOUNT_ID`, `WORKERS_AI_API_TOKEN`, `WORKERS_AI_MODEL`; chamada REST HTTPS pelo Worker local, sem binding AI remoto |
 | OpenRouter | `INFERENCE_PROVIDER=openrouter`, `INFERENCE_REMOTE_ALLOWED=true`, `OPENROUTER_API_KEY`, `OPENROUTER_MODEL`, `OPENROUTER_PROVIDER`; Responses API, schema estruturado, provedor fixo, sem fallback e com coleta desabilitada na solicitação |
 
 Adaptadores remotos foram implementados, **sem chamada real nesta sessão**: credenciais/modelo de conta não foram fornecidos no ambiente de execução. Há limite de 20 solicitações remotas por conta do app/dia, timeout e limite de saída; falhas não disparam outro provedor. O limite de solicitações **não é teto monetário**. Defina orçamento/chave restrita no provedor antes do primeiro teste pequeno. Capacidade do modelo, formato e política do endpoint precisam ser confirmados no teste real. Erros do provedor não são registrados com headers/conteúdo secreto.
 
-A conta que paga IA é independente das identidades do aplicativo e da futura hospedagem. Na transferência, o amigo recebe código, exemplos vazios e instruções de exportação/restauração; fornece suas próprias chaves e repete os testes. As credenciais temporárias do usuário não são transferidas. O `.git` próprio, origem/autor/commit e o clone de proveniência continuam preservados. O código é compartilhado pelo [repositório próprio público](https://github.com/badmuriss/agrogest); a [proveniência](../../ORIGEM_AGROGEST.md) registra a criação autorizada em 09/11/2026.
+A conta que paga IA é independente das identidades do aplicativo e da futura hospedagem. Na transferência, o amigo recebe código, exemplos vazios e instruções de exportação/restauração; fornece suas próprias chaves e repete os testes. As credenciais temporárias do usuário não são transferidas. O `.git` próprio, origem/autor/commit e o clone de proveniência continuam preservados. O código é compartilhado pelo [repositório próprio público](https://github.com/badmuriss/agrogest); a [proveniência](arquivo/ORIGEM.md) registra a criação autorizada em 09/11/2026.
 
-Referências de contrato: [Cloudflare REST](https://developers.cloudflare.com/workers-ai/get-started/rest-api/), [Scout](https://developers.cloudflare.com/workers-ai/models/llama-4-scout-17b-16e-instruct/), [OpenRouter Responses](https://openrouter.ai/docs/api_reference/responses/overview), [modelo português e licença](https://github.com/tesseract-ocr/tessdata_fast/tree/87416418657359cb625c412a48b6e1d6d41c29bd). A comparação com modelos Hugging Face, recursos e licenças está no [plano](../../PLANO_AGROGEST_CLOUDFLARE_LOCAL.md); nenhum Space/Endpoint hospedado foi usado.
+Referências de contrato: [Cloudflare REST](https://developers.cloudflare.com/workers-ai/get-started/rest-api/), [Scout](https://developers.cloudflare.com/workers-ai/models/llama-4-scout-17b-16e-instruct/), [OpenRouter Responses](https://openrouter.ai/docs/api_reference/responses/overview), [modelo português e licença](https://github.com/tesseract-ocr/tessdata_fast/tree/87416418657359cb625c412a48b6e1d6d41c29bd). A comparação com modelos Hugging Face, recursos e licenças está no [plano](gs/PLANO.md); nenhum Space/Endpoint hospedado foi usado.
+
+### IA visual local opcional
+
+Esta opção usa **Qwen3-VL-2B-Instruct**, Apache-2.0, em `llama.cpp` (MIT), para ler a imagem e sugerir os campos em uma única chamada. O manifesto `services/extraction/vision-model.json` fixa revisão, arquivos públicos, quantização Q4_K_M do modelo, projetor Q8 e SHA-256; pesos e runtime ficam em `.local/vision/`, fora do Git e do frontend. Não é um serviço hospedado do Hugging Face.
+
+O launcher fornecido foi validado em **Linux x86_64, Python 3.14 e RTX 4070 SUPER de 12 GiB**, com cerca de 3 GiB alocados pelo processo na GPU. Requer Python 3.12+; não foi validado em Windows/macOS/ARM. Drivers CUDA compatíveis são necessários para GPU. O modo CPU é uma seleção explícita por `AGROGEST_VISION_GPU_LAYERS=0`, sem medição de latência equivalente. O caminho Tesseract em Docker continua disponível como alternativa e segue sem exigir GPU.
+
+```sh
+# Na raiz, depois do setup normal; baixa artefatos públicos e verifica hashes.
+npm run setup:vision
+npm start
+
+# Para iniciar somente o modelo local, opcionalmente em outro terminal:
+npm run vision:local
+```
+
+O setup cria uma chave local aleatória em `.local/vision/api-key`, com acesso restrito, e atualiza **somente as chaves deste provedor** em `apps/api/.dev.vars`, preservando o restante da configuração privada. `npm start` aguarda a saúde do servidor em `127.0.0.1:8092`, inicia-o se necessário e encerra o processo que iniciou junto com o app. Um modelo já iniciado em outro terminal é reutilizado e permanece sob responsabilidade daquele terminal. Não há download durante a inferência nem fallback automático para um provedor remoto. O launcher verifica CUDA antes do uso GPU; a chave é enviada pelo backend, nunca pelo navegador. O amigo executa o setup na própria máquina para gerar sua configuração.
+
+Campos ausentes continuam nulos. Datas brasileiras explícitas são normalizadas para ISO no backend e validadas pelo calendário; dinheiro precisa ser centavos inteiros. A revisão mostra primeiro valor, descrição e data, com imagem ampliada, fornecedor e número em **Ver imagem e detalhes**. A revisão humana e a política de aprovação continuam obrigatórias. O cache documental inclui versão do pipeline e do modelo: extrações antigas são substituídas ao analisar novamente, sem alterar os lançamentos aprovados. **Refazer leitura** reprocessa o mesmo arquivo e substitui as sugestões da revisão; correções manuais permanecem nas reaberturas comuns.
+
+O Tesseract também recebeu correção do parser TSV: aspas reconhecidas são literais, não delimitadores de CSV. A tabela interna não deve aparecer como texto reconhecido. O parser conservador aceita total com ponto decimal, ignora totais de tributos e deixa datas conflitantes em branco.
+
+Referências: [modelo e licença](https://huggingface.co/Qwen/Qwen3-VL-2B-Instruct-GGUF), [entrada multimodal local](https://github.com/ggml-org/llama.cpp/blob/master/docs/multimodal.md) e [API local e schema](https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md). As medições desta máquina e os limites da validação ficam no [histórico](HISTORICO_REVISOES.md), separados de qualquer expectativa de desempenho em produção.
 
 ## Rede e verificações
 
@@ -123,7 +148,7 @@ npm run build:web
 npm run export:check
 ```
 
-A suíte API inicia seu próprio container OCR em porta loopback dinâmica e Miniflare com banco/R2 temporários, aplica as três migrations locais e não altera o estado da demonstração. Ao terminar, remove somente o projeto Compose do teste. Os testes PGlite originais executam SQL PostgreSQL **local em WASM**; são regressões da origem, não evidência de migração aplicada em Supabase remoto. As evidências datadas ficam em [Histórico](HISTORICO_REVISOES.md) e `research_notes/Agrogest Cloudflare local/`.
+A suíte API inicia seu próprio container OCR em porta loopback dinâmica e Miniflare com banco/R2 temporários, aplica as três migrations locais e não altera o estado da demonstração. Ao terminar, remove somente o projeto Compose do teste. Os testes PGlite originais executam SQL PostgreSQL **local em WASM**; são regressões da origem, não evidência de migração aplicada em Supabase remoto. As evidências datadas ficam em [Histórico](HISTORICO_REVISOES.md) e `agrogest-app/docs/arquivo/pesquisas/Agrogest Cloudflare local/`.
 
 ## Limites da entrega
 

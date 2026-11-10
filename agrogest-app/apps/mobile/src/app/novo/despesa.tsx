@@ -1,7 +1,8 @@
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useSQLiteContext } from 'expo-sqlite';
-import { readDocumentDraft, saveDocumentDraft, type DocumentDraft } from '@/services/documents';
+import { captureDocument, readDocumentDraft, saveDocumentDraft, type DocumentDraft } from '@/services/documents';
+import { ImageCapture } from '@/components/image-capture';
 import { Pressable, StyleSheet, View } from 'react-native';
 
 import {
@@ -14,7 +15,7 @@ import { ToggleGroup } from '@/components/fields';
 import { CounterpartyField } from '@/components/finance-ui';
 import { FarmPicker } from '@/components/pickers';
 import { draftsFrom, resolveStockItems, StockItemsEditor, type StockItemDraft } from '@/components/stock-ui';
-import { Button, Chip, ChipWrap, Note, Segmented } from '@/components/ui/controls';
+import { Chip, ChipWrap, Note, Segmented } from '@/components/ui/controls';
 import { BigMoneyField, DateField, Field, TextField } from '@/components/ui/form';
 import { Card, Divider, KV, Screen, Section } from '@/components/ui/layout';
 import { FadeIn, haptics, PressableScale } from '@/components/ui/motion';
@@ -111,6 +112,8 @@ export default function DespesaScreen() {
   const [allCategories, setAllCategories] = useState(false);
   const [touched, setTouched] = useState(false);
   const [busy, setBusy] = useState(false);
+  const [capturing, setCapturing] = useState(false);
+  const [captureError, setCaptureError] = useState<string | null>(null);
   const [saveFailed, setSaveFailed] = useState(false);
   const [saved, setSaved] = useState<Entry | null>(null);
   const [importError, setImportError] = useState<string | null>(null);
@@ -125,7 +128,7 @@ export default function DespesaScreen() {
       setDate(draft.reviewed.occurredAt ?? app.today); setFirstDue(draft.reviewed.occurredAt ?? app.today);
       setDescription(draft.reviewed.description ?? ''); setSupplier(draft.reviewed.supplier ?? ''); setDocument(draft.reviewed.document ?? '');
       setAlloc(initialAllocationState(app.farmLotSummaries(draft.farmId).filter((x) => x.headsCurrent > 0)));
-      setDetailsOpen(true);
+      setDetailsOpen(false);
     }).catch(() => setImportError('Não foi possível abrir a captura salva.'));
   }, [db, params.importacao, app]);
 
@@ -253,7 +256,16 @@ export default function DespesaScreen() {
         />
       }>
       {importError ? <Note tone="danger">{importError}</Note> : null}
-      {imported ? <Note title="Comprovante revisado">Confira a categoria, as parcelas e o rateio. A despesa seguirá a aprovação normal da operação.</Note> : !initial ? <Button title="Importar imagem de comprovante" variant="secondary" icon="camera-outline" onPress={() => router.push('/novo/importar-despesa')} /> : null}
+      {captureError ? <Note tone="danger">{captureError}</Note> : null}
+      {imported ? <Note title="Comprovante revisado">Confira a categoria e o rateio antes de enviar.</Note> : !initial ? <ImageCapture disabled={busy || capturing || !farm} onError={setCaptureError} onImage={async (image) => {
+        if (!farm || capturing) return;
+        setCapturing(true); setCaptureError(null);
+        try {
+          const draft = await captureDocument(db, { ...image, farmId: farm.id, operationId: farm.operationId });
+          router.push({ pathname: '/novo/importar-despesa', params: { id: draft.id, analisar: '1' } });
+        } catch { setCaptureError('Não foi possível salvar a imagem. Tente novamente.'); }
+        finally { setCapturing(false); }
+      }} /> : null}
       <FadeIn index={0} style={styles.amount}>
         <BigMoneyField
           accessibilityLabel="Valor da despesa"

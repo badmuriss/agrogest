@@ -6,9 +6,9 @@ executar tarefas, referência para consultar regras e explicações para entende
 Os documentos ficam no Git e são atualizados no mesmo conjunto de alterações do código
 (docs as code). Não é necessário criar pastas ou arquivos para cada categoria.
 
-## Versão acadêmica local · 09/11/2026
+## Versão acadêmica local · 10/11/2026
 
-O guia vigente de setup, Auth, Worker/D1/R2, OCR em container Docker por CPU, documentos e sincronização é [Cloudflare local](CLOUDFLARE_LOCAL.md). A integração Supabase de outubro é histórica; seus comandos remotos não se aplicam à versão da faculdade.
+O guia vigente de setup, Auth, Worker/D1/R2, OCR em container Docker por CPU, IA visual local opcional, documentos e sincronização é [Cloudflare local](CLOUDFLARE_LOCAL.md). A integração Supabase de outubro é histórica; seus comandos remotos não se aplicam à versão da faculdade.
 
 ## Começar
 
@@ -40,6 +40,19 @@ O [README mobile](../apps/mobile/README.md) resume os modos e recursos disponív
 | Método, reprodução e resultados datados de benchmarks | [Desempenho](PERFORMANCE.md) |
 | Escopo, evidências e limites de revisões anteriores | [Histórico de revisões](HISTORICO_REVISOES.md) |
 | Capturas históricas do redesenho | [Antes/depois visual](branding/antes-depois/README.md) |
+
+## Global Solution e arquivo
+
+| Consulta | Local |
+| --- | --- |
+| Tema, tecnologias e critérios da GS | [Requisitos da GS](gs/REQUISITOS_GS.md) |
+| Implementação, decisões e próximos passos | [Plano](gs/PLANO.md) |
+| Autoria da base e contribuições acadêmicas | [Origem e atribuição](arquivo/ORIGEM.md) |
+| Handoffs e autorizações anteriores | [Transferências de contexto](arquivo/transferencias/) |
+| Avaliações anteriores à implementação | [Estudos arquivados](arquivo/estudos/) |
+| Fontes e evidências datadas | [Pesquisas e registros](arquivo/pesquisas/) |
+
+O README da raiz apresenta a solução para os avaliadores. Os guias acima concentram operação e contratos; o arquivo preserva o histórico, incluindo estudos de alternativas descartadas, sem orientar novas funcionalidades. A raiz mantém apenas `README.md` e `AGENTS.md` como Markdown. A reorganização de 10/11 altera caminhos e links, preservando os dados e medições dos registros.
 
 ## Manter a documentação
 

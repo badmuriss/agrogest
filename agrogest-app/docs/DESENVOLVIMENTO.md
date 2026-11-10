@@ -1,10 +1,10 @@
 # Desenvolvimento e manutenção
 
-Tipo: guia prático. Atualização acadêmica: **09/11/2026**.
+Tipo: guia prático. Atualização acadêmica: **10/11/2026**.
 
 ## Execução vigente da faculdade
 
-Na raiz, execute `npm run setup:local`, `npm run build:web` e `npm start`; abra **http://127.0.0.1:8787/entrar**. Node 24, npm e Docker local com Compose v2+ e containers Linux são os pré-requisitos. Python/Tesseract/modelo português ficam no container OCR e executam por CPU. O [guia Cloudflare local](CLOUDFLARE_LOCAL.md) é responsável por contas, três lockfiles, scripts, migrations D1 locais, OCR, estado persistente, configuração privada e comandos completos de validação.
+Na raiz, execute `npm run setup:local`, `npm run build:web` e `npm start`; abra **http://127.0.0.1:8787/entrar**. Node 24, npm e Docker local com Compose v2+ e containers Linux são os pré-requisitos. Python/Tesseract/modelo português ficam no container OCR e executam por CPU. A [IA visual opcional](CLOUDFLARE_LOCAL.md#ia-visual-local-opcional) tem setup separado; neste ambiente, o backend usa o modelo local com GPU. O [guia Cloudflare local](CLOUDFLARE_LOCAL.md) é responsável por contas, três lockfiles, scripts, migrations D1 locais, OCR, estado persistente, configuração privada e comandos completos de validação.
 
 Tipos e lint mobile são obrigatórios. `npm run check` reúne tipos/lint, suíte herdada, integração API e testes OCR em container. Para alterações no frontend, execute também `npm run build:web` e `npm run export:check`. O banco/arquivos de desenvolvimento não saem do computador. Não usar EAS, túnel, deploy ou Supabase remoto nesta fase.
 

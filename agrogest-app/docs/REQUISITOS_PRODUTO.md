@@ -1,10 +1,10 @@
 # AgroGest — Levantamento de Requisitos do Produto
 
-## Situação da cópia acadêmica · 06/11/2026
+## Situação da cópia acadêmica · 10/11/2026
 
 As regras RF/RN abaixo foram preservadas na migração para backend Worker/D1/R2 **local**. RF-16 continua exigindo outra pessoa elegível, inclusive outro sócio para financeiro; mantém a exceção já vigente para produtor sozinho. Não houve mudança para autoaprovação por IA.
 
-RF-20 está **parcialmente implementado**: imagem real de comprovante → OCR português → revisão → despesa com original anexado → aprovação/sync → indicador. PDF/XML, extração fiscal completa e validação em corpus real continuam pendentes. RF-18/offline mantém SQLite/outbox por conta e agora captura/resultado/revisão persistentes em v15. Auth local usa senha verificada em contas sintéticas; cadastro/recuperação/e-mail de produção não são atendidos nesta entrega. Mapas remotos desativados preservam geometrias existentes.
+RF-20 está **parcialmente implementado**: imagem real de comprovante → OCR/IA visual local → revisão → despesa com original anexado → aprovação/sync → indicador. PDF/XML, extração fiscal completa e validação em corpus real continuam pendentes. RF-18/offline mantém SQLite/outbox por conta e agora captura/resultado/revisão persistentes em v15. Auth local usa senha verificada em contas sintéticas; cadastro/recuperação/e-mail de produção não são atendidos nesta entrega. Mapas remotos desativados preservam geometrias existentes.
 
 O [guia atual](CLOUDFLARE_LOCAL.md) e o [histórico datado](HISTORICO_REVISOES.md) discriminam implementação e verificações. As menções a Supabase hospedado e medições de outubro no restante são histórico da origem, não execução remota desta versão.
 
@@ -79,7 +79,7 @@ O produtor usa planilhas para registrar compras de animais e insumos, despesas, 
 
 ### RF-01 — Fazendas, áreas e locais
 
-> **Implementado em 19/10/2026 (issue #43):** pastos por fazenda com nome único, área útil, capim, observações e situação ativo/inativo; seleção ou cadastro no próprio formulário do lote; mudança de pasto como movimentação auditável. Ver RF-04, RF-06 e [SUPABASE.md](./SUPABASE.md).
+> **Implementado em 19/10/2026 (issue #43):** pastos por fazenda com nome único, área útil, capim, observações e situação ativo/inativo; seleção ou cadastro no próprio formulário do lote; mudança de pasto como movimentação auditável. Ver RF-04, RF-06 e [SUPABASE.md](SUPABASE.md).
 
 - Cadastrar múltiplas fazendas, informações básicas, localização e áreas/pastos de manejo.
 - Vincular uma ou mais operações a uma fazenda, conforme vigência e condições de utilização.
@@ -311,7 +311,7 @@ apenas elimina a contradição textual, sem alterar o aplicativo.
 
 ### RF-17 — Mobile offline-first e sincronização
 
-> **Implementação inicial de 18/10/2026:** a integração em código usa outbox SQLite, comandos idempotentes e snapshot autorizado pelo servidor. PowerSync permanece candidato à comparação; validação remota, concorrência real e aparelhos físicos precisam de evidência própria. Ver [SUPABASE.md](./SUPABASE.md).
+> **Implementação inicial de 18/10/2026:** a integração em código usa outbox SQLite, comandos idempotentes e snapshot autorizado pelo servidor. PowerSync permanece candidato à comparação; validação remota, concorrência real e aparelhos físicos precisam de evidência própria. Ver [SUPABASE.md](SUPABASE.md).
 
 **Requisito confirmado:** app móvel utilizável sem internet, com sincronização posterior, múltiplos usuários e dispositivos.
 
@@ -558,9 +558,9 @@ O Git registra o histórico técnico de commits; este quadro registra **decisõe
 
 ### Documentos relacionados
 
-- [EXPERIENCIA_USUARIO.md](./EXPERIENCIA_USUARIO.md) — arquitetura de informação, modos de interface, fluxos, wireframes textuais e critérios de UX.
-- [ARQUITETURA_TECNICA.md](./ARQUITETURA_TECNICA.md) — ADR-001, stack tecnológica, operação offline, sincronização, segurança, POC e implementação.
-- [IA_DOCUMENTOS_FISCAIS.md](./IA_DOCUMENTOS_FISCAIS.md) — upload PDF/foto, extração, revisão, aprovação, deduplicação, privacidade e critérios de aceite.
+- [EXPERIENCIA_USUARIO.md](EXPERIENCIA_USUARIO.md) — arquitetura de informação, modos de interface, fluxos, wireframes textuais e critérios de UX.
+- [ARQUITETURA_TECNICA.md](ARQUITETURA_TECNICA.md) — ADR-001, stack tecnológica, operação offline, sincronização, segurança, POC e implementação.
+- [IA_DOCUMENTOS_FISCAIS.md](IA_DOCUMENTOS_FISCAIS.md) — upload PDF/foto, extração, revisão, aprovação, deduplicação, privacidade e critérios de aceite.
 
 
 ## Regras implementadas de estoque e financeiro

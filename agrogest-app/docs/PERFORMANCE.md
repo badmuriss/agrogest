@@ -12,7 +12,7 @@ o medidor) e no novo. São três repetições de cada lado, sempre depois de rec
 tabela mostra a mediana. É um ambiente de desenvolvimento web: os números servem para comparar as
 duas versões entre si, não para dizer quanto tempo leva num Android.
 As capturas de antes e depois das telas principais estão em
-[capturas/fluidez-2026-10-25](capturas/fluidez-2026-10-25/). As `usos-*` mostram as cenas novas onde
+[capturas/fluidez-2026-10-25](capturas/fluidez-2026-10-25). As `usos-*` mostram as cenas novas onde
 o app as usa, nos dois temas: cabeçalho de formulário (fazenda nova, nota fiscal, convite), estado
 vazio (Início sem fazenda, rebanho sem lote), conclusão do wizard (enviado e aguardando envio),
 leitura da nota e convite criado. Com "Reduzir animações" ligado, todos esses usos (cabeçalhos de

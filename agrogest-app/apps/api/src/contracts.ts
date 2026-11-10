@@ -7,6 +7,10 @@ export interface Env {
   INFERENCE_PROVIDER: string;
   INFERENCE_REMOTE_ALLOWED: string;
   LOCAL_OCR_BASE_URL: string;
+  LOCAL_VISION_BASE_URL?: string;
+  LOCAL_VISION_MODEL?: string;
+  LOCAL_VISION_REVISION?: string;
+  LOCAL_VISION_API_KEY?: string;
   INFERENCE_TIMEOUT_MS: string;
   INFERENCE_MAX_OUTPUT_TOKENS: string;
   WORKERS_AI_ACCOUNT_ID?: string;

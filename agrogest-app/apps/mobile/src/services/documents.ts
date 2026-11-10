@@ -33,7 +33,7 @@ async function result<T>(response: Response): Promise<T> {
   if (!response.ok) throw new Error(data.error?.message ?? 'Não foi possível ler este documento.');
   return data;
 }
-export async function analyzeDocument(db: SQLiteDatabase, draft: DocumentDraft) {
+export async function analyzeDocument(db: SQLiteDatabase, draft: DocumentDraft, options: { force?: boolean; replaceReview?: boolean } = {}) {
   let current = draft;
   if (!current.serverId) {
     const bytes = Uint8Array.from(atob(draft.base64), (c) => c.charCodeAt(0));
@@ -41,7 +41,8 @@ export async function analyzeDocument(db: SQLiteDatabase, draft: DocumentDraft) 
     current = { ...current, serverId: uploaded.id };
     await saveDocumentDraft(db, current);
   }
-  const extraction = await result<Extraction>(await apiFetch(`/api/documents/${current.serverId}/extract`, { method: 'POST' }));
-  current = { ...current, extraction, reviewed: current.reviewed ?? extraction.fields };
+  const extraction = await result<Extraction>(await apiFetch(`/api/documents/${current.serverId}/extract`, { method: 'POST', ...(options.force ? { body: JSON.stringify({ force: true }) } : {}) }));
+  const unchangedSuggestion = JSON.stringify(current.reviewed) === JSON.stringify(current.extraction?.fields);
+  current = { ...current, extraction, reviewed: options.replaceReview || unchangedSuggestion ? extraction.fields : current.reviewed ?? extraction.fields };
   await saveDocumentDraft(db, current); return current;
 }

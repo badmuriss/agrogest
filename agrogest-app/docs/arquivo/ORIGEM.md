@@ -1,6 +1,6 @@
 # Origem da base e repositório da faculdade
 
-Preparação local em 06/11/2026, conforme [atualização do usuário](ATUALIZACAO_IA_E_REPOSITORIO.md).
+Preparação local em 06/11/2026, conforme [atualização do usuário](transferencias/ATUALIZACAO_IA_E_REPOSITORIO.md).
 
 | Campo | Registro |
 | --- | --- |
@@ -16,9 +16,9 @@ Preparação local em 06/11/2026, conforme [atualização do usuário](ATUALIZAC
 
 O snapshot foi obtido por `git archive` do commit fixado, sem copiar `.git` para dentro do destino. README, relatórios, pesquisa e instruções do usuário já existentes foram preservados; o README e o plano foram depois revisados conforme solicitado. O aplicativo importado mantém os bytes da origem; não começou a migração Supabase→Cloudflare. O `.gitignore` da raiz recebeu proteção adicional para configuração privada, estado local e pesos de modelos.
 
-O [manifesto de importação](<research_notes/Agrogest Cloudflare local/importacao-base-20261106.json>) registra caminho, tamanho e SHA-256 de cada arquivo importado. Seus hashes representam o snapshot original, anterior à extensão declarada do `.gitignore`. As futuras alterações da equipe devem ser identificáveis em relação a essa base.
+O [manifesto de importação](<pesquisas/Agrogest Cloudflare local/importacao-base-20261106.json>) registra caminho, tamanho e SHA-256 de cada arquivo importado. Seus hashes representam o snapshot original, anterior à extensão declarada do `.gitignore`. As futuras alterações da equipe devem ser identificáveis em relação a essa base.
 
-A [verificação registrada](<research_notes/Agrogest Cloudflare local/verificacao-copia-20261106.json>) confirmou os 418 arquivos do app idênticos, metadata/histórico próprios e documentos anteriores preservados, sem Git aninhado ou remote no destino. O TAP dos 114 testes anteriores manteve seu hash; os testes não foram repetidos nesta preparação.
+A [verificação registrada](<pesquisas/Agrogest Cloudflare local/verificacao-copia-20261106.json>) confirmou os 418 arquivos do app idênticos, metadata/histórico próprios e documentos anteriores preservados, sem Git aninhado ou remote no destino. O TAP dos 114 testes anteriores manteve seu hash; os testes não foram repetidos nesta preparação.
 
 Esta é uma **cópia local independente por snapshot**, sem operação de fork e sem merge de históricos não relacionados. O histórico próprio do workspace permanece no destino; o histórico de commits da origem permanece no clone de proveniência, com a referência local `refs/archive/agrogest-base-gs-20261106`. O clone é parcial: blobs não utilizados podem depender de leitura pública futura; ele não é anunciado como backup completo e autossuficiente de todos os arquivos históricos.
 
@@ -28,12 +28,12 @@ O remote de leitura do clone tem push URL inválida e hook `pre-push` de bloquei
 
 Atribuição e condições de publicação continuam necessárias. Não foi localizado arquivo LICENSE/LICENCE/COPYING na árvore auditada; esta preparação autorizada pelo usuário não inventa uma licença para a base nem apaga autoria. A licença de um modelo de IA também não licencia automaticamente o aplicativo.
 
-O [plano vigente](PLANO_AGROGEST_CLOUDFLARE_LOCAL.md) rege a adaptação. A aplicação/Workers/D1/R2 continuam locais; inferência em Workers AI do usuário ou OpenRouter está autorizada por configuração do backend. O [exemplo de configuração](config/inference.env.example) não contém segredos e ainda não é consumido pelo aplicativo de origem.
+O [plano vigente](../gs/PLANO.md) rege a adaptação. A aplicação/Workers/D1/R2 continuam locais; inferência em Workers AI do usuário ou OpenRouter está autorizada por configuração do backend. O [exemplo de configuração](inference.env.example) não contém segredos e ainda não é consumido pelo aplicativo de origem.
 
 
 ## Adaptação acadêmica iniciada em 06/11/2026
 
-Após a preparação acima, a [autorização de desenvolvimento](AUTORIZACAO_DESENVOLVIMENTO_GS.md) permitiu alterar a cópia própria. O [guia atual](agrogest-app/docs/CLOUDFLARE_LOCAL.md) registra Worker/D1/R2 locais, OCR real e verificações. Os hashes do manifesto continuam representando **a base importada**, não o código adaptado. O `.git` e os documentos históricos não foram apagados; não houve fork/push/remote novo ou alteração no repositório original.
+Após a preparação acima, a [autorização de desenvolvimento](transferencias/AUTORIZACAO_DESENVOLVIMENTO_GS.md) permitiu alterar a cópia própria. O [guia atual](../CLOUDFLARE_LOCAL.md) registra Worker/D1/R2 locais, OCR real e verificações. Os hashes do manifesto continuam representando **a base importada**, não o código adaptado. O `.git` e os documentos históricos não foram apagados; não houve fork/push/remote novo ou alteração no repositório original.
 
 O vínculo EAS (`owner`/`projectId`) foi retirado do `app.json` desta cópia independente para não operar no projeto do amigo. A metadata original permanece no manifesto/snapshot de proveniência. A amostra fiscal constante foi movida de `services/nf-extraction.ts` para `tests/fixtures/historical-nf-extraction.ts`, fora do runtime. Migrations Supabase e testes PGlite foram mantidos para regressão local, sem aplicar SQL remoto. Estado de execução e pesos baixados são ignorados pelo Git; os 114 testes iniciais mantêm seu TAP original.
 

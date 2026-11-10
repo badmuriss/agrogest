@@ -8,19 +8,19 @@ Referências: [IDENTIDADE_VISUAL.md](../IDENTIDADE_VISUAL.md) (seção 7.1) e [E
 
 | Tela | Antes (escuro) | Depois (claro) | Depois (escuro) |
 | --- | --- | --- | --- |
-| Início (Essencial) | [inicio-antes-escuro-375.jpg](./inicio-antes-escuro-375.jpg) | [inicio-depois-claro-essencial-375.jpg](./inicio-depois-claro-essencial-375.jpg) | [inicio-depois-escuro-essencial-375.jpg](./inicio-depois-escuro-essencial-375.jpg) |
-| Início (Gerencial e Analítico) | (não capturado) | Analítico: [inicio-depois-claro-analitico-375.jpg](./inicio-depois-claro-analitico-375.jpg) | (não capturado) |
-| Financeiro | [financeiro-antes-escuro-375.jpg](./financeiro-antes-escuro-375.jpg) | [financeiro-depois-claro-375.jpg](./financeiro-depois-claro-375.jpg) | [financeiro-depois-escuro-375.jpg](./financeiro-depois-escuro-375.jpg) |
-| Rebanho | [rebanho-antes-escuro-375.jpg](./rebanho-antes-escuro-375.jpg) | [rebanho-depois-claro-375.jpg](./rebanho-depois-claro-375.jpg) | [rebanho-depois-escuro-375.jpg](./rebanho-depois-escuro-375.jpg) |
-| Folha do "+" | [registrar-antes-escuro-375.jpg](./registrar-antes-escuro-375.jpg) | [registrar-depois-claro-375.jpg](./registrar-depois-claro-375.jpg) | [registrar-depois-escuro-375.jpg](./registrar-depois-escuro-375.jpg) |
-| Atividade | (não capturado) | [atividade-depois-claro-375.jpg](./atividade-depois-claro-375.jpg) | (não capturado) |
-| Mais | (não capturado) | [mais-depois-claro-375.jpg](./mais-depois-claro-375.jpg) | (não capturado) |
+| Início (Essencial) | [inicio-antes-escuro-375.jpg](inicio-antes-escuro-375.jpg) | [inicio-depois-claro-essencial-375.jpg](inicio-depois-claro-essencial-375.jpg) | [inicio-depois-escuro-essencial-375.jpg](inicio-depois-escuro-essencial-375.jpg) |
+| Início (Gerencial e Analítico) | (não capturado) | Analítico: [inicio-depois-claro-analitico-375.jpg](inicio-depois-claro-analitico-375.jpg) | (não capturado) |
+| Financeiro | [financeiro-antes-escuro-375.jpg](financeiro-antes-escuro-375.jpg) | [financeiro-depois-claro-375.jpg](financeiro-depois-claro-375.jpg) | [financeiro-depois-escuro-375.jpg](financeiro-depois-escuro-375.jpg) |
+| Rebanho | [rebanho-antes-escuro-375.jpg](rebanho-antes-escuro-375.jpg) | [rebanho-depois-claro-375.jpg](rebanho-depois-claro-375.jpg) | [rebanho-depois-escuro-375.jpg](rebanho-depois-escuro-375.jpg) |
+| Folha do "+" | [registrar-antes-escuro-375.jpg](registrar-antes-escuro-375.jpg) | [registrar-depois-claro-375.jpg](registrar-depois-claro-375.jpg) | [registrar-depois-escuro-375.jpg](registrar-depois-escuro-375.jpg) |
+| Atividade | (não capturado) | [atividade-depois-claro-375.jpg](atividade-depois-claro-375.jpg) | (não capturado) |
+| Mais | (não capturado) | [mais-depois-claro-375.jpg](mais-depois-claro-375.jpg) | (não capturado) |
 
 ## Desktop (800 px)
 
 | Antes (escuro) | Depois (claro) | Depois (escuro) |
 | --- | --- | --- |
-| [inicio-antes-escuro-desktop-800.jpg](./inicio-antes-escuro-desktop-800.jpg) | [inicio-depois-claro-desktop-800.jpg](./inicio-depois-claro-desktop-800.jpg) | [inicio-depois-escuro-desktop-800.jpg](./inicio-depois-escuro-desktop-800.jpg) |
+| [inicio-antes-escuro-desktop-800.jpg](inicio-antes-escuro-desktop-800.jpg) | [inicio-depois-claro-desktop-800.jpg](inicio-depois-claro-desktop-800.jpg) | [inicio-depois-escuro-desktop-800.jpg](inicio-depois-escuro-desktop-800.jpg) |
 
 ## Lacunas conhecidas
 

@@ -1,10 +1,25 @@
 import unittest
 from pathlib import Path
-from server import extract, fields_from_text
+from server import extract, fields_from_text, parse_tsv
 
 FIXTURES = Path(__file__).resolve().parents[2] / 'tests' / 'fixtures'
 
 class ExtractionTests(unittest.TestCase):
+    def test_literal_quote_never_leaks_tsv_rows_into_recognized_text(self):
+        header = 'level\tpage_num\tblock_num\tpar_num\tline_num\tword_num\tleft\ttop\twidth\theight\tconf\ttext\n'
+        tsv = header + '5\t1\t1\t1\t1\t1\t10\t10\t10\t10\t80\t"\n5\t1\t1\t1\t2\t1\t10\t20\t50\t10\t95\tTOTAL\n5\t1\t1\t1\t2\t2\t70\t20\t40\t10\t95\t47,00\n'
+        words, text = parse_tsv(tsv)
+        self.assertEqual([w['text'] for w in words], ['"', 'TOTAL', '47,00'])
+        self.assertEqual(text, '"\nTOTAL 47,00')
+        self.assertNotIn('\t', text)
+        self.assertEqual(fields_from_text(text)['amountCents'], 4700)
+
+    def test_dot_decimal_is_read_but_conflicting_dates_and_tax_values_are_not_guessed(self):
+        result = fields_from_text('TOTAL R$ 47.00\nTotal aproximado de tributos: 7,61\n21/09/2016\n21/09/2018')
+        self.assertEqual(result['amountCents'], 4700)
+        self.assertIsNone(result['occurredAt'])
+        self.assertIsNone(result['supplier'])
+
     def test_real_portuguese_image(self):
         result = extract((FIXTURES / 'comprovante-gs-001.png').read_bytes())
         self.assertEqual(result['fields']['amountCents'], 125040)

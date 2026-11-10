@@ -1,6 +1,6 @@
 # Handoff — AgroGest, Cloudflare e execução local
 
-> **Ownership vigente · 06/11/2026:** desenvolvimento e testes agora autorizados em [AUTORIZACAO_DESENVOLVIMENTO_GS.md](AUTORIZACAO_DESENVOLVIMENTO_GS.md). A versão acadêmica implementa Worker/D1/R2/OCR locais; [guia atual](agrogest-app/docs/CLOUDFLARE_LOCAL.md) e [plano v3](PLANO_AGROGEST_CLOUDFLARE_LOCAL.md). A antiga fase de somente análise abaixo é histórica. Nenhum deploy/publicação foi autorizado nesta fase; inferência remota segue a exceção já corrigida.
+> **Ownership vigente · 06/11/2026:** desenvolvimento e testes agora autorizados em [AUTORIZACAO_DESENVOLVIMENTO_GS.md](AUTORIZACAO_DESENVOLVIMENTO_GS.md). A versão acadêmica implementa Worker/D1/R2/OCR locais; [guia atual](../../CLOUDFLARE_LOCAL.md) e [plano v3](../../gs/PLANO.md). A antiga fase de somente análise abaixo é histórica. Nenhum deploy/publicação foi autorizado nesta fase; inferência remota segue a exceção já corrigida.
 
 
 Atualizado em 06/11/2026. Este arquivo é o contexto de partida para uma NOVA sessão Codex, sem importar o histórico longo da conversa anterior.
@@ -25,9 +25,9 @@ Consultar documentação, clonar a base pública e preparar um repositório loca
 
 ## Primeiro trabalho da sessão
 
-1. Ler este handoff e `GLOBAL_SOLUTION_2_REQUISITOS.md`.
-2. Ler `README.md` e `reports/Agrogest na Global Solution.md`, entendendo que relatam uma auditoria da base Supabase, não a nova arquitetura desejada.
-3. Consultar as evidências em `research_notes/Agrogest na Global Solution/`, sobretudo `dados_e_cloud.md`, `visao_e_ia.md` e `citizentech_e_pitch.md`.
+1. Ler este handoff e `agrogest-app/docs/gs/REQUISITOS_GS.md`.
+2. Ler `README.md` e `agrogest-app/docs/arquivo/estudos/Agrogest na Global Solution.md`, entendendo que relatam uma auditoria da base Supabase, não a nova arquitetura desejada.
+3. Consultar as evidências em `agrogest-app/docs/arquivo/pesquisas/Agrogest na Global Solution/`, sobretudo `dados_e_cloud.md`, `visao_e_ia.md` e `citizentech_e_pitch.md`.
 4. Inspecionar o código primário do AgroGest e suas instruções `AGENTS.md`, sem presumir que os relatórios anteriores cubram toda a migração.
 5. Entregar um plano com matriz de aderência à GS, arquitetura local de destino, inventário de migração, riscos, prioridades e critérios de aceite.
 
@@ -124,7 +124,7 @@ Consequências nesta fase:
 
 ## Entregáveis da análise inicial
 
-Criar um plano durável, por exemplo `PLANO_AGROGEST_CLOUDFLARE_LOCAL.md`, e atualizar README com decisões confirmadas. Não iniciar implementação ampla ainda.
+Criar um plano durável, por exemplo `agrogest-app/docs/gs/PLANO.md`, e atualizar README com decisões confirmadas. Não iniciar implementação ampla ainda.
 
 O plano deve conter:
 

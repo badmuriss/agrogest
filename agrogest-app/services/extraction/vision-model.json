@@ -1,0 +1,12 @@
+{
+  "model": "Qwen/Qwen3-VL-2B-Instruct-GGUF",
+  "revision": "52d6c8ffea26cc873ac5ad116f8631268d7eb503",
+  "license": "Apache-2.0",
+  "runtime": "llama.cpp b12246 (MIT), Linux x86_64 CUDA 12.8",
+  "files": [
+    { "name": "Qwen3VL-2B-Instruct-Q4_K_M.gguf", "url": "https://huggingface.co/Qwen/Qwen3-VL-2B-Instruct-GGUF/resolve/52d6c8ffea26cc873ac5ad116f8631268d7eb503/Qwen3VL-2B-Instruct-Q4_K_M.gguf", "sha256": "089d75c52f4b7ffc56ba998ffc50aae89fcafc755f9e7208aacca281dca6c2ae" },
+    { "name": "mmproj-Qwen3VL-2B-Instruct-Q8_0.gguf", "url": "https://huggingface.co/Qwen/Qwen3-VL-2B-Instruct-GGUF/resolve/52d6c8ffea26cc873ac5ad116f8631268d7eb503/mmproj-Qwen3VL-2B-Instruct-Q8_0.gguf", "sha256": "f9a68fabba69c3b81e153367b2c7521030b0fa8bb0de400c9599c8e6725f9c82" },
+    { "name": "llama-runtime.tar.gz", "url": "https://github.com/ggml-org/llama.cpp/releases/download/b12246/llama-b12246-bin-ubuntu-cuda-12.8-x64.tar.gz", "sha256": "3789a8cdfe7f4c4d7f625b4ef69c748cee7b31e66cd2b1d4ffa8da4d81fd6622" },
+    { "name": "cuda-runtime.tar.gz", "url": "https://github.com/ggml-org/llama.cpp/releases/download/b12246/cudart-llama-b12246-bin-ubuntu-cuda-12.8-x64.tar.gz", "sha256": "6322974f2c4515da957d5d05b92b21c1d6b2459b762b518ba9e204443b89a00a" }
+  ]
+}
