@@ -8,7 +8,7 @@ Os documentos ficam no Git e são atualizados no mesmo conjunto de alterações 
 
 ## Versão acadêmica local · 10/11/2026
 
-O guia vigente de setup, Auth, Worker/D1/R2, OCR em container Docker por CPU, IA visual local opcional, documentos e sincronização é [Cloudflare local](CLOUDFLARE_LOCAL.md). A integração Supabase de outubro é histórica; seus comandos remotos não se aplicam à versão da faculdade.
+O guia vigente de setup, Auth, Worker/D1/R2, perfis CPU/IA visual local/Workers AI, preparação de hospedagem futura, documentos e sincronização é [Cloudflare local](CLOUDFLARE_LOCAL.md). A integração Supabase de outubro é histórica; seus comandos remotos não se aplicam à versão da faculdade.
 
 ## Começar
 
@@ -20,7 +20,7 @@ O [README mobile](../apps/mobile/README.md) resume os modos e recursos disponív
 | Tarefa | Documento responsável |
 | --- | --- |
 | Instalar, executar, testar e entender a estrutura | [Desenvolvimento](DESENVOLVIMENTO.md) |
-| Configurar Auth/backend, migrations e sincronização locais | [Cloudflare local](CLOUDFLARE_LOCAL.md) · [Supabase histórico](SUPABASE.md) |
+| Configurar Auth/backend, perfis, migrations e sincronização; preparar nuvem | [Cloudflare local](CLOUDFLARE_LOCAL.md) · [Supabase histórico](SUPABASE.md) |
 | Regenerar os assets de marca V2 | [README dos assets](../apps/mobile/assets/branding/v2/README.md) |
 
 ## Referência

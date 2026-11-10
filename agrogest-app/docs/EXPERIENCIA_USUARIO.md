@@ -10,7 +10,7 @@ A revisão prioriza **valor, descrição e data**, com uma prévia compacta e **
 
 A revisão e os bytes ficam no SQLite da conta e podem ser reabertos. Sem serviço disponível, captura permanece para análise posterior. Depois da extração, envio offline é intenção pendente, nunca aprovação; a política RF-16 é mantida. O lançamento tem acesso a `/documento/[id]` para conferir o original antes de aprovar. Documento já vinculado abre a despesa existente; duplicação também é recusada no servidor.
 
-Acesso usa contas locais configuradas; cadastro e recuperação por e-mail indicam indisponibilidade. Mapas/busca remotos estão desativados nesta fase. [Roteiro e limitações atuais](CLOUDFLARE_LOCAL.md#roteiro-demonstrável). O restante descreve a base de UX preservada, com trechos Supabase e leitura fiscal completa históricos/planejados.
+Acesso usa contas configuradas pelo responsável; o perfil local continua oferecendo as identidades sintéticas do guia. O texto de entrada e as falhas de conexão também servem à futura hospedagem. Cadastro e recuperação por e-mail indicam indisponibilidade. Mapas/busca remotos estão desativados nesta fase. [Roteiro e limitações atuais](CLOUDFLARE_LOCAL.md#roteiro-demonstrável). O restante descreve a base de UX preservada, com trechos Supabase e leitura fiscal completa históricos/planejados.
 
 
 > **Tipo:** referência de experiência e navegação. **Status:** navegação e fluxos atuais nas seções 3 e 4; seção 5 distingue tecnologias implementadas de orientações de uso. Propostas e aceite ficam identificados.\

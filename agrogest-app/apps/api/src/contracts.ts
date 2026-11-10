@@ -16,9 +16,8 @@ export interface Env {
   WORKERS_AI_ACCOUNT_ID?: string;
   WORKERS_AI_API_TOKEN?: string;
   WORKERS_AI_MODEL?: string;
-  OPENROUTER_API_KEY?: string;
-  OPENROUTER_MODEL?: string;
-  OPENROUTER_PROVIDER?: string;
+  WORKERS_AI_TRANSPORT?: 'rest' | 'binding';
+  AI?: Ai;
 }
 export class ApiError extends Error {
   status: number;

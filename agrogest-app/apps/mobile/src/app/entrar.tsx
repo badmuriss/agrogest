@@ -46,7 +46,7 @@ export default function EntrarScreen() {
   return (
     <AuthLayout
       title="Entrar"
-      subtitle="Demonstração local: entre com uma das contas configuradas no guia de execução."
+      subtitle="Entre com sua conta para acompanhar a operação."
       switchPrompt="Contas locais de demonstração"
       switchLabel="Ver ajuda"
       onSwitch={() => router.push('/ajuda')}>

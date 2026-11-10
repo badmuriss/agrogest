@@ -1,0 +1,13 @@
+10/11/2026 · validação de perfis e preparação Cloudflare
+Base: aedb9641e00ba5d692d71365bd8e339eecf70bcc + alterações desta entrega
+npm run check: exit 0 · 250 testes (216 + 22 + 1 + 7 + 4), tipos mobile/API e lint
+npm run cloud:check: exit 0 · build web e wrangler deploy --dry-run com IDs sintéticos
+wrangler types do pacote staging: exit 0 · saída somente em .local
+npm run export:check: exit 0 · web, Android e iOS; sem execução em aparelho
+Clone isolado sem dependências/segredos/estado herdados: setup:local --provider workers-ai exit 0
+Navegador: login/reabertura; foto preservada com credencial ausente; sem resultado de inferência inventado
+Instância existente: provedor local-vision; extração force sobre GS-004 retornou 4250 centavos e 2026-11-10
+Lote reaberto: 4 despesas aprovadas; custo 1162040 centavos; estado financeiro igual ao anterior
+Cloudflare hospedado/IA real: NÃO executados; falta conta/token de inferência
+Sem deploy, provisionamento, migrações remotas ou alteração no original do amigo
+A evidência JSON contém hashes dos logs completos locais; nenhum segredo, token de sessão, imagem privada ou log do sistema foi publicado.

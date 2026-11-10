@@ -30,7 +30,7 @@ export default function DocumentoScreen() {
       const infoResponse = await apiFetch(`/api/documents/${id}`), info = await infoResponse.json();
       if (!infoResponse.ok) throw new Error(info.error?.message ?? 'Não foi possível abrir o documento.');
       const response = await apiFetch(`/api/documents/${id}/content`);
-      if (!response.ok) throw new Error('Imagem indisponível. Conecte o serviço local para abrir.');
+      if (!response.ok) throw new Error('Imagem indisponível. Conecte-se ao serviço para abrir.');
       const bytes = new Uint8Array(await response.arrayBuffer());
       let binary = ''; for (let i = 0; i < bytes.length; i += 8192) binary += String.fromCharCode(...bytes.subarray(i, i + 8192));
       if (active) setSource(`data:${info.mime};base64,${btoa(binary)}`);

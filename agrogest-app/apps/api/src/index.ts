@@ -2,7 +2,8 @@ import { ApiError, cents, ensure, idString, json, saoPauloDay, type Env } from '
 import { authenticate, digest, login, publicUser, type Actor } from './auth.ts';
 import { entityWrites, load, member, project, type State } from './store.ts';
 import { transition } from './commands.ts';
-import { extract, inferenceCacheKey, isRemoteInference } from './inference.ts';
+import { assertInferenceConfiguration, extract, inferenceCacheKey, isRemoteInference } from './inference.ts';
+import { allowedOrigin, checkEnvironment } from './environment.ts';
 
 const canonical = (value: any): string => JSON.stringify(value, (_, v) => v && typeof v === 'object' && !Array.isArray(v) ? Object.fromEntries(Object.keys(v).sort().map((k) => [k, v[k]])) : v);
 async function body(request: Request) {
@@ -74,13 +75,12 @@ async function documentAccess(env: Env, actor: Actor, id: string) {
 const describe = (d: DocumentRow) => ({ id: d.id, operationId: d.operation_id, name: d.name, mime: d.mime, size: d.size, sha256: d.sha256, extraction: d.extraction ? JSON.parse(d.extraction) : null });
 async function route(request: Request, env: Env) {
   const url = new URL(request.url), path = url.pathname;
-  ensure(env.APP_ENV === 'local' && ['localhost', '127.0.0.1', '[::1]'].includes(url.hostname), 'Esta configuração só executa localmente.', 403);
-  if (path === '/api/health') return json({ ok: true, environment: 'local', database: 'D1-local', documents: 'R2-local', inferenceProvider: env.INFERENCE_PROVIDER, remoteInferenceAllowed: env.INFERENCE_REMOTE_ALLOWED === 'true' });
+  if (path === '/api/health') return json({ ok: true, environment: env.APP_ENV, database: env.APP_ENV === 'local' ? 'D1-local' : 'D1', documents: env.APP_ENV === 'local' ? 'R2-local' : 'R2', inferenceProvider: env.INFERENCE_PROVIDER, remoteInferenceAllowed: env.INFERENCE_REMOTE_ALLOWED === 'true' });
   if (path === '/api/auth/login' && request.method === 'POST') return json({ data: { session: await login(env, await body(request)) }, error: null });
   const actor = await authenticate(request, env);
   if (path === '/api/auth/user') return json({ data: { user: publicUser(actor) }, error: null });
   if (path === '/api/auth/logout' && request.method === 'POST') { await env.DB.prepare('DELETE FROM sessions WHERE token_hash=?').bind(actor.tokenHash).run(); return json({ data: {}, error: null }); }
-  if (path.startsWith('/api/auth/')) throw new ApiError('Cadastro e recuperação por e-mail não estão disponíveis nesta demonstração local. Use uma conta local configurada.', 503, 'local_auth_only');
+  if (path.startsWith('/api/auth/')) throw new ApiError('Cadastro e recuperação por e-mail ainda não estão disponíveis. Use uma conta configurada pelo responsável.', 503, 'local_auth_only');
   if (path === '/api/rpc/agrogest_workspace' && request.method === 'POST') return json({ data: project((await load(env)).state, actor.id), error: null });
   if (path === '/api/rpc/agrogest_command' && request.method === 'POST') return json({ data: await command(env, actor, await body(request)), error: null });
   if (path === '/api/documents' && request.method === 'POST') {
@@ -107,7 +107,7 @@ async function route(request: Request, env: Env) {
     const doc = await documentAccess(env, actor, match[1]);
     if (!match[2] && request.method === 'GET') return json(describe(doc));
     if (match[2] === '/content' && request.method === 'GET') {
-      const obj = await env.DOCUMENTS.get(doc.object_key); ensure(obj, 'Arquivo local ausente.', 404);
+      const obj = await env.DOCUMENTS.get(doc.object_key); ensure(obj, 'Arquivo ausente.', 404);
       return new Response(obj.body, { headers: { 'Content-Type': doc.mime, 'Content-Length': String(doc.size), 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff', 'Content-Disposition': 'inline' } });
     }
     if (match[2] === '/extract' && request.method === 'POST') {
@@ -115,13 +115,14 @@ async function route(request: Request, env: Env) {
       const options = await request.json().catch(() => ({})) as { force?: boolean };
       const pipelineVersion = inferenceCacheKey(env);
       if (!options?.force && previous?.pipelineVersion === pipelineVersion) return json(previous);
+      assertInferenceConfiguration(env);
       // Remote inference is explicit, with a hard reservation of at most 20 requests/account/day.
       if (isRemoteInference(env)) {
         ensure(env.INFERENCE_REMOTE_ALLOWED === 'true', 'Inferência remota desativada.', 503);
         try { await env.DB.prepare('INSERT INTO inference_usage(actor_id,day,count) VALUES(?,?,1) ON CONFLICT(actor_id,day) DO UPDATE SET count=count+1').bind(actor.id, saoPauloDay(new Date().toISOString())).run(); }
         catch { throw new ApiError('Limite diário de inferência atingido.', 429); }
       }
-      const object = await env.DOCUMENTS.get(doc.object_key); ensure(object, 'Arquivo local ausente.', 404);
+      const object = await env.DOCUMENTS.get(doc.object_key); ensure(object, 'Arquivo ausente.', 404);
       const output = await extract(env, await object.arrayBuffer(), doc.mime);
       const saved = { ...output, pipelineVersion, documentId: doc.id, sha256: doc.sha256, extractedAt: new Date().toISOString() };
       await env.DB.prepare('UPDATE documents SET extraction=? WHERE id=?').bind(JSON.stringify(saved), doc.id).run();
@@ -133,18 +134,19 @@ async function route(request: Request, env: Env) {
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url), origin = request.headers.get('Origin');
-    const allowed = origin === url.origin || origin === env.FRONTEND_ORIGIN || origin === 'http://127.0.0.1:8081';
+    const allowed = allowedOrigin(origin, url, env);
     let response: Response;
     try {
+      checkEnvironment(url, env);
       if (url.pathname.startsWith('/api/')) {
         ensure(!origin || allowed, 'Origem não autorizada.', 403);
         response = request.method === 'OPTIONS' ? new Response(null, { status: 204 }) : await route(request, env);
       } else response = await env.ASSETS.fetch(request);
     } catch (error) {
       response = error instanceof ApiError ? json({ data: null, error: { message: error.message, code: error.code } }, error.status)
-        : json({ data: null, error: { message: 'O serviço local não concluiu a operação. Os registros foram preservados.', code: 'local_service_error' } }, 500);
+        : json({ data: null, error: { message: 'O serviço não concluiu a operação. Os registros foram preservados.', code: 'local_service_error' } }, 500);
       // Never serialize stack, upstream response, SQL bindings, headers or document contents.
-      if (!(error instanceof ApiError)) console.error('AgroGest local: falha interna', error instanceof Error ? error.name : 'Unknown');
+      if (!(error instanceof ApiError)) console.error('AgroGest: falha interna', error instanceof Error ? error.name : 'Unknown');
     }
     const headers = new Headers(response.headers);
     headers.set('X-Content-Type-Options', 'nosniff');

@@ -1,5 +1,5 @@
 import { authStorage } from './auth-storage';
-import { API_URL } from './local-config';
+import { API_URL, BACKEND } from './local-config';
 
 export interface AuthUser { id: string; email: string; email_confirmed_at?: string; user_metadata: { name?: string } }
 export interface Session { access_token: string; token_type: string; expires_at: number; expires_in: number; user: AuthUser }
@@ -8,7 +8,7 @@ export interface Result<T> { data: T; error: ServiceError | null }
 // Only this public address belongs in the bundle. Inference credentials stay in the Worker.
 export { API_URL } from './local-config';
 export const cloudEnabled = true;
-const SESSION_KEY = 'agrogest-worker-local-session-v1';
+const SESSION_KEY = BACKEND.sessionKey;
 let session: Session | null | undefined;
 const listeners = new Set<(event: string, value: Session | null) => void>();
 async function storedSession() {
@@ -37,7 +37,7 @@ async function request<T>(path: string, input?: unknown): Promise<Result<T | nul
     const response = await apiFetch(path, { method: input === undefined ? 'GET' : 'POST', headers: { 'Content-Type': 'application/json' }, ...(input === undefined ? {} : { body: JSON.stringify(input) }) });
     const result = await response.json();
     return result;
-  } catch { return { data: null, error: { message: 'O serviço local está indisponível. Seus dados no aparelho foram preservados.', code: 'network_error' } }; }
+  } catch { return { data: null, error: { message: 'O serviço está indisponível. Seus dados no aparelho foram preservados.', code: 'network_error' } }; }
 }
 class RpcRequest implements PromiseLike<Result<any>> {
   private headers = new Headers({ 'Content-Type': 'application/json' });
@@ -49,11 +49,11 @@ class RpcRequest implements PromiseLike<Result<any>> {
     try {
       const response = await apiFetch(`/api/rpc/${this.name}`, { method: 'POST', headers: this.headers, body: JSON.stringify(this.input ?? {}) }, this.headers.get('Authorization')?.replace(/^Bearer /, ''));
       return await response.json();
-    } catch { return { data: null, error: { message: 'Não foi possível conectar ao serviço local.', code: 'network_error' } }; }
+    } catch { return { data: null, error: { message: 'Não foi possível conectar ao serviço.', code: 'network_error' } }; }
   }
   then<TResult1 = Result<any>, TResult2 = never>(onfulfilled?: ((value: Result<any>) => TResult1 | PromiseLike<TResult1>) | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | null): PromiseLike<TResult1 | TResult2> { return this.send().then(onfulfilled, onrejected); }
 }
-const unavailable = async (..._args: unknown[]): Promise<Result<{ session: Session | null }>> => ({ data: { session: null }, error: { message: 'Use uma das contas locais configuradas. Cadastro e recuperação por e-mail aguardam implementação.', code: 'local_auth_only' } });
+const unavailable = async (..._args: unknown[]): Promise<Result<{ session: Session | null }>> => ({ data: { session: null }, error: { message: 'Use uma conta configurada pelo responsável. Cadastro e recuperação por e-mail aguardam implementação.', code: 'local_auth_only' } });
 export const backend = {
   rpc: (name: string, input?: unknown) => new RpcRequest(name, input),
   auth: {
@@ -93,5 +93,5 @@ export async function cloudToken(expectedUserId: string) {
   return active.access_token;
 }
 export function authError(error: ServiceError) {
-  return new Error(error.message || 'Não foi possível acessar o serviço local.');
+  return new Error(error.message || 'Não foi possível acessar o serviço.');
 }

@@ -1,9 +1,11 @@
 # AgroGest — plano e estado da implementação local
 
-**Revisão 4 · 10/11/2026, preservando a implementação de 06–09/11 e a análise v2.** A [autorização de desenvolvimento](../arquivo/transferencias/AUTORIZACAO_DESENVOLVIMENTO_GS.md) substitui a antiga fase de somente análise. O código foi adaptado na cópia própria; aplicativo e dados continuam locais. O OCR passa a ser empacotado em container Docker local por CPU, com modelo incluído e o mesmo contrato HTTP; [execução e limites](../CLOUDFLARE_LOCAL.md#ciclo-do-container-ocr). O repositório independente público é [badmuriss/agrogest](https://github.com/badmuriss/agrogest), publicado por autorização posterior do usuário. A análise v2, seu inventário, riscos, pesquisa e os 114 testes iniciais estão preservados abaixo como registro anterior à implementação.
+**Revisão 5 · 10/11/2026, preservando a implementação de 06–09/11 e a análise v2.** A [autorização de desenvolvimento](../arquivo/transferencias/AUTORIZACAO_DESENVOLVIMENTO_GS.md) substitui a antiga fase de somente análise. O código foi adaptado na cópia própria; aplicativo e dados continuam locais. O OCR passa a ser empacotado em container Docker local por CPU, com modelo incluído e o mesmo contrato HTTP; [execução e limites](../CLOUDFLARE_LOCAL.md#ciclo-do-container-ocr). O repositório independente público é [badmuriss/agrogest](https://github.com/badmuriss/agrogest), publicado por autorização posterior do usuário. A análise v2, seu inventário, riscos, pesquisa e os 114 testes iniciais estão preservados abaixo como registro anterior à implementação.
 
 
 Atualização: IA visual local Qwen3-VL-2B quantizada, executando na GPU desta máquina, integra imagem → campos em uma chamada. A revisão foi simplificada e a escolha da imagem abre diretamente no formulário de despesa. O parser TSV do OCR CPU e a invalidação de cache foram corrigidos. Setup, contas e limites permanecem no [guia operacional](../CLOUDFLARE_LOCAL.md); [evidências datadas](../HISTORICO_REVISOES.md) distinguem esta validação dos 114 testes iniciais e das execuções de 06 e 09 de novembro. Planos, transferências, pesquisas e origem foram agrupados nesta documentação; a raiz ficou voltada aos avaliadores.
+**Preparação de ambientes:** instalador por perfil, diagnóstico sem segredos e troca local/IA visual/Workers AI implementados. O início não exige Docker quando o provedor escolhido não o usa. Staging/produção têm configuração privada própria, origem HTTPS, migrações sem carga de demonstração e bootstrap de contas próprias. Frontend acompanha a origem hospedada; sessão/SQLite/outbox distinguem backend/conta sem renomear a base local atual. Publicação, provisionamento e inferência Cloudflare real continuam pendentes. [Procedimento e limites](../CLOUDFLARE_LOCAL.md#preparar-a-futura-hospedagem-cloudflare).
+
 ## Entrega implementada nesta revisão
 
 - **Frontend:** Expo SDK 58/React Native web preservado, cliente HTTP próprio, sem SDK/conexão Supabase. `services/supabase.ts` é apenas fachada de compatibilidade para a outbox. A rota fiscal antiga encaminha para captura real; a amostra constante saiu do runtime.
@@ -13,7 +15,7 @@ Atualização: IA visual local Qwen3-VL-2B quantizada, executando na GPU desta m
 - **IA/CV local real:** Tesseract 5, modelo neural `por` fixado, licença Apache-2.0 e checksum verificado; duas imagens distintas processadas com valores distintos, campos ausentes e imagem corrompida testados. O parser não é rotulado como modelo generativo.
 - **Revisão e offline:** captura/resultado/correção persistidos em SQLite v15 por conta; `local_documents` não é apagada por refresh de workspace. Envio/aprovação offline continuam intenções da outbox até validação. Shell estático offline via service worker sem cache de API/documentos privados.
 - **Indicadores:** funções originais de centavos, rateio, aprovação, custo e financeiro reutilizadas. A despesa de R$ 1.250,40 só passa a compor custo após aprovação de outro sócio. Pagamento/estorno altera caixa, sem reescrever custo.
-- **Inferência remota:** adaptadores Workers AI REST e OpenRouter Responses implementados com configuração no backend, timeout, schema, seleção explícita e sem fallback. Não testados com conta real: credenciais ausentes. Isso não é evidência de cloud executada.
+- **Inferência remota:** somente Cloudflare Workers AI, com REST para o backend local e binding ou REST para o Worker futuramente hospedado. OpenRouter foi removido por instrução posterior do usuário. Timeout, schema, seleção explícita e ausência de fallback preservados. Não testados com conta real: credenciais ausentes. Isso não é evidência de cloud executada.
 
 O [guia atual](../CLOUDFLARE_LOCAL.md) é a fonte operacional para comandos, arquitetura/contratos implementados, armazenamento, contas, transferência e testes. A execução usa `npm start` e **http://127.0.0.1:8787**; não há deploy ou provisionamento.
 
@@ -29,7 +31,7 @@ Auth web ainda usa sessão no localStorage da origem; cookie HttpOnly/identidade
 
 | Prioridade | Pendência concreta | Critério para concluir |
 | --- | --- | --- |
-| P0 · GS/cloud | Configurar credencial restrita Workers AI ou OpenRouter e executar experimento pequeno autorizado pelo backend local | Imagem real, retorno real, campos/revisão/provedor/latência/uso registrados sem chave; nenhuma publicação do app |
+| P0 · GS/cloud | Configurar credencial restrita Workers AI e executar experimento pequeno autorizado pelo backend local | Imagem real, retorno real, campos/revisão/provedor/latência/uso registrados sem chave; nenhuma publicação do app |
 | P0 · GS/qualidade | Ampliar corpus com fotos de campo, falhas e documentos sem campos; comparar esforço manual/assistido | Ground truth, erro por campo, tempo incluindo correções e casos de falha; sem extrapolar os recibos sintéticos das validações locais |
 | P0 · entrega | Ensaiar e gravar pitch técnico de até cinco minutos, atendendo à rubrica | Evidenciar cada tecnologia efetivamente executada, autoria/reaproveitamento e limites; preparar link/arquivo da entrega sem publicação automática |
 | P1 · produto | Completar PDF/XML/DANFE, itens fiscais, correção de imagem e detecção de duplicatas além de bytes idênticos | Subconjunto RF-20 especificado, validado com corpus e sempre sujeito a revisão/aprovação |
@@ -49,6 +51,8 @@ O hardware foi usado para OCR português; a pesquisa Hugging Face abaixo continu
 ---
 
 ## Registro preservado: análise e plano v2, anterior ao desenvolvimento
+
+**Histórico, não configuração vigente:** a comparação de 06/11 inclui OpenRouter conforme autorização daquela data. Essa opção foi retirada em 10/11; não executar seus exemplos. O inventário, a pesquisa e as evidências iniciais são preservados. Para os cenários suportados agora, use o guia operacional e a revisão 5 acima.
 
 Os verbos “planejado”, “futuro” e “não executado” no registro abaixo descrevem a revisão 2. O estado vigente e seus desvios estão nas seções acima e no guia operacional atual.
 

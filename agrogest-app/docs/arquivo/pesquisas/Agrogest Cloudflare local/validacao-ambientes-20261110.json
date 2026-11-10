@@ -1,0 +1,77 @@
+{
+  "date": "2026-11-10",
+  "baseCommit": "aedb9641e00ba5d692d71365bd8e339eecf70bcc",
+  "independentRepository": "https://github.com/badmuriss/agrogest",
+  "localModel": "Qwen3-VL-2B-Instruct Q4_K_M / llama.cpp b12246",
+  "cloudModelConfigured": "@cf/meta/llama-4-scout-17b-16e-instruct",
+  "cloudInferenceExecuted": false,
+  "cloudInferenceBlocker": "Workers AI account ID/token absent; transport tests use simulated responses only",
+  "applicationDeployed": false,
+  "remoteProvisioning": false,
+  "remoteMigrations": false,
+  "tests": {
+    "domainSqlitePglite": 216,
+    "apiIntegrationAndInferenceContracts": 22,
+    "dockerLocalGuard": 1,
+    "pythonOcr": 7,
+    "configurationAndIsolation": 4,
+    "total": 250
+  },
+  "otherChecks": {
+    "mobileTypes": true,
+    "apiTypes": true,
+    "mobileLint": true,
+    "webBuild": true,
+    "webAndroidIosExport": true,
+    "cloudWranglerDryRun": true,
+    "cloudWranglerTypes": true
+  },
+  "cleanClone": {
+    "installation": "npm run setup:local -- --provider workers-ai",
+    "setupExit": 0,
+    "platform": "Linux x86_64 / Node 24.22.2",
+    "dockerOrGpuPrepared": false,
+    "localWorkerPort": 8791,
+    "browserLoginAndReload": true,
+    "imageCapturePersistedOnMissingCredential": true,
+    "missingCredentialMessageShown": true
+  },
+  "limits": [
+    "No real hosted inference; no cloud service or deploy tested",
+    "No Android/iOS device run",
+    "Windows/macOS and local VLM CPU mode not validated",
+    "Production Auth/recovery, anti-abuse, backups and restore still require work before public production use"
+  ],
+  "localVisionForceRun": {
+    "syntheticFixture": "comprovante-gs-004.png",
+    "provider": "local-vision",
+    "model": "Qwen/Qwen3-VL-2B-Instruct-GGUF@52d6c8ffea26cc873ac5ad116f8631268d7eb503",
+    "amountCents": 4250,
+    "occurredAt": "2026-11-10",
+    "force": true,
+    "remoteInferenceAllowed": false
+  },
+  "preservation": {
+    "financialStateUnchanged": true,
+    "approvedEntries": 4,
+    "confirmedExpenseCents": 162040,
+    "existingLocalDatabaseNamesPreserved": true,
+    "lotCostCents": 1162040
+  },
+  "browser": {
+    "localLogin": true,
+    "existingDocumentDetectedInsteadOfDuplicating": true,
+    "reopenedLotCostCents": 1162040,
+    "approvedExpenseEntries": 4,
+    "pageErrors": 0,
+    "uncaughtErrors": 0,
+    "scope": "Chromium local; independent clone loopback 8791 and existing instance loopback 8787; no actual hosted service"
+  },
+  "checksSha256": {
+    "check-transfer-final-20261110.log": "05f390d3e66525e936db5003757c19537316c7c914e265fd627e6556817c8fc1",
+    "cloud-transfer-final-20261110.log": "2cd871ec0372e7d0d3324e93534e7ba341528ebfdfaf2c4bcdc36fd10fb735ef",
+    "export-transfer-final-20261110.log": "133de6f9a2e6a8a3f9e4ac3b183dd1cc6e9a50fa0b650535d75c2f1166da9788",
+    "onboarding-setup-20261110.log": "c8b5d96ade098e7cfea486a4bdca3ae8f17c87037581a544b900f2ee03b69c93"
+  },
+  "baseline114Sha256": "3da4b0e25e5b3029cade1b8dda159e714fa3a0ecd9692b55d0926e1fca885368"
+}

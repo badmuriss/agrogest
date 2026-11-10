@@ -1,0 +1,11 @@
+{
+  "environment": "staging",
+  "accountId": "",
+  "workerName": "agrogest-staging",
+  "origin": "",
+  "databaseName": "agrogest-staging",
+  "databaseId": "",
+  "bucketName": "agrogest-documents-staging",
+  "inferenceTransport": "binding",
+  "inferenceAccountId": ""
+}

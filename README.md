@@ -71,7 +71,7 @@ npm run build:web
 npm start
 ```
 
-Abra **http://127.0.0.1:8787/entrar**. As [contas de demonstração e o roteiro de teste](agrogest-app/docs/CLOUDFLARE_LOCAL.md#contas-sintéticas) estão no guia de execução. A [opção de IA visual local](agrogest-app/docs/CLOUDFLARE_LOCAL.md#ia-visual-local-opcional) prepara o modelo para ler a foto e sugerir os campos em uma única etapa.
+Abra **http://127.0.0.1:8787/entrar**. As [contas de demonstração e o roteiro de teste](agrogest-app/docs/CLOUDFLARE_LOCAL.md#contas-sintéticas) estão no guia de execução. A [IA visual local](agrogest-app/docs/CLOUDFLARE_LOCAL.md#ia-visual-local-opcional) usa Qwen3-VL-2B para ler a foto e sugerir os campos em uma etapa. Também há um [modo com Workers AI](agrogest-app/docs/CLOUDFLARE_LOCAL.md#primeira-execução), sem Docker ou GPU própria, e um [guia para futura hospedagem na Cloudflare](agrogest-app/docs/CLOUDFLARE_LOCAL.md#preparar-a-futura-hospedagem-cloudflare).
 
 ## Saiba mais
 

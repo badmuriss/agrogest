@@ -6,11 +6,12 @@ import {
   Inter_800ExtraBold,
 } from '@expo-google-fonts/inter';
 import { useFonts } from 'expo-font';
+import { CryptoDigestAlgorithm, digestStringAsync } from 'expo-crypto';
 import { DarkTheme, DefaultTheme, Stack, ThemeProvider } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { SQLiteProvider } from 'expo-sqlite';
 import { StatusBar } from 'expo-status-bar';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState, type PropsWithChildren } from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 import '../global.css';
@@ -23,6 +24,7 @@ import { KeyboardEnvironment } from '@/components/ui/keyboard';
 import { MotionEnvironmentProvider, useMotion } from '@/components/ui/motion';
 import { initializeDatabase } from '@/services/database-recovery';
 import { cloudEnabled } from '@/services/supabase';
+import { BACKEND } from '@/services/local-config';
 import { AppStateProvider, useApp } from '@/state/app-state';
 import { appAccessAllowed } from '@/domain/auth-callback';
 import { AuthProvider, useAuth } from '@/state/auth-state';
@@ -32,6 +34,20 @@ import { ThemePreferenceProvider } from '@/state/theme-preference';
 import { font, useIsDark, usePalette } from '@/theme';
 
 SplashScreen.preventAutoHideAsync().catch(() => {});
+
+function AccountDatabase({ userId, children }: PropsWithChildren<{ userId: string }>) {
+  const [filename, setFilename] = useState<string | null>(null);
+  const [error, setError] = useState<unknown>(null);
+  useEffect(() => {
+    let active = true;
+    const name = cloudEnabled ? BACKEND.database(userId, value => digestStringAsync(CryptoDigestAlgorithm.SHA256, value)) : Promise.resolve('agrogest-prototipo.db');
+    name.then(value => { if (active) setFilename(value); }, failure => { if (active) setError(failure); });
+    return () => { active = false; };
+  }, [userId]);
+  if (error) throw error;
+  if (!filename) return null;
+  return <SQLiteProvider databaseName={filename} onInit={initializeDatabase}>{children}</SQLiteProvider>;
+}
 
 /**
  * Tela aberta direto por link ou notificação (lote, parcela, lançamento) ganha as abas por baixo:
@@ -88,20 +104,21 @@ function AppShell() {
   }, []);
 
   if (!auth.ready || (!fontsLoaded && !fontsError)) return <StartupSplash ready={false} stage={!auth.ready ? 'session' : 'fonts'} onDone={finishSplash} />;
-  const databaseName = cloudEnabled ? `agrogest-worker-local-${auth.session?.user.id ?? 'signed-out'}.db` : 'agrogest-prototipo.db';
+  const accountId = auth.session?.user.id ?? 'signed-out';
+  const databaseKey = `${BACKEND.scope}:${accountId}`;
 
   return (
     <GluestackUIProvider mode={dark ? 'dark' : 'light'}>
       <ThemeProvider value={theme}>
         <StatusBar style={dark ? 'light' : 'dark'} />
-        <DatabaseBoundary key={databaseName} onError={showDatabaseError} onRetry={retryDatabase}>
-          <SQLiteProvider databaseName={databaseName} onInit={initializeDatabase}>
+        <DatabaseBoundary key={databaseKey} onError={showDatabaseError} onRetry={retryDatabase}>
+          <AccountDatabase userId={accountId}>
             <AppStateProvider onReady={markReady}>
               <PerfBoundary id="app"><RootStack /></PerfBoundary>
               <ContextTransition />
               <DueAlertsScheduler />
             </AppStateProvider>
-          </SQLiteProvider>
+          </AccountDatabase>
         </DatabaseBoundary>
         {splashDone ? null : <StartupSplash ready={ready} stage="data" onDone={finishSplash} />}
       </ThemeProvider>

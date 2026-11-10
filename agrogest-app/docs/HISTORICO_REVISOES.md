@@ -1,5 +1,18 @@
 # Histórico de revisões
 
+## 10/11/2026 — perfis locais e preparação de hospedagem Cloudflare
+
+Base própria `aedb9641e00ba5d692d71365bd8e339eecf70bcc`. OpenRouter foi removido do runtime/configuração atuais por instrução do usuário; sua pesquisa/autorização anterior permanece histórica. Setup e início selecionam apenas o serviço necessário: Tesseract CPU, Qwen3-VL-2B local ou Workers AI REST. Diagnóstico não mostra segredos nem chama modelo. A configuração futura separa staging/produção, D1/R2 e contas de inferência/hospedagem, usa HTTPS e impede identidades/senha públicas de demonstração. O pacote omite `0002_local_demo.sql`; bootstrap privado gera hashes, sem aplicar SQL. O procedimento completo está no [guia de ambientes](CLOUDFLARE_LOCAL.md#preparar-a-futura-hospedagem-cloudflare).
+
+**Verificação:** `npm run check` concluiu com **250 testes** (216 domínio/SQLite/PGlite, 22 API/contratos de inferência, 1 guarda Docker, 7 OCR Python, 4 configuração/isolamento), tipos mobile/API e lint. `cloud:check` exportou web e empacotou Worker/Assets/D1/R2/AI por `deploy --dry-run`, com IDs sintéticos e sem credenciais de conta; geração de tipos passou. Exportações web/Android/iOS passaram, sem teste em aparelho. Os 240 testes da revisão anterior e os 114 iniciais mantêm suas datas, conteúdo e limites.
+
+**Primeira execução:** clone de teste isolado, sem dependências, segredos ou estado herdados, instalou pelos três lockfiles em modo Workers AI sem preparar Docker/GPU. Chromium abriu, autenticou e reabriu a conta; a imagem sintética ficou salva após recarregar quando faltou a credencial, com erro de configuração explícito. O teste revelou o limite de 64 bytes de caminho do VFS web instalado: novos bancos passaram a usar nome curto derivado por SHA-256 de backend/conta; o backend local padrão conserva os nomes existentes. A correção foi verificada no navegador e na suíte de isolamento, incluindo caminho/journal para origem/ID longos.
+
+**Preservação e IA local:** instância original reiniciada em `local-vision`, sem inferência remota; GS-004 foi reprocessado de verdade por Qwen e retornou R$ 42,50 e 10/11/2026. A revisão reconheceu o documento já vinculado e ofereceu abrir a despesa existente. O lote reaberto manteve quatro despesas aprovadas e **R$ 11.620,40** de custo, sem nova despesa. Sem erros de página/JavaScript na conferência local final. Não se repetiu manualmente toda a aprovação/offline de 06–10/11; suas regressões automatizadas foram reexecutadas.
+
+**Limites:** Workers AI tem testes REST/binding com respostas simuladas, sem inferência real por falta de conta/token. Nenhum app, D1/R2, migration ou modelo foi publicado/provisionado remotamente. Auth/recuperação/antiabuso de produção, restauração e transferência dos dados locais existentes para nuvem continuam pendentes. Não foram testados Windows/macOS, aparelho nativo ou nuvem efetivamente hospedada. [Evidência estruturada](<arquivo/pesquisas/Agrogest Cloudflare local/validacao-ambientes-20261110.json>) e [checks consolidados](<arquivo/pesquisas/Agrogest Cloudflare local/checks-ambientes-20261110.txt>).
+
+
 ## 10/11/2026 — IA visual local, revisão de comprovantes e apresentação da GS
 
 Base própria `a6359228db5be73e45f327523d49295adac89a65`. O parser TSV do Tesseract passou a tratar aspas como texto literal, corrigindo o vazamento de linhas técnicas para o resultado. Datas conflitantes permanecem vazias; totais de tributos são ignorados. O cache agora considera versão do pipeline/modelo e permite reprocessar explicitamente, sem reescrever uma despesa aprovada.

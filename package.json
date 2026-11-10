@@ -10,7 +10,7 @@
     "typecheck": "npm --prefix agrogest-app/apps/mobile run typecheck && npm --prefix agrogest-app/apps/api run typecheck",
     "lint": "npm --prefix agrogest-app/apps/mobile run lint",
     "test": "npm --prefix agrogest-app test",
-    "check": "npm run typecheck && npm run lint && npm test && npm run test:api && npm run test:ocr",
+    "check": "npm run typecheck && npm run lint && npm test && npm run test:api && npm run test:ocr && npm run test:setup",
     "benchmark:domain": "npm --prefix agrogest-app run benchmark:domain",
     "export:check": "npm --prefix agrogest-app/apps/mobile run export:check",
     "dev:local": "node scripts/dev-local.mjs",
@@ -20,12 +20,18 @@
     "ocr:local": "node agrogest-app/services/extraction/container.mjs start",
     "ocr:stop": "node agrogest-app/services/extraction/container.mjs stop",
     "ocr:build": "node agrogest-app/services/extraction/container.mjs build",
-    "ocr:native": "python agrogest-app/services/extraction/server.py",
-    "setup:ocr:native": "python agrogest-app/services/extraction/setup.py",
+    "ocr:native": "node agrogest-app/scripts/python.mjs ocr serve",
+    "setup:ocr:native": "node agrogest-app/scripts/python.mjs ocr setup",
     "test:api": "npm --prefix agrogest-app/apps/api test",
-    "setup:local": "npm --prefix agrogest-app ci --no-audit --no-fund && npm --prefix agrogest-app/apps/mobile ci --no-audit --no-fund && npm --prefix agrogest-app/apps/api ci --no-audit --no-fund && npm run ocr:build",
+    "setup:local": "node agrogest-app/scripts/setup-local.mjs",
     "test:ocr": "node --test agrogest-app/services/extraction/container.test.mjs && node agrogest-app/services/extraction/container.mjs test",
-    "setup:vision": "python agrogest-app/services/extraction/vision-local.py setup",
-    "vision:local": "python agrogest-app/services/extraction/vision-local.py serve"
+    "setup:vision": "node agrogest-app/scripts/python.mjs vision setup",
+    "vision:local": "node agrogest-app/scripts/python.mjs vision serve",
+    "configure": "node agrogest-app/scripts/configure.mjs",
+    "doctor": "node agrogest-app/scripts/doctor.mjs",
+    "cloud:prepare": "node agrogest-app/scripts/cloud.mjs prepare",
+    "cloud:check": "node agrogest-app/scripts/cloud.mjs check",
+    "cloud:bootstrap": "node agrogest-app/scripts/cloud.mjs bootstrap",
+    "test:setup": "node --import ./agrogest-app/tests/resolve-ts.mjs --test agrogest-app/scripts/*.test.mjs"
   }
 }

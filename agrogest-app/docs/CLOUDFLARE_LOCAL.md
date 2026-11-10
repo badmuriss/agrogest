@@ -4,17 +4,52 @@ Conferência funcional inicial: **06/11/2026**. OCR em container local acrescent
 
 ## Primeira execução
 
-Na raiz do clone, use Node **24.10+ da linha 24**, npm e Docker local com Compose v2+ e containers Linux. O caminho padrão dispensa Python/Tesseract no host: a imagem contém Python 3.14, Tesseract **5.3.0-2** do Debian Bookworm e o modelo português verificado. Não usa GPU. A imagem base é fixada por digest no Dockerfile; pacotes transitivos do apt não constituem um snapshot completo do Debian.
+Na raiz do clone, use **Node 24.10+ da linha 24** e npm. Escolha onde a imagem será analisada; o aplicativo, o D1 e o R2 de desenvolvimento continuam no computador em todos os modos.
+
+| Cenário | Pré-requisitos adicionais | Modelo e execução |
+| --- | --- | --- |
+| `local` · padrão | Docker local com Compose v2+ e containers Linux | Tesseract português, CPU, em container local; parser determinístico |
+| `local-vision` | Linux x86_64, Python 3.12+ e CUDA compatível para o launcher fornecido | Qwen3-VL-2B-Instruct Q4_K_M em llama.cpp; imagem → campos na máquina do backend |
+| `workers-ai` | Conta Cloudflare com Workers AI e token restrito | Llama 4 Scout na Cloudflare; REST chamado pelo backend local. Dispensa Docker, Python e GPU própria |
+
+O OpenRouter foi removido dos adaptadores e da configuração vigente por decisão do usuário em 10/11. Estudos e autorizações antigos permanecem somente no arquivo/histórico. Não há seleção automática de outro provedor.
 
 ```sh
+# Padrão CPU, sem conta de IA e sem GPU:
 npm run setup:local
+npm run doctor
 npm run build:web
 npm start
 ```
 
-`setup:local` instala pelos três lockfiles e constrói a imagem OCR no daemon Docker local. Downloads de pacotes/pesos são preparação; não são inferência hospedada. `npm start` aplica **somente migrations locais**, constrói/reutiliza a imagem em cache, aguarda saúde do OCR em `127.0.0.1:8091` e inicia Worker + frontend em **http://127.0.0.1:8787**. D1 e R2 são emulados pelo workerd/Miniflare do Wrangler. Use essa mesma origem para manter sessão e SQLite; `localhost` é outra origem do navegador.
+`setup:local` instala pelos três lockfiles e prepara apenas o provedor selecionado. Sem configuração existente, cria `.dev.vars` para `local` e constrói o OCR no daemon Docker **local**. Com uma seleção anterior, preserva-a. Para escolher outro modo já na instalação:
 
-Se as dependências e a imagem já estiverem instaladas, a inicialização reutiliza o cache. Pesos e licença Apache-2.0 fazem parte da imagem. Não remova `.local/`, dados do site ou bancos para resolver erro de abertura. Um bloqueio transitório de OPFS recebe uma repetição limitada; erro persistente apresenta **Tentar novamente**, preservando os registros. Use uma aba por conta/origem; abas simultâneas no mesmo perfil podem disputar o pool OPFS do Expo.
+```sh
+# App e dados locais; somente a análise da imagem usa a Cloudflare:
+npm run setup:local -- --provider workers-ai
+# Edite WORKERS_AI_ACCOUNT_ID e WORKERS_AI_API_TOKEN no arquivo privado indicado abaixo.
+npm run doctor
+npm run build:web
+npm start
+```
+
+`doctor` informa dependências/configurações ausentes sem mostrar valores secretos e sem inferência. Uma credencial ausente não impede abrir o aplicativo; a leitura apresenta erro de configuração e a captura permanece guardada. Isso não conta como teste de IA remota.
+
+`npm start` constrói o frontend se faltar, aplica **somente migrations locais** e inicia Worker + frontend em **http://127.0.0.1:8787**. Inicia o container apenas em `local` e o servidor visual apenas em `local-vision`. Workers AI não inicia nenhum dos dois. D1/R2 são emulados pelo workerd/Miniflare. `AGROGEST_PORT` permite outra porta loopback de 1024 a 65535, inclusive para validar clones isolados. O modo visual também aceita servidor local compatível já iniciado na URL configurada; o launcher automático continua limitado à plataforma documentada.
+
+Downloads de pacotes/pesos são preparação, não inferência hospedada. Com dependências e modelo/imagem preparados, a inicialização reutiliza o cache. O caminho CPU dispensa Python/Tesseract no host: a imagem contém Python 3.14, Tesseract **5.3.0-2** do Debian Bookworm e modelo português verificado. A base é fixada por digest; pacotes transitivos do apt não constituem snapshot completo do Debian. Windows/macOS com Docker são caminhos previstos, ainda sem validação nesta entrega; não declarar suporte comprovado com base no teste Linux.
+
+Use sempre a mesma origem para manter sessão e SQLite; `localhost` e `127.0.0.1` são origens distintas no navegador. Não remova `.local/`, dados do site ou bancos para resolver erro de abertura. Um bloqueio transitório de OPFS recebe repetição limitada; erro persistente apresenta **Tentar novamente**, preservando registros. Use uma aba por conta/origem; abas simultâneas no mesmo perfil podem disputar o pool OPFS do Expo.
+
+### Trocar a inferência sem trocar o banco
+
+```sh
+npm run configure -- --provider local
+npm run configure -- --provider local-vision
+npm run configure -- --provider workers-ai
+```
+
+Execute **uma** seleção e reinicie `npm start`. O comando altera somente a configuração privada do provedor, preserva as demais credenciais, os bancos e a outbox; a chave visual existente permanece disponível ao voltar para o modo local. `local-vision` exige seu setup abaixo; Workers AI exige conta/token privados. A configuração antiga do provedor removido é descartada. Nenhum desses comandos publica o app ou chama um modelo. A troca de modelo/provedor invalida o cache de sugestões, sem reescrever despesas já aprovadas.
 
 ### Ciclo do container OCR
 
@@ -44,7 +79,7 @@ Para editar com Metro, mantenha OCR/API locais e execute `npm run web` em outro 
 | Camila | `campo@agrogest.local` | Funcionária; sem financeiro geral nem aprovação financeira |
 | Diego | `isolado@agrogest.local` | Sócio de outra operação isolada |
 
-Senha pública **exclusivamente de demonstração local**: `AgroGest2026!`. O servidor confere PBKDF2-SHA256, emite token aleatório, armazena somente hash de token no D1 e verifica sessão em cada requisição. Isso não é login por e-mail livre. Não há cadastro, envio de e-mail, confirmação por link nem recuperação operacional nesta versão; a interface informa essa limitação. As identidades de demonstração são pré-confirmadas. Elas precisam ser substituídas por uma solução de identidade adequada antes de futura hospedagem.
+Senha pública **exclusivamente de demonstração local**: `AgroGest2026!`. O servidor confere PBKDF2-SHA256, emite token aleatório, armazena somente hash de token no D1 e verifica sessão em cada requisição. Isso não é login por e-mail livre. Não há cadastro, envio de e-mail, confirmação por link nem recuperação operacional nesta versão; a interface informa essa limitação. As identidades de demonstração são pré-confirmadas. A preparação de nuvem omite essa carga e recusa essas identidades/senha no ambiente hospedado. O bootstrap privado abaixo permite contas administradas para um piloto; cadastro/recuperação e proteção contra abuso em produção continuam pendentes.
 
 A carga inicial tem dados sintéticos: 10 novilhos, compra de R$ 10.000,00, peso de 300 kg e aluguel de pastagem zero. Migrations usam `INSERT OR IGNORE`, sem limpar dados já gravados.
 
@@ -71,7 +106,7 @@ flowchart LR
   API --> R2[R2 local: imagens imutáveis por hash]
   API --> OCR[Container local: Tesseract português / CPU]
   API --> VLM[IA visual local opcional: imagem para campos]
-  API -. configuração explícita .-> REMOTE[Workers AI ou OpenRouter do usuário]
+  API -. REST explícito .-> REMOTE[Cloudflare Workers AI]
 ```
 
 | Fronteira | Implementação |
@@ -82,7 +117,7 @@ flowchart LR
 | Documentos | `POST /api/documents?operationId=…`, `GET /api/documents/:id`, `/content`, `POST …/extract` |
 | Saúde | `GET /api/health`: distingue infraestrutura local e provedor de inferência |
 | Persistência do servidor | `agrogest-app/.local/cloudflare/`, ignorada no Git; não apagar durante reinicializações |
-| Persistência do cliente | SQLite v15, nome `agrogest-worker-local-<conta>.db`; `local_documents` fica fora da substituição de snapshots e a outbox é preservada |
+| Persistência do cliente | SQLite v15 por backend/conta; o backend padrão preserva `agrogest-worker-local-<conta>.db`. Trocar a inferência não troca o banco. `local_documents` fica fora dos snapshots e a outbox é preservada |
 | Migrations D1 | `0001_domain.sql`, `0002_local_demo.sql`, `0003_inference_usage.sql`, somente `--local` |
 
 O arquivo `services/supabase.ts` é uma fachada compatível para as chamadas existentes da outbox, delegando ao cliente HTTP próprio. **Não importa SDK Supabase**. A dependência foi removida. Nomes RPC foram mantidos para reduzir risco de reescrever UI/regras ao mesmo tempo. `database.types.ts` ainda serve como tipo JSON histórico; não ativa conexão.
@@ -101,14 +136,14 @@ Para configuração privada, copie **`agrogest-app/apps/api/.dev.vars.example` �
 | --- | --- |
 | Local | `INFERENCE_PROVIDER=local`, `LOCAL_OCR_BASE_URL=http://127.0.0.1:8091`; sem token nem internet de inferência |
 | IA visual local | `INFERENCE_PROVIDER=local-vision`, `LOCAL_VISION_BASE_URL`, `LOCAL_VISION_MODEL`, `LOCAL_VISION_REVISION`, `LOCAL_VISION_API_KEY`; imagem direta para JSON, sem Tesseract intermediário nem permissão de inferência remota |
-| Workers AI | `INFERENCE_PROVIDER=workers-ai`, `INFERENCE_REMOTE_ALLOWED=true`, `WORKERS_AI_ACCOUNT_ID`, `WORKERS_AI_API_TOKEN`, `WORKERS_AI_MODEL`; chamada REST HTTPS pelo Worker local, sem binding AI remoto |
-| OpenRouter | `INFERENCE_PROVIDER=openrouter`, `INFERENCE_REMOTE_ALLOWED=true`, `OPENROUTER_API_KEY`, `OPENROUTER_MODEL`, `OPENROUTER_PROVIDER`; Responses API, schema estruturado, provedor fixo, sem fallback e com coleta desabilitada na solicitação |
+| Workers AI local → cloud | `INFERENCE_PROVIDER=workers-ai`, `INFERENCE_REMOTE_ALLOWED=true`, `WORKERS_AI_TRANSPORT=rest`, `WORKERS_AI_ACCOUNT_ID`, `WORKERS_AI_API_TOKEN`, `WORKERS_AI_MODEL=@cf/meta/llama-4-scout-17b-16e-instruct`; HTTPS pelo backend, sem binding AI no Wrangler local |
+| Workers AI hospedado · futuro | `WORKERS_AI_TRANSPORT=binding` usa `env.AI.run` na conta de hospedagem, sem token de inferência; `rest` permite conta de IA separada com token como secret do Worker |
 
-Adaptadores remotos foram implementados, **sem chamada real nesta sessão**: credenciais/modelo de conta não foram fornecidos no ambiente de execução. Há limite de 20 solicitações remotas por conta do app/dia, timeout e limite de saída; falhas não disparam outro provedor. O limite de solicitações **não é teto monetário**. Defina orçamento/chave restrita no provedor antes do primeiro teste pequeno. Capacidade do modelo, formato e política do endpoint precisam ser confirmados no teste real. Erros do provedor não são registrados com headers/conteúdo secreto.
+O adaptador Workers AI tem contratos REST/binding verificados por testes simulados, **sem chamada real ao provedor nesta revisão**: credenciais/modelo de conta não foram fornecidos no ambiente de execução. Há limite de 20 solicitações remotas por conta do app/dia (reserva atômica no D1, incluindo falhas depois de iniciar a tentativa), timeout e limite de saída; configuração ausente é recusada antes de consumir a cota; falhas não disparam outro provedor. O limite de solicitações **não é teto monetário**. Defina orçamento/chave restrita no provedor antes do primeiro teste pequeno. Capacidade do modelo, formato e política do endpoint precisam ser confirmados no teste real. Erros do provedor não são registrados com headers/conteúdo secreto.
 
 A conta que paga IA é independente das identidades do aplicativo e da futura hospedagem. Na transferência, o amigo recebe código, exemplos vazios e instruções de exportação/restauração; fornece suas próprias chaves e repete os testes. As credenciais temporárias do usuário não são transferidas. O `.git` próprio, origem/autor/commit e o clone de proveniência continuam preservados. O código é compartilhado pelo [repositório próprio público](https://github.com/badmuriss/agrogest); a [proveniência](arquivo/ORIGEM.md) registra a criação autorizada em 09/11/2026.
 
-Referências de contrato: [Cloudflare REST](https://developers.cloudflare.com/workers-ai/get-started/rest-api/), [Scout](https://developers.cloudflare.com/workers-ai/models/llama-4-scout-17b-16e-instruct/), [OpenRouter Responses](https://openrouter.ai/docs/api_reference/responses/overview), [modelo português e licença](https://github.com/tesseract-ocr/tessdata_fast/tree/87416418657359cb625c412a48b6e1d6d41c29bd). A comparação com modelos Hugging Face, recursos e licenças está no [plano](gs/PLANO.md); nenhum Space/Endpoint hospedado foi usado.
+Referências de contrato: [Cloudflare REST](https://developers.cloudflare.com/workers-ai/get-started/rest-api/), [Scout](https://developers.cloudflare.com/workers-ai/models/llama-4-scout-17b-16e-instruct/), [modelo português e licença](https://github.com/tesseract-ocr/tessdata_fast/tree/87416418657359cb625c412a48b6e1d6d41c29bd). A pesquisa histórica de modelos Hugging Face, recursos e licenças está no [plano](gs/PLANO.md); a seleção vigente está neste guia; nenhum Space/Endpoint hospedado foi usado.
 
 ### IA visual local opcional
 
@@ -117,8 +152,9 @@ Esta opção usa **Qwen3-VL-2B-Instruct**, Apache-2.0, em `llama.cpp` (MIT), par
 O launcher fornecido foi validado em **Linux x86_64, Python 3.14 e RTX 4070 SUPER de 12 GiB**, com cerca de 3 GiB alocados pelo processo na GPU. Requer Python 3.12+; não foi validado em Windows/macOS/ARM. Drivers CUDA compatíveis são necessários para GPU. O modo CPU é uma seleção explícita por `AGROGEST_VISION_GPU_LAYERS=0`, sem medição de latência equivalente. O caminho Tesseract em Docker continua disponível como alternativa e segue sem exigir GPU.
 
 ```sh
-# Na raiz, depois do setup normal; baixa artefatos públicos e verifica hashes.
-npm run setup:vision
+# Na raiz; instala dependências e prepara o modelo com hashes verificados.
+npm run setup:local -- --provider local-vision
+# Em instalação já existente, basta npm run setup:vision.
 npm start
 
 # Para iniciar somente o modelo local, opcionalmente em outro terminal:
@@ -133,15 +169,66 @@ O Tesseract também recebeu correção do parser TSV: aspas reconhecidas são li
 
 Referências: [modelo e licença](https://huggingface.co/Qwen/Qwen3-VL-2B-Instruct-GGUF), [entrada multimodal local](https://github.com/ggml-org/llama.cpp/blob/master/docs/multimodal.md) e [API local e schema](https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md). As medições desta máquina e os limites da validação ficam no [histórico](HISTORICO_REVISOES.md), separados de qualquer expectativa de desempenho em produção.
 
+## Preparar a futura hospedagem Cloudflare
+
+**Implementado para preparação e teste local; publicação ainda não realizada.** O caminho previsto reúne SPA e API no mesmo Worker com Static Assets, D1, R2 privado e Workers AI. Não precisa hospedar um container ou alugar GPU para o OCR. O modelo local não roda dentro do Worker. `cloud:check` exporta o frontend para usar sua própria origem, gera configuração de teste com IDs sintéticos e executa apenas `wrangler deploy --dry-run`. Isso empacota o código; não testa a conta, a inferência nem um serviço hospedado.
+
+```sh
+# Na raiz; nenhum comando abaixo publica ou provisiona:
+npm run cloud:check
+npm run cloud:prepare -- --env staging
+npm run cloud:bootstrap -- --env staging
+```
+
+A primeira preparação cria `agrogest-app/.local/cloud/staging/settings.json` a partir de `apps/api/cloud.example.json`. Preencha conta, nome do Worker, origem HTTPS `https://<worker>.<subdomínio-da-conta>.workers.dev`, nome/ID do D1 e bucket do **ambiente futuro**. Nesta fase, se os recursos ainda não existem, registre os campos pendentes; não invente IDs e não provisione apenas para completar o arquivo. Reexecute para gerar `wrangler.jsonc` privado e migrations. Custom domain precisa de uma configuração adicional de rota/DNS; não está automatizado. `production` usa outra pasta e exige Worker, banco e bucket distintos na mesma conta.
+
+O pacote de nuvem copia as migrations de schema `0001_domain.sql` e cota `0003_inference_usage.sql`; **não copia `0002_local_demo.sql`**. As migrations locais originais continuam intactas. Gerar/copiar SQL não o aplica em banco algum. O bootstrap cria um modelo privado `accounts.json`; após preenchê-lo e repetir o comando, gera `bootstrap.sql` com hashes PBKDF2 e identidades próprias. Não grava senha em SQL nem cria contas no backend automaticamente. A aplicação futura é manual, em banco vazio ou administrado pelo responsável, após revisão. O bootstrap é idempotente, não redefine senha de conta existente e não é um fluxo de recuperação de senha. Depois do login, o responsável cria sua fazenda e convida outras contas pré-configuradas pela interface existente.
+
+### Contas de inferência e passagem ao amigo
+
+- **Agora:** `.dev.vars` guarda somente no backend a conta/token de inferência do usuário. O token deve ter permissão Workers AI na conta selecionada; não precisa permissão de deploy/D1/R2. O app local envia a imagem inline por HTTPS, sem torná-la pública no R2.
+- **Cloudflare na conta do amigo:** usar `inferenceTransport=binding` em `settings.json`. A inferência usa a conta que hospeda o Worker, sem copiar o token temporário. Contas do aplicativo continuam independentes das contas Cloudflare.
+- **Hospedagem do amigo com inferência temporária do usuário:** selecionar `inferenceTransport=rest` e `inferenceAccountId` separado. Em fase autorizada de publicação, o titular configura `WORKERS_AI_API_TOKEN` como secret do Worker, fora do arquivo versionado. A substituição posterior exige somente configuração/secret e novo teste, sem alterar domínio ou dados.
+
+Compartilhe clone, lockfiles, exemplos vazios e este guia. Não compartilhe `.dev.vars`, `.local`, pesos, bancos do navegador, tokens ou `accounts.json`. Revogue o token temporário quando ele deixar de ser usado. D1/R2 e políticas de backup/retensão pertencem à conta de hospedagem; defina responsável, orçamento e teste de restauração antes de dados reais. O limite diário da aplicação não limita todos os gastos da conta Cloudflare.
+
+### Publicação futura: procedimento ainda não executado
+
+Quando houver autorização própria para publicar, o responsável confirma sua conta Cloudflare e cria D1/R2 do ambiente pretendido, preenche os IDs reais e revisa os arquivos privados preparados. Antes da publicação, feche as pendências de Auth/abuso e backup adequadas ao público alvo. O código recusa login/sessão das identidades `gs-*`, e-mails `@agrogest.local` e senha pública local fora de `APP_ENV=local`.
+
+```sh
+# SOMENTE na futura fase autorizada. Na raiz:
+npm run build:web -- --target cloud
+npm run cloud:prepare -- --env staging
+npm run cloud:bootstrap -- --env staging
+
+# Depois de preencher/revisar os arquivos privados; diretório agrogest-app/apps/api:
+npx --no-install wrangler d1 migrations apply agrogest-staging --remote --env staging --config ../../.local/cloud/staging/wrangler.jsonc
+npx --no-install wrangler d1 execute agrogest-staging --remote --env staging --config ../../.local/cloud/staging/wrangler.jsonc --file ../../.local/cloud/staging/bootstrap.sql
+# Só para transporte REST; o CLI pede a chave sem colocá-la no comando:
+npx --no-install wrangler secret put WORKERS_AI_API_TOKEN --env staging --config ../../.local/cloud/staging/wrangler.jsonc
+npx --no-install wrangler deploy --env staging --config ../../.local/cloud/staging/wrangler.jsonc
+```
+
+Os nomes do exemplo devem corresponder aos settings reais. A configuração local e `npm start` não usam esse arquivo. Não executar `wrangler dev` com a configuração de cloud: o binding AI é remoto; o adaptador recusa binding quando `APP_ENV=local`. Para desenvolvimento com IA Cloudflare, use o perfil local REST.
+
+Após uma publicação autorizada: testar saúde HTTPS, login próprio, imagem → campos reais → revisão → despesa → aprovação por outro sócio → indicador, reabertura, duplicidade, isolamento e offline/sync na origem publicada. Verificar o uso/faturamento do modelo e falhas/limite sem expor conteúdo/headers. A validação de schema continua necessária mesmo com JSON mode. Timeout não garante ausência de cobrança por trabalho já iniciado. Só esse teste comprova hospedagem e IA remota.
+
+A base de nuvem preparada começa sem as operações sintéticas. A cópia dos dados locais existentes para um D1 remoto **não está automatizada**; exportação/importação com revisão e restauração é uma tarefa separada. Não copie os arquivos de emulação SQLite para D1 remoto. Antes de trocar o endereço do backend num cliente, conclua a sincronização no ambiente de origem ou preserve a configuração para retomar sua fila. Cada backend/conta mantém banco e sessão próprios; novos nomes SQLite usam digest SHA-256 truncado em 160 bits do par origem/conta para caber no limite de caminho do VFS web, enquanto o backend local padrão conserva seus nomes; nenhuma fila é redirecionada automaticamente. Na web o endereço da API acompanha a origem; builds nativos exigem `EXPO_PUBLIC_API_URL` público explícito para o alvo cloud. A troca de inferência dentro do mesmo backend preserva os nomes locais anteriores.
+
+Referências: [Workers AI binding](https://developers.cloudflare.com/workers-ai/configuration/bindings/), [modelo Scout e entrada visual](https://developers.cloudflare.com/workers-ai/models/llama-4-scout-17b-16e-instruct/), [JSON mode e limites](https://developers.cloudflare.com/workers-ai/features/json-mode/), [Wrangler e ambientes](https://developers.cloudflare.com/workers/wrangler/configuration/).
+
 ## Rede e verificações
 
-App, DB, arquivos e shell usam loopback. O probe NetInfo consulta a saúde da **API local**, sem ping de internet pública. Busca geográfica, tiles/CDN de satélite e base remota de mapas estão desativados; contornos/dados já existentes não são apagados. Nada ativa `remote:true`, `dev --remote`, Supabase remoto ou Workers AI binding. Somente a inferência explicitamente selecionada pode sair para seu endpoint autorizado. Publicar app para conseguir chamar um modelo não faz parte da solução.
+App, DB, arquivos e shell usam loopback. O probe NetInfo consulta a saúde da **API local**, sem ping de internet pública. Busca geográfica, tiles/CDN de satélite e base remota de mapas estão desativados; contornos/dados já existentes não são apagados. A execução de desenvolvimento não ativa `remote:true`, `dev --remote`, Supabase remoto ou binding Workers AI. A configuração futura hospedada contém binding AI apenas para publicação posterior; não é usada no dev. Somente a inferência explicitamente selecionada pode sair para seu endpoint autorizado. Publicar app para conseguir chamar um modelo não faz parte da solução.
 
 ```sh
 npm run check  # tipos, lint e as três suítes abaixo
 npm test
 npm run test:api
 npm run test:ocr
+npm run test:setup
+npm run cloud:check  # empacotamento, sem executar aplicação/IA remotas
 npm run typecheck
 npm run lint
 npm run build:web

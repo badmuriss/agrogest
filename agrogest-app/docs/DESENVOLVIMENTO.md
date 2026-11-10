@@ -4,11 +4,11 @@ Tipo: guia prático. Atualização acadêmica: **10/11/2026**.
 
 ## Execução vigente da faculdade
 
-Na raiz, execute `npm run setup:local`, `npm run build:web` e `npm start`; abra **http://127.0.0.1:8787/entrar**. Node 24, npm e Docker local com Compose v2+ e containers Linux são os pré-requisitos. Python/Tesseract/modelo português ficam no container OCR e executam por CPU. A [IA visual opcional](CLOUDFLARE_LOCAL.md#ia-visual-local-opcional) tem setup separado; neste ambiente, o backend usa o modelo local com GPU. O [guia Cloudflare local](CLOUDFLARE_LOCAL.md) é responsável por contas, três lockfiles, scripts, migrations D1 locais, OCR, estado persistente, configuração privada e comandos completos de validação.
+Na raiz, execute `npm run setup:local`, `npm run build:web` e `npm start`; abra **http://127.0.0.1:8787/entrar**. Node 24, npm e Docker local com Compose v2+ e containers Linux são os pré-requisitos. Python/Tesseract/modelo português ficam no container OCR e executam por CPU. O setup prepara apenas o provedor selecionado. `setup:local -- --provider workers-ai` dispensa Docker/Python/GPU e pede conta/token privados; `local-vision` prepara Qwen3-VL-2B no Linux x86_64. `npm run configure -- --provider …` troca somente a inferência e `npm run doctor` informa pendências. Neste ambiente, o backend continua usando o modelo local com GPU. O [guia Cloudflare local](CLOUDFLARE_LOCAL.md) é responsável por contas, três lockfiles, scripts, migrations D1 locais, OCR, estado persistente, configuração privada e comandos completos de validação.
 
-Tipos e lint mobile são obrigatórios. `npm run check` reúne tipos/lint, suíte herdada, integração API e testes OCR em container. Para alterações no frontend, execute também `npm run build:web` e `npm run export:check`. O banco/arquivos de desenvolvimento não saem do computador. Não usar EAS, túnel, deploy ou Supabase remoto nesta fase.
+Tipos e lint mobile são obrigatórios. `npm run check` reúne tipos/lint, suíte herdada, integração API, testes OCR em container e configuração/isolamento de ambientes. Para alterações no frontend, execute também `npm run build:web` e `npm run export:check`. O banco/arquivos de desenvolvimento não saem do computador. Não usar EAS, túnel, deploy ou Supabase remoto nesta fase.
 
-Novos diretórios: `agrogest-app/apps/api/` (Worker e migrations), `agrogest-app/services/extraction/` (OCR), `scripts/` na raiz (build/execução locais). O app mobile permanece em `apps/mobile/`, com SQLite v15 e novo cliente HTTP; o SDK Supabase foi removido. Ao recompilar o SPA, reinicie o Worker.
+Novos diretórios: `agrogest-app/apps/api/` (Worker e migrations), `agrogest-app/services/extraction/` (OCR), `agrogest-app/scripts/` (setup, perfis, diagnóstico e preparação de nuvem); os atalhos de build/início na raiz foram preservados. O app mobile permanece em `apps/mobile/`, com SQLite v15 e novo cliente HTTP; o SDK Supabase foi removido. Ao recompilar o SPA, reinicie o Worker.
 
 ## Revisão em outra máquina · 09/11/2026
 
@@ -19,7 +19,13 @@ git clone https://github.com/badmuriss/agrogest.git
 cd agrogest
 ```
 
-Inicie o daemon Docker local e use os três comandos de execução vigente acima. O setup constrói a imagem com modelo português verificado; o OCR executa no computador do backend em `127.0.0.1:8091`, iniciado junto com `npm start`. Consulte o [ciclo do container](CLOUDFLARE_LOCAL.md#ciclo-do-container-ocr) para parada, recursos e alternativa nativa. Banco/arquivos de execução e segredos não são compartilhados pelo Git; a primeira execução cria os dados sintéticos das migrations locais, sem apagar os existentes. As evidências de 06/11 e 09/11 ficam separadas no histórico.
+Para o modo padrão CPU, inicie o daemon Docker local e use os comandos de execução vigente acima. Para usar Workers AI, selecione o perfil correspondente no setup e preencha a configuração privada. O setup constrói a imagem com modelo português verificado; o OCR executa no computador do backend em `127.0.0.1:8091`, iniciado junto com `npm start`. Consulte o [ciclo do container](CLOUDFLARE_LOCAL.md#ciclo-do-container-ocr) para parada, recursos e alternativa nativa. Banco/arquivos de execução e segredos não são compartilhados pelo Git; a primeira execução cria os dados sintéticos das migrations locais, sem apagar os existentes. As evidências de 06/11 e 09/11 ficam separadas no histórico.
+
+## Nuvem e transferência
+
+`npm run cloud:check` valida o bundle por dry-run offline com IDs sintéticos. `npm run cloud:prepare -- --env staging` prepara configuração privada e schema sem contas públicas; `cloud:bootstrap` prepara identidades próprias sem senha em SQL. Esses comandos **não publicam, provisionam ou aplicam migrations**. O [guia de hospedagem futura](CLOUDFLARE_LOCAL.md#preparar-a-futura-hospedagem-cloudflare) concentra campos, contas separadas, limites de Auth e os passos remotos que só devem ser executados em fase autorizada. `production` fica em pasta/recursos distintos; não há deploy automático em workflow. Configurações, tokens, bancos e pesos ficam fora do Git.
+
+O build cloud usa `npm run build:web -- --target cloud`, força API na própria origem e ignora arquivos dotenv do desenvolvimento durante a exportação. O cliente distingue backend/conta para sessão, SQLite e outbox; os nomes do backend local padrão foram preservados. O instalador continua usando os lockfiles existentes, sem atualizar dependências; não instala Docker, drivers ou Node pelo usuário. Os cenários Windows/macOS e aparelhos nativos continuam sem teste nesta revisão.
 
 ## Procedimentos de outubro preservados como histórico
 

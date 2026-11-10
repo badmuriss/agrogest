@@ -2,12 +2,14 @@ import { ApiError, ensure, type Env } from './contracts.ts';
 export const digest = async (bytes: BufferSource) => Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', bytes))).map((b) => b.toString(16).padStart(2, '0')).join('');
 export const hashToken = (token: string) => digest(new TextEncoder().encode(token));
 export interface Actor { id: string; email: string; name: string; tokenHash: string }
+const isDemo = (user: { id: string; email: string }) => user.id.startsWith('gs-') || user.email.endsWith('@agrogest.local');
 export async function authenticate(request: Request, env: Env): Promise<Actor> {
   const token = request.headers.get('Authorization')?.match(/^Bearer ([a-zA-Z0-9_-]{40,128})$/)?.[1];
   ensure(token, 'Entre com sua conta para continuar.', 401, 'session_not_found');
   const tokenHash = await hashToken(token);
   const user = await env.DB.prepare('SELECT i.id,i.email,i.name FROM sessions s JOIN identities i ON i.id=s.user_id WHERE s.token_hash=? AND s.expires_at>? AND i.confirmed=1').bind(tokenHash, Date.now()).first<{ id: string; email: string; name: string }>();
   ensure(user, 'Sua sessão expirou. Entre novamente.', 401, 'session_not_found');
+  ensure(env.APP_ENV === 'local' || !isDemo(user), 'Contas de demonstração são exclusivas do ambiente local.', 403);
   return { ...user, tokenHash };
 }
 export const publicUser = (a: { id: string; email: string; name: string }) => ({ id: a.id, email: a.email, email_confirmed_at: '2026-11-06T00:00:00.000Z', user_metadata: { name: a.name } });
@@ -28,6 +30,7 @@ export async function login(env: Env, input: any) {
   const expected = row?.password_hash ?? '0'.repeat(64);
   let difference = 0; for (let i = 0; i < 64; i++) difference |= hex.charCodeAt(i) ^ expected.charCodeAt(i);
   if (!row || difference) throw new ApiError('E-mail ou senha incorretos.', 401, 'invalid_credentials');
+  ensure(env.APP_ENV === 'local' || !isDemo(row) && input.password !== 'AgroGest2026!', 'Contas e senhas públicas de demonstração são exclusivas do ambiente local.', 403);
   ensure(row.confirmed, 'Confirme seu e-mail.', 403, 'email_not_confirmed');
   attempts.delete(key);
   const token = btoa(String.fromCharCode(...crypto.getRandomValues(new Uint8Array(48)))).replaceAll('+', '-').replaceAll('/', '_').replaceAll('=', '');
