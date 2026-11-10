@@ -6,8 +6,8 @@
       "id": "proposta",
       "seconds": 20,
       "criterion": "Proposta e problema · 3 pontos",
-      "title": "Mais clareza sobre o custo do rebanho",
-      "subtitle": "Do comprovante à decisão no campo.",
+      "title": "Do comprovante ao custo do lote",
+      "subtitle": "Gestão rural para pequenos produtores.",
       "notes": "O AgroGest é uma solução CitizenTech para pequenos produtores de recria e engorda. A proposta é organizar despesas e transformar comprovantes em informação de custo por lote. O foco é quem trabalha no campo e precisa decidir com clareza, mesmo quando a conexão falha."
     },
     {
@@ -22,7 +22,7 @@
       "id": "publico",
       "seconds": 25,
       "criterion": "Público-alvo e mercado · 3 pontos",
-      "title": "Começar com quem gere uma pequena operação",
+      "title": "Pequenos produtores de recria e engorda",
       "subtitle": "Produtor, equipe de campo e sócio responsável pela conferência.",
       "notes": "Nosso recorte inicial são pequenos produtores que usam o celular para administrar a recria e engorda. Pessoas de meia-idade e mais velhas estão entre os participantes a recrutar. No Censo de 2017, 77% dos estabelecimentos eram de agricultura familiar. Esse é um contexto de relevância, não mercado conquistado. Propomos começar com assistência técnica ou cooperativa."
     },
@@ -30,7 +30,7 @@
       "id": "jornada",
       "seconds": 40,
       "criterion": "Impacto e valor · 3 pontos",
-      "title": "A pessoa confere. A regra protege o registro.",
+      "title": "Da foto à despesa aprovada",
       "subtitle": "Foto → extração → revisão → despesa → aprovação → indicador",
       "notes": "A foto fica salva antes do envio. A leitura sugere valor, data e descrição; o usuário confere os campos e define categoria e rateio. A IA não aprova nem escolhe regras financeiras. Com dois sócios, o autor não aprova sua própria despesa. A aprovação confirma o registro e recalcula o custo do lote. O original acompanha o lançamento e pode ser consultado.",
       "cue": "Mostrar captura, conferência e original. Usar uma imagem sintética nova na operação de demonstração."
@@ -39,8 +39,8 @@
       "id": "tecnologia",
       "seconds": 35,
       "criterion": "Quatro tecnologias obrigatórias",
-      "title": "Quatro tecnologias na mesma jornada",
-      "subtitle": "Cada camada tem uma função ligada ao problema.",
+      "title": "Como a leitura vira um indicador",
+      "subtitle": "Visão computacional, IA, análise de dados e Cloud em uso.",
       "notes": "A visão computacional lê a imagem e a inteligência artificial organiza os campos: duas funções do modelo multimodal. Na arquitetura Cloudflare, Workers atende a aplicação, D1 guarda os registros, R2 protege os comprovantes e Workers AI integra a leitura. A análise de dados calcula custo acumulado, custo por cabeça e equilíbrio. O SQLite preserva capturas e intenções offline até sincronizar.",
       "cue": "Na gravação, mostrar a URL publicada e uma inferência real Workers AI. Não apresentar dry-run/emulação como serviço hospedado."
     },
@@ -48,15 +48,15 @@
       "id": "diferencial",
       "seconds": 25,
       "criterion": "Diferencial · 3 pontos",
-      "title": "Registro, comprovante e responsabilidade conectados",
-      "subtitle": "Um recorte de gestão rural que cabe na rotina do celular.",
+      "title": "Um registro acompanha toda a despesa",
+      "subtitle": "Comprovante, revisão e custo no mesmo fluxo.",
       "notes": "No fluxo em caderno ou planilha, transcrição, anexo e conferência precisam ser organizados à parte. Nosso diferencial proposto é conectar essas tarefas com permissões da operação e continuidade offline. Campos desconhecidos ficam vazios; reenvio não deve gerar outra despesa. O modo claro com ações laranja prioriza leitura, e o escuro continua opcional. A adequação ao produtor será medida no piloto."
     },
     {
       "id": "resultado",
       "seconds": 35,
       "criterion": "Resultados e impacto esperados · 8 pontos",
-      "title": "A aprovação aparece no indicador",
+      "title": "A despesa aprovada entra na conta do lote",
       "subtitle": "Cenário funcional com recibo sintético GS-004.",
       "notes": "Neste teste com recibo sintético, a despesa de 42 reais e 50 centavos foi lida, conferida e aprovada. O custo acumulado passou de 11 mil 577 reais e 90 centavos para 11 mil 620 reais e 40 centavos. São dez animais: mil 162 reais e quatro centavos por cabeça. O pendente não entra no custo confirmado. Isso demonstra o cálculo, sem representar ganho de renda em campo.",
       "cue": "Cenário GS-004 comprovado na validação local: antes 1157790 centavos, depois 1162040. Usar dataset coerente na gravação."
@@ -65,7 +65,7 @@
       "id": "validacao",
       "seconds": 45,
       "criterion": "Resultados e impacto esperados · 8 pontos",
-      "title": "Medir utilidade, além de demonstrar o software",
+      "title": "O que vamos medir no piloto",
       "subtitle": "Piloto proposto: 5 produtores · 50 comprovantes · 2 semanas",
       "notes": "Propomos duas semanas, cinco produtores e cinquenta comprovantes autorizados ou anonimizados. Vamos comparar tarefas equivalentes no processo manual e no AgroGest, alternando a ordem. As metas são reduzir em 30% a mediana do tempo por registro, acertar 95% dos valores e datas legíveis e não duplicar efeitos nos testes de reenvio e reconexão. O tempo inclui espera, correções e falhas. Também registraremos ajuda necessária e compreensão da aprovação. São metas de piloto; ainda não são resultados obtidos.",
       "cue": "Dizer explicitamente que os percentuais são metas. Não alegar entrevistas, piloto ou ganhos de renda sem registros."
@@ -74,7 +74,7 @@
       "id": "continuidade",
       "seconds": 30,
       "criterion": "ODS, implantação e sustentabilidade",
-      "title": "Informação útil para o pequeno produtor",
+      "title": "Começar com os produtores e a assistência técnica",
       "subtitle": "ODS 2 · meta 2.3: apoiar o acesso à informação para gerir a atividade.",
       "notes": "A contribuição proposta à meta 2.3 do ODS 2 é apoiar o acesso à informação gerencial do pequeno produtor. A implantação começa acompanhada. Para continuidade, avaliaremos manutenção por operação ou parceria com cooperativa, incluindo suporte e custo da infraestrutura. Primeiro medimos esforço e compreensão; renda e produtividade exigem acompanhamento posterior. O código identifica a base reaproveitada e a integração acadêmica. Tecnologia a serviço de quem decide no campo."
     }

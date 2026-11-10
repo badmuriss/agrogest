@@ -12,9 +12,9 @@ import { useThemePreference } from '@/state/theme-preference';
 import type { ThemePreference } from '@/theme';
 
 const THEMES: { value: ThemePreference; label: string }[] = [
-  { value: 'system', label: 'Automático' },
   { value: 'light', label: 'Claro' },
   { value: 'dark', label: 'Escuro' },
+  { value: 'system', label: 'Automático' },
 ];
 
 /** Como o app se apresenta para esta pessoa, mais as ferramentas do protótipo e os dados de exemplo. */
@@ -48,7 +48,7 @@ export default function PreferenciasScreen() {
       <Section title="Aparência">
         <Segmented accessibilityLabel="Tema" options={THEMES} value={theme.preference} onChange={theme.setPreference} />
         <AppText variant="caption" tone="muted">
-          Automático segue o tema do celular.
+          O padrão é Claro. Automático acompanha o tema do aparelho.
         </AppText>
       </Section>
 

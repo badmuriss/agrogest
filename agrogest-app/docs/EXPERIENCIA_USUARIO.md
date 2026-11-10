@@ -4,7 +4,7 @@
 
 Na web, a data selecionada aparece como dia/mês/ano em repouso, mesmo quando o calendário nativo do navegador usa outra ordem. A seleção continua guardada em ISO; controles de edição e calendário permanecem nativos.
 
-O modo claro é padrão para novas preferências, com branco/cinzas suaves e ações laranja. Em **Mais → Preferências**, o usuário mantém as opções Claro, Escuro e Sistema; uma escolha anterior não é sobrescrita. A marca branca/laranja usa composição sobre carvão quando precisa de contraste. Isso é uma escolha de UX para o público proposto, não evidência de aumento de conversão. [Tokens e critérios visuais](branding/IDENTIDADE_VISUAL.md#direção-vigente-da-versão-acadêmica--10112026).
+O modo claro é padrão, com branco/cinzas suaves e ações laranja. A atualização da identidade inicia no claro também quando havia uma preferência da versão anterior; a chave antiga é preservada, mas deixa de selecionar o tema. Em **Mais → Preferências**, as opções são Claro, Escuro e Automático. Uma escolha feita na versão atual persiste após recarregar; Automático acompanha o aparelho. A marca branca/laranja usa composição sobre carvão quando precisa de contraste. Isso é uma escolha de UX para o público proposto, não evidência de aumento de conversão. [Tokens e critérios visuais](branding/IDENTIDADE_VISUAL.md#direção-vigente-da-versão-acadêmica--10112026).
 
 **Despesa → Escolher comprovante** abre diretamente o seletor de imagem. A captura é salva no SQLite antes da navegação/rede; `/novo/importar-despesa?id=<id-local>&analisar=1` abre a revisão e inicia a leitura. A rota também permite escolher outra foto ou reabrir uma captura. O botão web aciona um input persistente oculto, sem tela intermediária de escolha.
 

@@ -1,5 +1,13 @@
 # Histórico de revisões
 
+## 10/11/2026 — tema claro na atualização e refinamento do pitch
+
+Base própria `797438f`. A revisão visual anterior só adotava o claro na ausência de tema salvo. Após o usuário relatar que seu navegador continuava escuro, a aparência passa a usar `agrogest.theme.v2`: a chave anterior fica preservada, mas deixa de selecionar o tema. A versão atual inicia no claro, inclusive com tema antigo escuro e sistema escuro; novas escolhas de Claro, Escuro ou Automático continuam persistentes. Preferências apresenta Claro primeiro e explica o padrão. Não há limpeza de sessão, SQLite ou outbox.
+
+O pitch passou a usar o símbolo V1 preservado com nome composto em Inter, sem a pequena placa que reduzia a leitura do logo. Todas as molduras usam a mesma proporção 9:19,5, imagens contidas sem corte e legendas externas; foram removidos o recibo ilustrativo da capa, sua rotação e elementos decorativos. Títulos e rodapés foram simplificados, mantendo fontes, identificação do cenário sintético e metas de piloto. O CSS editável foi separado em `scripts/pitch.css`, mas continua incorporado ao HTML final. PDF reexportado em nove páginas 16:9.
+
+**Verificação desta correção:** tipos, lint, build web e exportações web/Android/iOS passaram. No Chromium local, reproduzido o escuro com chave antiga; o build corrigido abriu claro com a mesma chave e o sistema escuro. A opção Escuro foi acionada pela interface e persistiu após recarregar; o retorno a Claro também persistiu. Os nove slides HTML foram capturados e inspecionados, com imagens carregadas e nenhum recurso HTTP externo; as proporções das três molduras foram conferidas no DOM. PDF rasterizado para conferência das nove páginas. Os 251 testes da revisão anterior não foram reexecutados para esta mudança de aparência e apresentação. Não houve deploy nem inferência remota.
+
 ## 10/11/2026 — marca laranja, modo claro e material do pitch GS2
 
 Base própria `e871622`. A direção visual do usuário passa a ser branco/laranja com cinzas suaves, modo claro padrão sem preferência salva e modo escuro opcional. Escolhas existentes de tema são preservadas. Originais V1/V2 não foram modificados; composições SVG e ícones sobre carvão reutilizam a arte branca/laranja. Campos, ações, aprovação visual, exportação e tokens CSS acompanham a nova paleta. A data web selecionada aparece em DD/MM/AAAA em repouso, mantendo ISO e calendário/edição nativos. O Switch web recebeu cor de thumb ativa explícita para não herdar o verde do componente.

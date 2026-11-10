@@ -6,7 +6,9 @@ import { ColorSchemeContext, palettes, type ThemePreference } from '@/theme';
 
 import { loadThemeValue, saveThemeValue } from './theme-storage';
 
-const STORAGE_KEY = 'agrogest.theme';
+// A nova identidade começa no claro também para quem tinha o tema antigo salvo.
+// A escolha feita nesta versão continua persistente; a chave anterior é preservada.
+const STORAGE_KEY = 'agrogest.theme.v2';
 
 function readPreference(): ThemePreference {
   const value = loadThemeValue(STORAGE_KEY);
