@@ -2,6 +2,10 @@
 
 ## Fluxo acadêmico implementado · 10/11/2026
 
+Na web, a data selecionada aparece como dia/mês/ano em repouso, mesmo quando o calendário nativo do navegador usa outra ordem. A seleção continua guardada em ISO; controles de edição e calendário permanecem nativos.
+
+O modo claro é padrão para novas preferências, com branco/cinzas suaves e ações laranja. Em **Mais → Preferências**, o usuário mantém as opções Claro, Escuro e Sistema; uma escolha anterior não é sobrescrita. A marca branca/laranja usa composição sobre carvão quando precisa de contraste. Isso é uma escolha de UX para o público proposto, não evidência de aumento de conversão. [Tokens e critérios visuais](branding/IDENTIDADE_VISUAL.md#direção-vigente-da-versão-acadêmica--10112026).
+
 **Despesa → Escolher comprovante** abre diretamente o seletor de imagem. A captura é salva no SQLite antes da navegação/rede; `/novo/importar-despesa?id=<id-local>&analisar=1` abre a revisão e inicia a leitura. A rota também permite escolher outra foto ou reabrir uma captura. O botão web aciona um input persistente oculto, sem tela intermediária de escolha.
 
 A revisão prioriza **valor, descrição e data**, com uma prévia compacta e **Trocar foto**. Imagem ampliada, fornecedor, número e opção de refazer a leitura ficam em **Ver imagem e detalhes**; o texto bruto, quando existir, tem sua própria expansão. Não há dump de tabela TSV nem lista repetida de avisos no fluxo principal. Campo obrigatório não identificado fica sinalizado e bloqueia a confirmação até preenchimento; dados opcionais não são inventados.

@@ -145,6 +145,12 @@ A conta que paga IA é independente das identidades do aplicativo e da futura ho
 
 Referências de contrato: [Cloudflare REST](https://developers.cloudflare.com/workers-ai/get-started/rest-api/), [Scout](https://developers.cloudflare.com/workers-ai/models/llama-4-scout-17b-16e-instruct/), [modelo português e licença](https://github.com/tesseract-ocr/tessdata_fast/tree/87416418657359cb625c412a48b6e1d6d41c29bd). A pesquisa histórica de modelos Hugging Face, recursos e licenças está no [plano](gs/PLANO.md); a seleção vigente está neste guia; nenhum Space/Endpoint hospedado foi usado.
 
+### Neurons incluídos no Workers AI
+
+Conferido em **10/11/2026** na [tabela oficial](https://developers.cloudflare.com/workers-ai/platform/pricing/): o **Llama 4 Scout** configurado participa da franquia de **10.000 Neurons/dia por conta**, compartilhada com outros usos de Workers AI. O reset é às 00:00 UTC. No Free, esgotar a cota bloqueia chamadas; no Paid, excedentes custam US$ 0,011 por 1.000 Neurons.
+
+O consumo varia com a imagem/contexto e a saída; não há quantidade garantida de fotos. Monitore o painel Workers AI. A cota de 20 tentativas por usuário/dia do app é independente. Workers, D1 e R2 têm condições próprias; a franquia de IA não significa hospedagem inteira ilimitada ou gratuita.
+
 ### IA visual local opcional
 
 Esta opção usa **Qwen3-VL-2B-Instruct**, Apache-2.0, em `llama.cpp` (MIT), para ler a imagem e sugerir os campos em uma única chamada. O manifesto `services/extraction/vision-model.json` fixa revisão, arquivos públicos, quantização Q4_K_M do modelo, projetor Q8 e SHA-256; pesos e runtime ficam em `.local/vision/`, fora do Git e do frontend. Não é um serviço hospedado do Hugging Face.
@@ -171,7 +177,7 @@ Referências: [modelo e licença](https://huggingface.co/Qwen/Qwen3-VL-2B-Instru
 
 ## Preparar a futura hospedagem Cloudflare
 
-**Implementado para preparação e teste local; publicação ainda não realizada.** O caminho previsto reúne SPA e API no mesmo Worker com Static Assets, D1, R2 privado e Workers AI. Não precisa hospedar um container ou alugar GPU para o OCR. O modelo local não roda dentro do Worker. `cloud:check` exporta o frontend para usar sua própria origem, gera configuração de teste com IDs sintéticos e executa apenas `wrangler deploy --dry-run`. Isso empacota o código; não testa a conta, a inferência nem um serviço hospedado.
+**Implementado para preparação e teste local; publicação ainda não realizada.** O caminho previsto reúne SPA e API no mesmo Worker com Static Assets, D1, R2 privado e Workers AI. Não precisa hospedar um container ou alugar GPU para o OCR. O modelo local não roda dentro do Worker. `cloud:check` exporta o frontend para usar sua própria origem, gera configuração de teste com IDs sintéticos e executa apenas `wrangler deploy --dry-run`. Isso empacota o código; não testa a conta, a inferência nem um serviço hospedado. Como recompila `dist`, reinicie um `npm start` já aberto para atualizar o manifesto de assets.
 
 ```sh
 # Na raiz; nenhum comando abaixo publica ou provisiona:
@@ -192,25 +198,72 @@ O pacote de nuvem copia as migrations de schema `0001_domain.sql` e cota `0003_i
 
 Compartilhe clone, lockfiles, exemplos vazios e este guia. Não compartilhe `.dev.vars`, `.local`, pesos, bancos do navegador, tokens ou `accounts.json`. Revogue o token temporário quando ele deixar de ser usado. D1/R2 e políticas de backup/retensão pertencem à conta de hospedagem; defina responsável, orçamento e teste de restauração antes de dados reais. O limite diário da aplicação não limita todos os gastos da conta Cloudflare.
 
-### Publicação futura: procedimento ainda não executado
+### Deploy com Wrangler na conta do responsável
 
-Quando houver autorização própria para publicar, o responsável confirma sua conta Cloudflare e cria D1/R2 do ambiente pretendido, preenche os IDs reais e revisa os arquivos privados preparados. Antes da publicação, feche as pendências de Auth/abuso e backup adequadas ao público alvo. O código recusa login/sessão das identidades `gs-*`, e-mails `@agrogest.local` e senha pública local fora de `APP_ENV=local`.
+Este roteiro é para quem vai publicar na própria conta. Preparação e deploy são etapas diferentes: os comandos de recurso/migration/deploy abaixo são **remotos** e devem ser executados pelo responsável quando decidir publicar. Não foram executados pelo agente nesta fase. A instalação local e a verificação `cloud:check` continuam independentes de publicação.
+
+**1. Clonar e instalar.** Node 24.10+ da linha 24 e npm são suficientes para esse caminho. Docker, Python e GPU não são necessários. Na raiz:
 
 ```sh
-# SOMENTE na futura fase autorizada. Na raiz:
-npm run build:web -- --target cloud
+git clone https://github.com/badmuriss/agrogest.git
+cd agrogest
+npm run setup:local -- --provider workers-ai
 npm run cloud:prepare -- --env staging
 npm run cloud:bootstrap -- --env staging
+```
 
-# Depois de preencher/revisar os arquivos privados; diretório agrogest-app/apps/api:
+Os dois últimos comandos criam os modelos privados na primeira execução. O perfil local REST pode informar conta/token ausentes no `doctor`; para o deploy com **binding**, não é preciso preencher o token REST em `.dev.vars`.
+
+**2. Autenticar e escolher a conta.** No diretório `agrogest-app/apps/api`:
+
+```sh
+npx --no-install wrangler login
+npx --no-install wrangler whoami
+```
+
+No Dashboard da conta de hospedagem, habilite **Workers AI**, configure o subdomínio `workers.dev` e ative **R2**. R2 exige sua [assinatura no painel](https://developers.cloudflare.com/r2/get-started/), com franquia/condições próprias. Confirme o `accountId` mostrado pelo CLI e o subdomínio da conta; não use o token/conta temporários de outra pessoa. Se o shell já tiver `CLOUDFLARE_ACCOUNT_ID` ou tokens de outro projeto, ajuste/remova essas variáveis antes de continuar.
+
+**3. Configurar a conta antes de criar recursos.** Edite `agrogest-app/.local/cloud/staging/settings.json`: preencha `accountId`, confirme os três nomes de recursos e mantenha `inferenceTransport` como `binding`. A origem deve ser `https://agrogest-staging.SEUSUBDOMINIO.workers.dev`, substituindo `SEUSUBDOMINIO` pelo real. `databaseId` ainda fica vazio. Na raiz:
+
+```sh
+npm run cloud:account -- --env staging
+```
+
+Isso gera `provision.jsonc` privado, apenas com a conta e sem bindings de desenvolvimento. A seguir, **em `agrogest-app/apps/api`**, crie os recursos na conta selecionada:
+
+```sh
+npx --no-install wrangler d1 create agrogest-staging --config ../../.local/cloud/staging/provision.jsonc --no-update-config
+npx --no-install wrangler r2 bucket create agrogest-documents-staging --config ../../.local/cloud/staging/provision.jsonc --no-update-config
+```
+
+Esses nomes são os padrões do exemplo. Se já existirem, confirme que pertencem ao ambiente pretendido; não apague recursos para repetir o roteiro. Os comandos de criação não alteram o `wrangler.jsonc` local. Copie o UUID retornado pelo D1 para `databaseId` em `settings.json`; o bucket fica privado, sem URL pública e sem chave S3 no frontend.
+
+**4. Preparar configuração e contas do aplicativo.** Em `accounts.json` privado, cadastre e-mails próprios e senhas de 12 a 128 caracteres. Para demonstrar aprovação entre sócios, prepare pelo menos duas contas; não use `@agrogest.local` ou a senha pública da demonstração. Na raiz:
+
+```sh
+npm run cloud:prepare -- --env staging
+npm run cloud:bootstrap -- --env staging
+npm run cloud:check
+```
+
+Revise `wrangler.jsonc`, `bootstrap.sql` e a pasta `migrations` gerados em `.local/cloud/staging/`. Devem existir somente as migrations `0001_domain.sql` e `0003_inference_usage.sql`; a carga local `0002_local_demo.sql` não entra. O bootstrap não redefine senhas existentes. Guarde as senhas num gerenciador próprio e remova o `accounts.json` depois de concluída a configuração.
+
+**5. Conferir o pacote e publicar.** No diretório `agrogest-app/apps/api`:
+
+```sh
+npx --no-install wrangler deploy --dry-run --env staging --config ../../.local/cloud/staging/wrangler.jsonc
 npx --no-install wrangler d1 migrations apply agrogest-staging --remote --env staging --config ../../.local/cloud/staging/wrangler.jsonc
 npx --no-install wrangler d1 execute agrogest-staging --remote --env staging --config ../../.local/cloud/staging/wrangler.jsonc --file ../../.local/cloud/staging/bootstrap.sql
-# Só para transporte REST; o CLI pede a chave sem colocá-la no comando:
-npx --no-install wrangler secret put WORKERS_AI_API_TOKEN --env staging --config ../../.local/cloud/staging/wrangler.jsonc
 npx --no-install wrangler deploy --env staging --config ../../.local/cloud/staging/wrangler.jsonc
 ```
 
-Os nomes do exemplo devem corresponder aos settings reais. A configuração local e `npm start` não usam esse arquivo. Não executar `wrangler dev` com a configuração de cloud: o binding AI é remoto; o adaptador recusa binding quando `APP_ENV=local`. Para desenvolvimento com IA Cloudflare, use o perfil local REST.
+Use **o arquivo de staging**, não o `wrangler.jsonc` local da API. O `cloud:check` já exporta o frontend com a API na própria origem. O binding AI dispensa token de inferência; o login Wrangler autoriza a administração da conta. Para separar a conta de IA da hospedagem, use a opção REST descrita acima e configure o secret `WORKERS_AI_API_TOKEN` com `wrangler secret put` usando o mesmo `--env staging --config …`; nunca digite a chave no comando nem publique `.dev.vars`.
+
+**6. Abrir e preparar a demonstração.** Use a URL exata de `settings.json`. `/api/health` deve indicar `environment: staging` e `inferenceProvider: workers-ai`. Entre com sua conta, crie fazenda/lote e convide a segunda conta como sócia; ambas precisam estar configuradas no bootstrap. Cadastre uma conta financeira se for registrar pagamento. As contas/dados públicos da demonstração local não aparecem na base nova.
+
+**7. Promover quando apropriado.** Para produção, repita com `--env production`, pasta própria e Worker/D1/bucket distintos. Confirme Auth/recuperação, proteção contra abuso e backup/restauração adequados ao público antes de uso público com dados reais. Staging é o alvo do primeiro deploy e da apresentação controlada da GS. O código bloqueia identidades/senha públicas de demonstração fora de `APP_ENV=local`. Publicar o app não resolve a transferência dos dados locais existentes, descrita abaixo.
+
+Não execute `wrangler dev` com a configuração de cloud: o binding AI é remoto. Para desenvolver com IA Cloudflare e aplicação local, continue usando o perfil local REST.
 
 Após uma publicação autorizada: testar saúde HTTPS, login próprio, imagem → campos reais → revisão → despesa → aprovação por outro sócio → indicador, reabertura, duplicidade, isolamento e offline/sync na origem publicada. Verificar o uso/faturamento do modelo e falhas/limite sem expor conteúdo/headers. A validação de schema continua necessária mesmo com JSON mode. Timeout não garante ausência de cobrança por trabalho já iniciado. Só esse teste comprova hospedagem e IA remota.
 

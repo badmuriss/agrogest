@@ -5,9 +5,18 @@ import { mkdtempSync, writeFileSync, readFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { configure, readConfig, configurationProblems, workersModel } from './local-config.mjs';
-import { cloudConfig, prepareCloud, bootstrapSql } from './cloud-config.mjs';
+import { accountConfig, cloudConfig, prepareCloud, bootstrapSql } from './cloud-config.mjs';
 import { backendLocation } from '../apps/mobile/src/services/backend-location.ts';
 const settings = (environment = 'staging') => ({ environment, accountId: 'a'.repeat(32), workerName: `agrogest-${environment}`, origin: `https://agrogest-${environment}.example.workers.dev`, databaseName: `agrogest-${environment}`, databaseId: '11111111-1111-4111-8111-111111111111', bucketName: `agrogest-documents-${environment}`, inferenceTransport: 'binding' });
+
+test('account preparation works before resources exist and never inherits local data or inference bindings', () => {
+  const result = accountConfig({ environment: 'staging', accountId: 'a'.repeat(32), databaseId: '' }, 'staging');
+  assert.equal(result.account_id, 'a'.repeat(32));
+  assert.equal(result.workers_dev, false);
+  for (const field of ['d1_databases', 'r2_buckets', 'ai', 'main', 'vars']) assert.equal(result[field], undefined);
+  assert.throws(() => accountConfig({ environment: 'production', accountId: 'a'.repeat(32) }, 'staging'));
+  assert.throws(() => accountConfig({ environment: 'staging', accountId: '' }, 'staging'));
+});
 
 test('switching inference preserves unrelated credentials and state, removes obsolete provider config, and reports missing settings without secrets', t => {
   const dir = mkdtempSync(path.join(tmpdir(), 'agrogest-config-')); t.after(() => rmSync(dir, { recursive: true, force: true }));

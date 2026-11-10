@@ -1,6 +1,6 @@
 import { useId, useState } from 'react';
 
-import { parseISODate } from '@/domain/dates';
+import { formatDate, parseISODate } from '@/domain/dates';
 import { radius, space, useIsDark, usePalette } from '@/theme';
 
 import type { DateInputProps } from './date-input.types';
@@ -16,6 +16,7 @@ export function DateInput({ label, value, onChange }: DateInputProps) {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: space.sm }}>
+      <div style={{ position: 'relative' }}>
       <input
         id={id}
         type="date"
@@ -56,6 +57,8 @@ export function DateInput({ label, value, onChange }: DateInputProps) {
           cursor: 'pointer',
         }}
       />
+      {!focused && parseISODate(value) ? <span aria-hidden="true" style={{ position: 'absolute', left: space.md + 2, right: 46, top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none', backgroundColor: p.fill, color: p.text, fontSize: 16, lineHeight: '24px' }}>{formatDate(value)}</span> : null}
+      </div>
       {invalid ? (
         <span id={`${id}-error`} role="alert" style={{ color: p.danger, fontSize: 14 }}>
           Escolha uma data válida. Ao sair, a data anterior será mantida.

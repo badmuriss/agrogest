@@ -4,8 +4,8 @@ import { StyleSheet, useColorScheme, type ViewStyle } from 'react-native';
 /**
  * Base neutra e fria: fundo cinza muito claro com cartões brancos separados por um fio de borda (sem
  * sombra: no Android a sombra é cortada em retângulo durante as animações e o cartão parece papel amassado).
- * A marca (verde #0C502F) é a única cor de ação e de destaque; laranja só como acento pontual.
- * Verde, vermelho e amarelo ficam reservados a sucesso, perigo e alerta.
+ * A marca usa laranja, branco e carvão; o laranja escuro no tema claro preserva o contraste.
+ * Estados usam texto e ícone; a aprovação acompanha o laranja, e perigo/alerta mantêm semântica própria.
  * Contraste AA (≥ 4,5:1) para todo texto: muted ≥ 7:1 e faint ≥ 4,5:1 sobre o fundo.
  */
 const light = {
@@ -15,20 +15,20 @@ const light = {
   fill: '#EFF1F4',
   fillStrong: '#E3E6EB',
   border: '#E2E5EA',
-  text: '#0B0F0C',
+  text: '#151619',
   textMuted: '#4A5160',
   textFaint: '#626A77',
-  accent: '#0C502F',
+  accent: '#A63D00',
   onAccent: '#FFFFFF',
-  accentSoft: '#E6F2EA',
+  accentSoft: '#FFF0E6',
   highlight: '#FF6F1E',
   /** Faixa escura do topo (Início), com conteúdo claro por cima. */
-  hero: '#0C502F',
+  hero: '#A63D00',
   onHero: '#FFFFFF',
-  onHeroMuted: '#D3E6DB',
-  inverse: '#0B0F0C',
+  onHeroMuted: '#FFEBDD',
+  inverse: '#151619',
   onInverse: '#FFFFFF',
-  success: '#15803D',
+  success: '#A63D00',
   warning: '#B45309',
   info: '#1D4ED8',
   danger: '#B91C1C',
@@ -41,30 +41,30 @@ export type Palette = typeof light;
 
 const dark: Palette = {
   scheme: 'dark',
-  background: '#0B0F0C',
-  surface: '#151C17',
-  fill: '#1E2822',
-  fillStrong: '#2A352E',
-  border: '#2E3A32',
-  text: '#F2F5F3',
-  textMuted: '#B6C2BA',
-  textFaint: '#97A59B',
-  accent: '#5FD28B',
-  onAccent: '#06210F',
-  accentSoft: '#1B3A28',
+  background: '#111214',
+  surface: '#1B1D21',
+  fill: '#24262B',
+  fillStrong: '#303339',
+  border: '#393D44',
+  text: '#F4F5F7',
+  textMuted: '#C0C4CC',
+  textFaint: '#A3A9B4',
+  accent: '#FF8A4C',
+  onAccent: '#21140C',
+  accentSoft: '#3A251B',
   highlight: '#FF7A2E',
-  hero: '#12301F',
+  hero: '#202125',
   onHero: '#FFFFFF',
-  onHeroMuted: '#B9D6C4',
-  inverse: '#F2F5F3',
-  onInverse: '#0B0F0C',
-  success: '#4ADE80',
+  onHeroMuted: '#D2D4D8',
+  inverse: '#F4F5F7',
+  onInverse: '#151619',
+  success: '#FF9A65',
   warning: '#FBBF24',
   info: '#60A5FA',
   danger: '#F87171',
   conflict: '#E879F9',
-  disabledBackground: '#2A352E',
-  disabledText: '#97A59B',
+  disabledBackground: '#303339',
+  disabledText: '#A3A9B4',
 };
 
 export const palettes = { light, dark };

@@ -3,6 +3,10 @@ import path from 'node:path';
 import { createHash, pbkdf2Sync, randomBytes } from 'node:crypto';
 import { api, workersModel } from './local-config.mjs';
 export const cloudMigrations = ['0001_domain.sql', '0003_inference_usage.sql'];
+export function accountConfig(settings, environment) {
+  if (!['staging', 'production'].includes(environment) || settings.environment !== environment || !/^[a-f0-9]{32}$/.test(settings.accountId ?? '')) throw new Error('Preencha environment e accountId da conta de hospedagem em settings.json.');
+  return { name: `agrogest-provision-${environment}`, account_id: settings.accountId, workers_dev: false, preview_urls: false, send_metrics: false };
+}
 export function validateCloud(settings, environment) {
   const problems = [];
   if (!['staging', 'production'].includes(environment) || settings.environment !== environment) problems.push('environment deve corresponder a staging ou production selecionado.');

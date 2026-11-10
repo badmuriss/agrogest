@@ -32,7 +32,7 @@ const BRANDS = {
     logo: V2_LOGO,
     mark: V2_MARK,
     wordmark: V2_WORDMARK,
-    icon: require('@/assets/images/v2/icon-v2.png'),
+    icon: require('@/assets/images/academic/icon.png'),
     logoRatio: dimensions.logo.ratio,
     markRatio: dimensions.mark.ratio,
     wordmarkRatio: dimensions.wordmark.ratio,
@@ -41,37 +41,43 @@ const BRANDS = {
 
 export function useBrandAssets() {
   const { version } = useBrandPreference();
-  const theme = useIsDark() ? 'dark' : 'light';
+  // The approved white/orange artwork is preserved in both application themes.
+  const theme = 'dark';
   const assets = BRANDS[version];
   return { ...assets, logo: assets.logo[theme], mark: assets.mark[theme], wordmark: assets.wordmark[theme] };
 }
 
 export function Logo({ height = 28 }: { height?: number }) {
   const brand = useBrandAssets();
+  const dark = useIsDark();
   return (
+    <View style={{ alignSelf: 'flex-start', padding: dark ? 0 : 10, borderRadius: 12, backgroundColor: dark ? 'transparent' : '#202125' }}>
     <Image
       source={brand.logo}
       style={{ height, width: height * brand.logoRatio }}
       contentFit="contain"
       accessibilityLabel="AgroGest"
     />
+    </View>
   );
 }
 
 export function LogoMark({ width }: { width: number }) {
   const brand = useBrandAssets();
-  return <Image source={brand.mark} style={{ width, height: width / brand.markRatio }} contentFit="contain" accessibilityLabel="Símbolo AgroGest" />;
+  return <View style={{ backgroundColor: '#202125', borderRadius: 12 }}><Image source={brand.mark} style={{ width, height: width / brand.markRatio }} contentFit="contain" accessibilityLabel="Símbolo AgroGest" /></View>;
 }
 
 export function Wordmark({ width }: { width: number }) {
   const brand = useBrandAssets();
   return (
+    <View style={{ backgroundColor: '#202125', borderRadius: 8, padding: 8 }}>
     <Image
       source={brand.wordmark}
       style={{ width, height: width / brand.wordmarkRatio }}
       contentFit="contain"
       accessibilityLabel="AgroGest"
     />
+    </View>
   );
 }
 

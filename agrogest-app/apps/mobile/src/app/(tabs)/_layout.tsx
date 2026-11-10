@@ -112,7 +112,7 @@ export default function TabsLayout() {
             borderTopRightRadius: radius.xxl,
             borderTopWidth: p.scheme === 'dark' ? StyleSheet.hairlineWidth : 0,
             borderColor: p.border,
-            ...(p.scheme === 'dark' ? {} : { shadowColor: '#0B0F0C', shadowOpacity: 0.08, shadowRadius: 16, shadowOffset: { width: 0, height: -4 }, elevation: 12 }),
+            ...(p.scheme === 'dark' ? {} : { shadowColor: '#151619', shadowOpacity: 0.08, shadowRadius: 16, shadowOffset: { width: 0, height: -4 }, elevation: 12 }),
           },
           tabBarIconStyle: { width: 60, height: 32 },
           tabBarLabelStyle: { fontSize: 11, lineHeight: 14, fontFamily: font.semibold, marginTop: 4 },

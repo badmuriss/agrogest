@@ -21,7 +21,7 @@ async function paths(dir, prefix = '') {
   return items;
 }
 let html = await readFile(path.join(dist, 'index.html'), 'utf8');
-html = html.replace('<html lang="en">', '<html lang="pt-BR">').replace('</body>', '<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js").catch(()=>{});}</script></body>');
+html = html.replace('<html lang="en">', '<html lang="pt-BR">').replace('href="/favicon.ico"', 'href="/favicon.svg"').replace('</body>', '<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js").catch(()=>{});}</script></body>');
 await writeFile(path.join(dist, 'index.html'), html);
 const assets = (await paths(dist)).filter((f) => f !== '/sw.js');
 const version = createHash('sha256').update(assets.join('\n') + html).digest('hex').slice(0, 16);

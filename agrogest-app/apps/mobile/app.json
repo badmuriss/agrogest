@@ -4,30 +4,29 @@
     "slug": "agrogest",
     "version": "0.1.0",
     "orientation": "portrait",
-    "icon": "./assets/images/v2/icon-v2.png",
+    "icon": "./assets/images/academic/icon.png",
     "scheme": "agrogest",
     "userInterfaceStyle": "automatic",
     "android": {
       "package": "com.agrogest.app",
       "adaptiveIcon": {
-        "backgroundColor": "#0C502F",
+        "backgroundColor": "#202125",
         "foregroundImage": "./assets/images/v2/android-icon-foreground-v2.png",
-        "backgroundImage": "./assets/images/v2/android-icon-background-v2.png",
         "monochromeImage": "./assets/images/v2/android-icon-monochrome-v2.png"
       },
       "predictiveBackGestureEnabled": false
     },
     "web": {
       "output": "single",
-      "favicon": "./assets/images/v2/favicon-v2.png"
+      "favicon": "./assets/images/academic/favicon.png"
     },
     "plugins": [
       "expo-router",
       [
         "expo-splash-screen",
         {
-          "backgroundColor": "#FFFFFF",
-          "image": "./assets/images/v2/splash-icon-v2.png",
+          "backgroundColor": "#202125",
+          "image": "./assets/images/v2/splash-icon-dark-v2.png",
           "imageWidth": 132,
           "dark": {
             "backgroundColor": "#000000",

@@ -1,8 +1,5 @@
 <p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="agrogest-app/apps/mobile/assets/branding/v2/logo-dark-v2.png">
-    <img src="agrogest-app/apps/mobile/assets/branding/v2/logo-light-v2.png" alt="AgroGest" width="380">
-  </picture>
+  <img src="agrogest-app/apps/mobile/assets/branding/v2/logo-apresentacao.svg" alt="AgroGest" width="380">
 </p>
 
 <p align="center">
@@ -38,7 +35,7 @@ A proposta para a Global Solution é aplicar tecnologia à rotina de quem vive e
 A imagem original acompanha o lançamento. Registros feitos sem conexão ficam guardados e são sincronizados depois; a leitura da imagem precisa do serviço de análise disponível.
 
 <p align="center">
-  <img src="agrogest-app/docs/imagens/revisao-comprovante.png" alt="Revisão de comprovante no AgroGest, com valor, descrição e data sugeridos para conferência" width="760">
+  <img src="agrogest-app/docs/imagens/revisao-comprovante-laranja.png" alt="Revisão de comprovante no AgroGest, com valor, descrição e data sugeridos para conferência" width="760">
 </p>
 <p align="center"><em>Demonstração com recibo sintético. A extração processa a imagem; os campos continuam sujeitos à revisão.</em></p>
 
@@ -75,4 +72,4 @@ Abra **http://127.0.0.1:8787/entrar**. As [contas de demonstração e o roteiro 
 
 ## Saiba mais
 
-[Requisitos da Global Solution](agrogest-app/docs/gs/REQUISITOS_GS.md) · [Documentação do projeto](agrogest-app/docs/README.md) · [Evidências de validação](agrogest-app/docs/HISTORICO_REVISOES.md)
+[Slides do pitch](agrogest-app/docs/gs/pitch/agrogest-pitch.html) · [Requisitos da Global Solution](agrogest-app/docs/gs/REQUISITOS_GS.md) · [Documentação do projeto](agrogest-app/docs/README.md) · [Evidências de validação](agrogest-app/docs/HISTORICO_REVISOES.md)

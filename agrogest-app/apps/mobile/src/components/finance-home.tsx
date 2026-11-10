@@ -20,7 +20,7 @@ export const HIDDEN_MONEY = 'R$ ••••••';
 
 const WHITE = '#FFFFFF';
 /** Texto sobre a pílula branca da fazenda escolhida. */
-const INK = '#0B0F0C';
+const INK = '#151619';
 
 /** Ícone Lucide num quadrado arredondado com fundo suave da cor do tom. */
 export function IconBadge({ icon: Icon, tone = 'neutral', size = 40 }: { icon: LucideIcon; tone?: Tone; size?: number }) {

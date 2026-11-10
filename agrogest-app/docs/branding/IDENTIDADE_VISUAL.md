@@ -5,6 +5,16 @@
 > **Fontes:** arquivos reais em `old-agrogest/`; revisão inicial de código e assets.\
 > **Relacionados:** [Experiência do usuário](../EXPERIENCIA_USUARIO.md) · [Requisitos do produto](../REQUISITOS_PRODUTO.md)
 
+## Direção vigente da versão acadêmica · 10/11/2026
+
+Por decisão do usuário, **branco e laranja são a base do modo claro, que passa a ser o padrão em uma instalação sem preferência salva**. O modo escuro continua disponível; seleções anteriores de claro/escuro/sistema são preservadas. A escolha busca atender produtores com diferentes níveis de familiaridade digital, incluindo meia-idade e pessoas mais velhas. Ganho de conversão não foi medido; comparar compreensão, legibilidade e conclusão de tarefas no piloto.
+
+A cor de marca é o laranja `#FF6F1E`. Para texto e botões com rótulo branco no modo claro, usa-se `#A63D00`, preservando contraste; superfícies são brancas/cinzas suaves e o cabeçalho é laranja. No escuro, ações usam `#FF8A4C` sobre carvão. O verde sai dos destaques e da aprovação visual; status continuam com texto e ícone, e perigo/alerta conservam sua semântica. Tokens exatos vivem em `src/theme.ts` e `src/global.css`, mantidos em conjunto.
+
+O desenho original **branco/laranja** é reutilizado sem alterar seus pixels. Composições SVG sobre carvão preservam a leitura da marca também em fundo claro; `npm run brand:assets` rasteriza apenas essas composições para ícone/favicon com o Sharp já fixado pelas dependências da API. Novos arquivos ficam em `assets/images/academic/`, `public/favicon.svg` e `assets/branding/v2/logo-apresentacao.svg`. Originais V1/V2, dimensões e autoria permanecem preservados; o novo ícone tem 1024×1024 e usa arte branca/laranja sobre carvão. O Android mantém o foreground original e passa a usar fundo carvão por configuração; nenhuma publicação/build de distribuição nativo foi feita.
+
+As diretrizes verdes de outubro abaixo são **históricas e substituídas para a versão acadêmica**. Os slides da GS seguem a mesma paleta vigente e as capturas usadas neles devem corresponder ao app atualizado.
+
 ## 1. Objetivo
 
 Preservar a identidade visual já existente do **AgroGest** como referência para o aplicativo móvel React Native + Expo e para o futuro painel administrativo, **sem assumir que as decisões do software legado definem a arquitetura ou os requisitos do novo produto**.

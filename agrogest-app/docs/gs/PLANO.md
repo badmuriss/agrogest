@@ -6,6 +6,37 @@
 Atualização: IA visual local Qwen3-VL-2B quantizada, executando na GPU desta máquina, integra imagem → campos em uma chamada. A revisão foi simplificada e a escolha da imagem abre diretamente no formulário de despesa. O parser TSV do OCR CPU e a invalidação de cache foram corrigidos. Setup, contas e limites permanecem no [guia operacional](../CLOUDFLARE_LOCAL.md); [evidências datadas](../HISTORICO_REVISOES.md) distinguem esta validação dos 114 testes iniciais e das execuções de 06 e 09 de novembro. Planos, transferências, pesquisas e origem foram agrupados nesta documentação; a raiz ficou voltada aos avaliadores.
 **Preparação de ambientes:** instalador por perfil, diagnóstico sem segredos e troca local/IA visual/Workers AI implementados. O início não exige Docker quando o provedor escolhido não o usa. Staging/produção têm configuração privada própria, origem HTTPS, migrações sem carga de demonstração e bootstrap de contas próprias. Frontend acompanha a origem hospedada; sessão/SQLite/outbox distinguem backend/conta sem renomear a base local atual. Publicação, provisionamento e inferência Cloudflare real continuam pendentes. [Procedimento e limites](../CLOUDFLARE_LOCAL.md#preparar-a-futura-hospedagem-cloudflare).
 
+## Conferência da entrega e pitch técnico
+
+Conferência em 10/11/2026 contra o enunciado integral reenviado pelo usuário. **O recorte é compatível com a proposta da GS**, mas não existe nota máxima garantida antes da avaliação do professor. Código, slides e quantidade de testes não substituem o vídeo, as evidências do problema ou a demonstração prática das quatro tecnologias. A apresentação de nove slides, [HTML offline](pitch/agrogest-pitch.html), [PDF para apresentar](pitch/agrogest-pitch.pdf) e [roteiro de fala](pitch/roteiro.txt), foi estruturada para **4min40s**, com margem até os cinco minutos. O [conteúdo editável](pitch/conteudo.json) concentra falas, tempos, direção de gravação e fontes.
+
+| Critério da rubrica | Peso | Como o pitch cobre | Conferência antes de gravar |
+| --- | ---: | --- | --- |
+| Proposta e problema evidenciado | 3 | Slides 1–2: retrabalho entre comprovante, registro e conferência; impacto na informação de custo do lote | Juntar um relato autorizado/anonimizado ou observação documentada do público. O cenário funcional não comprova sozinho a frequência da dor |
+| Público-alvo e mercado | 3 | Slide 3: pequeno produtor de recria/engorda, equipe e sócios; contexto do Censo Agro 2017 e adoção por assistência/cooperativa | Não tratar os 77% da agricultura familiar como TAM específico ou clientes conquistados. Incluir meia-idade e pessoas mais velhas no recrutamento do piloto |
+| Impacto e valor da solução | 3 | Slide 4: imagem → revisão → categoria/rateio → aprovação → indicador; continuidade offline | Mostrar cliques reais, correção humana e comprovante vinculado. A IA não aprova despesas |
+| Diferencial | 3 | Slide 6: comparar tarefas em caderno/planilha com anexo, permissões e sincronização no mesmo fluxo | Não alegar que nenhum concorrente tem IA/offline. O diferencial proposto é a adequação ao recorte do produtor |
+| Resultados e impacto esperados | 8 | Slides 7–9: cálculo confirmado, metas de piloto, método de comparação, implantação e continuidade | Falar explicitamente em metas para os percentuais. Incluir falhas/correções/ajuda na medição e não inventar melhoria de renda ou conversão |
+
+### Quatro tecnologias em uso no funcionamento
+
+- **Visão computacional:** pixels do comprovante são processados pelo extrator; não usar resposta constante.
+- **Inteligência artificial:** modelo visual organiza campos para revisão, com valores nulos quando desconhecidos e validação determinística. IA/CV podem ser funções do mesmo modelo; não é exigido treinar dois modelos.
+- **Análise de dados:** custos por lote, por cabeça e equilíbrio decorrem do domínio, após aprovação. GS-004 demonstra acréscimo de R$ 42,50; não confundir cálculo com ganho de produtividade.
+- **Cloud:** arquitetura Workers/D1/R2/Workers AI e [roteiro Wrangler](../CLOUDFLARE_LOCAL.md#deploy-com-wrangler-na-conta-do-responsável) estão preparados. **Antes da gravação que afirma cloud em uso**, o responsável deve publicar na própria conta e registrar URL/saúde e uma inferência real. Teste emulado/dry-run não comprova chamada hospedada. Essa execução pelo amigo não foi realizada nesta conferência.
+
+### Indicadores, ODS e sustentação
+
+As metas apresentadas são proposta de piloto: **cinco produtores, cinquenta comprovantes e duas semanas**. Alvos: redução de 30% da mediana do tempo por lançamento; 95% de acerto em valor/data legíveis; zero efeitos duplicados nos cenários de reenvio/reconexão. Cronometrar tarefas equivalentes manuais e assistidas, alternar ordem, incluir espera/correções/falhas, guardar gabarito por campo e registrar ajuda/compreensão da aprovação. Reportar amostra e dispersão, sem extrapolar a pequena avaliação. O modo claro padrão, com escuro opcional, é uma decisão de design a avaliar; não é ganho de conversão medido.
+
+A ligação proposta com a **meta 2.3 do ODS 2** é acesso à informação para gerir recursos do pequeno produtor, apoiando decisões; renda/produtividade exigem outro acompanhamento. Fontes: [ONU, meta 2.3](https://sdgs.un.org/goals/goal2) e [IBGE, Censo Agropecuário 2017](https://agenciadenoticias.ibge.gov.br/agencia-sala-de-imprensa/2013-agencia-de-noticias/releases/25789-censo-agro-2017-populacao-ocupada-nos-estabelecimentos-agropecuarios-cai-8-8). O piloto acompanhado e a manutenção por operação/cooperativa são hipóteses de adoção/negócio; contabilizar suporte e consumo de infraestrutura.
+
+### O que efetivamente vale como entrega
+
+Gravar o pitch técnico com áudio compreensível, demonstrar o fluxo e manter duração **até 5:00**. Publicar no **YouTube como não listado**, conferir o link em uma janela sem login e enviar o URL real num arquivo **TXT ou ZIP na FIAP ON até 19/11/2026**. A atividade não tem a tolerância de três dias. HTML/PDF são apoio à gravação e **não substituem o vídeo obrigatório**. O vídeo Startup-One de até três minutos é opcional e não vale nota; não misturá-lo com o limite do pitch técnico.
+
+Os principais riscos para a pontuação máxima são ausência de evidência direta do público/problema, cloud apenas conceitual, números esperados narrados como resultados obtidos, vídeo longo e falta de link válido entregue no prazo. A estrutura dos slides cobre os cinco critérios; a conclusão depende dessas ações e da apresentação final.
+
 ## Entrega implementada nesta revisão
 
 - **Frontend:** Expo SDK 58/React Native web preservado, cliente HTTP próprio, sem SDK/conexão Supabase. `services/supabase.ts` é apenas fachada de compatibilidade para a outbox. A rota fiscal antiga encaminha para captura real; a amostra constante saiu do runtime.

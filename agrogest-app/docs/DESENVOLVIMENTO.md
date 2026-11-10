@@ -27,6 +27,10 @@ Para o modo padrão CPU, inicie o daemon Docker local e use os comandos de execu
 
 O build cloud usa `npm run build:web -- --target cloud`, força API na própria origem e ignora arquivos dotenv do desenvolvimento durante a exportação. O cliente distingue backend/conta para sessão, SQLite e outbox; os nomes do backend local padrão foram preservados. O instalador continua usando os lockfiles existentes, sem atualizar dependências; não instala Docker, drivers ou Node pelo usuário. Os cenários Windows/macOS e aparelhos nativos continuam sem teste nesta revisão.
 
+## Marca e apresentação da GS
+
+`npm run brand:assets` recompõe o logo branco/laranja em SVG e gera ícones sobre carvão sem modificar os assets originais. `npm run pitch:build` monta a apresentação HTML offline a partir dos textos, notas e capturas sintéticas em `docs/gs/pitch/`. O HTML funciona por duplo clique, sem servidor; setas/espaço navegam, F abre tela cheia, N mostra notas e T alterna cronômetro. O PDF 16:9 é uma exportação para apresentação e precisa ser reexportado se o conteúdo mudar. Os arquivos finais e instruções de apresentação ficam nessa pasta e no [plano da GS](gs/PLANO.md#conferência-da-entrega-e-pitch-técnico). Para o primeiro deploy, siga o [roteiro Wrangler](CLOUDFLARE_LOCAL.md#deploy-com-wrangler-na-conta-do-responsável), inclusive login, preparação de conta e criação dos recursos. `cloud:account` só gera configuração local para selecionar a conta, sem executar provisionamento.
+
 ## Procedimentos de outubro preservados como histórico
 
 Os comandos e modos Supabase/túnel abaixo descrevem a origem até 26/10/2026. Não são o procedimento vigente desta cópia nem autorização para executar serviços remotos.

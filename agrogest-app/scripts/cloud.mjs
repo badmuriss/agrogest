@@ -2,13 +2,18 @@ import { existsSync, readFileSync, mkdirSync, writeFileSync, chmodSync } from 'n
 import { spawnSync } from 'node:child_process';
 import path from 'node:path';
 import { api, app, npm, root } from './local-config.mjs';
-import { prepareCloud, validateCloud, bootstrapSql } from './cloud-config.mjs';
+import { accountConfig, prepareCloud, validateCloud, bootstrapSql } from './cloud-config.mjs';
 try {
   const [mode, flag, environment = 'staging', ...extra] = process.argv.slice(2);
-  if (!['prepare', 'check', 'bootstrap'].includes(mode) || extra.length || flag && flag !== '--env' || !['staging', 'production'].includes(environment)) throw new Error('Use cloud:prepare|cloud:check|cloud:bootstrap [--env staging|production]. Nenhum desses comandos publica recursos.');
+  if (!['prepare', 'check', 'bootstrap', 'account'].includes(mode) || extra.length || flag && (flag !== '--env' || process.argv.length !== 5) || !['staging', 'production'].includes(environment)) throw new Error('Use cloud:prepare|cloud:check|cloud:bootstrap|cloud:account [--env staging|production]. Nenhum desses comandos publica recursos.');
   const directory = path.join(app, '.local/cloud', environment), settingsFile = path.join(directory, 'settings.json');
   mkdirSync(directory, { recursive: true });
-  if (mode === 'check') {
+  if (mode === 'account') {
+    if (!existsSync(settingsFile)) throw new Error('Execute cloud:prepare uma vez e preencha o accountId em settings.json.');
+    const config = accountConfig(JSON.parse(readFileSync(settingsFile, 'utf8')), environment);
+    writeFileSync(path.join(directory, 'provision.jsonc'), JSON.stringify(config, null, 2) + '\n', { mode: 0o600 });
+    console.log('Configuração privada da conta gerada em provision.jsonc. Sem bindings/dados locais; nenhum recurso foi criado.');
+  } else if (mode === 'check') {
     // Deliberately synthetic IDs. Only offline packaging; never uses account credentials or inference.
     const checkDir = path.join(app, '.local/cloud', 'check', environment);
     const settings = { environment, accountId: 'a'.repeat(32), workerName: `agrogest-check-${environment}`, origin: `https://agrogest-check-${environment}.offline-test.workers.dev`, databaseName: `agrogest-check-${environment}`, databaseId: '11111111-1111-4111-8111-111111111111', bucketName: `agrogest-check-${environment}`, inferenceTransport: 'binding' };

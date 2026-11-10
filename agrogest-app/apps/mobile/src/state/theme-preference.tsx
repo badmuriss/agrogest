@@ -10,7 +10,7 @@ const STORAGE_KEY = 'agrogest.theme';
 
 function readPreference(): ThemePreference {
   const value = loadThemeValue(STORAGE_KEY);
-  return value === 'light' || value === 'dark' ? value : 'system';
+  return value === 'light' || value === 'dark' || value === 'system' ? value : 'light';
 }
 
 const ThemePreferenceContext = createContext<{

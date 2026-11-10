@@ -26,3 +26,7 @@ A referência original é um raster de 299x274: os arquivos maiores são exporta
 
 
 Diretrizes visuais e tokens atuais: [Identidade visual](../../../../../docs/branding/IDENTIDADE_VISUAL.md).
+
+## Composições acadêmicas em 10/11/2026
+
+A variante branca/laranja existente é a referência ativa. O novo `logo-apresentacao.svg` apenas compõe essa arte original sobre carvão, sem redesenhar o símbolo ou modificar seus pixels. `npm run brand:assets`, na raiz, regenera essa composição, o favicon SVG e os ícones em `assets/images/academic/`; usa o Sharp presente no lockfile da API para rasterizar o SVG. Os arquivos V1/V2 originais e esta prancha histórica não são sobrescritos. As [diretrizes vigentes](../../../../../docs/branding/IDENTIDADE_VISUAL.md#direção-vigente-da-versão-acadêmica--10112026) distinguem a paleta nova das decisões de outubro.

@@ -262,6 +262,7 @@ export function SwitchRow({
         trackColor={{ true: p.accent, false: p.fillStrong }}
         ios_backgroundColor={p.fillStrong}
         thumbColor="#FFFFFF"
+        {...(Platform.OS === 'web' ? { activeThumbColor: '#FFFFFF' } : {})}
       />
     </View>
   );

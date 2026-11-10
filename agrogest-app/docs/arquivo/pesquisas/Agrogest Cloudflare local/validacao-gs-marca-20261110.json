@@ -1,0 +1,164 @@
+{
+  "date": "2026-11-10",
+  "baseCommit": "e871622",
+  "brand": {
+    "lightDefaultWhenNoStoredPreference": true,
+    "darkSelectionPersistedInChromium": true,
+    "lightConfirmedEvenWhenBrowserPrefersDark": true,
+    "originalRasterArtworkPreserved": true,
+    "contrastPairs": [
+      {
+        "theme": "light",
+        "foreground": "text",
+        "background": "background",
+        "ratio": 16.59
+      },
+      {
+        "theme": "light",
+        "foreground": "textMuted",
+        "background": "background",
+        "ratio": 7.3
+      },
+      {
+        "theme": "light",
+        "foreground": "textFaint",
+        "background": "background",
+        "ratio": 5.0
+      },
+      {
+        "theme": "light",
+        "foreground": "accent",
+        "background": "surface",
+        "ratio": 6.39
+      },
+      {
+        "theme": "light",
+        "foreground": "onAccent",
+        "background": "accent",
+        "ratio": 6.39
+      },
+      {
+        "theme": "light",
+        "foreground": "onHero",
+        "background": "hero",
+        "ratio": 6.39
+      },
+      {
+        "theme": "light",
+        "foreground": "onHeroMuted",
+        "background": "hero",
+        "ratio": 5.53
+      },
+      {
+        "theme": "light",
+        "foreground": "success",
+        "background": "surface",
+        "ratio": 6.39
+      },
+      {
+        "theme": "dark",
+        "foreground": "text",
+        "background": "background",
+        "ratio": 17.18
+      },
+      {
+        "theme": "dark",
+        "foreground": "textMuted",
+        "background": "background",
+        "ratio": 10.72
+      },
+      {
+        "theme": "dark",
+        "foreground": "textFaint",
+        "background": "background",
+        "ratio": 7.94
+      },
+      {
+        "theme": "dark",
+        "foreground": "accent",
+        "background": "surface",
+        "ratio": 7.23
+      },
+      {
+        "theme": "dark",
+        "foreground": "onAccent",
+        "background": "accent",
+        "ratio": 7.69
+      },
+      {
+        "theme": "dark",
+        "foreground": "onHero",
+        "background": "hero",
+        "ratio": 16.08
+      },
+      {
+        "theme": "dark",
+        "foreground": "onHeroMuted",
+        "background": "hero",
+        "ratio": 10.84
+      },
+      {
+        "theme": "dark",
+        "foreground": "success",
+        "background": "surface",
+        "ratio": 8.09
+      }
+    ]
+  },
+  "checks": {
+    "allTests": 251,
+    "domainSqlitePglite": 216,
+    "apiAndInferenceContracts": 22,
+    "dockerGuard": 1,
+    "pythonOcr": 7,
+    "setupAndIsolation": 5,
+    "types": true,
+    "lint": true,
+    "webBuild": true,
+    "webAndroidIosExports": true,
+    "cloudBundleDryRun": true
+  },
+  "preservation": {
+    "approvedExpenses": 4,
+    "confirmedExpenseCents": 162040,
+    "lotCostCents": 1162040,
+    "financialStateUnchanged": true
+  },
+  "pitch": {
+    "slides": 9,
+    "targetSeconds": 280,
+    "scriptWords": 547,
+    "pdfPages": 9,
+    "pdfSizePoints": [
+      1152,
+      648
+    ],
+    "offlineHtml": true,
+    "externalResourcesWhenOpenedAsFile": 0,
+    "renderedAndInspectedAllPages": true,
+    "realVideoProduced": false,
+    "youtubeUpload": false,
+    "fiapSubmission": false
+  },
+  "cloud": {
+    "model": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "pricingSource": "https://developers.cloudflare.com/workers-ai/platform/pricing/",
+    "modelEligibleForDailyNeuronsAllocationAsDocumented": true,
+    "accountBalanceQueried": false,
+    "guideIncludesAccountAndResourceCreationSteps": true,
+    "applicationDeployExecuted": false,
+    "remoteProvisioningExecuted": false,
+    "remoteInferenceExecuted": false
+  },
+  "scopeLimits": [
+    "Chromium local; no physical Android/iOS device",
+    "Pilot targets are proposals, not measured conversion or producer income",
+    "Cloud deployment and actual Workers AI call are steps for the responsible account holder",
+    "Video link must be delivered through FIAP ON; slides alone do not satisfy the mandatory deliverable"
+  ],
+  "logSha256": {
+    "check-gs-final-20261110.log": "85a059a8d56ad3267d95a57058c3b45bc9d58cc36fff769e745b2323ef92b4ce",
+    "export-gs-final-20261110.log": "bc4109b4e854d5a8384252d2727e5d44dc232afcc3d37b32b9b155b3a5fd1299",
+    "cloud-gs-brand-20261110.log": "57e0c0879dc5439f19af199829adfd286cfc49dfb12a8faa98e8bf4a22aa1981"
+  }
+}
