@@ -57,7 +57,7 @@ O impacto esperado é reduzir o esforço de registro e melhorar a informação d
 | Visão computacional | Leitura das imagens dos comprovantes. |
 | Inteligência artificial | Sugestão dos campos da despesa, com revisão humana. |
 | Análise de dados | Cálculo de custos acumulados, custo por cabeça e indicadores por lote. |
-| Computação em nuvem | Serviços e dados preparados para Cloudflare. A versão validada roda localmente; a validação em nuvem permanece uma etapa futura. |
+| Computação em nuvem | Arquitetura Cloudflare com Workers para a aplicação, D1 para os dados, R2 para os comprovantes e integração com Workers AI para análise das imagens. |
 
 A contribuição proposta ao **ODS 2, meta 2.3**, é apoiar o acesso de produtores à informação útil para gerir a atividade. Aumento de renda ou produtividade são resultados a investigar, sem medição de impacto em campo até aqui.
 
@@ -71,7 +71,7 @@ npm run build:web
 npm start
 ```
 
-Abra **http://127.0.0.1:8787/entrar**. As [contas de demonstração e o roteiro de teste](agrogest-app/docs/CLOUDFLARE_LOCAL.md#contas-sintéticas) estão no guia de execução. A [IA visual local](agrogest-app/docs/CLOUDFLARE_LOCAL.md#ia-visual-local-opcional) usa Qwen3-VL-2B para ler a foto e sugerir os campos em uma etapa. Também há um [modo com Workers AI](agrogest-app/docs/CLOUDFLARE_LOCAL.md#primeira-execução), sem Docker ou GPU própria, e um [guia para futura hospedagem na Cloudflare](agrogest-app/docs/CLOUDFLARE_LOCAL.md#preparar-a-futura-hospedagem-cloudflare).
+Abra **http://127.0.0.1:8787/entrar**. As [contas de demonstração e o roteiro de teste](agrogest-app/docs/CLOUDFLARE_LOCAL.md#contas-sintéticas) estão no guia de execução. A [IA visual local](agrogest-app/docs/CLOUDFLARE_LOCAL.md#ia-visual-local-opcional) usa Qwen3-VL-2B para ler a foto e sugerir os campos em uma etapa. Também há um [modo com Workers AI](agrogest-app/docs/CLOUDFLARE_LOCAL.md#primeira-execução), sem Docker ou GPU própria, e um [guia de configuração Cloudflare](agrogest-app/docs/CLOUDFLARE_LOCAL.md#preparar-a-futura-hospedagem-cloudflare).
 
 ## Saiba mais
 
