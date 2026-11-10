@@ -5,6 +5,7 @@ import json
 import os
 from pathlib import Path
 import platform
+import re
 import secrets
 import subprocess
 import sys
@@ -72,7 +73,7 @@ def serve():
     env = {**os.environ, 'LD_LIBRARY_PATH': ':'.join([*libraries, os.environ.get('LD_LIBRARY_PATH', '')])}
     if os.environ.get('AGROGEST_VISION_GPU_LAYERS', '99') != '0':
         devices = subprocess.run([str(binary), '--list-devices'], env=env, capture_output=True, timeout=15)
-        if b'CUDA' not in devices.stdout + devices.stderr:
+        if devices.returncode != 0 or not re.search(rb'^\s*CUDA\d+:\s+\S', devices.stdout, re.M):
             raise RuntimeError('CUDA local indisponível. Corrija o driver ou selecione explicitamente AGROGEST_VISION_GPU_LAYERS=0 para CPU.')
     args = [str(binary), '-m', str(STATE / MANIFEST['files'][0]['name']), '--mmproj', str(STATE / MANIFEST['files'][1]['name']), '--host', '127.0.0.1', '--port', '8092', '--alias', 'agrogest-vision', '--ctx-size', '8192', '--n-gpu-layers', os.environ.get('AGROGEST_VISION_GPU_LAYERS', '99'), '--parallel', '1', '--threads', '4', '--jinja', '--no-webui', '--log-disable', '--api-key-file', str(STATE / 'api-key')]
     if os.environ.get('AGROGEST_VISION_GPU_LAYERS', '99') == '0':
