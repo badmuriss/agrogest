@@ -4,7 +4,7 @@ import { StyleSheet, useColorScheme, type ViewStyle } from 'react-native';
 /**
  * Base neutra e fria: fundo cinza muito claro com cartões brancos separados por um fio de borda (sem
  * sombra: no Android a sombra é cortada em retângulo durante as animações e o cartão parece papel amassado).
- * A marca usa laranja, branco e carvão; o laranja escuro no tema claro preserva o contraste.
+ * A marca usa laranja, branco e carvão; ações e destaques usam o mesmo laranja do logo (#FF6F1E) nos dois temas.
  * Estados usam texto e ícone; a aprovação acompanha o laranja, e perigo/alerta mantêm semântica própria.
  * Contraste AA (≥ 4,5:1) para todo texto: muted ≥ 7:1 e faint ≥ 4,5:1 sobre o fundo.
  */
@@ -18,17 +18,17 @@ const light = {
   text: '#151619',
   textMuted: '#4A5160',
   textFaint: '#626A77',
-  accent: '#A63D00',
+  accent: '#FF6F1E',
   onAccent: '#FFFFFF',
   accentSoft: '#FFF0E6',
   highlight: '#FF6F1E',
   /** Faixa escura do topo (Início), com conteúdo claro por cima. */
-  hero: '#A63D00',
+  hero: '#FF6F1E',
   onHero: '#FFFFFF',
-  onHeroMuted: '#FFEBDD',
+  onHeroMuted: '#FFF4EC',
   inverse: '#151619',
   onInverse: '#FFFFFF',
-  success: '#A63D00',
+  success: '#FF6F1E',
   warning: '#B45309',
   info: '#1D4ED8',
   danger: '#B91C1C',
@@ -49,16 +49,16 @@ const dark: Palette = {
   text: '#F4F5F7',
   textMuted: '#C0C4CC',
   textFaint: '#A3A9B4',
-  accent: '#FF8A4C',
+  accent: '#FF6F1E',
   onAccent: '#21140C',
   accentSoft: '#3A251B',
-  highlight: '#FF7A2E',
+  highlight: '#FF6F1E',
   hero: '#202125',
   onHero: '#FFFFFF',
   onHeroMuted: '#D2D4D8',
   inverse: '#F4F5F7',
   onInverse: '#151619',
-  success: '#FF9A65',
+  success: '#FF6F1E',
   warning: '#FBBF24',
   info: '#60A5FA',
   danger: '#F87171',

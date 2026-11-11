@@ -301,6 +301,12 @@ permissões, saldo e consistência; no modo local, o domínio simula essa valida
   aprovação, com auditoria e estorno; a baixa depende de obrigação confirmada e saldo em aberto.
 - Rascunho, aguardando envio, pendente de aprovação, aprovado, rejeitado e conflito são estados
   distintos. Uma intenção offline não confirma efeitos no servidor.
+- **Exclusão pelo autor:** só o autor exclui o próprio lançamento, e apenas em rascunho, rejeitado,
+  conflito ou aguardando aprovação (já recebido pelo servidor). Aprovado nunca é excluído; a
+  correção é estorno/ajuste. Outro sócio não exclui, mas pode recusar. Lançamento ainda
+  "aguardando envio" (fila offline) ou com decisão offline pendente não oferece exclusão. Excluir
+  libera o comprovante para outro lançamento e não altera custo, estoque nem contas, pois
+  pendente não gera efeitos derivados. Se o servidor já aprovou (corrida), a exclusão é recusada.
 - Efeitos derivados (parcelas, rateios e estoque) seguem a aprovação da origem. Correções e
   estornos preservam o histórico. Aprovação cruzada entre operações é política a detalhar.
 
@@ -543,6 +549,7 @@ O Git registra o histórico técnico de commits; este quadro registra **decisõe
 
 | Data e hora (Brasília) | Requisito/escopo | Alteração | Status |
 | --- | --- | --- | --- |
+| 11/11/2026 (America/Sao_Paulo, UTC−03:00) | RF-16; RF-14 | Pedido do usuário: remover registros, ao menos os aguardando aprovação. O autor passa a poder excluir o próprio lançamento aguardando aprovação (antes só rascunho, rejeitado e conflito); aprovado continua sem exclusão; o comprovante é liberado. Lançamento aguardando envio offline fica de fora | **Confirmado pelo solicitante / implementado** |
 | 23/10/2026 (America/Sao_Paulo, UTC−03:00) | RF-19; UX/UI | Navegação reorganizada em hubs: Pendências deixa de ser aba (vira o filtro "Para você" da Atividade), Financeiro ganha aba para sócios, Rebanho junta lotes, pastos e mapa, e o "+" abre uma folha de baixo. Detalhes em EXPERIENCIA_USUARIO.md, seção 3 | **Implementado** |
 | 22/10/2026 (America/Sao_Paulo, UTC−03:00) | RF-10; RF-08; RF-18; RN-04/RN-05; issue #46 (fases 2 e 3) | Financeiro completo: transferência entre contas, aporte, retirada e distribuição de lucro de sócio com conta corrente por sócio; despesa paga por sócio com dinheiro próprio como reembolso a pagar ou aporte (questão 14); adiantamento de cliente compensado no recebimento; cartão de crédito com fatura como conta a pagar; financiamentos com liberação fora do resultado, amortização fora do custo e juros como despesa financeira; renegociação, divisão, agrupamento e cancelamento de parcelas com motivo e desfazer; despesas recorrentes previstas; outras receitas com aprovação de outro sócio; fluxo de caixa realizado e projetado com alerta de saldo negativo; DRE gerencial por competência com a ponte para o caixa; contas por idade; gastos por categoria, fornecedor e centro de custo; orçamento; exportação em PDF, CSV e planilha para o contador; conciliação por extrato OFX/CSV; importação da planilha; antecedência dos avisos configurável. Padrões provisórios: movimentação registrada por quem fez sem segunda aprovação; distribuição pela participação cadastrada; custo dos vendidos pela média de compra por cabeça. Questões ainda abertas: 3 (segunda aprovação da baixa), 9 (fechamento mensal), 15 (regra de distribuição), retenções Funrural/Senar, cargo financeiro/contador e formato definitivo da planilha | **Necessidade confirmada / implementada; migração aplicada no Supabase em 22/10/2026** |
 | 20/10/2026 (America/Sao_Paulo, UTC−03:00) | RF-03; RF-10; issue #46 | Pedido do produtor: a compra do lote (cerca de R$ 230 mil) precisa aparecer no financeiro. A compra (animais, comissão e frete) passa a ter o pagamento informado no cadastro do lote: já pago (baixa na conta), à vista ou parcelado; vira conta a pagar na categoria Compra de animais (investimento), não entra nos custos do mês e sai do caixa em cada pagamento. Lotes já cadastrados não viram conta automaticamente: o sócio informa o pagamento pela tela do lote | **Confirmado pelo produtor / implementado; migração não aplicada no Supabase** |

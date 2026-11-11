@@ -208,6 +208,7 @@ regra pertencem a [Requisitos](REQUISITOS_PRODUTO.md).
 | Sem lotes cadastrados | Ilustração + botão "Cadastrar primeiro lote" | Explica próximo passo |
 | Pesagem registrada localmente | Feedback visual discreto + texto "Salvo no aparelho" | Não equivale a aprovação |
 | Lançamento enviado | Transição curta e status "Aguardando aprovação" | Não sugerir efetivação |
+| Excluir lançamento | Na tela do lançamento, o autor vê "Excluir lançamento" (aguardando aprovação) ou "Descartar" (rascunho, conflito); confirmação em dois toques ("Confirmar exclusão", perigo) com aviso de que não altera custos, estoque nem contas e libera o comprovante | Sem botão para aprovado, aguardando envio offline ou quem não é autor; erro do servidor (ex.: já aprovado) aparece na tela sem perder dados |
 | Sincronização | Ícone de estado + contagem de pendências | Não bloquear a navegação |
 | Conflito de saldos | Alerta visual e ação de revisão | Sem animação celebratória |
 | Relatórios | Transições moderadas e gráficos responsivos | Priorizar leitura e desempenho |

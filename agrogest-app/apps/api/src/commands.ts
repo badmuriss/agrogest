@@ -130,7 +130,9 @@ export function transition(s: State, actor: string, kind: string, p: any, now: s
     const old = s.entries.find((e) => e.id === p.id);
     ensure(old, 'Lançamento não encontrado.');
     if (kind === 'discard_entry') {
-      ensure(old.authorId === actor && ['rascunho', 'rejeitado', 'conflito'].includes(old.status), 'Não é possível excluir um lançamento enviado/aprovado.', 403, '42501');
+      ensure(old.authorId === actor, 'Apenas o autor pode excluir o lançamento.', 403, '42501');
+      ensure(old.status !== 'aprovado', 'Este lançamento já foi aprovado e não pode ser excluído. Use o estorno ou o ajuste correspondente.', 409);
+      ensure(['rascunho', 'rejeitado', 'conflito', 'aguardando_aprovacao'].includes(old.status), 'Não é possível excluir um lançamento nesta situação.', 409);
       s.entries = s.entries.filter((e) => e.id !== p.id); return done({ id: p.id });
     }
     ensure(old.version === p.expectedVersion && old.status === 'aguardando_aprovacao', 'O lançamento mudou de situação ou revisão.', 409);

@@ -5,16 +5,17 @@ import dimensions from '@/assets/branding/v2/dimensions.json';
 import { useBrandPreference } from '@/state/brand-preference';
 import { useIsDark } from '@/theme';
 
+// Fundo claro: arte em carvão/laranja; fundo escuro: branco/laranja. Mesmo desenho e proporções da V2.
 const V2_LOGO = {
-  light: require('@/assets/branding/v2/logo-light-v2.png'),
+  light: require('@/assets/branding/academic/logo-ink.png'),
   dark: require('@/assets/branding/v2/logo-dark-v2.png'),
 };
 const V2_MARK = {
-  light: require('@/assets/branding/v2/mark-light-v2.png'),
+  light: require('@/assets/branding/academic/mark-ink.png'),
   dark: require('@/assets/branding/v2/mark-dark-v2.png'),
 };
 const V2_WORDMARK = {
-  light: require('@/assets/branding/v2/wordmark-light-v2.png'),
+  light: require('@/assets/branding/academic/wordmark-ink.png'),
   dark: require('@/assets/branding/v2/wordmark-dark-v2.png'),
 };
 
@@ -41,43 +42,38 @@ const BRANDS = {
 
 export function useBrandAssets() {
   const { version } = useBrandPreference();
-  // The approved white/orange artwork is preserved in both application themes.
-  const theme = 'dark';
+  // A versão acompanha o fundo do tema: carvão no claro, branca no escuro.
+  const theme = useIsDark() ? 'dark' : 'light';
   const assets = BRANDS[version];
   return { ...assets, logo: assets.logo[theme], mark: assets.mark[theme], wordmark: assets.wordmark[theme] };
 }
 
 export function Logo({ height = 28 }: { height?: number }) {
   const brand = useBrandAssets();
-  const dark = useIsDark();
   return (
-    <View style={{ alignSelf: 'flex-start', padding: dark ? 0 : 10, borderRadius: 12, backgroundColor: dark ? 'transparent' : '#202125' }}>
     <Image
       source={brand.logo}
-      style={{ height, width: height * brand.logoRatio }}
+      style={{ alignSelf: 'flex-start', height, width: height * brand.logoRatio }}
       contentFit="contain"
       accessibilityLabel="AgroGest"
     />
-    </View>
   );
 }
 
 export function LogoMark({ width }: { width: number }) {
   const brand = useBrandAssets();
-  return <View style={{ backgroundColor: '#202125', borderRadius: 12 }}><Image source={brand.mark} style={{ width, height: width / brand.markRatio }} contentFit="contain" accessibilityLabel="Símbolo AgroGest" /></View>;
+  return <Image source={brand.mark} style={{ width, height: width / brand.markRatio }} contentFit="contain" accessibilityLabel="Símbolo AgroGest" />;
 }
 
 export function Wordmark({ width }: { width: number }) {
   const brand = useBrandAssets();
   return (
-    <View style={{ backgroundColor: '#202125', borderRadius: 8, padding: 8 }}>
     <Image
       source={brand.wordmark}
       style={{ width, height: width / brand.wordmarkRatio }}
       contentFit="contain"
       accessibilityLabel="AgroGest"
     />
-    </View>
   );
 }
 

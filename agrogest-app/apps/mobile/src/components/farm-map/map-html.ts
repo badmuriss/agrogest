@@ -287,7 +287,7 @@ export function farmMapHtml(apiKey?: string): string {
       if (b && (b[2] - b[0] > 0.0005 || b[3] - b[1] > 0.0005)) map.fitBounds([[b[1], b[0]], [b[3], b[2]]], { maxZoom: 16 });
       else map.setView(latlng(message.position), 16);
       if (found) map.removeLayer(found);
-      found = L.circleMarker(latlng(message.position), { radius: 9, color: '#fff', weight: 3, fillColor: '#FF7A2E', fillOpacity: 1, interactive: false }).addTo(map);
+      found = L.circleMarker(latlng(message.position), { radius: 9, color: '#fff', weight: 3, fillColor: '#FF6F1E', fillOpacity: 1, interactive: false }).addTo(map);
     }
   }
   window.__agrogestMap = handle;

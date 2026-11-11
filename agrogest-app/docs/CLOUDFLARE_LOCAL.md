@@ -124,6 +124,8 @@ O arquivo `services/supabase.ts` é uma fachada compatível para as chamadas exi
 
 A gravação usa snapshot + revisão global e **batch D1 atômico**. O primeiro statement insere uma guarda com `CHECK(ok=1)` somente se revisão e sessão ainda forem válidas; falha aborta domínio, ledger, vínculo documental e auditoria juntos. Corridas repetem a leitura, revalidam e rejeitam revisão obsoleta. Não há uma sequência de writes soltos após um `UPDATE` que possa afetar zero linhas. A revisão global simplifica correção; não é uma solução de escala demonstrada.
 
+`discard_entry` `{ id, operationId }`: só o autor (403 caso contrário) exclui, em rascunho, rejeitado, conflito ou aguardando aprovação; aprovado é recusado com 409 e o vínculo `document_entry_links` do comprovante é removido na mesma transação.
+
 O ledger tem chave `(ator, comando)` e payload canônico. Aprovação não altera a autoria; servidor determina status/histórico/revisão. Baixa altera caixa, não custo. Transferência mantém origem econômica e custo transportado. Membros removidos/permissões reduzidas são reavaliados inclusive no replay. Snapshot só substitui o cache sem comandos pendentes.
 
 ## Inferência e credenciais transferíveis

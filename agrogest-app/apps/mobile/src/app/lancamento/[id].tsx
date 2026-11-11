@@ -53,6 +53,7 @@ export default function LancamentoScreen() {
   const approvers = app.approversFor(entry);
   const awaiting = entry.status === 'aguardando_aprovacao' || entry.status === 'aguardando_envio';
   const canEdit = isAuthor && (entry.status === 'rascunho' || entry.status === 'rejeitado' || entry.status === 'conflito');
+  const canDelete = isAuthor && entry.status === 'aguardando_aprovacao' && !entry.pendingDecision;
   const lotId = entry.kind === 'pesagem' || entry.kind === 'mortalidade' || entry.kind === 'venda' || entry.kind === 'manejo' ? entry.payload.lotId : null;
   const nfWaiting = entry.kind === 'nota_fiscal' && entry.payload.stage === 'aguardando_conexao';
 
@@ -74,8 +75,15 @@ export default function LancamentoScreen() {
       setConfirmDiscard(true);
       return;
     }
-    await app.discard(entry.id);
-    router.back();
+    if (busy) return;
+    setBusy(true);
+    try {
+      await app.discard(entry.id);
+      router.back();
+    } catch (error) {
+      setConfirmDiscard(false);
+      setFeedback({ tone: 'danger', title: 'Exclusão não concluída', message: error instanceof Error ? error.message : 'Tente novamente. O lançamento foi preservado.' });
+    } finally { setBusy(false); }
   };
 
   const editLabel =
@@ -106,6 +114,13 @@ export default function LancamentoScreen() {
           onPress={() => decide('aprovar')}
           style={styles.grow}
         />
+      </>
+    );
+  } else if (canDelete) {
+    footer = (
+      <>
+        {confirmDiscard ? <Button title="Cancelar" variant="secondary" onPress={() => setConfirmDiscard(false)} /> : null}
+        <Button title={confirmDiscard ? 'Confirmar exclusão' : 'Excluir lançamento'} variant={confirmDiscard ? 'danger' : 'secondary'} icon="delete-outline" disabled={busy} onPress={discard} style={styles.grow} />
       </>
     );
   } else if (canEdit) {
@@ -144,6 +159,11 @@ export default function LancamentoScreen() {
       {feedback ? (
         <Note boxed tone={feedback.tone} icon="check-circle-outline" title={feedback.title}>
           {feedback.message}
+        </Note>
+      ) : null}
+      {canDelete ? (
+        <Note boxed tone="info" icon="delete-outline" title="Ainda não foi aprovado">
+          {`Excluir tira o lançamento da aprovação e não altera custos, estoque nem contas.${entry.kind === 'despesa' && entry.payload.sourceDocumentId ? ' O comprovante fica livre para outro lançamento.' : ''}`}
         </Note>
       ) : null}
       {entry.pendingDecision && entry.pendingDecisionBy ? (

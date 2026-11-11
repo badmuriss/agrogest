@@ -28,7 +28,7 @@ import { radius, space, usePalette } from '@/theme';
 const FARM_COLOR = '#4ADE80';
 const AREA_COLOR = { ocupado: '#FACC15', descanso: '#93C5FD', nunca: '#E5E7EB' } as const;
 /** Pasto em desenho: laranja, para não se confundir com a área da fazenda (verde). */
-const PASTURE_DRAFT = '#FF7A2E';
+const PASTURE_DRAFT = '#FF6F1E';
 
 /**
  * Mapa da fazenda no satélite: ver a área, desenhar o contorno da fazenda e (opcional) o de cada

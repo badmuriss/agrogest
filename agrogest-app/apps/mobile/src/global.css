@@ -7,7 +7,7 @@
 /*
  * Tokens do AgroGest para os componentes Gluestack (mesmos valores de src/theme.ts).
  * Base neutra (cinza muito claro e cartão branco no claro; carvão e cartão um degrau acima no escuro);
- * laranja de marca em primary/highlight, hero laranja no claro e carvão no escuro.
+ * laranja do logo (#FF6F1E) em primary/highlight nos dois temas, hero laranja no claro e carvão no escuro.
  * - :root claro + @media escuro: no nativo, o NativeWind segue o Appearance, que o
  *   ThemePreferenceProvider define (inclusive o modo "sistema").
  * - .light / .dark: na web, o GluestackUIProvider põe a classe no <html> conforme a escolha.
@@ -20,7 +20,7 @@
     --card: 255 255 255;
     --popover: 255 255 255;
     --popover-foreground: 21 22 25;
-    --primary: 166 61 0;
+    --primary: 255 111 30;
     --primary-foreground: 255 255 255;
     --secondary: 239 241 244;
     --secondary-foreground: 21 22 25;
@@ -28,17 +28,17 @@
     --muted-foreground: 74 81 96;
     --faint: 98 106 119;
     --accent: 255 240 230;
-    --accent-foreground: 166 61 0;
+    --accent-foreground: 255 111 30;
     --fill-strong: 227 230 235;
     --border: 226 229 234;
     --input: 227 230 235;
-    --ring: 166 61 0;
+    --ring: 255 111 30;
     --destructive: 185 28 28;
     --highlight: 255 111 30;
-    --success: 166 61 0;
+    --success: 255 111 30;
     --warning: 180 83 9;
     --info: 29 78 216;
-    --hero: 166 61 0;
+    --hero: 255 111 30;
     --hero-foreground: 255 255 255;
   }
 
@@ -49,7 +49,7 @@
       --card: 27 29 33;
       --popover: 27 29 33;
       --popover-foreground: 244 245 247;
-      --primary: 255 138 76;
+      --primary: 255 111 30;
       --primary-foreground: 33 20 12;
       --secondary: 36 38 43;
       --secondary-foreground: 244 245 247;
@@ -57,14 +57,14 @@
       --muted-foreground: 192 196 204;
       --faint: 163 169 180;
       --accent: 58 37 27;
-      --accent-foreground: 255 138 76;
+      --accent-foreground: 255 111 30;
       --fill-strong: 48 51 57;
       --border: 57 61 68;
       --input: 48 51 57;
-      --ring: 255 138 76;
+      --ring: 255 111 30;
       --destructive: 248 113 113;
-      --highlight: 255 122 46;
-      --success: 255 154 101;
+      --highlight: 255 111 30;
+      --success: 255 111 30;
       --warning: 251 191 36;
       --info: 96 165 250;
       --hero: 32 33 37;
@@ -78,7 +78,7 @@
     --card: 255 255 255;
     --popover: 255 255 255;
     --popover-foreground: 21 22 25;
-    --primary: 166 61 0;
+    --primary: 255 111 30;
     --primary-foreground: 255 255 255;
     --secondary: 239 241 244;
     --secondary-foreground: 21 22 25;
@@ -86,17 +86,17 @@
     --muted-foreground: 74 81 96;
     --faint: 98 106 119;
     --accent: 255 240 230;
-    --accent-foreground: 166 61 0;
+    --accent-foreground: 255 111 30;
     --fill-strong: 227 230 235;
     --border: 226 229 234;
     --input: 227 230 235;
-    --ring: 166 61 0;
+    --ring: 255 111 30;
     --destructive: 185 28 28;
     --highlight: 255 111 30;
-    --success: 166 61 0;
+    --success: 255 111 30;
     --warning: 180 83 9;
     --info: 29 78 216;
-    --hero: 166 61 0;
+    --hero: 255 111 30;
     --hero-foreground: 255 255 255;
   }
 
@@ -106,7 +106,7 @@
     --card: 27 29 33;
     --popover: 27 29 33;
     --popover-foreground: 244 245 247;
-    --primary: 255 138 76;
+    --primary: 255 111 30;
     --primary-foreground: 33 20 12;
     --secondary: 36 38 43;
     --secondary-foreground: 244 245 247;
@@ -114,14 +114,14 @@
     --muted-foreground: 192 196 204;
     --faint: 163 169 180;
     --accent: 58 37 27;
-    --accent-foreground: 255 138 76;
+    --accent-foreground: 255 111 30;
     --fill-strong: 48 51 57;
     --border: 57 61 68;
     --input: 48 51 57;
-    --ring: 255 138 76;
+    --ring: 255 111 30;
     --destructive: 248 113 113;
-    --highlight: 255 122 46;
-    --success: 255 154 101;
+    --highlight: 255 111 30;
+    --success: 255 111 30;
     --warning: 251 191 36;
     --info: 96 165 250;
     --hero: 32 33 37;

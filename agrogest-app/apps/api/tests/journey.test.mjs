@@ -189,6 +189,27 @@ test('discarding an unsent documentary draft releases its link without deleting 
   assert.equal((await cmd('ana', 'gs-doc-reuse', 'save_entry', { ...draft, id: 'gs-doc-reused' })).status, 200);
 });
 
+test('author deletes a pending expense and frees its receipt; non-authors and approved entries are refused', async () => {
+  const response = await mf.dispatchFetch('http://localhost/api/documents?operationId=gs-op', { method: 'POST', headers: { Authorization: `Bearer ${sessions.ana}` }, body: await readFile('../../tests/fixtures/comprovante-gs-002.png') });
+  const doc = await response.json();
+  assert.equal((await cmd('ana', 'gs-free-reused', 'discard_entry', { id: 'gs-doc-reused', operationId: 'gs-op' })).status, 200);
+  const pending = expense('gs-pending-del', { sourceDocumentId: doc.id }); pending.submit = true;
+  assert.equal((await cmd('ana', 'gs-pending-del-save', 'save_entry', pending)).status, 200);
+  assert.equal((await workspace('ana')).entries.find((e) => e.id === pending.id).status, 'aguardando_aprovacao');
+  const denied = await cmd('bruno', 'gs-pending-del-other', 'discard_entry', { id: pending.id, operationId: 'gs-op' }); assert.equal(denied.status, 403);
+  assert.ok((await workspace('ana')).entries.some((e) => e.id === pending.id));
+  const costBefore = (await workspace('ana')).lots[0].purchaseCents;
+  assert.equal((await cmd('ana', 'gs-pending-del-ok', 'discard_entry', { id: pending.id, operationId: 'gs-op' })).status, 200);
+  const after = await workspace('ana');
+  assert.equal(after.entries.some((e) => e.id === pending.id), false);
+  assert.equal(after.lots[0].purchaseCents, costBefore);
+  assert.equal((await db.prepare('SELECT count(*) n FROM document_entry_links WHERE document_id=?').bind(doc.id).first()).n, 0);
+  assert.equal((await cmd('ana', 'gs-pending-del-reuse', 'save_entry', { ...pending, id: 'gs-pending-reuse' })).status, 200);
+  assert.equal(after.entries.find((e) => e.id === 'gs-e2e-ocr').status, 'aprovado');
+  const refused = await cmd('ana', 'gs-approved-del', 'discard_entry', { id: 'gs-e2e-ocr', operationId: 'gs-op' }); assert.equal(refused.status, 409);
+  assert.match(JSON.stringify(refused.body), /já foi aprovado/);
+});
+
 test('demotion and session revocation are rechecked even when replaying an acknowledged financial command', async () => {
   const demote = await cmd('ana', 'gs-demote', 'update_member', { id: 'gs-bruno', operationId: 'gs-op', role: 'funcionario', previous: { role: 'socio', sharePct: 50 } }); assert.equal(demote.status, 200);
   const replay = await cmd('bruno', 'gs-approve', 'decide_entry', { id: 'gs-e2e-ocr', operationId: 'gs-op', expectedVersion: 1, decision: 'aprovar', note: '' }); assert.equal(replay.status, 403);

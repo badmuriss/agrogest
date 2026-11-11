@@ -31,6 +31,7 @@ export function Screen({
   footer,
   tab = false,
   hero = false,
+  centered = false,
   scrollRef,
 }: {
   children: ReactNode;
@@ -38,6 +39,8 @@ export function Screen({
   footer?: ReactNode;
   tab?: boolean;
   hero?: boolean;
+  /** Centraliza o conteúdo na altura da tela (Entrar, Criar conta); rola normalmente se não couber. */
+  centered?: boolean;
   scrollRef?: Ref<ScrollViewInstance>;
 }) {
   const p = usePalette();
@@ -47,7 +50,7 @@ export function Screen({
     <SafeAreaView edges={edges as ('top' | 'bottom')[]} style={[styles.flex, { backgroundColor: p.background }]}>
       <FormViewport
         scrollRef={scrollRef}
-        contentContainerStyle={styles.content}
+        contentContainerStyle={centered ? [styles.content, styles.centered] : styles.content}
         footer={footer ? (
           <View style={[styles.footer, { backgroundColor: p.background, borderTopColor: p.border }]}>
             <View style={styles.footerInner}>{footer}</View>
@@ -407,6 +410,7 @@ const styles = StyleSheet.create({
     maxWidth: 640,
     alignSelf: 'center',
   },
+  centered: { flexGrow: 1, justifyContent: 'center', paddingTop: space.xl },
   listContent: { gap: 0 },
   listHeader: { gap: space.xl, paddingBottom: space.xl },
   listSectionTitle: { paddingBottom: space.sm + 2 },

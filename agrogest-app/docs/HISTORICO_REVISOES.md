@@ -1,5 +1,11 @@
 # Histórico de revisões
 
+## 11/11/2026 — laranja do logo, marca por fundo, login centralizado e exclusão de pendentes
+
+Base própria `0d3770b`. Por pedido do usuário: (1) ações, faixa do topo, destaques e aprovado passam a usar o laranja do logo `#FF6F1E` nos dois temas, no lugar de `#A63D00`/`#FF8A4C`; rótulo branco sobre esse laranja fica abaixo de AA (≈2,8:1), exceção aceita e registrada em `scripts/scenes.mjs`; (2) símbolo, nome e logo deixam de usar caixa carvão e trocam de versão pelo fundo, carvão/laranja no claro e branco/laranja no escuro, também no splash nativo; (3) Entrar e Criar conta ficam centralizados na altura da tela; (4) o autor pode excluir o próprio lançamento `aguardando_aprovacao` (servidor e app), liberando o vínculo do comprovante, sem afetar custo, estoque ou contas; aprovado continua recusado (409) e outro sócio recebe 403. A fila offline (`aguardando_envio`) não ganhou exclusão, para não travar a sincronização. [Requisitos](REQUISITOS_PRODUTO.md), [UX](EXPERIENCIA_USUARIO.md), [Cloudflare local](CLOUDFLARE_LOCAL.md) e [identidade](branding/IDENTIDADE_VISUAL.md) atualizados.
+
+**Verificação:** 216 testes de domínio e 23 da API passaram (incluindo o novo cenário de exclusão por autor, recusa a outro sócio e a aprovado); tipos mobile/API e lint sem erros; gerador de cenas sem mudança nas animações. Sem migration nova, deploy ou teste em aparelho.
+
 ## 11/11/2026 — pitch da GS refeito com nova direção de arte
 
 Base própria `a544c82`, branch `badmuriss/agrogest-pitch-claude`. A pedido do usuário, a apresentação foi redesenhada do zero; o aplicativo, seus dados, tema padrão e regras não foram alterados. A narrativa passou a acompanhar um único recibo sintético (GS-004) da foto ao custo do lote, em dez slides e 4min46s de fala. Molduras de celular foram substituídas por recortes ampliados das capturas reais; o recibo GS-004 volta à capa, agora como arquivo de teste real identificado como sintético, substituindo a decisão de 10/11 de removê-lo. O selo pequeno da marca saiu dos slides brancos; o logo V2 aparece grande sobre carvão. O problema passou a citar o levantamento de requisitos com um produtor de recria e engorda; a nuvem aparece separada entre executado localmente e preparado, sem afirmar publicação.

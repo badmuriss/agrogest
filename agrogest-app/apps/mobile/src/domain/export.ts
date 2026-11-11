@@ -203,7 +203,7 @@ export function reportHtml(title: string, subtitle: string, sheets: Sheet[]): st
 <style>
 body{font-family:-apple-system,Roboto,Helvetica,Arial,sans-serif;color:#1d2a22;margin:24px;font-size:11px}
 h1{font-size:20px;margin:0 0 4px}p.sub{color:#5b6b61;margin:0 0 16px}
-h2{font-size:14px;margin:20px 0 6px;color:#A63D00}
+h2{font-size:14px;margin:20px 0 6px;color:#FF6F1E}
 table{border-collapse:collapse;width:100%;margin-bottom:8px}
 th,td{border-bottom:1px solid #dfe5e1;padding:4px 6px;text-align:left;vertical-align:top}
 th{background:#f1f4f2;font-weight:600}

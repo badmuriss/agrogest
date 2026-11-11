@@ -899,6 +899,8 @@ const PAIRS = [
   ['accent', 'surface', 3], ['warning', 'surface', 3], ['onAccent', 'warning', 3], ['surface', 'success', 3], ['accent', 'accentSoft', 3],
 ];
 
+const BRAND_MIN = 2.4;
+
 function checkContrast() {
   const failures = [];
   for (const [scheme, p] of Object.entries(palettes())) {
@@ -908,7 +910,10 @@ function checkContrast() {
     };
     for (const [fg, bg, min] of PAIRS) {
       const value = ratio(color(fg), color(bg));
-      if (value < min) failures.push(`${scheme}: ${fg} sobre ${bg} = ${value.toFixed(2)}:1 (mínimo ${min}:1)`);
+      // Decisão do usuário (11/11/2026): ações usam o laranja do logo (#FF6F1E) também no claro, aceitando
+      // contraste abaixo de AA nos pares com a marca. O mínimo cai para 2,4:1 só nesses pares.
+      const brand = [fg, bg].some((role) => /^(accent|success)(@|$)/.test(role));
+      if (value < (brand ? Math.min(min, BRAND_MIN) : min)) failures.push(`${scheme}: ${fg} sobre ${bg} = ${value.toFixed(2)}:1 (mínimo ${min}:1)`);
     }
   }
   return failures;

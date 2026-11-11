@@ -25,7 +25,7 @@ export function AuthLayout({
   onSwitch: () => void;
 }) {
   return (
-    <Screen>
+    <Screen centered>
       <FadeIn index={0} style={{ gap: 4 }}>
         <Heading size="2xl" className="tracking-tight">
           {title}

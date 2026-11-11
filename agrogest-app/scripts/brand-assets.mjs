@@ -16,4 +16,18 @@ writeFileSync(path.join(output, 'icon.svg'), icon);
 await sharp(Buffer.from(icon)).resize(1024, 1024).png().toFile(path.join(output, 'icon.png'));
 await sharp(Buffer.from(icon)).resize(64, 64).png().toFile(path.join(output, 'favicon.png'));
 writeFileSync(path.join(mobile, 'public/favicon.svg'), icon);
-console.log('Composições de marca geradas: branco/laranja sobre carvão; originais preservados.');
+
+// Versão para fundo claro: a arte V2 com o verde trocado por carvão; o laranja e a transparência ficam iguais.
+// Par da versão branca/laranja (fundo escuro), que troca o mesmo verde por branco.
+const INK = [0x1c, 0x1d, 0x21];
+const ink = async (source, target) => {
+  const { data, info } = await sharp(source).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
+  for (let i = 0; i < data.length; i += 4) {
+    if (data[i + 3] && data[i + 1] > data[i]) [data[i], data[i + 1], data[i + 2]] = INK;
+  }
+  await sharp(data, { raw: info }).png({ compressionLevel: 9 }).toFile(target);
+};
+const academic = path.join(mobile, 'assets/branding/academic'); mkdirSync(academic, { recursive: true });
+for (const name of ['logo', 'mark', 'wordmark']) await ink(path.join(brand, `${name}-light-v2.png`), path.join(academic, `${name}-ink.png`));
+await ink(path.join(mobile, 'assets/images/v2/splash-icon-v2.png'), path.join(output, 'splash-icon-ink.png'));
+console.log('Composições de marca geradas: branco/laranja sobre carvão e carvão/laranja para fundo claro; originais preservados.');
