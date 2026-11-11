@@ -29,11 +29,11 @@ O build cloud usa `npm run build:web -- --target cloud`, força API na própria 
 
 ## Marca e apresentação da GS
 
-`npm run brand:assets` recompõe o logo branco/laranja em SVG e gera ícones sobre carvão sem modificar os assets originais. `npm run pitch:build` monta a apresentação HTML offline e o roteiro a partir de `docs/gs/pitch/conteudo.json` (textos dos slides, falas, tempos e fontes), das capturas sintéticas e das fontes OFL em `docs/gs/pitch/fontes/`; não depende de `node_modules`. O estilo vem de `agrogest-app/scripts/pitch.css` e é incorporado ao HTML, sem arquivo externo em execução. O gerador recusa roteiro acima de 5:00 e avisa fala acima de 2,4 palavras/s. O HTML funciona por duplo clique, sem servidor; setas/espaço navegam, F abre tela cheia, N mostra as falas e T alterna cronômetro. O PDF 16:9 é exportado do mesmo HTML pela impressão do Chrome (uma página por slide) e precisa ser reexportado se o conteúdo mudar. Os arquivos finais e instruções de apresentação ficam nessa pasta e no [plano da GS](gs/PLANO.md#conferência-da-entrega-e-pitch-técnico). Para o primeiro deploy, siga o [roteiro Wrangler](CLOUDFLARE_LOCAL.md#deploy-com-wrangler-na-conta-do-responsável), inclusive login, preparação de conta e criação dos recursos. `cloud:account` só gera configuração local para selecionar a conta, sem executar provisionamento.
+`npm run brand:assets` recompõe o logo branco/laranja em SVG e gera ícones sobre carvão sem modificar os assets originais. O pitch da GS fica apenas como PDF 16:9 em `docs/gs/pitch/agrogest-pitch.pdf`; o [plano da GS](gs/PLANO.md#conferência-da-entrega-e-pitch-técnico) resume a cobertura da rubrica. Para o primeiro deploy, siga o [roteiro Wrangler](CLOUDFLARE_LOCAL.md#deploy-com-wrangler-na-conta-do-responsável), inclusive login, preparação de conta e criação dos recursos. `cloud:account` só gera configuração local para selecionar a conta, sem executar provisionamento.
 
 ## Procedimentos de outubro preservados como histórico
 
-Os comandos e modos Supabase/túnel abaixo descrevem a origem até 26/10/2026. Não são o procedimento vigente desta cópia nem autorização para executar serviços remotos.
+Os comandos e modos Supabase/túnel abaixo descrevem a versão de outubro, até 26/10/2026. Não são o procedimento vigente desta versão nem autorização para executar serviços remotos.
 
 ## Ambiente
 

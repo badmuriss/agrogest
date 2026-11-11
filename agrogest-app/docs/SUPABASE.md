@@ -1,6 +1,6 @@
-# Supabase — referência histórica da origem
+# Supabase — referência histórica de outubro
 
-> **Versão acadêmica, 06/11/2026:** Supabase foi substituído pelo [Worker/D1/R2 locais](CLOUDFLARE_LOCAL.md). SDK removido; não executar a configuração/provisionamento remoto descritos abaixo. As migrations e testes PGlite são preservados como referência da origem. O texto seguinte registra a integração até outubro, sem afirmar execução remota nesta adaptação.
+> **Versão acadêmica, 06/11/2026:** Supabase foi substituído pelo [Worker/D1/R2 locais](CLOUDFLARE_LOCAL.md). SDK removido; não executar a configuração/provisionamento remoto descritos abaixo. As migrations e testes PGlite são preservados como referência da versão de outubro. O texto seguinte registra a integração até outubro, sem afirmar execução remota nesta adaptação.
 
 Esta integração pertence ao aplicativo em `apps/mobile`. O projeto e as tabelas do legado não são reutilizados.
 
@@ -82,7 +82,7 @@ SQLite v13 adiciona `operations.owner_id`, preservando os dados e a fila existen
 
 ### Validação da entrega: 18/10/2026
 
-- Projeto [agrogest-app](https://supabase.com/dashboard/project/aomkvgosqgfuhzllnmic), referência `aomkvgosqgfuhzllnmic`, criado na Freitassync's Org, região São Paulo (`sa-east-1`), plano Free e cotação de US$ 0/mês. Não realizar upgrade ou ativar recursos pagos. O projeto antigo `Agrogest` (`ypnvvmbvaykmkbknrlip`) foi pausado com autorização do usuário para liberar a cota; seus dados não foram migrados.
+- Projeto [agrogest-app](https://supabase.com/dashboard/project/aomkvgosqgfuhzllnmic), referência `aomkvgosqgfuhzllnmic`, criado na organização Supabase do projeto, região São Paulo (`sa-east-1`), plano Free e cotação de US$ 0/mês. Não realizar upgrade ou ativar recursos pagos. O projeto antigo `Agrogest` (`ypnvvmbvaykmkbknrlip`) foi pausado com autorização do usuário para liberar a cota; seus dados não foram migrados.
 - Migrações `20261018222440_agrogest_foundation` e `20261018222557_operation_owner_index` aplicadas no projeto novo e conferidas no histórico remoto. RLS habilitado nas nove tabelas privadas; os dois RPCs públicos são invoker. Índice de proprietário adicionado após advisor de performance.
 - Configuração Auth aplicada: confirmação de e-mail, senha mínima de 8 caracteres, troca segura e redirects explícitos. `.env.local` configurado localmente com URL/chave publicável e ignorado pelo Git. Tipos públicos gerados do projeto hospedado.
 - 13 testes locais passaram, além de lint, TypeScript e exportação Expo para Android, iOS e web.

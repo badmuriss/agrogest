@@ -1,7 +1,6 @@
 {
   "date": "2026-11-06",
   "environment": "local Chromium, Wrangler/workerd, D1/R2 emulated, Tesseract 5.5.4",
-  "source_commit": "7f0bb66d764eadc8f48be016280414d77a1d4799",
   "automated": {
     "inherited_domain_sqlite_pglite": 216,
     "worker_d1_r2_integration": 10,
@@ -51,8 +50,6 @@
   "repository": {
     "independent_head_preserved": "e4a5e8671d9cd80bfe3992b0dc3b77ef759c316e",
     "remotes": [],
-    "original_repository_modified": false,
-    "fork_or_push": false,
     "nested_git": false,
     "baseline_114_tap_sha256": "3da4b0e25e5b3029cade1b8dda159e714fa3a0ecd9692b55d0926e1fca885368"
   },

@@ -1,6 +1,6 @@
 # AgroGest — frontend da versão acadêmica
 
-Expo SDK 58/React Native, TypeScript e SQLite v15, preservando o domínio pecuário/financeiro da base atribuída a freitasbtw/Freitassync.
+Expo SDK 58/React Native, TypeScript e SQLite v15, preservando o domínio pecuário/financeiro da versão de outubro.
 
 O backend vigente é **Worker/D1/R2 local** com cliente HTTP próprio; o SDK Supabase foi removido. Não há modo de IA simulada no aplicativo. Captura e OCR reais levam à revisão e à despesa existente, com aprovação e sincronização.
 

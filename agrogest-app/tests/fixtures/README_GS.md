@@ -5,6 +5,6 @@
 GS-001: R$ 1.250,40, Cooperativa Campo Verde, sal mineral, 06/11/2026.
 GS-002: R$ 89,90, Oficina Rural, troca de filtro de trator, 05/11/2026.
 
-As expectativas ficam nos testes, nunca na implementação de extração. Dois recibos legíveis não representam benchmark de campo. `historical-nf-extraction.ts` preserva a antiga amostra constante da origem, somente como registro histórico; não é importada pelo aplicativo.
+As expectativas ficam nos testes, nunca na implementação de extração. Dois recibos legíveis não representam benchmark de campo. `historical-nf-extraction.ts` preserva a antiga amostra constante da versão inicial do app, somente como registro histórico; não é importada pelo aplicativo.
 
 `comprovante-gs-004.png` é outro recibo sintético, criado para a validação da interface e IA visual em 10/11/2026: R$ 42,50, Agro Rural, mineral para bovinos, 10/11/2026. Também não é documento fiscal real. A foto de cupom fornecida pelo usuário permanece privada e não foi adicionada ao repositório.

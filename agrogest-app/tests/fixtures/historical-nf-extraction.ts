@@ -1,4 +1,4 @@
-/** Historical upstream mock preserved for provenance. Never imported by the application. */
+/** Historical mock kept only as a test reference. Never imported by the application. */
 import { termInstallments } from '@/domain/allocation';
 import type { Installment, NfExtraction } from '@/domain/types';
 

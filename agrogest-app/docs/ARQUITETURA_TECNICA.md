@@ -12,7 +12,7 @@ Wrangler e assets exportados locais mantêm Metro/Expo existentes e evitam intro
 
 ## Arquitetura anterior preservada
 
-As descrições Supabase/PostgreSQL abaixo registram o projeto de origem em outubro. Os cálculos e regras de domínio continuam referência; o backend e a configuração vigentes estão acima.
+As descrições Supabase/PostgreSQL abaixo registram o projeto de outubro. Os cálculos e regras de domínio continuam referência; o backend e a configuração vigentes estão acima.
 
 
 Tipo: explicação. Estado conferido no código em 26/10/2026. Escopo: `agrogest-app/`.

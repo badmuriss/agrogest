@@ -47,9 +47,7 @@ O [README mobile](../apps/mobile/README.md) resume os modos e recursos disponív
 | --- | --- |
 | Tema, tecnologias e critérios da GS | [Requisitos da GS](gs/REQUISITOS_GS.md) |
 | Implementação, decisões e próximos passos | [Plano](gs/PLANO.md) |
-| Rubrica, slides e roteiro do pitch técnico | [Conferência da GS](gs/PLANO.md#conferência-da-entrega-e-pitch-técnico) · [Apresentação](gs/pitch/agrogest-pitch.html) · [PDF](gs/pitch/agrogest-pitch.pdf) · [Roteiro](gs/pitch/roteiro.txt) |
-| Autoria da base e contribuições acadêmicas | [Origem e atribuição](arquivo/ORIGEM.md) |
-| Handoffs e autorizações anteriores | [Transferências de contexto](arquivo/transferencias/) |
+| Rubrica e slides do pitch técnico | [Conferência da GS](gs/PLANO.md#conferência-da-entrega-e-pitch-técnico) · [Slides em PDF](gs/pitch/agrogest-pitch.pdf) |
 | Avaliações anteriores à implementação | [Estudos arquivados](arquivo/estudos/) |
 | Fontes e evidências datadas | [Pesquisas e registros](arquivo/pesquisas/) |
 

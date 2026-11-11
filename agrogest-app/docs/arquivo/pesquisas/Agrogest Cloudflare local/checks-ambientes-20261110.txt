@@ -9,5 +9,5 @@ Navegador: login/reabertura; foto preservada com credencial ausente; sem resulta
 Instância existente: provedor local-vision; extração force sobre GS-004 retornou 4250 centavos e 2026-11-10
 Lote reaberto: 4 despesas aprovadas; custo 1162040 centavos; estado financeiro igual ao anterior
 Cloudflare hospedado/IA real: NÃO executados; falta conta/token de inferência
-Sem deploy, provisionamento, migrações remotas ou alteração no original do amigo
+Sem deploy, provisionamento, migrações remotas
 A evidência JSON contém hashes dos logs completos locais; nenhum segredo, token de sessão, imagem privada ou log do sistema foi publicado.

@@ -19,7 +19,7 @@ O enunciado exige, relacionadas ao funcionamento e à resolução do problema, e
 3. Cloud / computação em nuvem.
 4. Inteligência artificial.
 
-Não exige especificamente voz, AR/VR, sensores, treinamento de modelo próprio, aplicativo nativo ou um fornecedor determinado. Também não estabelece no texto fornecido uma proibição de reaproveitar uma base existente. Atribuição e contribuição real da equipe precisam permanecer claras.
+Não exige especificamente voz, AR/VR, sensores, treinamento de modelo próprio, aplicativo nativo ou um fornecedor determinado.
 
 ## Áreas admitidas
 
@@ -60,6 +60,6 @@ Vídeo-pitch de até **3 minutos**, estilo Startup-One, com storytelling, proble
 
 ## Aplicação na fase atual
 
-A autorização de desenvolvimento substituiu a fase inicial de análise. A direção atual usa Cloudflare Workers/D1/R2 e frontend web; aplicação/infra de desenvolvimento continuam locais, sem deploy/provisionamento remoto pelo agente nesta fase. Somente inferência Workers AI está entre os provedores hospedados suportados; OpenRouter foi removido em 10/11 por instrução do usuário. O amigo fará a publicação na própria conta seguindo o guia. [Configuração e deploy](../CLOUDFLARE_LOCAL.md#deploy-com-wrangler-na-conta-do-responsável).
+A autorização de desenvolvimento substituiu a fase inicial de análise. A direção atual usa Cloudflare Workers/D1/R2 e frontend web; aplicação/infra de desenvolvimento continuam locais, sem deploy/provisionamento remoto pelo agente nesta fase. Somente inferência Workers AI está entre os provedores hospedados suportados; OpenRouter foi removido em 10/11 por instrução do usuário. A publicação será feita pelo responsável, na própria conta seguindo o guia. [Configuração e deploy](../CLOUDFLARE_LOCAL.md#deploy-com-wrangler-na-conta-do-responsável).
 
 O enunciado integral foi fornecido novamente pelo usuário em 10/11/2026; confirma a rubrica de 20 pontos, limite de cinco minutos, quatro tecnologias práticas, ODS, YouTube não listado e entrega do link em TXT/ZIP até 19/11. A [conferência do pitch](PLANO.md#conferência-da-entrega-e-pitch-técnico) usa esses critérios, sem atribuir nota como se fosse avaliação do professor. Registros de pesquisa, protótipo, inferência e publicação continuam distintos; expectativa não deve aparecer como resultado de campo.

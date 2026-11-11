@@ -1,18 +1,18 @@
 # AgroGest — plano e estado da implementação local
 
-**Revisão 5 · 10/11/2026, preservando a implementação de 06–09/11 e a análise v2.** A [autorização de desenvolvimento](../arquivo/transferencias/AUTORIZACAO_DESENVOLVIMENTO_GS.md) substitui a antiga fase de somente análise. O código foi adaptado na cópia própria; aplicativo e dados continuam locais. O OCR passa a ser empacotado em container Docker local por CPU, com modelo incluído e o mesmo contrato HTTP; [execução e limites](../CLOUDFLARE_LOCAL.md#ciclo-do-container-ocr). O repositório independente público é [badmuriss/agrogest](https://github.com/badmuriss/agrogest), publicado por autorização posterior do usuário. A análise v2, seu inventário, riscos, pesquisa e os 114 testes iniciais estão preservados abaixo como registro anterior à implementação.
+**Revisão 5 · 10/11/2026, preservando a implementação de 06–09/11 e a análise v2.** O desenvolvimento substituiu a antiga fase de somente análise. O código foi adaptado neste repositório; aplicativo e dados continuam locais. O OCR passa a ser empacotado em container Docker local por CPU, com modelo incluído e o mesmo contrato HTTP; [execução e limites](../CLOUDFLARE_LOCAL.md#ciclo-do-container-ocr). O repositório independente público é [badmuriss/agrogest](https://github.com/badmuriss/agrogest), publicado por autorização posterior do usuário. A análise v2, seu inventário, riscos, pesquisa e os 114 testes iniciais estão preservados abaixo como registro anterior à implementação.
 
 
-Atualização: IA visual local Qwen3-VL-2B quantizada, executando na GPU desta máquina, integra imagem → campos em uma chamada. A revisão foi simplificada e a escolha da imagem abre diretamente no formulário de despesa. O parser TSV do OCR CPU e a invalidação de cache foram corrigidos. Setup, contas e limites permanecem no [guia operacional](../CLOUDFLARE_LOCAL.md); [evidências datadas](../HISTORICO_REVISOES.md) distinguem esta validação dos 114 testes iniciais e das execuções de 06 e 09 de novembro. Planos, transferências, pesquisas e origem foram agrupados nesta documentação; a raiz ficou voltada aos avaliadores.
+Atualização: IA visual local Qwen3-VL-2B quantizada, executando na GPU desta máquina, integra imagem → campos em uma chamada. A revisão foi simplificada e a escolha da imagem abre diretamente no formulário de despesa. O parser TSV do OCR CPU e a invalidação de cache foram corrigidos. Setup, contas e limites permanecem no [guia operacional](../CLOUDFLARE_LOCAL.md); [evidências datadas](../HISTORICO_REVISOES.md) distinguem esta validação dos 114 testes iniciais e das execuções de 06 e 09 de novembro. Planos, pesquisas e histórico foram agrupados nesta documentação; a raiz ficou voltada aos avaliadores.
 **Preparação de ambientes:** instalador por perfil, diagnóstico sem segredos e troca local/IA visual/Workers AI implementados. O início não exige Docker quando o provedor escolhido não o usa. Staging/produção têm configuração privada própria, origem HTTPS, migrações sem carga de demonstração e bootstrap de contas próprias. Frontend acompanha a origem hospedada; sessão/SQLite/outbox distinguem backend/conta sem renomear a base local atual. Publicação, provisionamento e inferência Cloudflare real continuam pendentes. [Procedimento e limites](../CLOUDFLARE_LOCAL.md#preparar-a-futura-hospedagem-cloudflare).
 
 ## Conferência da entrega e pitch técnico
 
-Conferência em 10/11/2026 contra o enunciado integral reenviado pelo usuário. **O recorte é compatível com a proposta da GS**, mas não existe nota máxima garantida antes da avaliação do professor. Código, slides e quantidade de testes não substituem o vídeo, as evidências do problema ou a demonstração prática das quatro tecnologias. A apresentação refeita em 11/11/2026 tem dez slides, [HTML offline](pitch/agrogest-pitch.html), [PDF para apresentar](pitch/agrogest-pitch.pdf) e [roteiro de fala](pitch/roteiro.txt), e foi estruturada para **4min46s** (590 palavras), com margem até os cinco minutos. A narrativa segue um único recibo sintético (GS-004) da foto ao custo do lote. O [conteúdo editável](pitch/conteudo.json) concentra textos dos slides, falas, tempos, direção de gravação, situação da nuvem e fontes.
+Conferência em 10/11/2026 contra o enunciado integral reenviado pelo usuário. **O recorte é compatível com a proposta da GS**, mas não existe nota máxima garantida antes da avaliação do professor. Código, slides e quantidade de testes não substituem o vídeo, as evidências do problema ou a demonstração prática das quatro tecnologias. A apresentação refeita em 11/11/2026 é o [PDF de dez slides](pitch/agrogest-pitch.pdf), estruturado para **4min46s** de fala, com margem até os cinco minutos. A narrativa segue um único recibo sintético (GS-004) da foto ao custo do lote.
 
 | Critério da rubrica | Peso | Como o pitch cobre | Conferência antes de gravar |
 | --- | ---: | --- | --- |
-| Proposta e problema evidenciado | 3 | Slides 1–2: compra que se perde entre campo e planilha (esquecida, digitada errado, lançada duas vezes), conforme o levantamento de requisitos da base; impacto no custo do lote | Juntar um relato autorizado/anonimizado ou observação documentada do público. O cenário funcional não comprova sozinho a frequência da dor |
+| Proposta e problema evidenciado | 3 | Slides 1–2: compra que se perde entre campo e planilha (esquecida, digitada errado, lançada duas vezes), conforme o levantamento de requisitos; impacto no custo do lote | Juntar um relato autorizado/anonimizado ou observação documentada do público. O cenário funcional não comprova sozinho a frequência da dor |
 | Público-alvo e mercado | 3 | Slide 3: produtor de recria/engorda, quem registra e sócio; legibilidade para meia-idade e mais velhos; contexto do Censo Agro 2017 e entrada por assistência/cooperativa | Não tratar os 77% da agricultura familiar como TAM específico ou clientes conquistados. Incluir meia-idade e pessoas mais velhas no recrutamento do piloto |
 | Impacto e valor da solução | 3 | Slides 4–6: recibo e revisão lado a lado (IA sugere, pessoa decide), aprovação por outro sócio e custo do lote; quatro tecnologias no mesmo caminho e continuidade offline | Mostrar cliques reais, correção humana e comprovante vinculado. A IA não aprova despesas |
 | Diferencial | 3 | Slide 7: comparar tarefas em caderno/planilha com sugestão, anexo, aprovação, sincronização e reenvio do mesmo arquivo | Não alegar que nenhum concorrente tem IA/offline. O diferencial proposto é a adequação ao recorte do produtor |
@@ -23,7 +23,7 @@ Conferência em 10/11/2026 contra o enunciado integral reenviado pelo usuário. 
 - **Visão computacional:** pixels do comprovante são processados pelo extrator; não usar resposta constante.
 - **Inteligência artificial:** modelo visual organiza campos para revisão, com valores nulos quando desconhecidos e validação determinística. IA/CV podem ser funções do mesmo modelo; não é exigido treinar dois modelos.
 - **Análise de dados:** custos por lote, por cabeça e equilíbrio decorrem do domínio, após aprovação. GS-004 demonstra acréscimo de R$ 42,50; não confundir cálculo com ganho de produtividade.
-- **Cloud:** arquitetura Workers/D1/R2/Workers AI e [roteiro Wrangler](../CLOUDFLARE_LOCAL.md#deploy-com-wrangler-na-conta-do-responsável) estão preparados. **Antes da gravação que afirma cloud em uso**, o responsável deve publicar na própria conta e registrar URL/saúde e uma inferência real. Teste emulado/dry-run não comprova chamada hospedada. Essa execução pelo amigo não foi realizada nesta conferência. Em 11/11/2026 o usuário informou que a equipe publicou na Cloudflare; o slide de tecnologia passou a mostrar a nuvem como publicada. URL, saúde e leitura hospedada não foram conferidas pelo agente e devem aparecer na gravação.
+- **Cloud:** arquitetura Workers/D1/R2/Workers AI e [roteiro Wrangler](../CLOUDFLARE_LOCAL.md#deploy-com-wrangler-na-conta-do-responsável) estão preparados. **Antes da gravação que afirma cloud em uso**, o responsável deve publicar na própria conta e registrar URL/saúde e uma inferência real. Teste emulado/dry-run não comprova chamada hospedada. Essa execução não foi realizada nesta conferência. Em 11/11/2026 o usuário informou que a equipe publicou na Cloudflare; o slide de tecnologia passou a mostrar a nuvem como publicada. URL, saúde e leitura hospedada não foram conferidas pelo agente e devem aparecer na gravação.
 
 ### Indicadores, ODS e sustentação
 
@@ -69,15 +69,15 @@ Auth web ainda usa sessão no localStorage da origem; cookie HttpOnly/identidade
 | P1 · identidade | Escolher e testar Auth definitivo, confirmação/recovery e sessão web HttpOnly | Login real, expiração/revogação, antiabuso e transferência das contas sem usar credenciais de demo |
 | P1 · paridade | Expandir testes de cada combinação financeira/estoque, limites D1 e concorrência; validar dispositivos nativos | Comparação com domínio original, sem saldo negativo, vazamento entre contas ou mudança da política RF-16 |
 | P1 · operação | Medir volume, definir retenção e ensaiar backup/restauração local | Restaurar D1/R2 e capturas sem perder vínculos, hashes, IDs e fila; não apagar o estado como atalho |
-| P2 · hospedagem | Definir conta futura do amigo, endereço privado/autenticação do OCR CPU ou provedor remoto e custos | Repositório próprio público já definido; credenciais por ambiente, conectividade, custos e aceite validados antes de deploy/provisionamento do aplicativo |
+| P2 · hospedagem | Definir conta futura de hospedagem, endereço privado/autenticação do OCR CPU ou provedor remoto e custos | Repositório próprio público já definido; credenciais por ambiente, conectividade, custos e aceite validados antes de deploy/provisionamento do aplicativo |
 
 ## Aceite e evidências atuais
 
 A matriz T01–T24 da análise abaixo permanece como contrato amplo. A execução atual comprova as fatias de imagem/extração real, revisão, autorização, outbox, aprovação, centavos, duplicação, concorrência e indicador cobertas pelos testes/roteiro do [histórico](../HISTORICO_REVISOES.md). A suíte herdada agora inclui PGlite local; suas migrations PostgreSQL não foram aplicadas remotamente nem convertidas em evidência D1.
 
-O hardware foi usado para OCR português; a pesquisa Hugging Face abaixo continua válida como lista de candidatos licenciados, não como benchmark local executado. Workers AI não se tornou inferência local. A conta temporária de inferência do usuário segue separada da futura hospedagem/manutenção pelo amigo. O exemplo consumido agora é `agrogest-app/apps/api/.dev.vars.example`; `agrogest-app/docs/arquivo/inference.env.example` foi marcado como referência histórica.
+O hardware foi usado para OCR português; a pesquisa Hugging Face abaixo continua válida como lista de candidatos licenciados, não como benchmark local executado. Workers AI não se tornou inferência local. A conta temporária de inferência do usuário segue separada da futura hospedagem/manutenção. O exemplo consumido agora é `agrogest-app/apps/api/.dev.vars.example`; `agrogest-app/docs/arquivo/inference.env.example` foi marcado como referência histórica.
 
-**Nenhum deploy do aplicativo, provisionamento remoto, remote:true, Worker AI binding remoto, Supabase remoto ou fork foi realizado.** O push autorizado foi somente para o repositório próprio público; a origem do amigo não foi alterada. Os resultados de navegador e as contagens atuais são datados no histórico; os 114 testes anteriores e seus hashes permanecem inalterados.
+**Nenhum deploy do aplicativo, provisionamento remoto, remote:true, Worker AI binding remoto, Supabase remoto foi realizado.** Os resultados de navegador e as contagens atuais são datados no histórico; os 114 testes anteriores e seus hashes permanecem inalterados.
 
 ---
 
@@ -88,7 +88,7 @@ O hardware foi usado para OCR português; a pesquisa Hugging Face abaixo continu
 Os verbos “planejado”, “futuro” e “não executado” no registro abaixo descrevem a revisão 2. O estado vigente e seus desvios estão nas seções acima e no guia operacional atual.
 
 
-Revisão **2**, em **06/11/2026**, America/Sao_Paulo. Base: `freitasbtw/agrogest`, commit **`7f0bb66d764eadc8f48be016280414d77a1d4799`**, de 27/10/2026. Escopo de produto: **`agrogest-app/`**. A [atualização do usuário](../arquivo/transferencias/ATUALIZACAO_IA_E_REPOSITORIO.md) substitui a restrição anterior de inferência exclusivamente local. A cópia independente foi preparada; **nenhuma migração funcional do aplicativo foi iniciada**.
+Revisão **2**, em **06/11/2026**, America/Sao_Paulo. Escopo de produto: **`agrogest-app/`**. O aplicativo é a versão de outubro do AgroGest; **nenhuma migração funcional do aplicativo foi iniciada** nesta revisão.
 
 ## 1. Decisão recomendada e limite desta entrega
 
@@ -104,30 +104,23 @@ O requisito acadêmico de cloud **ainda não foi demonstrado por esta equipe**. 
 
 ### Evidências da primeira análise, preservadas
 
-- Leitura integral do [handoff](../arquivo/transferencias/HANDOFF_AGROGEST_CLOUDFLARE_LOCAL.md), dos [requisitos da GS](REQUISITOS_GS.md), do [README](../../../README.md), do [parecer anterior](<../arquivo/estudos/Agrogest na Global Solution.md>) e das três notas indicadas em `agrogest-app/docs/arquivo/pesquisas/Agrogest na Global Solution/`.
-- Leitura das instruções `AGENTS.md` da origem e do mobile, dos guias de arquitetura/desenvolvimento/produto e inspeção das superfícies de interface, domínio, persistência, Auth, sincronização, migrations, arquivos e testes. O estado final do SQL foi considerado pela cadeia das **18 migrations**, não só pela migration inicial.
-- Extração de 307 arquivos de texto do commit fixado para uma cópia temporária de auditoria; sem `.env`, credenciais, dados de usuários ou importação do app neste workspace. Clone original e repositório do autor preservados.
+- Leitura integral dos [requisitos da GS](REQUISITOS_GS.md) e do [README](../../../README.md).
+- Leitura das instruções `AGENTS.md` da raiz e do mobile, dos guias de arquitetura/desenvolvimento/produto e inspeção das superfícies de interface, domínio, persistência, Auth, sincronização, migrations, arquivos e testes. O estado final do SQL foi considerado pela cadeia das **18 migrations**, não só pela migration inicial.
+- Auditoria de 307 arquivos de texto da versão de outubro em cópia temporária; sem `.env`, credenciais, dados de usuários ou importação do app neste workspace.
 - Execução de **16 arquivos de testes existentes: 114 testes passaram, zero falhas**, com Node `v24.22.2` e rede externa indisponível por namespace Linux (`unshare -Urn`). Abrangem domínio, relatórios, SQLite usado pelos serviços, permissões/projeções e sincronização com respostas controladas. Reprodução e limites na seção 12.
 - Consulta a documentação oficial atual de Cloudflare, Expo SDK 58 e opções locais de OCR/Auth. Nenhum serviço de aplicação ou inferência foi chamado.
 
 ### O que foi feito nesta revisão
 
-- Leitura da atualização e das correções no handoff/requisitos. Mantidas a análise de domínio, a origem auditada e as evidências dos **114 testes anteriores**; esses testes não foram reexecutados nem reinterpretados como prova de IA.
-- `git clone` público em área externa e importação de **421 arquivos** por snapshot: 418 de `agrogest-app/` e três de apoio. Preservados `.git`, HEAD, histórico próprio, documentos e o log TAP. Preparação detalhada abaixo e em [ORIGEM_AGROGEST.md](../arquivo/ORIGEM.md).
+- Mantidas a análise de domínio e as evidências dos **114 testes anteriores**; esses testes não foram reexecutados nem reinterpretados como prova de IA.
 - Consulta a model cards/licenças do Hugging Face, documentação Workers AI/OpenRouter, políticas e catálogo público de modelos. Nenhum peso de modelo foi baixado e nenhuma inferência foi executada. Configuração de exemplo sem segredos preparada em [config/inference.env.example](../arquivo/inference.env.example).
 - Conferida somente a **presença**, sem inspecionar/exibir valores, das variáveis esperadas de inferência no processo. Não estavam configuradas; nenhum cofre/perfil privado foi vasculhado. Modelo, conta/token, rota e orçamento permanecem dependências para o futuro experimento.
 
 **Continua não executado:** app/browser/mobile, build, lint, typecheck, as cinco suítes com PGlite, Worker, D1/R2 emulados, OCR sobre documentos, benchmark de modelos, inferência Workers AI/OpenRouter ou teste com produtor. Os testes anteriores não comprovam o backend PostgreSQL, o destino Cloudflare nem qualidade de extração.
 
-### Repositório independente preparado, sem fork
+### Repositório do projeto
 
-O destino é o **Git já existente** em `/data/projects/hobby/gs-final-fiap`, branch `main`, HEAD próprio `e4a5e8671d9cd80bfe3992b0dc3b77ef759c316e`. Não foi substituído, reinicializado ou ligado ao remote do amigo. Nenhum commit automático incluiu os documentos preexistentes.
-
-O clone de proveniência fica em `/data/projects/hobby/gs-final-fiap-preparacao/agrogest-origem-20261106`; seu remote `source-readonly` serve para leitura pública, com push URL inválida e hook de bloqueio. O histórico de commits da origem foi preservado nesse clone parcial e o commit auditado tem referência local de arquivo. O destino recebeu o snapshot por `git archive`, **sem `.git` aninhado**, sem merge de históricos não relacionados e sem importar `old-agrogest/`. O clone parcial não é um backup completo de todos os blobs históricos.
-
-O [manifesto de importação](<../arquivo/pesquisas/Agrogest Cloudflare local/importacao-base-20261106.json>) contém hashes dos arquivos da base. Código, assets e lockfiles do app foram copiados sem adaptação; o `.gitignore` da raiz foi ampliado para segredos, estado e pesos locais. O autor registrado no commit é **Freitassync**, projeto de `freitasbtw`; a versão acadêmica deve distinguir contribuição herdada e trabalho da equipe. Independência não significa reescrita do aplicativo nem nova licença presumida.
-
-**Não foi criado/publicado repositório remoto.** Destino/nome/visibilidade continuam indefinidos. A manutenção pelo amigo poderá usar outro remote e configuração próprios depois, sem fornecer a ele tokens temporários do usuário. Não fazer push no upstream nem apagar histórico/dados para preparar essa passagem.
+O aplicativo vive em `agrogest-app/` neste repositório, público em [badmuriss/agrogest](https://github.com/badmuriss/agrogest). O `.gitignore` da raiz cobre segredos, estado e pesos locais. Nenhuma licença nova é presumida; a manutenção futura pode usar outro remote e configuração próprios, sem tokens temporários do usuário.
 
 ## 2. Matriz de aderência à Global Solution
 
@@ -137,16 +130,16 @@ O enunciado fornecido é a referência acadêmica. Documentação do produto des
 
 | Requisito | Estado atual e evidência | Lacuna | Alteração proposta | Critério de aceite |
 | --- | --- | --- | --- | --- |
-| Visão computacional | Captura/seleção de imagem existe; análise recebe apenas `file.name`. [Tela][E14], [mock][E13]. | Nenhuma leitura dos pixels no fluxo fiscal. | Novo importador recebe bytes e executa OCR/VLM local ou visão no provedor remoto autorizado, escolhido explicitamente. | T15: duas imagens distintas, inclusive com o mesmo nome, produzem campos correspondentes ao conteúdo; imagem ilegível gera pendência/falha explícita. |
-| Inteligência artificial | `SAMPLE_EXTRACTION` fixa e uso simulado também em `syncAll`. [Serviço][E13], [workflow][E19], [estado][E11]. | Não há inferência integrada nesse fluxo. Regras de parcelas/cálculos não são IA. | Provedor/modelo identificado, revisão de pesos se local, evidência por campo e revisão humana. OCR neural pode cumprir IA e CV no mesmo componente; interpretação adicional depende da POC. | T15–T17/T22: execução real identificável, entrada variável, resultado validado, erro sem fixture/troca oculta; nenhuma sugestão aprova/grava despesa sozinha. |
-| Análise de dados | GMD, custos, estoque, caixa, DRE, centros de custo e orçamento implementados. Parte das regressões passou na primeira análise. [Lotes][E16], [relatórios][E17], [financeiro][E27]. | Falta validar o percurso da imagem ao indicador e preservar paridade no Worker. Não há impacto de campo medido. | Compartilhar domínio e usar orçamento por categoria como indicador da demo. Manter competência, caixa e estados provisórios distintos. | T01–T03/T17: a despesa revisada só altera o realizado quando aprovada, exatamente uma vez; conta manual fecha em centavos. |
-| Cloud / computação em nuvem | Auth/outbox/RPC/workspace e SQL Supabase implementados; operação remota não verificada. [Sync][E04], [SQL][E07]. Destino Cloudflare e IA não implementados. | Emulação local não comprova cloud; nenhuma inferência remota foi executada. | Worker/D1/R2/Assets locais e opção de inferência Workers AI/OpenRouter chamada pelo backend. | T18/T19/T21 comprovam ambiente local. T22 poderá comprovar **inferência real em nuvem integrada ao produto**, sem alegar deploy de app/dados. Se apenas o provedor local for usado, a evidência cloud permanece pendente. |
+| Visão computacional | Captura/seleção de imagem existe; análise recebe apenas `file.name`. Tela (`agrogest-app/apps/mobile/src/app/novo/nota-fiscal.tsx#L100`), mock (`agrogest-app/apps/mobile/src/services/nf-extraction.ts#L48`). | Nenhuma leitura dos pixels no fluxo fiscal. | Novo importador recebe bytes e executa OCR/VLM local ou visão no provedor remoto autorizado, escolhido explicitamente. | T15: duas imagens distintas, inclusive com o mesmo nome, produzem campos correspondentes ao conteúdo; imagem ilegível gera pendência/falha explícita. |
+| Inteligência artificial | `SAMPLE_EXTRACTION` fixa e uso simulado também em `syncAll`. Serviço (`agrogest-app/apps/mobile/src/services/nf-extraction.ts#L48`), workflow (`agrogest-app/apps/mobile/src/domain/workflow.ts#L190`), estado (`agrogest-app/apps/mobile/src/state/app-state.tsx`). | Não há inferência integrada nesse fluxo. Regras de parcelas/cálculos não são IA. | Provedor/modelo identificado, revisão de pesos se local, evidência por campo e revisão humana. OCR neural pode cumprir IA e CV no mesmo componente; interpretação adicional depende da POC. | T15–T17/T22: execução real identificável, entrada variável, resultado validado, erro sem fixture/troca oculta; nenhuma sugestão aprova/grava despesa sozinha. |
+| Análise de dados | GMD, custos, estoque, caixa, DRE, centros de custo e orçamento implementados. Parte das regressões passou na primeira análise. Lotes (`agrogest-app/apps/mobile/src/domain/lot-metrics.ts#L134`), relatórios (`agrogest-app/apps/mobile/src/domain/reports.ts#L798`), financeiro (`agrogest-app/apps/mobile/src/domain/finance.ts`). | Falta validar o percurso da imagem ao indicador e preservar paridade no Worker. Não há impacto de campo medido. | Compartilhar domínio e usar orçamento por categoria como indicador da demo. Manter competência, caixa e estados provisórios distintos. | T01–T03/T17: a despesa revisada só altera o realizado quando aprovada, exatamente uma vez; conta manual fecha em centavos. |
+| Cloud / computação em nuvem | Auth/outbox/RPC/workspace e SQL Supabase implementados; operação remota não verificada. Sync (`agrogest-app/apps/mobile/src/services/cloud-sync.ts#L12`), SQL (`agrogest-app/supabase/migrations/20261018222440_agrogest_foundation.sql#L265`). Destino Cloudflare e IA não implementados. | Emulação local não comprova cloud; nenhuma inferência remota foi executada. | Worker/D1/R2/Assets locais e opção de inferência Workers AI/OpenRouter chamada pelo backend. | T18/T19/T21 comprovam ambiente local. T22 poderá comprovar **inferência real em nuvem integrada ao produto**, sem alegar deploy de app/dados. Se apenas o provedor local for usado, a evidência cloud permanece pendente. |
 
 ### Cinco critérios do pitch técnico — 20 pontos
 
 | Critério | Base atual / evidência | Lacuna e trabalho proposto | Evidência de aceite para o vídeo |
 | --- | --- | --- | --- |
-| Proposta e problema — 3 | Requisitos do autor atribuem o problema a entrevista com produtor de recria/engorda: transcrição, registros esquecidos/duplicados e apuração de custos. [Requisitos do produto][E25]. | Validar uma tarefa concreta e sua consequência com produtor/operador; documentação do autor não mede prevalência. | V1: relato autorizado/anonimizado, método atual e uma tarefa observável; explicar vínculo com desenvolvimento rural/CitizenTech. |
+| Proposta e problema — 3 | Requisitos do autor atribuem o problema a entrevista com produtor de recria/engorda: transcrição, registros esquecidos/duplicados e apuração de custos. Requisitos do produto (`agrogest-app/docs/REQUISITOS_PRODUTO.md#L281`). | Validar uma tarefa concreta e sua consequência com produtor/operador; documentação do autor não mede prevalência. | V1: relato autorizado/anonimizado, método atual e uma tarefa observável; explicar vínculo com desenvolvimento rural/CitizenTech. |
 | Público e mercado — 3 | Produtor e pessoa que registra a rotina são candidatos; pequeno produtor ainda é hipótese. Modo Essencial existe. | Identificar papel de quem captura, revisa e decide; aparelho, conectividade, apoio inicial e forma de adoção. | V1/V3: perfil/contexto e limites da amostra registrados; hipótese de adoção identificada como hipótese, sem mercado inventado. |
 | Impacto e valor — 3 | Registro revisado pode alimentar indicador confiável; aprovação e rastreabilidade já têm base. | Medir esforço completo, erros e compreensão; não inferir renda, produtividade ou impacto climático. | V2/T17/T20: comparação manual/assistida com correções, tarefa concluída e explicação correta do resultado. |
 | Diferencial — 3 | Uso de campo, revisão humana, papéis por operação, continuidade offline e cálculo explicável. | Comparar com a rotina real e alternativas que o participante já usa. Demonstrar contribuição de cada tecnologia. | V3: comparação documentada com planilha/registro atual; separar herdado/novo, infraestrutura emulada e inferência local ou cloud realmente executada. |
@@ -154,32 +147,32 @@ O enunciado fornecido é a referência acadêmica. Documentação do produto des
 
 ODS **2.3** é candidato condicionado à validação do público e do acesso útil à gestão. Não afirmar duplicação de renda/produtividade ou contribuição climática comprovada. A relação deve ser justificada pela tarefa e pelos indicadores; os [requisitos fornecidos](REQUISITOS_GS.md) registram esse limite.
 
-## 3. Inventário do aplicativo de origem
+## 3. Inventário do aplicativo (versão de outubro)
 
 ### Estrutura, versões e funcionalidades
 
 | Superfície | Encontrado no commit | Tratamento no destino |
 | --- | --- | --- |
-| Runtime e interface | Expo `~58.0.19`, React Native `0.88.0`, React `19.3.0`, Expo Router `~58.0.26`, TypeScript `~6.0.3`, NativeWind; npm com lockfiles independentes. [Manifesto][E01]. | Preservar versões inicialmente. Não misturar migração de backend com upgrade de SDK, UI ou gerenciador. |
-| Web | `app.json` define `web.output: single`; Metro configura WASM, COOP e COEP. [Configuração][E21], [Metro][E22]. | Exportar a mesma interface e servir assets/SPA no Worker. Testar headers e persistência de verdade no navegador. |
+| Runtime e interface | Expo `~58.0.19`, React Native `0.88.0`, React `19.3.0`, Expo Router `~58.0.26`, TypeScript `~6.0.3`, NativeWind; npm com lockfiles independentes. Manifesto (`agrogest-app/apps/mobile/package.json`). | Preservar versões inicialmente. Não misturar migração de backend com upgrade de SDK, UI ou gerenciador. |
+| Web | `app.json` define `web.output: single`; Metro configura WASM, COOP e COEP. Configuração (`agrogest-app/apps/mobile/app.json`), Metro (`agrogest-app/apps/mobile/metro.config.js`). | Exportar a mesma interface e servir assets/SPA no Worker. Testar headers e persistência de verdade no navegador. |
 | Domínio | 23 módulos em `src/domain/`, sem dependência de React/Expo nos imports inspecionados. Regras puras, valores em centavos, datas de calendário e replays. | Compartilhar os módulos efetivamente consumidos pelo Worker, preservando contratos/testes; não copiar regras em implementações divergentes. |
 | Campo e cadastros | Operações, fazendas, pastos/contornos, lotes/origem, pesagem medida/estimada, mortalidade, venda, manejo e transferência. | Preservar origem econômica, saldos por data, histórico e permissões. Não tratar transferência como venda. |
 | Financeiro e estoque | Despesas/receitas, categorias, contraparte, compras/consumo/ajustes/transferências de insumo, parcelas, baixas e estornos. | Migrar validações, saldos e referências; obrigações e custo de consumo continuam derivados. |
 | Gestão e análise | Contas/cartão/faturas, movimentos, sócios, financiamentos/SAC, renegociação, recorrência, orçamento, centros/finalidades, DRE/ponte para caixa, conciliação OFX/CSV e importação/exportação. | Inventariados como recursos a preservar na migração completa, mesmo que não apareçam no vídeo. |
-| Pessoas | `socio` e `funcionario` são os dois papéis implementados; convites, aceite, cancelamento, troca/remoção de vínculo e proteção do criador. [Tipos][E26], [SQL de pessoas][E29]. | Revalidar tudo no servidor. Perfis mais amplos dos requisitos são evolução, não funcionalidade atual. |
+| Pessoas | `socio` e `funcionario` são os dois papéis implementados; convites, aceite, cancelamento, troca/remoção de vínculo e proteção do criador. Tipos (`agrogest-app/apps/mobile/src/domain/types.ts`), SQL de pessoas (`agrogest-app/supabase/migrations/20261021100516_people_management.sql`). | Revalidar tudo no servidor. Perfis mais amplos dos requisitos são evolução, não funcionalidade atual. |
 | Avisos e exportação | Avisos nativos locais; variante web não agenda notificações. Exportação web usa download/print local; `fetch(uri)` de arquivo selecionado não é necessariamente rede externa. | Preservar diferenças de plataforma; não prometer push ou alertas web agendados. Restringir leitura de URI a origem/blob/arquivo autorizado. |
-| Arquivos e IA | Sem upload/binário persistente integrado. `NotaFiscalPayload` guarda metadados e resultado, não anexo. NF usa mock e é recusada no modo conectado. [Tipos][E26], [tela][E14], [estado][E11]. | Construir documento/anexo e importador novos, sem desbloquear o módulo fiscal por remoção de guards. |
-| Serviços externos adicionais | Photon, Nominatim, Leaflet em CDN, tiles ArcGIS e abertura de WhatsApp. [Geocoding][E24], [mapa][E23]. | No perfil local, não carregar mapa remoto/geocodificação/CDN nem abrir integração externa. Coordenadas/contornos locais podem continuar disponíveis sem tiles. |
+| Arquivos e IA | Sem upload/binário persistente integrado. `NotaFiscalPayload` guarda metadados e resultado, não anexo. NF usa mock e é recusada no modo conectado. Tipos (`agrogest-app/apps/mobile/src/domain/types.ts`), tela (`agrogest-app/apps/mobile/src/app/novo/nota-fiscal.tsx#L100`), estado (`agrogest-app/apps/mobile/src/state/app-state.tsx`). | Construir documento/anexo e importador novos, sem desbloquear o módulo fiscal por remoção de guards. |
+| Serviços externos adicionais | Photon, Nominatim, Leaflet em CDN, tiles ArcGIS e abertura de WhatsApp. Geocoding (`agrogest-app/apps/mobile/src/services/geocoding.ts#L54`), mapa (`agrogest-app/apps/mobile/src/components/farm-map/map-html.ts#L13`). | No perfil local, não carregar mapa remoto/geocodificação/CDN nem abrir integração externa. Coordenadas/contornos locais podem continuar disponíveis sem tiles. |
 
-**Duas distinções de produto:** contexto de fazenda é filtro, não autorização independente. O vínculo atual autoriza a **operação**, que pode conter fazendas; a UI normalmente cria uma operação por fazenda. E os modos Essencial/Gerencial/Analítico alteram apresentação, jamais permissões ou fórmulas. [Projeção][E20], [RF-15/RF-16][E25].
+**Duas distinções de produto:** contexto de fazenda é filtro, não autorização independente. O vínculo atual autoriza a **operação**, que pode conter fazendas; a UI normalmente cria uma operação por fazenda. E os modos Essencial/Gerencial/Analítico alteram apresentação, jamais permissões ou fórmulas. Projeção (`agrogest-app/apps/mobile/src/state/workspace-selectors.ts#L19`), RF-15/RF-16 (`agrogest-app/docs/REQUISITOS_PRODUTO.md#L281`).
 
 ### Dependências Supabase a substituir
 
 | Dependência | Uso atual | Substituição planejada |
 | --- | --- | --- |
-| SDK e ativação | `@supabase/supabase-js` `2.118.0`; duas variáveis públicas habilitam `cloudEnabled`. [Cliente][E05]. | Cliente HTTP tipado para API e modo explícito `api-local`, independente de credenciais Supabase. Ausência de configuração não deve ativar login fictício no caminho integrado. |
-| Auth | Cadastro/login, sessão persistida/refresh, logout, confirmação/reenvio, recuperação/atualização de senha, PKCE/deep link e verificação de usuário. Acoplado a `auth-state`, estado principal e telas de acesso. [Auth][E06]. | `AuthProvider` próprio do aplicativo, com adaptador de identidade; autenticação local real/fixtures controladas e futura solução autohospedada compatível com Worker/D1. |
-| Sessão por plataforma | SecureStore nativo com gravação em gerações; localStorage na web. `cloudToken` exige que usuário corresponda ao dono do SQLite. [Cliente][E05]. | Preservar vínculo sessão/conta e isolamento. Preferir cookie HttpOnly no web e armazenamento seguro no nativo para o adaptador definitivo. |
+| SDK e ativação | `@supabase/supabase-js` `2.118.0`; duas variáveis públicas habilitam `cloudEnabled`. Cliente (`agrogest-app/apps/mobile/src/services/supabase.ts#L6`). | Cliente HTTP tipado para API e modo explícito `api-local`, independente de credenciais Supabase. Ausência de configuração não deve ativar login fictício no caminho integrado. |
+| Auth | Cadastro/login, sessão persistida/refresh, logout, confirmação/reenvio, recuperação/atualização de senha, PKCE/deep link e verificação de usuário. Acoplado a `auth-state`, estado principal e telas de acesso. Auth (`agrogest-app/apps/mobile/src/state/auth-state.tsx#L34`). | `AuthProvider` próprio do aplicativo, com adaptador de identidade; autenticação local real/fixtures controladas e futura solução autohospedada compatível com Worker/D1. |
+| Sessão por plataforma | SecureStore nativo com gravação em gerações; localStorage na web. `cloudToken` exige que usuário corresponda ao dono do SQLite. Cliente (`agrogest-app/apps/mobile/src/services/supabase.ts#L6`). | Preservar vínculo sessão/conta e isolamento. Preferir cookie HttpOnly no web e armazenamento seguro no nativo para o adaptador definitivo. |
 | RPC de escrita | `agrogest_command(command_id, kind, payload)` usado pela outbox **e por chamadas diretas no estado**. | Dispatcher Worker `/api/v1/commands`, com mesmo catálogo de negócio, idempotência, controle de versão, auditoria e erros tipados. |
 | RPC de leitura | `agrogest_workspace`, snapshot autorizado com redação de valores e coleções financeiras. | `/api/v1/workspace`, contrato versionado/validado e projeção autorizada no servidor. |
 | SQL e isolamento | `private.*`, funções SQL/PLpgSQL, `auth.uid()`, `auth.users`, RLS/grants, locks transacionais/advisory, índices/constraints e JSONB. | D1 para estado SQL; TypeScript para dispatch/validação/projeção, constraints e gravação atômica no D1. D1 não oferece substituição automática de Auth/RLS/PLpgSQL. |
@@ -188,7 +181,7 @@ ODS **2.3** é candidato condicionado à validação do público e do acesso út
 
 ### Catálogo completo de comandos
 
-São **35 tipos na outbox** e **três adicionais por chamada direta**, totalizando **38**. A troca do arquivo `cloud-sync.ts` sozinha deixaria operações presas no Supabase. [Fila][E04], [chamadas no estado][E11].
+São **35 tipos na outbox** e **três adicionais por chamada direta**, totalizando **38**. A troca do arquivo `cloud-sync.ts` sozinha deixaria operações presas no Supabase. Fila (`agrogest-app/apps/mobile/src/services/cloud-sync.ts#L12`), chamadas no estado (`agrogest-app/apps/mobile/src/state/app-state.tsx`).
 
 | Grupo | Comandos a preservar |
 | --- | --- |
@@ -206,9 +199,9 @@ Os três em negrito exigem caminho conectado e confirmação; gestão de pessoas
 
 ### Dados e mapa PostgreSQL → D1 → cache
 
-Há **23 tabelas privadas** nas migrations e **17 tabelas locais**, incluindo a outbox; parte do financeiro local usa documentos JSON em `finance_docs`. O schema SQLite está na versão **14**. [Schema][E02], [repositório][E03], [fundação][E07], [financeiro][E09], [centros][E10].
+Há **23 tabelas privadas** nas migrations e **17 tabelas locais**, incluindo a outbox; parte do financeiro local usa documentos JSON em `finance_docs`. O schema SQLite está na versão **14**. Schema (`agrogest-app/apps/mobile/src/db/schema.ts#L6`), repositório (`agrogest-app/apps/mobile/src/db/repo.ts#L66`), fundação (`agrogest-app/supabase/migrations/20261018222440_agrogest_foundation.sql#L265`), financeiro (`agrogest-app/supabase/migrations/20261022110210_finance_management.sql`), centros (`agrogest-app/supabase/migrations/20261027155902_cost_centers.sql`).
 
-| PostgreSQL de origem | D1 planejado | SQLite/semântica a preservar |
+| PostgreSQL de outubro | D1 planejado | SQLite/semântica a preservar |
 | --- | --- | --- |
 | `profiles`, relação com `auth.users` | Perfis de domínio e mapeamento de identidade; tabelas de Auth separadas | `users`; manter UUIDs ou mapa explícito, sem deduzir identidade pelo e-mail informado no cliente. |
 | `operations`, `memberships`, `farms` | Entidades relacionais com FK/escopo; adicionar revisão do agregado | Mesmas entidades; dono da operação, papéis e participações. |
@@ -223,21 +216,21 @@ Há **23 tabelas privadas** nas migrations e **17 tabelas locais**, incluindo a 
 
 Conversões explícitas: UUID → TEXT validado; JSONB → JSON textual validado/indexado; booleanos → inteiro/contrato booleano; `bigint` monetário → INTEGER com limite seguro do JavaScript; data econômica → `AAAA-MM-DD`; timestamp → UTC ISO; `numeric` de participação/quantidade → escala e arredondamento documentados. Quantidades hoje usam `roundQty` a três casas. Reproduzir ordenação por ocorrência/criação/desempate, normalização de nomes/documentos, índices parciais/expressões e FK composta `(farm_id, operation_id)`.
 
-Não converter as 18 migrations por substituição textual: há funções renomeadas `*_before_*`, validações sobrepostas e extensões de workspace. Produzir um schema D1 consolidado a partir do **estado final** e migrations novas, mantendo o SQL de origem como referência de paridade.
+Não converter as 18 migrations por substituição textual: há funções renomeadas `*_before_*`, validações sobrepostas e extensões de workspace. Produzir um schema D1 consolidado a partir do **estado final** e migrations novas, mantendo o SQL de outubro como referência de paridade.
 
 ### Cálculos e invariantes que não podem mudar silenciosamente
 
 | Regra encontrada | Evidência / aceite de preservação |
 | --- | --- |
-| Rateio pelo maior resto; parcelas conservam centavos | [Allocation][E15]. Soma exata, desempate estável, percentuais válidos; T01. |
-| GMD = diferença do peso médio entre base e última pesagem / dias | [Métricas][E16]. Sem base temporal válida retorna nulo; medido/estimado identificados; T02. GMD por grupo/pasto tem regras próprias, não é média arbitrária de grupos. |
-| Custo de lote por replay dos aprovados; compra + comissão + frete, apropriações e vendas parciais | [Métricas][E16]. Morte conserva custo nos remanescentes como premissa atual; venda retira custo proporcional; transferência conserva origem/capital; T03. |
-| Compra de estoque não vira custo integral dos lotes; consumo usa custo médio e rateio derivado | [Estoque][E28]. Última unidade absorve saldo de centavos; reservas, datas e ajustes respeitados; T03/T10. |
-| Competência é distinta de caixa; pagamento não redata a despesa | [Financeiro][E27], [relatórios][E17]. Parcela pendente/rejeitada não cria obrigação confirmada; estorno não apaga história; T03. |
-| Aluguel simbólico só altera resultado ajustado | [Métricas][E16]. Nenhuma conta/saída de caixa criada; T03. Rendimento de carcaça estimado continua uma premissa identificada, não medida por imagem. |
-| Realizado do orçamento soma despesas/NF aprovadas por ocorrência/categoria/escopo | [Orçamento][E17]. `varianceCents = actualCents - budgetCents`; pagamento e revisão visual não substituem aprovação; T17. |
-| Centro/agrupamento não duplica categoria/lote; reclassificação é documento separado | [Centros SQL][E10]. Competência e gastos pagos preservam base, rateio de juros/descontos e origem em cartão/renegociação; T03/T19. |
-| Projeções locais podem reservar baixas ainda não enviadas | [Financeiro][E27]: `SETTLING` inclui `aguardando_envio`; `CONFIRMED_PAYMENTS` contém só `efetivado`. Não confundir todos os números locais com confirmados; T12/T20. |
+| Rateio pelo maior resto; parcelas conservam centavos | Allocation (`agrogest-app/apps/mobile/src/domain/allocation.ts#L16`). Soma exata, desempate estável, percentuais válidos; T01. |
+| GMD = diferença do peso médio entre base e última pesagem / dias | Métricas (`agrogest-app/apps/mobile/src/domain/lot-metrics.ts#L134`). Sem base temporal válida retorna nulo; medido/estimado identificados; T02. GMD por grupo/pasto tem regras próprias, não é média arbitrária de grupos. |
+| Custo de lote por replay dos aprovados; compra + comissão + frete, apropriações e vendas parciais | Métricas (`agrogest-app/apps/mobile/src/domain/lot-metrics.ts#L134`). Morte conserva custo nos remanescentes como premissa atual; venda retira custo proporcional; transferência conserva origem/capital; T03. |
+| Compra de estoque não vira custo integral dos lotes; consumo usa custo médio e rateio derivado | Estoque (`agrogest-app/apps/mobile/src/domain/stock.ts`). Última unidade absorve saldo de centavos; reservas, datas e ajustes respeitados; T03/T10. |
+| Competência é distinta de caixa; pagamento não redata a despesa | Financeiro (`agrogest-app/apps/mobile/src/domain/finance.ts`), relatórios (`agrogest-app/apps/mobile/src/domain/reports.ts#L798`). Parcela pendente/rejeitada não cria obrigação confirmada; estorno não apaga história; T03. |
+| Aluguel simbólico só altera resultado ajustado | Métricas (`agrogest-app/apps/mobile/src/domain/lot-metrics.ts#L134`). Nenhuma conta/saída de caixa criada; T03. Rendimento de carcaça estimado continua uma premissa identificada, não medida por imagem. |
+| Realizado do orçamento soma despesas/NF aprovadas por ocorrência/categoria/escopo | Orçamento (`agrogest-app/apps/mobile/src/domain/reports.ts#L798`). `varianceCents = actualCents - budgetCents`; pagamento e revisão visual não substituem aprovação; T17. |
+| Centro/agrupamento não duplica categoria/lote; reclassificação é documento separado | Centros SQL (`agrogest-app/supabase/migrations/20261027155902_cost_centers.sql`). Competência e gastos pagos preservam base, rateio de juros/descontos e origem em cartão/renegociação; T03/T19. |
+| Projeções locais podem reservar baixas ainda não enviadas | Financeiro (`agrogest-app/apps/mobile/src/domain/finance.ts`): `SETTLING` inclui `aguardando_envio`; `CONFIRMED_PAYMENTS` contém só `efetivado`. Não confundir todos os números locais com confirmados; T12/T20. |
 | Calendário/fuso precisam ser explícitos no servidor | `dates.todayISO()` usa o fuso do runtime; o SQL possui `sao_paulo_today`. Injetar relógio/data de negócio no Worker, sem herdar UTC inadvertidamente; T01. |
 
 ## 4. Arquitetura: aplicação local e fronteira de inferência
@@ -313,7 +306,7 @@ No local, confirmação/redefinição de senha pode usar caixa de saída **local
 Autorização permanece por operação e papel. O Worker reconstrói ator, autoria, histórico, status e decisão a partir da sessão e do estado; não aceita esses campos enviados pelo aparelho como autoridade. Preservar:
 
 - Sócios gerenciam financeiro e vínculos; ninguém altera/remove o próprio acesso ou o do criador. Convite só vira vínculo após aceite pela conta correta.
-- Autor nunca aprova o próprio lançamento. Financeiros exigem outro sócio **quando há elegível**; sem elegível, o servidor pode efetivar após validação. Baixas/movimentos seguem a exceção auditável já implementada. O comentário de `approval.ts` sobre divergência com RF-16 está desatualizado; o RF-16 vigente já documenta a exceção. [Política][E25], [código][E18].
+- Autor nunca aprova o próprio lançamento. Financeiros exigem outro sócio **quando há elegível**; sem elegível, o servidor pode efetivar após validação. Baixas/movimentos seguem a exceção auditável já implementada. O comentário de `approval.ts` sobre divergência com RF-16 está desatualizado; o RF-16 vigente já documenta a exceção. Política (`agrogest-app/docs/REQUISITOS_PRODUTO.md#L281`), código (`agrogest-app/apps/mobile/src/domain/approval.ts#L18`).
 - Funcionário mantém visibilidade de campo e de seus próprios lançamentos conforme o contrato atual; valores de compra/venda/estoque e coleções financeiras de terceiros precisam da redação do servidor. Não basta esconder a aba Financeiro. Anexos de despesas não herdam automaticamente acesso genérico a informações de campo.
 - Toda referência a fazenda/lote/pasto/conta/centro precisa pertencer ao escopo autorizado; testar troca maliciosa de IDs mesmo quando o usuário participa de outra operação.
 - Revogação/rebaixamento limpa a projeção e anexos acessíveis no próximo contato, inclusive quando há comando negado na fila. Cache offline existente não pode ser apagado remotamente de um aparelho desconectado; documentar prazo de sessão/acesso e limite do cache sem criptografia própria, sem prometer revogação instantânea offline.
@@ -332,7 +325,7 @@ FK/uniques/CHECKs do D1 são defesa adicional, inclusive vínculos compostos ent
 
 ### Offline e troca de transporte
 
-Preservar o ciclo atual: gravação otimista + outbox na mesma transação SQLite; envio em ordem; `expectedVersion: after-previous` resolvido e congelado antes da entrega; ACK/versão + remoção da fila atômicos; substituição do snapshot apenas sem pendências e com nova checagem dentro da transação. [Sync][E04], [repositório][E03].
+Preservar o ciclo atual: gravação otimista + outbox na mesma transação SQLite; envio em ordem; `expectedVersion: after-previous` resolvido e congelado antes da entrega; ACK/versão + remoção da fila atômicos; substituição do snapshot apenas sem pendências e com nova checagem dentro da transação. Sync (`agrogest-app/apps/mobile/src/services/cloud-sync.ts#L12`), repositório (`agrogest-app/apps/mobile/src/db/repo.ts#L66`).
 
 Criar uma interface de transporte para comando/workspace e migrar **todos** os call sites diretos, Auth/telas e flags. Manter serialização de tarefas por banco/conta, timers/listeners com cleanup e proteção contra resposta antiga após logout/troca de conta. Erro de negócio não gera descarte automático da fila; oferecer resolução explícita do comando bloqueador.
 
@@ -346,7 +339,7 @@ Preservação do banco/outbox: acrescentar versão de protocolo e identidade do 
 
 ### Recorte e persistência
 
-Usar **recibo de serviço/despesa operacional simples**, inicialmente imagem JPEG/PNG de uma página, sem compra para estoque, parcelamento novo ou recorrência. O módulo de NF permanece com seu bloqueio. O importador é uma entrada para o formulário `novo/despesa`, cujo dispatch e validações existentes serão aproveitados. [Formulário][E12]. PDF/HEIC exigem conversão local validada; não anunciar suporte automático no primeiro aceite.
+Usar **recibo de serviço/despesa operacional simples**, inicialmente imagem JPEG/PNG de uma página, sem compra para estoque, parcelamento novo ou recorrência. O módulo de NF permanece com seu bloqueio. O importador é uma entrada para o formulário `novo/despesa`, cujo dispatch e validações existentes serão aproveitados. Formulário (`agrogest-app/apps/mobile/src/app/novo/despesa.tsx#L145`). PDF/HEIC exigem conversão local validada; não anunciar suporte automático no primeiro aceite.
 
 1. Capturar/selecionar **bytes reais**, identificar tipo, tamanho e hash; persistir a cópia local por backend/conta antes de depender de rede. URI temporária do picker/estado React não garante reabertura. No nativo, usar armazenamento persistente de arquivos; no web, OPFS/IndexedDB para blobs e metadados no SQLite, com quota/falhas tratadas.
 2. Criar documento privado e subir ao **R2 local** via Worker, com ID estável e retry. D1 registra operação, autor, hash, tipo, tamanho e estado. Propor inicialmente limite de 8 MiB/20 megapixels por imagem, validado no código e na UI; são limites de produto propostos, não limites declarados da Cloudflare.
@@ -370,7 +363,7 @@ A inspeção de hardware da **primeira análise**, preservada como fotografia, e
 | Tesseract LSTM + `por` | Engine neural de OCR, sem interpretação gerencial. [Uso oficial](https://tesseract-ocr.github.io/tessdoc/Command-Line-Usage.html), [projeto Apache-2.0](https://github.com/tesseract-ocr/tesseract) e [dados de idioma](https://github.com/tesseract-ocr/tessdata_fast). | CPU; binário já disponível, dados de português ainda necessários. Pré-processamento/rotação e parser local são componentes distintos. | Baseline de baixo esforço, não obrigação de mantê-lo se as fotos falharem. Nenhum acerto/tempo foi medido no corpus. |
 | **`PaddlePaddle/PP-OCRv5_mobile_det` + `PaddlePaddle/latin_PP-OCRv5_mobile_rec`** | Cards do [detector](https://huggingface.co/PaddlePaddle/PP-OCRv5_mobile_det) e do [reconhecedor](https://huggingface.co/PaddlePaddle/latin_PP-OCRv5_mobile_rec) declaram **Apache-2.0**. Detecção de regiões + reconhecimento de linhas; não basta baixar apenas o reconhecedor. | Cards oferecem CPU/GPU via PaddlePaddle/PaddleOCR. Fixar versões suportadas em ambiente isolado, paths de todos os pesos e limites de imagem; não presumir wheels para Python 3.14. | **Primeiro candidato do Hub para OCR local**. Português consta na [tabela oficial multilíngue](https://github.com/PaddlePaddle/PaddleOCR/blob/main/docs/version3.x/algorithm/PP-OCRv5/PP-OCRv5_multi_languages.en.md). O card latino contém título/texto inconsistentes sobre `server_rec`/coreano: usar a identidade dos pesos e validar no corpus, sem tratar exemplos do card como garantia. |
 | **`PaddlePaddle/PaddleOCR-VL-1.6`** | [Card e LICENSE Apache-2.0](https://huggingface.co/PaddlePaddle/PaddleOCR-VL-1.6); modelo especializado em documentos, com reconhecimento de texto/layout/elementos. A versão 1.5 aponta a 1.6 como sucessora. | Metadados indicam 958.588.736 parâmetros BF16: aproximadamente **1,92 GB só de pesos a dois bytes/parâmetro**, cálculo de ordem de grandeza, não requisito de VRAM. Somam-se buffers, ativações e componentes de layout. Card indica PaddleOCR `doc-parser` e alternativa Transformers 5; validar o ambiente e o pipeline completo. | **Segundo candidato local se OCR compacto não bastar**. O autor relata 96,33 no OmniDocBench v1.6; é benchmark de parsing do autor, **não acurácia de recibos brasileiros nem resultado do AgroGest**. Medir os campos da despesa e custo total de instalação/uso. |
-| `Qwen/Qwen2.5-VL-3B-Instruct` | O [LICENSE do próprio modelo](https://huggingface.co/Qwen/Qwen2.5-VL-3B-Instruct/blob/66285546d2b821cf421d4f5eb2576359d3770cd3/LICENSE) é **Qwen Research License**, com uso não comercial e necessidade de licença para uso comercial. Não herdar a licença Apache do código/runtime. | Metadados: cerca de 3,75 bilhões de parâmetros BF16, aproximadamente **7,51 GB só de pesos**, antes de buffers/contexto; isso supera a VRAM livre da fotografia anterior. Quantização/offload muda o cenário e exige teste próprio, incluindo processador visual. | Mantido como alternativa de pesquisa, **não padrão de passagem ao amigo**. A escolha acadêmica não resolve licença de eventual operação comercial. Não presumir qualidade de campos/português a partir de demonstrações gerais. |
+| `Qwen/Qwen2.5-VL-3B-Instruct` | O [LICENSE do próprio modelo](https://huggingface.co/Qwen/Qwen2.5-VL-3B-Instruct/blob/66285546d2b821cf421d4f5eb2576359d3770cd3/LICENSE) é **Qwen Research License**, com uso não comercial e necessidade de licença para uso comercial. Não herdar a licença Apache do código/runtime. | Metadados: cerca de 3,75 bilhões de parâmetros BF16, aproximadamente **7,51 GB só de pesos**, antes de buffers/contexto; isso supera a VRAM livre da fotografia anterior. Quantização/offload muda o cenário e exige teste próprio, incluindo processador visual. | Mantido como alternativa de pesquisa, **não padrão de passagem ao responsável**. A escolha acadêmica não resolve licença de eventual operação comercial. Não presumir qualidade de campos/português a partir de demonstrações gerais. |
 
 Revisões do Hub consultadas: detector `0d63e78e2b680928f6b1747d76a08db6e645efb7`; reconhecedor latino `ab2cd5cc5fa6309be2e5acdfe66eca2c2c127d57`; PaddleOCR-VL-1.6 `132c45f52c0a26ed5a6b2f6bd8e3985794cc27dd`; Qwen `66285546d2b821cf421d4f5eb2576359d3770cd3`. Fixar revisão/licença e hash dos pesos efetivamente baixados no experimento; não usar apenas `main`. Licença dos pesos, licença do runtime e licença da base AgroGest são coisas distintas.
 
@@ -398,11 +391,11 @@ Interface conceitual `DocumentExtractionProvider`: recebe ID/hash, bytes de imag
 
 ### Contas, credenciais e passagem da manutenção
 
-| Responsabilidade | Agora | Passagem para o amigo |
+| Responsabilidade | Agora | Passagem para o responsável |
 | --- | --- | --- |
-| Código da faculdade | Repositório independente local, origem/autor/commit registrados; sem novo remoto definido. | Escolher proprietário/nome/visibilidade antes de publicar. Entregar commits/manifesto/documentação, não um fork ou push na origem. |
-| Hospedagem e dados da aplicação | Worker/D1/R2/Assets locais; sem conta cloud de hospedagem escolhida, dados sintéticos locais. | **Preferência de governança:** amigo controla futura hospedagem/dados e orçamento. Hospedagem temporária na conta do usuário é alternativa ainda não escolhida; exige decisão de destino, acesso, exportação/restauração e autorização de deploy próprias. |
-| Inferência temporária | Workers AI do usuário, ou OpenRouter com sua chave, somente pelo backend local e no escopo autorizado. | Amigo configura chave/conta próprias e repete o teste pequeno; não recebe a credencial temporária do usuário. A troca não altera IDs de produtor/operação, regras ou DB. |
+| Código da faculdade | Repositório público do projeto; sem novo remoto definido. | Escolher proprietário/nome/visibilidade antes de publicar. Entregar commits e documentação. |
+| Hospedagem e dados da aplicação | Worker/D1/R2/Assets locais; sem conta cloud de hospedagem escolhida, dados sintéticos locais. | **Preferência de governança:** o responsável controla a futura hospedagem/dados e orçamento. Hospedagem temporária na conta do usuário é alternativa ainda não escolhida; exige decisão de destino, acesso, exportação/restauração e autorização de deploy próprias. |
+| Inferência temporária | Workers AI do usuário, ou OpenRouter com sua chave, somente pelo backend local e no escopo autorizado. | O responsável configura chave/conta próprias e repete o teste pequeno; não recebe a credencial temporária do usuário. A troca não altera IDs de produtor/operação, regras ou DB. |
 | Auth do aplicativo | Identidade de sócios/funcionários conforme B05; é diferente da conta Cloudflare/OpenRouter que paga inferência. | Preservar autenticação/isolamento do domínio, independentemente de quem financia o modelo. |
 | Pesos locais | Configurar ID, revisão, diretório e licença; sem pesos no Git. | Documentar download/reprodução e recursos mínimos medidos; manter notices/licenças aplicáveis. Não presumir licença comercial por uso acadêmico. |
 
@@ -412,7 +405,7 @@ Valores privados ficam em `.dev.vars`/`config/.env.local` ignorados pelo Git ou 
 
 Verificação desta revisão: variáveis esperadas de token/chave não estavam presentes no processo, e não há configuração privada desta adaptação criada. Nenhum outro perfil/cofre foi inspecionado. **Dependência registrada**, não bloqueio da análise: fornecer configuração por canal seguro antes de executar B02/T22; não colar chaves na conversa/documentos. Não houve tentativa de autenticação, consulta de saldo/conta ou inferência.
 
-Aceite da passagem: pessoa responsável usa a cópia sem chave do usuário, escolhe o próprio perfil, executa dois documentos sintéticos e vê resultado/revisão/indicador; logs/bundle/Git não contêm segredos nem IDs pessoais fixos. Só depois de validar o novo ambiente, o usuário poderá revogar suas chaves temporárias. Não mover credenciais nem operar contas para concluir este plano.
+Aceite da passagem: pessoa responsável usa o repositório sem chave do usuário, escolhe o próprio perfil, executa dois documentos sintéticos e vê resultado/revisão/indicador; logs/bundle/Git não contêm segredos nem IDs pessoais fixos. Só depois de validar o novo ambiente, o usuário poderá revogar suas chaves temporárias. Não mover credenciais nem operar contas para concluir este plano.
 
 ## 6. Backlog priorizado, dependências e condição de conclusão
 
@@ -420,7 +413,7 @@ A preparação de repositório **B00 está concluída** nesta revisão; os demai
 
 | ID / prioridade / porte | Trabalho e valor | Depende de | Saída/aceite objetivo |
 | --- | --- | --- | --- |
-| B00 — P0 / pequeno — concluído | Clone público externo + snapshot independente no Git existente; autoria, commit e manifesto registrados; original, documentos e metadata preservados. | Atualização do usuário | 421 arquivos importados, sem Git aninhado/remote no destino, sem fork/push/novo remoto. T23 verifica preservação e proveniência. |
+| B00 — P0 / pequeno — concluído | Repositório do projeto preparado com o app em `agrogest-app/`, documentos e log TAP preservados. | Atualização do usuário | App presente, sem Git aninhado e sem novo remoto. T23 verifica a preparação. |
 | B01 — P0 / médio | Fundação local: versões fixas, D1/R2/Assets locais, persistência única, perfis de rede e scripts que não provisionam. | B00 | T18/T21; boot do app/dados sem chave cloud; inferência remota opcional por REST explicitamente autorizado, sem binding remoto de dados/arquivos. |
 | B02 — P0 / POC curta | Comparar OCR local/Hugging Face com Workers AI e alternativa OpenRouter; definir pesos/licença ou modelo/endpoint remoto, orçamento e corpus. Preferência local não bloqueia remoto adequado. | B00; configuração segura para chamada remota | T15/T16/T22; dois documentos distintos, ausências/falha reconhecidas, campos/latência/recursos/uso medidos. Timebox inicial local de meio dia útil; testar remoto pequeno quando configurado, sem baixar modelos grandes por tentativa. |
 | B03 — P0 / POC curta | Provar atomicidade/concorrência D1 para comando, revisão, saldo e ledger. Maior risco de integridade. | B01 | T08–T10: perda de resposta, duas escritas concorrentes, falha intermediária e reuso indevido de ID sem efeitos parciais. Timebox inicial: meio a um dia útil. |
@@ -435,7 +428,7 @@ A preparação de repositório **B00 está concluída** nesta revisão; os demai
 | B12 — P0 / médio | Integração e regressão: testes originais inclusive PGlite local quando dependência preparada; casos D1/R2/cliente, provedor e comparação de snapshots. | Incremental desde B03; fechamento após B10/B11 | T01–T24 nos escopos entregues; zero falhas críticas de integridade/acesso; separar unitário, emulação, inferência real e hospedagem do app. |
 | B13 — P1 / médio | Validação com produtor/operador, acessibilidade, documentação de público/benefícios e custos. | Baseline manual pode começar antes; fluxo B10 para comparação | V1–V4/T20; medições autorizadas sem dados pessoais no vídeo, limitações e sustentabilidade registradas. |
 | B14 — P0 / médio | Demo/pitch e documentação da adaptação: arquitetura, setup local, regras preservadas, limitações e contribuição da equipe. | B10/B12; V1–V4 conforme disponibilidade | Roteiro de até 5 minutos com resultados e limites; arquivo de link preparado no prazo. Publicação externa é etapa futura, não ação autorizada agora. |
-| B15 — P0 / médio | Perfis de provedor, credenciais separadas e passagem ao amigo. Exemplo ignorável/sem segredos já preparado; adapters e verificação continuam pendentes. | B01/B02 | T18/T24; apenas backend usa chaves, conta de inferência não vira conta de hospedagem, troca por configuração não muda domínio/dados e não depende do segredo do usuário. |
+| B15 — P0 / médio | Perfis de provedor, credenciais separadas e passagem ao responsável. Exemplo ignorável/sem segredos já preparado; adapters e verificação continuam pendentes. | B01/B02 | T18/T24; apenas backend usa chaves, conta de inferência não vira conta de hospedagem, troca por configuração não muda domínio/dados e não depende do segredo do usuário. |
 
 **Caminho crítico do fluxo mínimo:** B00 concluído → B01/B03/B05/B06 → B07/B08/B09 → B10 → B12/B14, com B02 antecipando o risco de IA, B04 sustentando paridade e B15 isolando configuração/contas. Sem credenciais, avançar os demais itens e os testes locais de contrato; não fabricar inferência para fechar B02/T22. A sequência representa dependências técnicas, não presume equipe adicional ou execução por subagentes.
 
@@ -453,7 +446,7 @@ P1 significa prioridade relativa ao fluxo da GS, não dispensa preservar o domí
 
 Usar inicialmente o snapshot integral existente, com validação estrita de versão/coleções. A leitura deve ser consistente em relação às revisões e permissões; múltiplas consultas sem checagem podem produzir um snapshot misturado. Caso tamanho/duração exijam paginação, completá-la antes de substituir o cache em transação. Ausência de uma coleção por erro/incompatibilidade não significa autorização para apagá-la.
 
-PGlite poderá funcionar como **oráculo local** do SQL de origem para fixtures de comandos; não é substituto do teste no D1. Portar os cenários úteis das cinco suítes de banco para o destino e comparar resultados/erros/visibilidade, sem tentar executar PLpgSQL no SQLite.
+PGlite poderá funcionar como **oráculo local** do SQL de outubro para fixtures de comandos; não é substituto do teste no D1. Portar os cenários úteis das cinco suítes de banco para o destino e comparar resultados/erros/visibilidade, sem tentar executar PLpgSQL no SQLite.
 
 ## 8. Fixtures e critérios/testes de aceite
 
@@ -494,8 +487,8 @@ Os IDs T/V abaixo são **aceites futuros de implementação**, não uma lista de
 | T20 — uso/acessibilidade | Tarefa no web a 320/390 px e desktop, teclado, foco/leitor, zoom, contraste, movimento reduzido, falha de câmera e identificação de pendências. | Usuário conclui com alternativa manual e entende revisão, aprovação, salvo local e confirmado no backend local; dados de outro papel não aparecem. Não declarar conformidade integral sem auditoria. |
 | T21 — persistência/recuperação | Reiniciar Worker, processo OCR e cliente; executar novamente migrations/fixtures idempotentes apropriados; restaurar backup local. | Mesmos IDs/valores/status/anexos e nenhuma repetição de efeitos; persistência usa o mesmo estado local. Inferência remota indisponível não apaga dados nem simula sucesso. |
 | T22 — inferência cloud real | Com parâmetros/credenciais seguros configurados, enviar dois documentos sintéticos ao provedor autorizado pelo backend local; testar indisponibilidade/erro e completar revisão→despesa→indicador. | Registro seguro de provedor/modelo, request ID quando disponível, horário, entrada/saída de teste, uso/latência e local/cloud. Demonstração identifica nuvem só na inferência; nenhuma publicação do app. Sem credenciais/call, status permanece não executado. |
-| T23 — repositório independente | Verificar HEAD/config/index próprios, hashes do manifesto, ausência de Git aninhado, remotes e bloqueio de push do clone de proveniência. | App importado do commit correto sem alterar código/lockfiles; documentos e TAP anteriores preservados; `.gitignore` ampliado é mudança declarada; sem fork/push/remoto novo ou perda de histórico. |
-| T24 — credenciais e manutenção | Inspecionar configuração/bundle/logs sem revelar valores; usar perfil vazio, perfil do usuário e depois configuração própria do amigo em teste autorizado. | Segredo só no backend, exemplo público vazio, arquivos privados ignorados; ausência de chave gera dependência/erro, não mock; troca de conta de inferência não muda IDs/dados/permissões nem exige credencial de deploy. |
+| T23 — repositório | Verificar HEAD/config/index, ausência de Git aninhado e remotes. | `.gitignore` ampliado é mudança declarada; sem remoto novo ou perda de histórico. |
+| T24 — credenciais e manutenção | Inspecionar configuração/bundle/logs sem revelar valores; usar perfil vazio, perfil do usuário e depois configuração própria do responsável em teste autorizado. | Segredo só no backend, exemplo público vazio, arquivos privados ignorados; ausência de chave gera dependência/erro, não mock; troca de conta de inferência não muda IDs/dados/permissões nem exige credencial de deploy. |
 
 ### Prova de infraestrutura local e rede de inferência autorizada
 
@@ -524,7 +517,7 @@ Relatórios separam **unitário com substituições**, **integração/emulação
 | R07 — alto: extrator inadequado/instalação consumir prazo | Português não instalado, wheels/VRAM não validados; licença do Qwen 3B não é Apache. Remoto também não teve medição própria. | B02 com timebox, corpus/qualidade e licença de continuidade. Workers AI é opção autorizada; OpenRouter é alternativa explícita, sem fallback oculto ou obrigação de insistir em local inadequado. |
 | R08 — alto: anexos perdidos ou vazados | Hoje só URI temporária/metadados; nova relação D1/R2 não é uma transação distribuída. | Persistência local, upload retomável, acesso pelo Worker, reconciliação e T06/T12/T14. |
 | R09 — alto: confundir rascunho/projeção com efeito econômico | Revisão de IA, pendência de sync, aprovação e baixas são estados distintos; algumas projeções reservam valores pendentes. | T03/T04/T17/T20, indicadores confirmados e rótulos claros; nenhuma autoaprovação pelo modelo. |
-| R10 — alto: autoria/reaproveitamento/publicação | Origem é do amigo e não foi localizado LICENSE/LICENCE/COPYING; cópia acadêmica independente agora está preparada. | Atribuição/commit/manifesto registrados e upstream isolado. Definir condições de colaboração e destino/nome/visibilidade antes de publicação; nunca push na origem. |
+| R10 — alto: autoria/publicação | Não foi localizado LICENSE/LICENCE/COPYING no app. | Definir condições de colaboração e destino/nome/visibilidade antes de publicação. |
 | R11 — médio: métricas de utilidade não obtidas | Código/testes não provam demanda, adoção ou benefício ao pequeno produtor. | V1–V4; resultados sintéticos/expectativas identificados, sem percentuais inventados. |
 | R12 — médio: documentos históricos contraditórios | Primeiro plano proibia inferência remota; documentos originais também descrevem Supabase e outros recortes/contratos. | Atualização do usuário e esta revisão governam o trabalho. Preservar histórico/114 testes, sem transformar permissões, pesquisa ou mocks em resultado executado; atualizar guias responsáveis ao implementar. |
 | R13 — alto: credencial/custo ou troca de provedor não controlados | Nenhuma chave de inferência esperada está configurada no processo; timeout/retry pode consumir novamente; routing pode mudar endpoint/preço. | Perfis B15, limites por rodada e endpoint explícito, logs sem segredo e teste T24. Ausência de configuração vira dependência, não teste inventado ou nova proibição de IA remota. |
@@ -537,7 +530,7 @@ Decisões pendentes com gatilho claro:
 - **Público/piloto:** validar perfil e tarefa; se não houver participante disponível, publicar apenas teste controlado identificado, sem alegar piloto de campo.
 - **Paridade até o prazo:** se B11 não terminar, relatar catálogo restante e funcionalidades temporariamente indisponíveis; não chamar a solução de totalmente migrada.
 - **Cloud/entrega externa:** inferência Workers AI/OpenRouter do usuário já está autorizada; faltam parâmetros/credenciais seguros para testar. Infraestrutura/hospedagem remota do aplicativo e publicação de repositório/vídeo são ações separadas, fora desta preparação; não publicar para conseguir chamar IA.
-- **Hospedagem futura:** amigo como responsável por dados/manutenção é a preferência; ambiente temporário do usuário é possibilidade ainda não escolhida. Documentar conta de hosting e plano de passagem separadamente da conta temporária de inferência, antes de qualquer deploy.
+- **Hospedagem futura:** um responsável indicado por dados/manutenção é a preferência; ambiente temporário do usuário é possibilidade ainda não escolhida. Documentar conta de hosting e plano de passagem separadamente da conta temporária de inferência, antes de qualquer deploy.
 
 ## 10. Indicadores de impacto e método de validação
 
@@ -560,7 +553,7 @@ Planejamento sugerido, condicionado às POCs e capacidade disponível, sem prome
 
 | Datas | Marco e decisão |
 | --- | --- |
-| 06/11 | Primeira análise/114 testes preservados; política de IA corrigida, cópia independente e plano revisado preparados. Corpus e testes de inferência continuam pendentes. |
+| 06/11 | Primeira análise/114 testes preservados; política de IA corrigida, repositório e plano revisado preparados. Corpus e testes de inferência continuam pendentes. |
 | 07–08/11 | B01–B05/B15: laboratório, POCs D1/Auth, comparação de extratores/provedores e configuração segura. Se local não for adequado, testar IA remota autorizada quando configurada; sem comprometer integridade ou inventar resultado. |
 | 09–11/11 | Núcleo D1/Worker, transporte, web local e documentos; atingir a primeira despesa revisada/aprovada com indicador correto. |
 | 12–14/11 | Integração, falhas/recuperação, paridade dos demais módulos priorizados e primeiro teste de uso. B11 é grande e pode ultrapassar a janela; manter pendências explícitas. |
@@ -579,9 +572,9 @@ Ficam fora da demo: habilitação completa de NF, emissão/arquivamento fiscal, 
 
 ### Baseline da primeira análise, preservada nesta revisão
 
-Na primeira análise, a origem foi lida do clone `/tmp/gs-final-fiap-agrogest-20261106`, com `HEAD` conferido no commit fixado. Fontes de texto foram copiadas para `/tmp/agrogest-audit-local-20261106-8vctfe6a/agrogest-app` para os testes. **Naquela etapa** o app não estava neste workspace. Nesta revisão ele foi importado por snapshot independente do mesmo commit, sem migração funcional; o resultado anterior não foi reexecutado/alterado.
+Na primeira análise, os arquivos de texto da versão de outubro foram copiados para `/tmp/agrogest-audit-local-20261106-8vctfe6a/agrogest-app` para os testes. **Naquela etapa** o app não estava neste workspace. Nesta revisão ele foi incorporado sem migração funcional; o resultado anterior não foi reexecutado/alterado.
 
-Com Node `v24.22.2`, foram executados os arquivos abaixo a partir dessa cópia, com o loader original `tests/resolve-ts.mjs`, `node --test --test-reporter=tap` e isolamento `unshare -Urn`. Não houve instalação de dependências, início de servidor ou inferência.
+Com Node `v24.22.2`, foram executados os arquivos abaixo a partir dessa cópia, com o loader `tests/resolve-ts.mjs`, `node --test --test-reporter=tap` e isolamento `unshare -Urn`. Não houve instalação de dependências, início de servidor ou inferência.
 
 | Arquivos existentes executados |
 | --- |
@@ -592,17 +585,14 @@ Com Node `v24.22.2`, foram executados os arquivos abaixo a partir dessa cópia, 
 
 Resultado: **114 testes, 114 aprovados, 0 falhas, 0 cancelados, 0 ignorados**. Tempo reportado pelo runner: aproximadamente 206 ms; é execução de teste com fixtures, não benchmark de usuário, OCR ou aplicação. [Log TAP preservado](<../arquivo/pesquisas/Agrogest Cloudflare local/baseline-local-20261106.tap>), SHA-256 `3da4b0e25e5b3029cade1b8dda159e714fa3a0ecd9692b55d0926e1fca885368`.
 
-Para reproduzir, usar uma cópia local dos mesmos arquivos do commit, Node 24 compatível e executar os 16 arquivos com `node --import ./tests/resolve-ts.mjs --test --test-reporter=tap`, dentro do mesmo isolamento de rede. A seleção usada excluiu os arquivos que importam `@electric-sql/pglite`, dependência não instalada nessa cópia. Não executar `hosted-smoke.mjs`: ele escreve no backend selecionado e não integra esta validação.
+Para reproduzir, usar uma cópia local dos mesmos arquivos, Node 24 compatível e executar os 16 arquivos com `node --import ./tests/resolve-ts.mjs --test --test-reporter=tap`, dentro do mesmo isolamento de rede. A seleção usada excluiu os arquivos que importam `@electric-sql/pglite`, dependência não instalada nessa cópia. Não executar `hosted-smoke.mjs`: ele escreve no backend selecionado e não integra esta validação.
 
 As cinco suítes **não executadas** são `database.test.mjs`, `finance-database.test.mjs`, `finance-management-database.test.mjs`, `stock-database.test.mjs` e `cost-centers-database.test.mjs`. O loader usa stripping nativo de TypeScript; não substitui typecheck. Testes de sync substituem as respostas Supabase; testes de Auth verificam contratos com substituições, não um servidor de identidade. Nenhum teste rodado comprova aplicação de migration PostgreSQL ou D1.
 
-Na entrega anterior foram conferidos links/âncoras, referências do commit, catálogo dos 38 comandos, TAP e whitespace. Nesta revisão, a validação acrescenta integridade da cópia, preservação da metadata/histórico próprio, ausência de Git aninhado/remotes no destino e ignore de configuração privada. Código/runtime/lockfiles não foram modificados: não houve nova instalação, lint, typecheck, execução de testes de app ou exportação nesta revisão.
+Na entrega anterior foram conferidos links/âncoras, catálogo dos 38 comandos, TAP e whitespace. Nesta revisão, a validação acrescenta preservação da metadata/histórico, ausência de Git aninhado e ignore de configuração privada. Código/runtime/lockfiles não foram modificados: não houve nova instalação, lint, typecheck, execução de testes de app ou exportação nesta revisão.
 
 ### Evidências adicionais desta revisão
 
-- [Origem e decisão de preservação dos históricos](../arquivo/ORIGEM.md): clone público externo, snapshot e Git de destino próprios, sem fork/push/publicação.
-- [Manifesto dos 421 arquivos importados](<../arquivo/pesquisas/Agrogest Cloudflare local/importacao-base-20261106.json>): hashes da base antes da extensão declarada do `.gitignore`; os 418 arquivos do app permanecem iguais.
-- [Verificação da cópia e da preservação](<../arquivo/pesquisas/Agrogest Cloudflare local/verificacao-copia-20261106.json>): 420 arquivos importados idênticos, uma alteração declarada no `.gitignore`, nenhum Git aninhado/remote no destino e metadata/documentos/TAP anteriores preservados.
 - [Fontes e metadados da comparação de IA](<../arquivo/pesquisas/Agrogest Cloudflare local/comparacao-ia-fontes-20261106.json>): cinco cards do Hub, revisões/licenças/hashes, catálogo público OpenRouter e fontes oficiais. O arquivo registra **zero chamadas de inferência, zero pesos baixados, zero consultas de conta/saldo e zero deploys** nesta revisão.
 - [Exemplo de configuração de provedor](../arquivo/inference.env.example): valores secretos vazios, perfis separados, limites propostos e contrato ainda não consumido pelo runtime.
 
@@ -612,49 +602,18 @@ Todos os links de código abaixo estão fixados no commit auditado. O código fi
 
 | Evidência | Arquivo/trecho responsável |
 | --- | --- |
-| E01 | [Manifesto mobile e versões][E01] |
-| E02 / E03 | [Schema SQLite v14][E02] e [snapshot, controle de acesso e persistência][E03] |
-| E04 / E05 / E06 | [Outbox/ACK/workspace][E04], [cliente Supabase/token][E05] e [estado de Auth][E06] |
-| E07 / E08 / E09 / E10 | [Fundação SQL][E07], [replay/visibilidade de estoque][E08], [gestão financeira SQL][E09] e [centros/classificação][E10] |
-| E11 / E12 | [Ações e coordenação do estado][E11] e [formulário/dispatch de despesa][E12] |
-| E13 / E14 | [Mock de extração][E13] e [captura/chamada/bloqueio de NF][E14] |
-| E15 / E16 / E17 | [Rateio][E15], [métricas de lote][E16] e [orçamento][E17] |
-| E18 / E19 / E20 | [Elegibilidade/aprovação][E18], [workflow/sync simulado][E19] e [projeções autorizadas do cliente][E20] |
-| E21 / E22 / E23 / E24 | [Config Expo web][E21], [Metro/headers][E22], [mapa/CDN/tiles][E23] e [geocodificação externa][E24] |
-| E25 / E26 / E27 / E28 | [Regras/RF-16 vigente][E25], [tipos][E26], [domínio financeiro][E27] e [domínio de estoque][E28] |
-| E29 / E30 | [Gestão de pessoas][E29] e [transferência de lote][E30] |
+| E01 | Manifesto mobile e versões (`agrogest-app/apps/mobile/package.json`) |
+| E02 / E03 | Schema SQLite v14 (`agrogest-app/apps/mobile/src/db/schema.ts#L6`) e snapshot, controle de acesso e persistência (`agrogest-app/apps/mobile/src/db/repo.ts#L66`) |
+| E04 / E05 / E06 | Outbox/ACK/workspace (`agrogest-app/apps/mobile/src/services/cloud-sync.ts#L12`), cliente Supabase/token (`agrogest-app/apps/mobile/src/services/supabase.ts#L6`) e estado de Auth (`agrogest-app/apps/mobile/src/state/auth-state.tsx#L34`) |
+| E07 / E08 / E09 / E10 | Fundação SQL (`agrogest-app/supabase/migrations/20261018222440_agrogest_foundation.sql#L265`), replay/visibilidade de estoque (`agrogest-app/supabase/migrations/20261021093555_stock.sql`), gestão financeira SQL (`agrogest-app/supabase/migrations/20261022110210_finance_management.sql`) e centros/classificação (`agrogest-app/supabase/migrations/20261027155902_cost_centers.sql`) |
+| E11 / E12 | Ações e coordenação do estado (`agrogest-app/apps/mobile/src/state/app-state.tsx`) e formulário/dispatch de despesa (`agrogest-app/apps/mobile/src/app/novo/despesa.tsx#L145`) |
+| E13 / E14 | Mock de extração (`agrogest-app/apps/mobile/src/services/nf-extraction.ts#L48`) e captura/chamada/bloqueio de NF (`agrogest-app/apps/mobile/src/app/novo/nota-fiscal.tsx#L100`) |
+| E15 / E16 / E17 | Rateio (`agrogest-app/apps/mobile/src/domain/allocation.ts#L16`), métricas de lote (`agrogest-app/apps/mobile/src/domain/lot-metrics.ts#L134`) e orçamento (`agrogest-app/apps/mobile/src/domain/reports.ts#L798`) |
+| E18 / E19 / E20 | Elegibilidade/aprovação (`agrogest-app/apps/mobile/src/domain/approval.ts#L18`), workflow/sync simulado (`agrogest-app/apps/mobile/src/domain/workflow.ts#L190`) e projeções autorizadas do cliente (`agrogest-app/apps/mobile/src/state/workspace-selectors.ts#L19`) |
+| E21 / E22 / E23 / E24 | Config Expo web (`agrogest-app/apps/mobile/app.json`), Metro/headers (`agrogest-app/apps/mobile/metro.config.js`), mapa/CDN/tiles (`agrogest-app/apps/mobile/src/components/farm-map/map-html.ts#L13`) e geocodificação externa (`agrogest-app/apps/mobile/src/services/geocoding.ts#L54`) |
+| E25 / E26 / E27 / E28 | Regras/RF-16 vigente (`agrogest-app/docs/REQUISITOS_PRODUTO.md#L281`), tipos (`agrogest-app/apps/mobile/src/domain/types.ts`), domínio financeiro (`agrogest-app/apps/mobile/src/domain/finance.ts`) e domínio de estoque (`agrogest-app/apps/mobile/src/domain/stock.ts`) |
+| E29 / E30 | Gestão de pessoas (`agrogest-app/supabase/migrations/20261021100516_people_management.sql`) e transferência de lote (`agrogest-app/supabase/migrations/20261019160345_transfer_lot.sql`) |
 
 ### Condição de conclusão deste plano
 
-Política atualizada, cópia independente, comparação de modelos/provedores, estratégia de contas/passagem e critérios de rede estão registrados. A análise de domínio e os 114 testes anteriores foram preservados. **Implementação da migração e testes de inferência continuam pendentes.** Próximo trabalho: POCs/fundação local e experimento pequeno de IA com provedor/configuração autorizados, sem deploy. Pesquisa, cópia e autorização não são prova de OCR integrado, cloud executada, impacto em campo ou migração concluída.
-
-[E01]: https://github.com/freitasbtw/agrogest/blob/7f0bb66d764eadc8f48be016280414d77a1d4799/agrogest-app/apps/mobile/package.json
-[E02]: https://github.com/freitasbtw/agrogest/blob/7f0bb66d764eadc8f48be016280414d77a1d4799/agrogest-app/apps/mobile/src/db/schema.ts#L6
-[E03]: https://github.com/freitasbtw/agrogest/blob/7f0bb66d764eadc8f48be016280414d77a1d4799/agrogest-app/apps/mobile/src/db/repo.ts#L66
-[E04]: https://github.com/freitasbtw/agrogest/blob/7f0bb66d764eadc8f48be016280414d77a1d4799/agrogest-app/apps/mobile/src/services/cloud-sync.ts#L12
-[E05]: https://github.com/freitasbtw/agrogest/blob/7f0bb66d764eadc8f48be016280414d77a1d4799/agrogest-app/apps/mobile/src/services/supabase.ts#L6
-[E06]: https://github.com/freitasbtw/agrogest/blob/7f0bb66d764eadc8f48be016280414d77a1d4799/agrogest-app/apps/mobile/src/state/auth-state.tsx#L34
-[E07]: https://github.com/freitasbtw/agrogest/blob/7f0bb66d764eadc8f48be016280414d77a1d4799/agrogest-app/supabase/migrations/20261018222440_agrogest_foundation.sql#L265
-[E08]: https://github.com/freitasbtw/agrogest/blob/7f0bb66d764eadc8f48be016280414d77a1d4799/agrogest-app/supabase/migrations/20261021093555_stock.sql
-[E09]: https://github.com/freitasbtw/agrogest/blob/7f0bb66d764eadc8f48be016280414d77a1d4799/agrogest-app/supabase/migrations/20261022110210_finance_management.sql
-[E10]: https://github.com/freitasbtw/agrogest/blob/7f0bb66d764eadc8f48be016280414d77a1d4799/agrogest-app/supabase/migrations/20261027155902_cost_centers.sql
-[E11]: https://github.com/freitasbtw/agrogest/blob/7f0bb66d764eadc8f48be016280414d77a1d4799/agrogest-app/apps/mobile/src/state/app-state.tsx
-[E12]: https://github.com/freitasbtw/agrogest/blob/7f0bb66d764eadc8f48be016280414d77a1d4799/agrogest-app/apps/mobile/src/app/novo/despesa.tsx#L145
-[E13]: https://github.com/freitasbtw/agrogest/blob/7f0bb66d764eadc8f48be016280414d77a1d4799/agrogest-app/apps/mobile/src/services/nf-extraction.ts#L48
-[E14]: https://github.com/freitasbtw/agrogest/blob/7f0bb66d764eadc8f48be016280414d77a1d4799/agrogest-app/apps/mobile/src/app/novo/nota-fiscal.tsx#L100
-[E15]: https://github.com/freitasbtw/agrogest/blob/7f0bb66d764eadc8f48be016280414d77a1d4799/agrogest-app/apps/mobile/src/domain/allocation.ts#L16
-[E16]: https://github.com/freitasbtw/agrogest/blob/7f0bb66d764eadc8f48be016280414d77a1d4799/agrogest-app/apps/mobile/src/domain/lot-metrics.ts#L134
-[E17]: https://github.com/freitasbtw/agrogest/blob/7f0bb66d764eadc8f48be016280414d77a1d4799/agrogest-app/apps/mobile/src/domain/reports.ts#L798
-[E18]: https://github.com/freitasbtw/agrogest/blob/7f0bb66d764eadc8f48be016280414d77a1d4799/agrogest-app/apps/mobile/src/domain/approval.ts#L18
-[E19]: https://github.com/freitasbtw/agrogest/blob/7f0bb66d764eadc8f48be016280414d77a1d4799/agrogest-app/apps/mobile/src/domain/workflow.ts#L190
-[E20]: https://github.com/freitasbtw/agrogest/blob/7f0bb66d764eadc8f48be016280414d77a1d4799/agrogest-app/apps/mobile/src/state/workspace-selectors.ts#L19
-[E21]: https://github.com/freitasbtw/agrogest/blob/7f0bb66d764eadc8f48be016280414d77a1d4799/agrogest-app/apps/mobile/app.json
-[E22]: https://github.com/freitasbtw/agrogest/blob/7f0bb66d764eadc8f48be016280414d77a1d4799/agrogest-app/apps/mobile/metro.config.js
-[E23]: https://github.com/freitasbtw/agrogest/blob/7f0bb66d764eadc8f48be016280414d77a1d4799/agrogest-app/apps/mobile/src/components/farm-map/map-html.ts#L13
-[E24]: https://github.com/freitasbtw/agrogest/blob/7f0bb66d764eadc8f48be016280414d77a1d4799/agrogest-app/apps/mobile/src/services/geocoding.ts#L54
-[E25]: https://github.com/freitasbtw/agrogest/blob/7f0bb66d764eadc8f48be016280414d77a1d4799/agrogest-app/docs/REQUISITOS_PRODUTO.md#L281
-[E26]: https://github.com/freitasbtw/agrogest/blob/7f0bb66d764eadc8f48be016280414d77a1d4799/agrogest-app/apps/mobile/src/domain/types.ts
-[E27]: https://github.com/freitasbtw/agrogest/blob/7f0bb66d764eadc8f48be016280414d77a1d4799/agrogest-app/apps/mobile/src/domain/finance.ts
-[E28]: https://github.com/freitasbtw/agrogest/blob/7f0bb66d764eadc8f48be016280414d77a1d4799/agrogest-app/apps/mobile/src/domain/stock.ts
-[E29]: https://github.com/freitasbtw/agrogest/blob/7f0bb66d764eadc8f48be016280414d77a1d4799/agrogest-app/supabase/migrations/20261021100516_people_management.sql
-[E30]: https://github.com/freitasbtw/agrogest/blob/7f0bb66d764eadc8f48be016280414d77a1d4799/agrogest-app/supabase/migrations/20261019160345_transfer_lot.sql
+Política atualizada, comparação de modelos/provedores, estratégia de contas/passagem e critérios de rede estão registrados. A análise de domínio e os 114 testes anteriores foram preservados. **Implementação da migração e testes de inferência continuam pendentes.** Próximo trabalho: POCs/fundação local e experimento pequeno de IA com provedor/configuração autorizados, sem deploy. Pesquisa e autorização não são prova de OCR integrado, cloud executada, impacto em campo ou migração concluída.

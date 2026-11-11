@@ -1,6 +1,6 @@
 # Backend e execução locais da versão acadêmica
 
-Conferência funcional inicial: **06/11/2026**. OCR em container local acrescentado em **09/11/2026** e IA visual local em **10/11/2026**; evidências por execução no [histórico](HISTORICO_REVISOES.md). Esta referência substitui a configuração Supabase na cópia da faculdade. A base original, suas migrations PostgreSQL e os documentos de outubro continuam como histórico e regressões; nenhum serviço remoto da aplicação foi usado nesta adaptação.
+Conferência funcional inicial: **06/11/2026**. OCR em container local acrescentado em **09/11/2026** e IA visual local em **10/11/2026**; evidências por execução no [histórico](HISTORICO_REVISOES.md). Esta referência substitui a configuração Supabase nesta versão. As migrations PostgreSQL e os documentos de outubro continuam como histórico e regressões; nenhum serviço remoto da aplicação foi usado nesta adaptação.
 
 ## Primeira execução
 
@@ -141,7 +141,7 @@ Para configuração privada, copie **`agrogest-app/apps/api/.dev.vars.example` �
 
 O adaptador Workers AI tem contratos REST/binding verificados por testes simulados, **sem chamada real ao provedor nesta revisão**: credenciais/modelo de conta não foram fornecidos no ambiente de execução. Há limite de 20 solicitações remotas por conta do app/dia (reserva atômica no D1, incluindo falhas depois de iniciar a tentativa), timeout e limite de saída; configuração ausente é recusada antes de consumir a cota; falhas não disparam outro provedor. O limite de solicitações **não é teto monetário**. Defina orçamento/chave restrita no provedor antes do primeiro teste pequeno. Capacidade do modelo, formato e política do endpoint precisam ser confirmados no teste real. Erros do provedor não são registrados com headers/conteúdo secreto.
 
-A conta que paga IA é independente das identidades do aplicativo e da futura hospedagem. Na transferência, o amigo recebe código, exemplos vazios e instruções de exportação/restauração; fornece suas próprias chaves e repete os testes. As credenciais temporárias do usuário não são transferidas. O `.git` próprio, origem/autor/commit e o clone de proveniência continuam preservados. O código é compartilhado pelo [repositório próprio público](https://github.com/badmuriss/agrogest); a [proveniência](arquivo/ORIGEM.md) registra a criação autorizada em 09/11/2026.
+A conta que paga IA é independente das identidades do aplicativo e da futura hospedagem. Quem publicar recebe código, exemplos vazios e instruções de exportação/restauração; fornece suas próprias chaves e repete os testes. As credenciais temporárias do usuário não são transferidas. O código é compartilhado pelo [repositório público](https://github.com/badmuriss/agrogest).
 
 Referências de contrato: [Cloudflare REST](https://developers.cloudflare.com/workers-ai/get-started/rest-api/), [Scout](https://developers.cloudflare.com/workers-ai/models/llama-4-scout-17b-16e-instruct/), [modelo português e licença](https://github.com/tesseract-ocr/tessdata_fast/tree/87416418657359cb625c412a48b6e1d6d41c29bd). A pesquisa histórica de modelos Hugging Face, recursos e licenças está no [plano](gs/PLANO.md); a seleção vigente está neste guia; nenhum Space/Endpoint hospedado foi usado.
 
@@ -167,7 +167,7 @@ npm start
 npm run vision:local
 ```
 
-O setup cria uma chave local aleatória em `.local/vision/api-key`, com acesso restrito, e atualiza **somente as chaves deste provedor** em `apps/api/.dev.vars`, preservando o restante da configuração privada. `npm start` aguarda a saúde do servidor em `127.0.0.1:8092`, inicia-o se necessário e encerra o processo que iniciou junto com o app. Um modelo já iniciado em outro terminal é reutilizado e permanece sob responsabilidade daquele terminal. Não há download durante a inferência nem fallback automático para um provedor remoto. O launcher verifica CUDA antes do uso GPU; a chave é enviada pelo backend, nunca pelo navegador. O amigo executa o setup na própria máquina para gerar sua configuração.
+O setup cria uma chave local aleatória em `.local/vision/api-key`, com acesso restrito, e atualiza **somente as chaves deste provedor** em `apps/api/.dev.vars`, preservando o restante da configuração privada. `npm start` aguarda a saúde do servidor em `127.0.0.1:8092`, inicia-o se necessário e encerra o processo que iniciou junto com o app. Um modelo já iniciado em outro terminal é reutilizado e permanece sob responsabilidade daquele terminal. Não há download durante a inferência nem fallback automático para um provedor remoto. O launcher verifica CUDA antes do uso GPU; a chave é enviada pelo backend, nunca pelo navegador. Quem usar o modelo executa o setup na própria máquina para gerar sua configuração.
 
 Campos ausentes continuam nulos. Datas brasileiras explícitas são normalizadas para ISO no backend e validadas pelo calendário; dinheiro precisa ser centavos inteiros. A revisão mostra primeiro valor, descrição e data, com imagem ampliada, fornecedor e número em **Ver imagem e detalhes**. A revisão humana e a política de aprovação continuam obrigatórias. O cache documental inclui versão do pipeline e do modelo: extrações antigas são substituídas ao analisar novamente, sem alterar os lançamentos aprovados. **Refazer leitura** reprocessa o mesmo arquivo e substitui as sugestões da revisão; correções manuais permanecem nas reaberturas comuns.
 
@@ -190,11 +190,11 @@ A primeira preparação cria `agrogest-app/.local/cloud/staging/settings.json` a
 
 O pacote de nuvem copia as migrations de schema `0001_domain.sql` e cota `0003_inference_usage.sql`; **não copia `0002_local_demo.sql`**. As migrations locais originais continuam intactas. Gerar/copiar SQL não o aplica em banco algum. O bootstrap cria um modelo privado `accounts.json`; após preenchê-lo e repetir o comando, gera `bootstrap.sql` com hashes PBKDF2 e identidades próprias. Não grava senha em SQL nem cria contas no backend automaticamente. A aplicação futura é manual, em banco vazio ou administrado pelo responsável, após revisão. O bootstrap é idempotente, não redefine senha de conta existente e não é um fluxo de recuperação de senha. Depois do login, o responsável cria sua fazenda e convida outras contas pré-configuradas pela interface existente.
 
-### Contas de inferência e passagem ao amigo
+### Contas de inferência e passagem ao responsável pela hospedagem
 
 - **Agora:** `.dev.vars` guarda somente no backend a conta/token de inferência do usuário. O token deve ter permissão Workers AI na conta selecionada; não precisa permissão de deploy/D1/R2. O app local envia a imagem inline por HTTPS, sem torná-la pública no R2.
-- **Cloudflare na conta do amigo:** usar `inferenceTransport=binding` em `settings.json`. A inferência usa a conta que hospeda o Worker, sem copiar o token temporário. Contas do aplicativo continuam independentes das contas Cloudflare.
-- **Hospedagem do amigo com inferência temporária do usuário:** selecionar `inferenceTransport=rest` e `inferenceAccountId` separado. Em fase autorizada de publicação, o titular configura `WORKERS_AI_API_TOKEN` como secret do Worker, fora do arquivo versionado. A substituição posterior exige somente configuração/secret e novo teste, sem alterar domínio ou dados.
+- **Cloudflare na conta do responsável:** usar `inferenceTransport=binding` em `settings.json`. A inferência usa a conta que hospeda o Worker, sem copiar o token temporário. Contas do aplicativo continuam independentes das contas Cloudflare.
+- **Hospedagem do responsável com inferência temporária do usuário:** selecionar `inferenceTransport=rest` e `inferenceAccountId` separado. Em fase autorizada de publicação, o titular configura `WORKERS_AI_API_TOKEN` como secret do Worker, fora do arquivo versionado. A substituição posterior exige somente configuração/secret e novo teste, sem alterar domínio ou dados.
 
 Compartilhe clone, lockfiles, exemplos vazios e este guia. Não compartilhe `.dev.vars`, `.local`, pesos, bancos do navegador, tokens ou `accounts.json`. Revogue o token temporário quando ele deixar de ser usado. D1/R2 e políticas de backup/retensão pertencem à conta de hospedagem; defina responsável, orçamento e teste de restauração antes de dados reais. O limite diário da aplicação não limita todos os gastos da conta Cloudflare.
 
@@ -288,7 +288,7 @@ npm run build:web
 npm run export:check
 ```
 
-A suíte API inicia seu próprio container OCR em porta loopback dinâmica e Miniflare com banco/R2 temporários, aplica as três migrations locais e não altera o estado da demonstração. Ao terminar, remove somente o projeto Compose do teste. Os testes PGlite originais executam SQL PostgreSQL **local em WASM**; são regressões da origem, não evidência de migração aplicada em Supabase remoto. As evidências datadas ficam em [Histórico](HISTORICO_REVISOES.md) e `agrogest-app/docs/arquivo/pesquisas/Agrogest Cloudflare local/`.
+A suíte API inicia seu próprio container OCR em porta loopback dinâmica e Miniflare com banco/R2 temporários, aplica as três migrations locais e não altera o estado da demonstração. Ao terminar, remove somente o projeto Compose do teste. Os testes PGlite executam SQL PostgreSQL **local em WASM**; são regressões da versão de outubro, não evidência de migração aplicada em Supabase remoto. As evidências datadas ficam em [Histórico](HISTORICO_REVISOES.md) e `agrogest-app/docs/arquivo/pesquisas/Agrogest Cloudflare local/`.
 
 ## Limites da entrega
 

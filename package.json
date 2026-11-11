@@ -34,7 +34,6 @@
     "cloud:bootstrap": "node agrogest-app/scripts/cloud.mjs bootstrap",
     "test:setup": "node --import ./agrogest-app/tests/resolve-ts.mjs --test agrogest-app/scripts/*.test.mjs",
     "brand:assets": "node agrogest-app/scripts/brand-assets.mjs",
-    "pitch:build": "node agrogest-app/scripts/build-pitch.mjs",
     "cloud:account": "node agrogest-app/scripts/cloud.mjs account"
   }
 }

@@ -72,4 +72,4 @@ Abra **http://127.0.0.1:8787/entrar**. As [contas de demonstração e o roteiro 
 
 ## Saiba mais
 
-[Slides do pitch](agrogest-app/docs/gs/pitch/agrogest-pitch.html) · [Requisitos da Global Solution](agrogest-app/docs/gs/REQUISITOS_GS.md) · [Documentação do projeto](agrogest-app/docs/README.md) · [Evidências de validação](agrogest-app/docs/HISTORICO_REVISOES.md)
+[Slides do pitch (PDF)](agrogest-app/docs/gs/pitch/agrogest-pitch.pdf) · [Requisitos da Global Solution](agrogest-app/docs/gs/REQUISITOS_GS.md) · [Documentação do projeto](agrogest-app/docs/README.md) · [Evidências de validação](agrogest-app/docs/HISTORICO_REVISOES.md)
