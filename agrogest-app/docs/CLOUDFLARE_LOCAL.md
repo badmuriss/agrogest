@@ -275,7 +275,7 @@ Referências: [Workers AI binding](https://developers.cloudflare.com/workers-ai/
 
 ## Rede e verificações
 
-App, DB, arquivos e shell usam loopback. O probe NetInfo consulta a saúde da **API local**, sem ping de internet pública. Busca geográfica, tiles/CDN de satélite e base remota de mapas estão desativados; contornos/dados já existentes não são apagados. A execução de desenvolvimento não ativa `remote:true`, `dev --remote`, Supabase remoto ou binding Workers AI. A configuração futura hospedada contém binding AI apenas para publicação posterior; não é usada no dev. Somente a inferência explicitamente selecionada pode sair para seu endpoint autorizado. Publicar app para conseguir chamar um modelo não faz parte da solução.
+App, DB, arquivos e shell usam loopback. O probe NetInfo consulta a saúde da **API local**, sem ping de internet pública. Desde 11/11/2026, por pedido do usuário, o mapa volta a usar internet: tiles de satélite da Esri, Leaflet pela CDN unpkg e busca de lugares no Photon (Nominatim de reserva). Esses serviços recebem a região visualizada e o texto buscado; sem internet, contornos e pinos continuam salvos e o mapa avisa que o satélite não carrega. A execução de desenvolvimento não ativa `remote:true`, `dev --remote`, Supabase remoto ou binding Workers AI. A configuração futura hospedada contém binding AI apenas para publicação posterior; não é usada no dev. Somente a inferência explicitamente selecionada pode sair para seu endpoint autorizado. Publicar app para conseguir chamar um modelo não faz parte da solução.
 
 ```sh
 npm run check  # tipos, lint e as três suítes abaixo

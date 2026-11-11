@@ -4,6 +4,8 @@
 
 Base própria `0d3770b`. Por pedido do usuário: (1) ações, faixa do topo, destaques e aprovado passam a usar o laranja do logo `#FF6F1E` nos dois temas, no lugar de `#A63D00`/`#FF8A4C`; rótulo branco sobre esse laranja fica abaixo de AA (≈2,8:1), exceção aceita e registrada em `scripts/scenes.mjs`; (2) símbolo, nome e logo deixam de usar caixa carvão e trocam de versão pelo fundo, carvão/laranja no claro e branco/laranja no escuro, também no splash nativo; (3) Entrar e Criar conta ficam centralizados na altura da tela; (4) o autor pode excluir o próprio lançamento `aguardando_aprovacao` (servidor e app), liberando o vínculo do comprovante, sem afetar custo, estoque ou contas; aprovado continua recusado (409) e outro sócio recebe 403. A fila offline (`aguardando_envio`) não ganhou exclusão, para não travar a sincronização. [Requisitos](REQUISITOS_PRODUTO.md), [UX](EXPERIENCIA_USUARIO.md), [Cloudflare local](CLOUDFLARE_LOCAL.md) e [identidade](branding/IDENTIDADE_VISUAL.md) atualizados.
 
+**Mapa:** satélite (Esri), Leaflet (unpkg) e busca de lugares (Photon/Nominatim) religados a pedido do usuário; voltam a depender de internet e desses serviços externos. A faixa do topo passou a carvão e ganhou a variante de botão `strong` para equilibrar o laranja.
+
 **Verificação:** 216 testes de domínio e 23 da API passaram (incluindo o novo cenário de exclusão por autor, recusa a outro sócio e a aprovado); tipos mobile/API e lint sem erros; gerador de cenas sem mudança nas animações. Sem migration nova, deploy ou teste em aparelho.
 
 ## 11/11/2026 — pitch da GS refeito com nova direção de arte

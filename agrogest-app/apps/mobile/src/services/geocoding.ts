@@ -109,4 +109,5 @@ export async function searchPlaces(query: string, signal?: AbortSignal): Promise
   }
 }
 
-const LOCAL_MAP_SEARCH = false;
+// Busca de lugares (Photon, com Nominatim de reserva): religada em 11/11/2026 a pedido do usuário.
+const LOCAL_MAP_SEARCH = true;

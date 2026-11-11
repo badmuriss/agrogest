@@ -300,4 +300,5 @@ export function farmMapHtml(apiKey?: string): string {
 </body></html>`;
 }
 
-const MAP_NETWORK_ENABLED = false;
+// Satélite Esri e Leaflet pela CDN: religados em 11/11/2026 a pedido do usuário (exigem internet).
+const MAP_NETWORK_ENABLED = true;
