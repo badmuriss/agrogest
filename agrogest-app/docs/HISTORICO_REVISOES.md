@@ -1,5 +1,11 @@
 # Histórico de revisões
 
+## 11/11/2026 — pitch da GS refeito com nova direção de arte
+
+Base própria `a544c82`, branch `badmuriss/agrogest-pitch-claude`. A pedido do usuário, a apresentação foi redesenhada do zero; o aplicativo, seus dados, tema padrão e regras não foram alterados. A narrativa passou a acompanhar um único recibo sintético (GS-004) da foto ao custo do lote, em dez slides e 4min46s de fala. Molduras de celular foram substituídas por recortes ampliados das capturas reais; o recibo GS-004 volta à capa, agora como arquivo de teste real identificado como sintético, substituindo a decisão de 10/11 de removê-lo. O selo pequeno da marca saiu dos slides brancos; o logo V2 aparece grande sobre carvão. Fontes OFL próprias da apresentação foram incluídas em `docs/gs/pitch/fontes/` e o gerador deixou de depender de `node_modules`. O problema passou a citar o levantamento de requisitos da base com um produtor de recria e engorda; a nuvem aparece separada entre executado localmente e preparado, sem afirmar publicação.
+
+**Verificação:** `npm run pitch:build` gerou HTML e roteiro. No Chromium headless local, os dez slides foram capturados em 1920×1080 e inspecionados, sem erro de página/console nem requisição externa; navegação por teclado, falas, cronômetro, âncora e ajuste a 390 px de largura conferidos. PDF exportado do mesmo HTML (dez páginas 16:9, fontes embutidas) e rasterizado para inspeção de todas as páginas. Testes do aplicativo não foram reexecutados (mudança restrita à apresentação); 251 testes continuam sendo o registro de 10/11 e os 114 iniciais o de 06/11. Não houve deploy, publicação nem inferência remota.
+
 ## 10/11/2026 — tema claro na atualização e refinamento do pitch
 
 Base própria `797438f`. A revisão visual anterior só adotava o claro na ausência de tema salvo. Após o usuário relatar que seu navegador continuava escuro, a aparência passa a usar `agrogest.theme.v2`: a chave anterior fica preservada, mas deixa de selecionar o tema. A versão atual inicia no claro, inclusive com tema antigo escuro e sistema escuro; novas escolhas de Claro, Escuro ou Automático continuam persistentes. Preferências apresenta Claro primeiro e explica o padrão. Não há limpeza de sessão, SQLite ou outbox.

@@ -1,49 +1,267 @@
-// Standalone, offline HTML deck. Content, script timing and source notes live beside the final deck.
+// Gera a apresentação offline (HTML único) e o roteiro a partir de docs/gs/pitch/conteudo.json.
+// Fontes OFL ficam em docs/gs/pitch/fontes; capturas e marca são lidas sem alterar os originais.
 import { readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { app } from './local-config.mjs';
+
 const folder = path.join(app, 'docs/gs/pitch');
-const content = JSON.parse(readFileSync(path.join(folder, 'conteudo.json'), 'utf8'));
-const escape = value => String(value).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
-const png = file => `data:image/png;base64,${readFileSync(file).toString('base64')}`;
-const mark = png(path.join(app, 'apps/mobile/assets/branding/mark-dark.png'));
+const fonts = path.join(folder, 'fontes');
+const deck = JSON.parse(readFileSync(path.join(folder, 'conteudo.json'), 'utf8'));
 const styles = readFileSync(path.join(app, 'scripts/pitch.css'), 'utf8');
-const review = png(path.join(app, 'docs/imagens/revisao-comprovante-laranja.png'));
-const indicator = png(path.join(app, 'docs/imagens/indicador-laranja.png'));
-const font = weight => readFileSync(path.join(app, `apps/mobile/node_modules/@expo-google-fonts/inter/${weight === 400 ? '400Regular/Inter_400Regular' : weight === 700 ? '700Bold/Inter_700Bold' : '800ExtraBold/Inter_800ExtraBold'}.ttf`)).toString('base64');
-const fontLicense = readFileSync(path.join(app,'apps/mobile/node_modules/@expo-google-fonts/inter/LICENSE_FONT'),'utf8').replace(/[\t ]+$/gm, '');
-const logoTag = `<span class="brand" aria-label="AgroGest"><span class="brand-symbol"><img src="${mark}" alt=""></span><span class="brand-name">AGRO<span>GEST</span></span></span>`;
-const head = slide => `<header>${logoTag}<span class="slide-number">${String(content.slides.indexOf(slide)+1).padStart(2,'0')} / 09</span></header>`;
-const foot = text => `<footer>${text}</footer>`;
-const phone = (src, label, extra = '') => `<figure class="phone ${extra}"><div class="phone-body"><div class="phone-screen"><img src="${src}" alt="${label}"></div></div><figcaption>${label}</figcaption></figure>`;
-const icon = (name, size = 30) => {
- const paths = { camera:'M4 7h4l2-3h4l2 3h4v14H4z M8 14a4 4 0 1 0 8 0a4 4 0 1 0-8 0', check:'M5 12l4 4L20 5', cloud:'M6 18a5 5 0 0 1-1-10a7 7 0 0 1 13-1a5 5 0 1 1 1 11z', chart:'M4 4v16h17 M8 16v-4 M13 16V7 M18 16v-7', lock:'M6 10h12v11H6z M8 10V7a4 4 0 0 1 8 0v3', link:'M9 15l6-6 M8 8l-3 3a4 4 0 0 0 6 6l2-2 M11 9l2-2a4 4 0 0 1 6 6l-3 3', signal:'M3 8a15 15 0 0 1 18 0 M6 12a10 10 0 0 1 12 0 M10 16a4 4 0 0 1 4 0 M12 20h.01', arrow:'M4 12h16 M14 6l6 6-6 6', document:'M6 3h8l5 5v13H6z M14 3v6h5 M9 13h7 M9 17h5' };
- return `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${paths[name] ?? paths.document}"/></svg>`;
+const esc = value => String(value).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;');
+const dataUri = (file, type) => `data:${type};base64,${readFileSync(file).toString('base64')}`;
+const png = file => dataUri(path.join(app, file), 'image/png');
+
+const img = {
+  logo: png('apps/mobile/assets/branding/v2/logo-dark-v2.png'),
+  receipt: png('tests/fixtures/comprovante-gs-004.png'),
+  review: png('docs/imagens/revisao-comprovante-laranja.png'),
+  indicator: png('docs/imagens/indicador-laranja.png'),
 };
+const face = (family, file, weight) => `@font-face{font-family:'${family}';src:url(${dataUri(path.join(fonts, file), 'font/woff2')}) format('woff2');font-weight:${weight};font-style:normal;font-display:block}`;
+const fontFaces = [
+  face('Bricolage Grotesque', 'bricolage-grotesque-latin-600-normal.woff2', 600),
+  face('Bricolage Grotesque', 'bricolage-grotesque-latin-800-normal.woff2', 800),
+  ...[400, 500, 600, 700].map(w => face('Inter', `inter-latin-${w}-normal.woff2`, w)),
+  ...[400, 500].map(w => face('IBM Plex Mono', `ibm-plex-mono-latin-${w}-normal.woff2`, w)),
+].join('\n');
+
+const total = deck.slides.length;
+const pad2 = n => String(n).padStart(2, '0');
+const arrow = (w = 120) => `<svg width="${w}" height="28" viewBox="0 0 ${w} 28" fill="none" aria-hidden="true"><path d="M2 14H${w - 6}M${w - 18} 3l13 11-13 11" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const kicker = (s, i) => `<p class="kicker rise"><b>${pad2(i + 1)}</b>${esc(s.kicker)}</p>`;
+const foot = i => `<div class="foot"><span>AgroGest · pitch técnico GS 2026</span><span>${pad2(i + 1)} / ${pad2(total)}</span></div>`;
+const trail = current => `<ol class="trail">${deck.journey.map((step, n) => `<li class="${n < current ? 'done' : n === current ? 'now' : ''}"><span>${esc(step)}</span></li>`).join('')}</ol>`;
+// Recorte de captura real: mostra uma região da imagem ampliada por `scale`, sem distorcer.
+const crop = ({ src, alt, natW, sx, sy, sw, sh, scale, left, top, cls = '' }) =>
+  `<figure class="crop ${cls}" style="left:${left}px;top:${top}px;width:${Math.round(sw * scale)}px;height:${Math.round(sh * scale)}px"><img src="${src}" alt="${esc(alt)}" style="width:${Math.round(natW * scale)}px;left:${Math.round(-sx * scale)}px;top:${Math.round(-sy * scale)}px"></figure>`;
+// Posição, no palco, de um ponto (x, y) da imagem recortada.
+const at = (c, x, y) => ({ x: Math.round(c.left + (x - c.sx) * c.scale), y: Math.round(c.top + (y - c.sy) * c.scale) });
+
 const layouts = {
- proposta: s => `<div class="cover-copy"><p class="eyebrow">FIAP · Global Solution 2 · CitizenTech</p><h1>${escape(s.title)}</h1><p class="cover-tag">${escape(s.subtitle)}</p><p class="lede">Fotografe a compra, confira os dados e acompanhe o custo do rebanho.</p><div class="cover-bottom"><span>Agricultura inteligente<br>e desenvolvimento rural</span><span class="orange-line"></span><span>Pitch técnico<br>4 min 40 s</span></div></div><div class="cover-art">${phone(review,'Revisão do comprovante · tela do aplicativo')}</div>`,
- problema: s => `<div class="problem-layout"><div><h1>${escape(s.title)}</h1><p class="lede">${escape(s.subtitle)}</p><div class="big-question">Quanto custou<br>manter este lote?</div></div><div class="paper-flow"><div class="task-row"><i>01</i><div><h3>Guardar o papel ou a foto</h3><p>A origem fica separada do registro.</p></div></div><div class="task-row"><i>02</i><div><h3>Digitar e pedir conferência</h3><p>Mais etapas para quem já tem uma rotina cheia.</p></div></div><div class="task-row"><i>03</i><div><h3>Reunir os custos por lote</h3><p>Um esquecimento muda a informação disponível.</p></div></div><p class="soft-note">Hipótese a investigar com os produtores no piloto.</p></div></div>`,
- publico: s => `<div class="audience"><div class="stat-block"><span class="mega">77<span>%</span></span><p>dos estabelecimentos agropecuários<br>eram de agricultura familiar</p><span class="source-label">IBGE · Censo Agropecuário 2017</span></div><div class="audience-copy"><h1>${escape(s.title)}</h1><div class="audience-role"><b>Pequeno produtor</b><p>Decide com base no custo da recria e engorda.</p></div><div class="audience-role"><b>Equipe e sócios</b><p>Registram, conferem e acompanham a operação.</p></div><p class="entry-line"><span>Entrada proposta</span>Assistência técnica ou cooperativa.</p></div></div>${foot('Fonte: IBGE · Censo Agropecuário 2017.')}`,
- jornada: s => `<div class="journey"><div class="journey-copy"><h1>${escape(s.title)}</h1><p class="lede">A pessoa escolhe a categoria, o rateio e quem recebe o custo.</p><ol class="journey-steps"><li><b>Capturar</b><span>A imagem é preservada antes do envio.</span></li><li><b>Conferir</b><span>Sugestões de valor, data e descrição.</span></li><li><b>Aprovar</b><span>Permissões e autoria continuam valendo.</span></li><li><b>Acompanhar</b><span>Custo do lote calculado após confirmar.</span></li></ol></div>${phone(review,'Revisão no app · recibo de demonstração GS-004','large-phone')}</div>`,
- tecnologia: s => `<h1 class="wide-title">${escape(s.title)}</h1><p class="lede">${escape(s.subtitle)}</p><div class="tech-flow"><div class="tech-input">${icon('camera',45)}<h3>Imagem</h3><p>Comprovante<br>da despesa</p></div><span class="flow-arrow">→</span><div class="tech-ai"><div class="dual-label"><span>Visão computacional</span><span>Inteligência artificial</span></div><h2>Leitura visual<br>e campos sugeridos</h2><p>Modelo multimodal + validação<br>de dinheiro e datas no backend.</p><small>Revisão humana obrigatória</small></div><span class="flow-arrow">→</span><div class="tech-output">${icon('chart',45)}<h3>Análise de dados</h3><p>Custo acumulado<br>Custo por cabeça<br>Equilíbrio estimado</p></div></div><div class="cloud-rail"><span>${icon('cloud',27)} <b>Cloudflare</b></span><span><b>Workers</b> aplicação/API</span><span><b>D1</b> registros</span><span><b>R2</b> imagens privadas</span><span><b>Workers AI</b> leitura</span></div><p class="local-line">No aparelho: SQLite e fila de sincronização preservam capturas e intenções offline.</p>`,
- diferencial: s => `<h1 class="wide-title">${escape(s.title)}</h1><p class="lede">${escape(s.subtitle)}</p><div class="comparison"><div class="compare-head"><span>No processo manual</span><span>Com o AgroGest</span></div><div class="compare-row"><p>Transcrever os campos<br>do comprovante</p><div>${icon('camera')}<p>Sugestões para a pessoa<br>conferir e corrigir</p></div></div><div class="compare-row"><p>Organizar o anexo<br>e a conferência à parte</p><div>${icon('link')}<p>Original, lançamento e<br>aprovação vinculados</p></div></div><div class="compare-row"><p>Retomar o registro<br>quando houver conexão</p><div>${icon('signal')}<p>Captura e intenção salvas<br>para sincronizar depois</p></div></div></div><p class="soft-note">A adequação à rotina do pequeno produtor é o diferencial a validar.</p>`,
- resultado: s => `<div class="result"><div class="result-copy"><p class="eyebrow">Cenário de demonstração</p><h1>${escape(s.title)}</h1><div class="money-before"><span>Antes da aprovação</span><b>R$ 11.577,90</b></div><div class="money-after"><span>Depois da aprovação</span><strong>R$ 11.620,40</strong></div><div class="delta"><b>+ R$ 42,50</b><span>despesa de mineral aprovada</span></div><div class="result-small"><div><b>10</b><span>cabeças no lote</span></div><div><b>R$ 1.162,04</b><span>custo por cabeça</span></div></div></div>${phone(indicator,'Custo do lote · cenário de demonstração','result-phone')}</div>${foot('Demonstração local · recibo sintético GS-004 · 10/11/2026.')}`,
- validacao: s => `<p class="eyebrow">Piloto proposto</p><h1 class="wide-title">${escape(s.title)}</h1><p class="lede">${escape(s.subtitle)}</p><div class="metric-grid"><div><strong>30<span>%</span></strong><h3>Menos tempo</h3><p>Redução-alvo na mediana<br>do tempo por lançamento.</p></div><div><strong>95<span>%</span></strong><h3>Acerto dos campos críticos</h3><p>Meta para valor e data<br>em comprovantes legíveis.</p></div><div><strong>0</strong><h3>Efeitos duplicados</h3><p>Critério nos cenários de<br>reenvio e reconexão.</p></div></div><div class="pilot-method"><b>Como medir</b><span>Tarefas manuais e assistidas comparáveis</span><span>Incluir espera, correções e falhas</span><span>Registrar ajuda e compreensão da aprovação</span></div>`,
- continuidade: s => `<div class="closing"><div><p class="eyebrow">ODS 2 · Fome Zero e Agricultura Sustentável</p><h1>${escape(s.title)}</h1><p class="closing-copy">Apoiar o acesso à informação para gerir a atividade é a contribuição proposta à <b>meta 2.3</b>.</p><p class="cover-tag">Do comprovante à decisão no campo.</p></div><div class="rollout"><div><span>1</span><h3>Começar acompanhado</h3><p>Piloto com produtores, assistência técnica ou cooperativa.</p></div><div><span>2</span><h3>Ajustar pelo uso</h3><p>Legibilidade, esforço de registro, correções e compreensão.</p></div><div><span>3</span><h3>Testar a continuidade</h3><p>Manutenção por operação ou parceria; avaliar suporte e infraestrutura.</p></div></div></div>${foot('ONU · ODS 2 · meta 2.3. Proposta de implantação acompanhada.')}`,
+  capa: (s, i) => `<div class="stage dark cover">
+    <img class="logo rise" src="${img.logo}" alt="AgroGest">
+    <div class="copy"><p class="kicker rise d1">${esc(s.kicker)}</p><h1 class="rise d1">Do comprovante ao <em>custo do lote.</em></h1><p class="lede rise d2">${esc(s.lede)}</p></div>
+    <figure class="paper rise d2"><img src="${img.receipt}" alt="Recibo sintético GS-004: mineral para bovinos, total de R$ 42,50"><span class="hl"></span></figure>
+    <span class="paper-tag rise d3">Recibo sintético GS-004 · sem valor fiscal</span>
+    <div class="bottom rise d3">${trail(-1)}<span class="meta">${esc(s.meta)}</span></div>
+  </div>`,
+
+  problema: (s, i) => `<div class="stage problem"><div class="pad">${kicker(s, i)}<h1 class="rise d1">${esc(s.title)}</h1></div>
+    <div class="route rise d2">
+      <div class="end from"><b>${esc(s.from[0])}</b><span>${esc(s.from[1])}</span></div>
+      <div class="gap"></div>
+      <div class="drops">${s.failures.map(f => `<div class="drop"><span>${esc(f)}</span></div>`).join('')}</div>
+      <div class="end to"><b>${esc(s.to[0])}</b><span>${esc(s.to[1])}</span></div>
+    </div>
+    <div class="src rise d3"><p>${esc(s.evidence)}</p><p class="limit">${esc(s.limit)}</p></div>${foot(i)}</div>`,
+
+  publico: (s, i) => `<div class="stage audience">
+    <div class="left">${kicker(s, i)}<h1 class="rise d1">${esc(s.title)}</h1>
+      <div class="roles rise d2">${s.roles.map(([who, what]) => `<div class="role"><b>${esc(who)}</b><span>${esc(what)}</span></div>`).join('')}</div>
+      <p class="access rise d3">${esc(s.access)}</p></div>
+    <aside class="panel rise d2"><div class="big">${esc(s.statValue)}</div><p>${esc(s.statText)}</p><p class="src">${esc(s.statSource)}</p><p class="lim">${esc(s.statLimit)}</p><p class="entry">${esc(s.entry)}</p></aside>${foot(i)}</div>`,
+
+  leitura: (s, i) => {
+    const r = { left: 120, top: 330, w: 800 }, k = r.w / 1200;
+    const rp = (x, y) => ({ x: Math.round(r.left + x * k), y: Math.round(r.top + y * k) });
+    const c = { src: img.review, alt: 'Tela de revisão do AgroGest com R$ 42,50, Mineral para bovinos e 10/11/2026', natW: 420, sx: 0, sy: 288, sw: 420, sh: 372, scale: 1.56, left: 1130, top: 300 };
+    // Campos no recibo (pixels do arquivo 1200×740) e na captura (420×1000).
+    const fields = [
+      { n: 1, receipt: [52, 478, 335, 56], app: [112, 356, 196, 52] },
+      { n: 2, receipt: [52, 222, 556, 46], app: [20, 455, 380, 50] },
+      { n: 3, receipt: [52, 297, 310, 46], app: [20, 543, 380, 53] },
+    ];
+    const marks = fields.map(f => {
+      const a = rp(f.receipt[0], f.receipt[1]);
+      const b = at(c, f.app[0], f.app[1]);
+      return `<span class="hl" style="left:${a.x}px;top:${a.y}px;width:${Math.round(f.receipt[2] * k)}px;height:${Math.round(f.receipt[3] * k)}px"></span>
+        <span class="pin" style="left:${a.x + Math.round(f.receipt[2] * k) + 14}px;top:${a.y + Math.round(f.receipt[3] * k / 2) - 22}px">${f.n}</span>
+        <span class="ring" style="left:${b.x - 8}px;top:${b.y - 6}px;width:${Math.round(f.app[2] * c.scale) + 16}px;height:${Math.round(f.app[3] * c.scale) + 12}px"></span>
+        <span class="pin" style="left:${b.x - (f.n === 1 ? 58 : 30)}px;top:${b.y + Math.round(f.app[3] * c.scale / 2) - 22}px">${f.n}</span>`;
+    }).join('');
+    return `<div class="stage reading"><div class="pad"><div class="top">${kicker(s, i)}<div class="rise">${trail(s.step)}</div></div><h1 class="rise d1">${esc(s.title)}</h1></div>
+      <span class="tag rise d2" style="left:${r.left}px;top:${r.top - 34}px">${esc(s.receiptLabel)}</span>
+      <figure class="receipt rise d2" style="left:${r.left}px;top:${r.top}px;width:${r.w}px"><img src="${img.receipt}" alt="Recibo sintético GS-004"></figure>
+      <div class="arrow rise d3" style="left:950px;top:520px">${arrow(140)}<span>${esc(s.readLabel)}</span></div>
+      <span class="tag rise d2" style="left:${c.left}px;top:${c.top - 34}px">${esc(s.appLabel)}</span>
+      <div class="rise d3">${crop(c)}</div>
+      <div class="rise d4">${marks}</div>
+      <div class="rules rise d4" style="left:120px;right:120px;top:900px;display:grid;grid-template-columns:repeat(3,1fr);gap:40px">${s.rules.map(([a, b]) => `<div class="rule"><b>${esc(a)}</b><span>${esc(b)}</span></div>`).join('')}</div>
+    </div>`;
+  },
+
+  aprovacao: (s, i) => {
+    const c = { src: img.indicator, alt: 'Tela do lote no AgroGest: custo acumulado R$ 11.620,40 e R$ 1.162,04 por cabeça', natW: 420, sx: 14, sy: 262, sw: 392, sh: 300, scale: 1.68, left: 1140, top: 190 };
+    const p = at(c, 34, 330), q = at(c, 280, 368);
+    return `<div class="stage dark approval">
+      <div class="left">${kicker(s, i)}<h1 class="rise d1">${esc(s.title)}</h1>
+        <div class="steps rise d2">${s.timeline.map(([a, b], n) => `<div class="step ${n ? 'ok' : ''}"><b>${esc(a)}</b><span>${esc(b)}</span></div>`).join('')}</div></div>
+      <div class="numbers rise d3"><div class="before">${esc(s.before)}</div><div class="after">${esc(s.after)}</div><div class="delta">${esc(s.delta)}<span>${esc(s.perHead)}</span></div></div>
+      <div class="rise" style="position:absolute;right:120px;top:92px">${trail(s.step)}</div>
+      <span class="tag shot-tag rise d2">${esc(s.appLabel)}</span>
+      <div class="rise d2">${crop(c)}</div>
+      <span class="ring rise d4" style="left:${p.x - 10}px;top:${p.y - 8}px;width:${Math.round(150 * c.scale)}px;height:${Math.round(30 * c.scale)}px"></span>
+      <span class="ring rise d4" style="left:${q.x - 10}px;top:${q.y - 8}px;width:${Math.round(118 * c.scale)}px;height:${Math.round(26 * c.scale)}px"></span>
+      <p class="evidence rise d4">${esc(s.evidence)}</p>${foot(i)}</div>`;
+  },
+
+  tecnologia: (s, i) => `<div class="stage tech"><div class="pad">${kicker(s, i)}<h1 class="rise d1">${esc(s.title)}</h1></div>
+    <div class="line rise d2"></div>
+    <div class="stations">${s.stations.map(([name, what, how], n) => `<div class="st rise d${Math.min(n + 1, 4)}"><span class="n">${pad2(n + 1)}</span><h2>${esc(name)}</h2><span class="dot"></span><p>${esc(what)}</p><code>${esc(how)}</code></div>`).join('')}</div>
+    <p class="device rise d3"><b>Offline</b>${esc(s.device)}</p>
+    <div class="status rise d4"><div><i class="on"></i><span>${esc(deck.cloud.local)}</span></div><div><i class="${deck.cloud.executed ? 'on' : ''}"></i><span>${esc(deck.cloud.hosted)}</span></div></div>${foot(i)}</div>`,
+
+  diferencial: (s, i) => {
+    const c = { src: img.review, alt: 'Aviso do AgroGest: este comprovante já tem uma despesa; botão Abrir despesa existente', natW: 420, sx: 14, sy: 726, sw: 392, sh: 106, scale: 1.42, left: 1244, top: 852 };
+    return `<div class="stage diff"><div class="pad">${kicker(s, i)}<h1 class="rise d1">${esc(s.title)}</h1></div>
+      <table class="rise d2"><thead><tr><th>${esc(s.columns[0])}</th><th></th><th>${esc(s.columns[1])}</th></tr></thead><tbody>${s.rows.map(([a, b]) => `<tr><td>${esc(a)}</td><td>${arrow(70)}</td><td>${esc(b)}</td></tr>`).join('')}</tbody></table>
+      <p class="honest rise d3">${esc(s.honesty)}</p>
+      <span class="tag rise d4" style="left:${c.left}px;top:${c.top - 32}px">${esc(s.dupeLabel)}</span>
+      <div class="rise d4">${crop(c)}</div>${foot(i)}</div>`;
+  },
+
+  piloto: (s, i) => `<div class="stage pilot"><div class="pad">${kicker(s, i)}<h1 class="rise d1">${esc(s.title)}</h1></div>
+    <div class="scope rise d1">${s.scope.map(([n, l]) => `<div><b>${esc(n)}</b><span>${esc(l)}</span></div>`).join('')}</div>
+    <span class="status rise d2">${esc(s.status)}</span>
+    <div class="rows">${s.metrics.map(([v, h, p], n) => `<div class="row rise d${n + 2}"><div class="v"><small>META</small>${esc(v)}</div><h3>${esc(h)}</h3><p>${esc(p)}</p></div>`).join('')}</div>
+    <p class="also rise d4">${esc(s.also)}</p>${foot(i)}</div>`,
+
+  continuidade: (s, i) => `<div class="stage cont"><div class="pad">${kicker(s, i)}<h1 class="rise d1">${esc(s.title)}</h1></div>
+    <div class="phases rise d2">${s.phases.map(([a, b], n) => `<div class="ph"><i>${pad2(n + 1)}</i><div><b>${esc(a)}</b><span>${esc(b)}</span></div></div>`).join('')}</div>
+    <p class="next rise d3">${esc(s.next)}</p>
+    <aside class="ods rise d3"><span class="badge">ODS 2 <small>Fome zero e<br>agricultura sustentável</small></span><h3>${esc(s.odsTarget)}</h3><p>${esc(s.odsText)}</p><p class="contrib">${esc(s.odsContribution)}</p></aside>${foot(i)}</div>`,
+
+  fechamento: (s, i) => `<div class="stage dark closing">
+    <img class="logo rise" src="${img.logo}" alt="AgroGest">
+    <h1 class="rise d1">Do comprovante à <em>decisão no campo.</em></h1>
+    <p class="credits rise d2">${esc(s.credits)}</p>
+    <div class="sources rise d3">${deck.sources.filter(x => x.url.startsWith('http')).map(x => `<span>${esc(x.label)}</span>`).join('')}</div></div>`,
 };
+
+// Roteiro com tempos acumulados e ritmo de fala.
+const clock = sec => `${Math.floor(sec / 60)}:${pad2(sec % 60)}`;
+const words = text => text.trim().split(/\s+/).length;
 let elapsed = 0;
-const script = content.slides.map((s,i) => { const start=elapsed; elapsed+=s.seconds; return `${String(i+1).padStart(2,'0')} · ${s.title}\n${clock(start)}–${clock(elapsed)} · ${s.criterion}\n\n${s.notes}\n${s.cue ? `\nDireção de gravação: ${s.cue}\n` : ''}`; }).join('\n\n');
-function clock(seconds) { return `${Math.floor(seconds/60)}:${String(seconds%60).padStart(2,'0')}`; }
-writeFileSync(path.join(folder, 'roteiro.txt'), `AGROGEST · PITCH TÉCNICO GS2\nTempo-alvo: 4:40; limite do enunciado: 5:00.\nFalas sugeridas: ${content.slides.reduce((n,s)=>n+s.notes.split(/\s+/).length,0)} palavras. Ensaiar com demonstração e transições.\n\n${script}\n\nAPRESENTAR\nAbra agrogest-pitch.html por duplo clique, sem servidor ou conexão. Setas/espaço avançam; F ativa tela cheia; N mostra notas; T alterna cronômetro. O PDF tem nove páginas em 16:9 e também pode ser apresentado em tela cheia. npm run pitch:build regenera HTML/roteiro a partir do JSON e das capturas; após editar, reexporte o PDF pelo navegador.\n\nENTREGA\nGravar e publicar o vídeo no YouTube como NÃO LISTADO. Abrir o link sem estar logado e conferir áudio/duração. Enviar o link real em TXT ou ZIP à FIAP ON até 19/11/2026. HTML/PDF não substituem o vídeo obrigatório. O pitch Startup-One de até três minutos é opcional.\n\nFONTES E BASE\n${content.sources.map(x=>`${x.label}\n${x.url}`).join('\n\n')}\n`);
-const sections = content.slides.map((s,i)=>`<section class="slide ${i===0?'visible':''}" id="slide-${i+1}" data-index="${i}" aria-label="Slide ${i+1}: ${escape(s.title)}"><div class="stage">${head(s)}<div class="content reveal">${layouts[s.id](s)}</div></div></section>`).join('\n');
-const html = `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AgroGest · Pitch técnico GS2</title><meta name="description" content="Pitch técnico AgroGest: CitizenTech, agricultura inteligente e desenvolvimento rural."><style>
-@font-face{font-family:Inter;src:url(data:font/ttf;base64,${font(400)}) format('truetype');font-weight:400;font-display:swap}@font-face{font-family:Inter;src:url(data:font/ttf;base64,${font(700)}) format('truetype');font-weight:700;font-display:swap}@font-face{font-family:Inter;src:url(data:font/ttf;base64,${font(800)}) format('truetype');font-weight:800;font-display:swap}
+const blocks = deck.slides.map((s, i) => {
+  const start = elapsed; elapsed += s.seconds;
+  const w = words(s.notes);
+  return `${pad2(i + 1)} · ${s.title}\n${clock(start)}–${clock(elapsed)} · ${s.seconds} s · ${w} palavras · ${s.criterion}\n\n${s.notes}\n${s.cue ? `\nDireção de gravação: ${s.cue}\n` : ''}`;
+});
+const totalWords = deck.slides.reduce((n, s) => n + words(s.notes), 0);
+if (elapsed > deck.limitSeconds) throw new Error(`Roteiro com ${clock(elapsed)} passa do limite de ${clock(deck.limitSeconds)}.`);
+const fast = deck.slides.filter(s => words(s.notes) / s.seconds > 2.4).map(s => s.id);
+if (fast.length) console.warn(`Atenção: fala acima de 2,4 palavras/s em ${fast.join(', ')}.`);
+
+writeFileSync(path.join(folder, 'roteiro.txt'), `AGROGEST · PITCH TÉCNICO GS2 · roteiro de fala
+Atualizado em ${deck.updated}. Tempo-alvo: ${clock(elapsed)}; limite do enunciado: ${clock(deck.limitSeconds)}.
+${totalWords} palavras (${(totalWords / elapsed * 60).toFixed(0)} por minuto). Ensaiar com a demonstração e as transições.
+
+${blocks.join('\n\n')}
+
+NUVEM NO VÍDEO
+${deck.cloud.local}
+${deck.cloud.hosted}
+Só diga que a nuvem está em uso depois de publicar e gravar uma leitura real com Workers AI. Então mude "cloud.executed" para true em conteudo.json e regenere.
+
+APRESENTAR
+Abra agrogest-pitch.html com dois cliques; funciona sem servidor nem internet.
+Setas, espaço ou Page Down: avançar. F: tela cheia. N: falas do slide. T: cronômetro. Home/End: início e fim.
+O PDF tem ${total} páginas em 16:9 e serve para apresentar ou enviar.
+
+EDITAR
+Textos, falas, tempos e fontes ficam em conteudo.json; o visual em agrogest-app/scripts/pitch.css.
+Na raiz do repositório: npm run pitch:build (gera o HTML e este roteiro).
+Para o PDF, abra o HTML no Chrome, Imprimir > Salvar como PDF, margens nenhuma, gráficos de fundo ligados.
+
+ENTREGA
+Gravar e publicar o vídeo no YouTube como NÃO LISTADO, com até 5 minutos. Abrir o link sem estar logado e conferir áudio e duração. Enviar o link real em TXT ou ZIP à FIAP ON até 19/11/2026. HTML e PDF não substituem o vídeo obrigatório. O pitch Startup-One de até três minutos é opcional.
+
+FONTES E BASE
+${deck.sources.map(x => `${x.label}\n${x.url}`).join('\n\n')}
+
+Tipografia: Bricolage Grotesque, Inter e IBM Plex Mono (SIL Open Font License 1.1), embutidas no HTML. Licenças em font-license.txt.
+`);
+
+const license = ['bricolage-grotesque', 'inter', 'ibm-plex-mono'].map(f => readFileSync(path.join(fonts, `OFL-${f}.txt`), 'utf8').replace(/[\t ]+$/gm, '').trim()).join('\n\n----------------------------------------\n\n');
+writeFileSync(path.join(folder, 'font-license.txt'), `Fontes embutidas em agrogest-pitch.html (subconjunto latino, via Fontsource 5.3.0).\n\n${license}\n`);
+
+const sections = deck.slides.map((s, i) => `<section class="slide${i === 0 ? ' active' : ''}" data-index="${i}" aria-label="Slide ${i + 1} de ${total}: ${esc(s.title)}">${layouts[s.id](s, i)}</section>`).join('\n');
+const notesData = JSON.stringify(deck.slides.map(s => ({ title: s.title, notes: s.notes, cue: s.cue ?? '', seconds: s.seconds }))).replaceAll('<', '\\u003c');
+
+const html = `<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AgroGest · Pitch técnico GS2</title>
+<meta name="description" content="AgroGest: do comprovante ao custo do lote. Pitch técnico da Global Solution 2026, CitizenTech.">
+<style>
+${fontFaces}
 ${styles}
-</style></head><body><main aria-label="Apresentação AgroGest">${sections}</main><div class="progress" aria-hidden="true"></div><nav class="nav" aria-label="Navegação dos slides"><button id="prev" aria-label="Slide anterior">←</button>${content.slides.map((s,i)=>`<button class="dot ${i===0?'active':''}" data-slide="${i}" aria-label="Slide ${i+1}: ${escape(s.title)}"></button>`).join('')}<button id="next" aria-label="Próximo slide">→</button><button id="notes-toggle" aria-label="Mostrar notas do apresentador">N</button><span class="timer" hidden>0:00</span></nav><div class="hint">← → / espaço: avançar · F: tela cheia<br>N: notas · T: cronômetro · PDF: imprimir</div><aside class="notes" hidden aria-live="polite"></aside><script>
-/* Offline presentation controller. Native scrolling, keyboard, wheel and touch keep the same slide index. */
-const DECK=${JSON.stringify(content).replaceAll('<','\\u003c')};
-class SlidePresentation{constructor(){this.slides=[...document.querySelectorAll('.slide')];this.index=0;this.busy=0;this.resize();addEventListener('resize',()=>this.resize());this.observer=new IntersectionObserver(entries=>{for(const e of entries){if(e.isIntersecting&&e.intersectionRatio>.55){this.index=Number(e.target.dataset.index);e.target.classList.add('visible');this.update()}}},{threshold:[.55]});this.slides.forEach(s=>this.observer.observe(s));document.getElementById('prev').onclick=()=>this.go(this.index-1);document.getElementById('next').onclick=()=>this.go(this.index+1);document.querySelectorAll('[data-slide]').forEach(b=>b.onclick=()=>this.go(Number(b.dataset.slide)));document.getElementById('notes-toggle').onclick=()=>this.toggleNotes();addEventListener('keydown',e=>{if(/INPUT|TEXTAREA|SELECT/.test(e.target.tagName))return;if(['ArrowRight','ArrowDown',' ','PageDown'].includes(e.key)){e.preventDefault();this.go(this.index+1)}if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();this.go(this.index-1)}if(e.key==='Home'){e.preventDefault();this.go(0)}if(e.key==='End'){e.preventDefault();this.go(this.slides.length-1)}if(e.key.toLowerCase()==='n')this.toggleNotes();if(e.key.toLowerCase()==='t')this.toggleTimer();if(e.key.toLowerCase()==='f'){if(document.fullscreenElement)document.exitFullscreen().catch(()=>{});else document.documentElement.requestFullscreen().catch(()=>{})}});let touchX=0;addEventListener('touchstart',e=>{touchX=e.changedTouches[0].clientX},{passive:true});addEventListener('touchend',e=>{const delta=e.changedTouches[0].clientX-touchX;if(Math.abs(delta)>65)this.go(this.index+(delta<0?1:-1))},{passive:true});addEventListener('wheel',e=>{if(document.querySelector('.notes').contains(e.target))return;e.preventDefault();if(Date.now()-this.busy<650||Math.abs(e.deltaY)<12)return;this.busy=Date.now();this.go(this.index+(e.deltaY>0?1:-1))},{passive:false});const initial=Number(location.hash.replace('#slide-',''))-1;if(initial>=0&&initial<this.slides.length)this.go(initial);this.update()}resize(){const scale=Math.min(innerWidth/1440,innerHeight/810);document.querySelectorAll('.stage').forEach(s=>s.style.transform='scale('+scale+')')}go(index){this.index=Math.max(0,Math.min(this.slides.length-1,index));this.slides[this.index].scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'});this.update()}update(){document.querySelectorAll('.dot').forEach((b,i)=>{b.classList.toggle('active',i===this.index);b.setAttribute('aria-current',i===this.index?'step':'false')});document.querySelector('.progress').style.width=((this.index+1)/this.slides.length*100)+'%';const s=DECK.slides[this.index],aside=document.querySelector('.notes');aside.replaceChildren();const h=document.createElement('h2');h.textContent=(this.index+1)+'. '+s.title;const p=document.createElement('p');p.textContent=s.notes;aside.append(h,p);if(s.cue){const cue=document.createElement('p');cue.className='cue';cue.textContent='Direção de gravação: '+s.cue;aside.append(cue)}history.replaceState(null,'','#slide-'+(this.index+1))}toggleNotes(){const n=document.querySelector('.notes');n.hidden=!n.hidden}toggleTimer(){const t=document.querySelector('.timer');if(this.interval){clearInterval(this.interval);this.interval=null;t.hidden=true;return}this.started=Date.now();t.hidden=false;const tick=()=>{const n=Math.floor((Date.now()-this.started)/1000);t.textContent=Math.floor(n/60)+':'+String(n%60).padStart(2,'0')};tick();this.interval=setInterval(tick,1000)}}new SlidePresentation();
-</script><template id="inter-font-license">${escape(fontLicense)}</template><!-- Existing AgroGest raster artwork is preserved in these compositions. --></body></html>`;
+</style></head>
+<body>
+<main class="deck" aria-label="Apresentação AgroGest">
+${sections}
+</main>
+<div class="progress" aria-hidden="true"></div>
+<nav class="nav" aria-label="Navegação"><button id="prev" aria-label="Slide anterior">‹</button>${deck.slides.map((s, i) => `<button class="dot${i === 0 ? ' on' : ''}" data-go="${i}" aria-label="Ir para o slide ${i + 1}"></button>`).join('')}<button id="next" aria-label="Próximo slide">›</button><span class="count">1/${total}</span><button id="notes-btn" aria-label="Mostrar falas (N)">N</button><span class="timer" hidden>0:00</span></nav>
+<aside class="notes" hidden aria-live="polite"></aside>
+<script>
+const NOTES = ${notesData};
+const slides = [...document.querySelectorAll('.slide')];
+const dots = [...document.querySelectorAll('.dot')];
+const notes = document.querySelector('.notes');
+const timer = document.querySelector('.timer');
+let index = 0, lastWheel = 0, ticking = null, started = 0;
+function fit() { document.documentElement.style.setProperty('--scale', Math.min(innerWidth / 1920, innerHeight / 1080)); }
+function renderNotes() {
+  const n = NOTES[index];
+  notes.replaceChildren();
+  const h = document.createElement('h2'); h.textContent = (index + 1) + ' · ' + n.title + ' · ' + n.seconds + ' s';
+  const p = document.createElement('p'); p.textContent = n.notes;
+  notes.append(h, p);
+  if (n.cue) { const c = document.createElement('p'); c.className = 'cue'; c.textContent = 'Gravação: ' + n.cue; notes.append(c); }
+}
+function go(i) {
+  index = Math.max(0, Math.min(slides.length - 1, i));
+  slides.forEach((s, n) => s.classList.toggle('active', n === index));
+  dots.forEach((d, n) => { d.classList.toggle('on', n === index); d.setAttribute('aria-current', n === index ? 'step' : 'false'); });
+  document.querySelector('.progress').style.width = ((index + 1) / slides.length * 100) + '%';
+  document.querySelector('.count').textContent = (index + 1) + '/' + slides.length;
+  renderNotes();
+  history.replaceState(null, '', '#' + (index + 1));
+}
+function toggleTimer() {
+  if (ticking) { clearInterval(ticking); ticking = null; timer.hidden = true; return; }
+  started = Date.now(); timer.hidden = false;
+  const tick = () => { const s = Math.floor((Date.now() - started) / 1000); timer.textContent = Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); };
+  tick(); ticking = setInterval(tick, 500);
+}
+addEventListener('resize', fit);
+addEventListener('keydown', e => {
+  if (e.altKey || e.ctrlKey || e.metaKey) return;
+  const k = e.key;
+  if (['ArrowRight', 'ArrowDown', ' ', 'PageDown', 'Enter'].includes(k)) { e.preventDefault(); go(index + 1); }
+  else if (['ArrowLeft', 'ArrowUp', 'PageUp', 'Backspace'].includes(k)) { e.preventDefault(); go(index - 1); }
+  else if (k === 'Home') go(0);
+  else if (k === 'End') go(slides.length - 1);
+  else if (k.toLowerCase() === 'n') notes.hidden = !notes.hidden;
+  else if (k.toLowerCase() === 't') toggleTimer();
+  else if (k.toLowerCase() === 'f') { if (document.fullscreenElement) document.exitFullscreen().catch(() => {}); else document.documentElement.requestFullscreen().catch(() => {}); }
+});
+addEventListener('wheel', e => { if (notes.contains(e.target)) return; const now = Date.now(); if (now - lastWheel < 600 || Math.abs(e.deltaY) < 10) return; lastWheel = now; go(index + (e.deltaY > 0 ? 1 : -1)); }, { passive: true });
+let touchX = 0;
+addEventListener('touchstart', e => { touchX = e.changedTouches[0].clientX; }, { passive: true });
+addEventListener('touchend', e => { const d = e.changedTouches[0].clientX - touchX; if (Math.abs(d) > 60) go(index + (d < 0 ? 1 : -1)); }, { passive: true });
+document.getElementById('prev').onclick = () => go(index - 1);
+document.getElementById('next').onclick = () => go(index + 1);
+document.getElementById('notes-btn').onclick = () => { notes.hidden = !notes.hidden; };
+dots.forEach(d => d.onclick = () => go(Number(d.dataset.go)));
+let idle = null;
+addEventListener('mousemove', () => { document.body.classList.add('pointer'); clearTimeout(idle); idle = setTimeout(() => document.body.classList.remove('pointer'), 1800); });
+fit();
+const start = parseInt(location.hash.slice(1), 10);
+go(Number.isInteger(start) ? start - 1 : 0);
+</script>
+</body></html>
+`;
 writeFileSync(path.join(folder, 'agrogest-pitch.html'), html);
-writeFileSync(path.join(folder, 'font-license.txt'), fontLicense);
-console.log(`Pitch gerado: ${content.slides.length} slides, ${clock(elapsed)}, HTML offline e roteiro em docs/gs/pitch/.`);
+console.log(`Pitch gerado: ${total} slides, ${clock(elapsed)}, ${totalWords} palavras. HTML offline e roteiro em docs/gs/pitch/.`);

@@ -1,78 +1,101 @@
-AGROGEST · PITCH TÉCNICO GS2
-Tempo-alvo: 4:40; limite do enunciado: 5:00.
-Falas sugeridas: 547 palavras. Ensaiar com demonstração e transições.
+AGROGEST · PITCH TÉCNICO GS2 · roteiro de fala
+Atualizado em 11/11/2026. Tempo-alvo: 4:46; limite do enunciado: 5:00.
+590 palavras (124 por minuto). Ensaiar com a demonstração e as transições.
 
-01 · Do comprovante ao custo do lote
-0:00–0:20 · Proposta e problema · 3 pontos
+01 · Do comprovante ao custo do lote.
+0:00–0:20 · 20 s · 44 palavras · Abertura · proposta
 
-O AgroGest é uma solução CitizenTech para pequenos produtores de recria e engorda. A proposta é organizar despesas e transformar comprovantes em informação de custo por lote. O foco é quem trabalha no campo e precisa decidir com clareza, mesmo quando a conexão falha.
+Este é um recibo de demonstração: quarenta e dois reais e cinquenta em mineral para o gado. É uma compra pequena, do tipo que se perde entre a foto no celular e a planilha. O AgroGest leva esse valor até o custo do lote.
 
-
-02 · Comprovantes fora da gestão
-0:20–0:45 · Proposta e problema · 3 pontos
-
-A dor que orienta o projeto é guardar a foto, digitar os campos, conferir com outra pessoa e lançar o custo em lugares separados. Um comprovante esquecido ou repetido atrapalha a leitura do custo do rebanho. O protótipo reúne essas etapas. O piloto vai verificar a frequência e as consequências desse problema com produtores.
+Direção de gravação: A voz entra direto no recibo; não ler a capa.
 
 
-03 · Pequenos produtores de recria e engorda
-0:45–1:10 · Público-alvo e mercado · 3 pontos
+02 · Entre a compra e a planilha, a despesa se perde.
+0:20–0:46 · 26 s · 52 palavras · Proposta e problema · 3 pontos
 
-Nosso recorte inicial são pequenos produtores que usam o celular para administrar a recria e engorda. Pessoas de meia-idade e mais velhas estão entre os participantes a recrutar. No Censo de 2017, 77% dos estabelecimentos eram de agricultura familiar. Esse é um contexto de relevância, não mercado conquistado. Propomos começar com assistência técnica ou cooperativa.
-
-
-04 · Da foto à despesa aprovada
-1:10–1:50 · Impacto e valor · 3 pontos
-
-A foto fica salva antes do envio. A leitura sugere valor, data e descrição; o usuário confere os campos e define categoria e rateio. A IA não aprova nem escolhe regras financeiras. Com dois sócios, o autor não aprova sua própria despesa. A aprovação confirma o registro e recalcula o custo do lote. O original acompanha o lançamento e pode ser consultado.
-
-Direção de gravação: Mostrar captura, conferência e original. Usar uma imagem sintética nova na operação de demonstração.
+No levantamento de requisitos com um produtor de recria e engorda, o problema relatado foi este: as compras chegam à planilha depois. No caminho, uma despesa é esquecida, digitada errado ou lançada duas vezes. E fica difícil saber quanto custa manter cada lote. Com que frequência isso acontece, o piloto vai medir.
 
 
-05 · Como a leitura vira um indicador
-1:50–2:25 · Quatro tecnologias obrigatórias
+03 · Para quem cuida do lote e da conta.
+0:46–1:14 · 28 s · 63 palavras · Público-alvo e mercado · 3 pontos
 
-A visão computacional lê a imagem e a inteligência artificial organiza os campos: duas funções do modelo multimodal. Na arquitetura Cloudflare, Workers atende a aplicação, D1 guarda os registros, R2 protege os comprovantes e Workers AI integra a leitura. A análise de dados calcula custo acumulado, custo por cabeça e equilíbrio. O SQLite preserva capturas e intenções offline até sincronizar.
-
-Direção de gravação: Na gravação, mostrar a URL publicada e uma inferência real Workers AI. Não apresentar dry-run/emulação como serviço hospedado.
+Nosso público são pequenos produtores de recria e engorda, quem registra a rotina e os sócios que conferem as contas. Pensando também em pessoas de meia-idade e mais velhas, o app abre no modo claro, com números grandes e o essencial primeiro. No Censo Agro de 2017, 77% dos estabelecimentos eram de agricultura familiar. A entrada proposta é pela assistência técnica ou cooperativa.
 
 
-06 · Um registro acompanha toda a despesa
-2:25–2:50 · Diferencial · 3 pontos
+04 · A IA lê. A pessoa confere.
+1:14–1:50 · 36 s · 72 palavras · Impacto e valor · 3 pontos
 
-No fluxo em caderno ou planilha, transcrição, anexo e conferência precisam ser organizados à parte. Nosso diferencial proposto é conectar essas tarefas com permissões da operação e continuidade offline. Campos desconhecidos ficam vazios; reenvio não deve gerar outra despesa. O modo claro com ações laranja prioriza leitura, e o escuro continua opcional. A adequação ao produtor será medida no piloto.
+Na demonstração, a pessoa escolhe a foto do comprovante, que fica salva no aparelho antes do envio. O modelo de visão lê a imagem e sugere valor, data e descrição: aqui, quarenta e dois e cinquenta, dez de novembro, mineral para bovinos. A pessoa compara com a foto e corrige o que precisar. O que não dá para ler fica em branco. Categoria, rateio e lote são decisões dela, não da IA.
 
-
-07 · A despesa aprovada entra na conta do lote
-2:50–3:25 · Resultados e impacto esperados · 8 pontos
-
-Neste teste com recibo sintético, a despesa de 42 reais e 50 centavos foi lida, conferida e aprovada. O custo acumulado passou de 11 mil 577 reais e 90 centavos para 11 mil 620 reais e 40 centavos. São dez animais: mil 162 reais e quatro centavos por cabeça. O pendente não entra no custo confirmado. Isso demonstra o cálculo, sem representar ganho de renda em campo.
-
-Direção de gravação: Cenário GS-004 comprovado na validação local: antes 1157790 centavos, depois 1162040. Usar dataset coerente na gravação.
+Direção de gravação: Corte para a tela do app: escolher uma imagem sintética nova (GS-004 já tem despesa), mostrar a sugestão e uma correção manual. Dizer qual provedor fez a leitura.
 
 
-08 · O que vamos medir no piloto
-3:25–4:10 · Resultados e impacto esperados · 8 pontos
+05 · Outro sócio aprova. O lote recebe o custo.
+1:50–2:26 · 36 s · 73 palavras · Impacto e valor · resultado demonstrado
 
-Propomos duas semanas, cinco produtores e cinquenta comprovantes autorizados ou anonimizados. Vamos comparar tarefas equivalentes no processo manual e no AgroGest, alternando a ordem. As metas são reduzir em 30% a mediana do tempo por registro, acertar 95% dos valores e datas legíveis e não duplicar efeitos nos testes de reenvio e reconexão. O tempo inclui espera, correções e falhas. Também registraremos ajuda necessária e compreensão da aprovação. São metas de piloto; ainda não são resultados obtidos.
+Ana envia a despesa. Como há outro sócio, ela não pode aprovar o próprio lançamento; o custo confirmado segue em onze mil quinhentos e setenta e sete e noventa. Bruno confere o original e aprova. O custo vai a onze mil seiscentos e vinte e quarenta, com o valor somado uma única vez: mil cento e sessenta e dois reais por cabeça. Validação local, com dados sintéticos: prova o cálculo, não a renda.
 
-Direção de gravação: Dizer explicitamente que os percentuais são metas. Não alegar entrevistas, piloto ou ganhos de renda sem registros.
+Direção de gravação: Mostrar Ana enviando e Bruno aprovando com contas sintéticas. Valores do slide: validação local de 10/11/2026 (1157790 → 1162040 centavos). Se a gravação usar outra imagem, narrar os valores da tela.
 
 
-09 · Começar com os produtores e a assistência técnica
-4:10–4:40 · ODS, implantação e sustentabilidade
+06 · Quatro tecnologias, um caminho só.
+2:26–3:00 · 34 s · 75 palavras · Quatro tecnologias obrigatórias
 
-A contribuição proposta à meta 2.3 do ODS 2 é apoiar o acesso à informação gerencial do pequeno produtor. A implantação começa acompanhada. Para continuidade, avaliaremos manutenção por operação ou parceria com cooperativa, incluindo suporte e custo da infraestrutura. Primeiro medimos esforço e compreensão; renda e produtividade exigem acompanhamento posterior. O código identifica a base reaproveitada e a integração acadêmica. Tecnologia a serviço de quem decide no campo.
+Por dentro, as quatro tecnologias formam um caminho só. A visão computacional lê os pixels do comprovante, e a inteligência artificial organiza os campos: localmente, com o Qwen3-VL; na nuvem, com o Llama 4 Scout no Workers AI. Na Cloudflare, Workers atende a API, D1 guarda os registros e R2, a imagem original. A análise de dados calcula custo acumulado, por cabeça e preço de equilíbrio. Sem sinal, o aparelho guarda a captura até sincronizar.
 
+Direção de gravação: Antes de afirmar nuvem em uso, publicar pelo guia Wrangler e mostrar a URL e uma leitura real com Workers AI; então trocar cloud.executed para true. Sem isso, dizer que a execução gravada é local e a nuvem está preparada.
+
+
+07 · O que muda em relação à planilha.
+3:00–3:26 · 26 s · 59 palavras · Diferencial · 3 pontos
+
+Existem outros sistemas de gestão rural, e não dizemos que ninguém usa IA ou funciona offline. Nosso diferencial é juntar, em um só registro, a leitura da foto, a conferência, a aprovação entre sócios e o custo do lote. Se o mesmo arquivo for enviado de novo, o app abre a despesa que já existe, em vez de duplicar.
+
+
+08 · Como vamos medir se ajuda.
+3:26–4:08 · 42 s · 82 palavras · Resultados e impacto esperados · 8 pontos
+
+Para saber se ajuda, propomos um piloto: cinco produtores, cinquenta comprovantes autorizados ou anonimizados, duas semanas. Cada pessoa faz tarefas equivalentes no processo atual e no AgroGest, em ordem alternada, contando espera, correções e falhas. As metas são: trinta por cento menos tempo mediano por lançamento, noventa e cinco por cento de acerto em valor e data legíveis, e zero duplicações ao reenviar ou reconectar. Também vamos registrar a ajuda necessária e se a aprovação foi entendida. São metas, ainda não resultados.
+
+Direção de gravação: Dizer explicitamente que os percentuais são metas. Não alegar entrevistas novas, piloto realizado ou ganho de renda.
+
+
+09 · Começar acompanhado. Crescer com o que for medido.
+4:08–4:38 · 30 s · 62 palavras · Implantação, sustentabilidade e ODS · parte dos 8 pontos
+
+A implantação começa acompanhada, com assistência técnica ou cooperativa, e se ajusta pelo uso. Para continuar, avaliamos manutenção por operação ou parceria, contando suporte e consumo de nuvem. O próximo passo técnico é ler notas em PDF e XML. A contribuição proposta ao ODS 2, meta 2.3, é o acesso à informação para gerir a atividade; renda e produtividade exigem acompanhamento posterior.
+
+
+10 · Do comprovante à decisão no campo.
+4:38–4:46 · 8 s · 8 palavras · Fechamento
+
+AgroGest: do comprovante à decisão no campo. Obrigado.
+
+
+NUVEM NO VÍDEO
+Executado localmente em 10/11/2026: Qwen3-VL-2B leu o recibo GS-004; Worker, D1 e R2 em ambiente local.
+Preparado para a conta Cloudflare do responsável (guia Wrangler). Sem publicação nem leitura hospedada registradas até 11/11/2026.
+Só diga que a nuvem está em uso depois de publicar e gravar uma leitura real com Workers AI. Então mude "cloud.executed" para true em conteudo.json e regenere.
 
 APRESENTAR
-Abra agrogest-pitch.html por duplo clique, sem servidor ou conexão. Setas/espaço avançam; F ativa tela cheia; N mostra notas; T alterna cronômetro. O PDF tem nove páginas em 16:9 e também pode ser apresentado em tela cheia. npm run pitch:build regenera HTML/roteiro a partir do JSON e das capturas; após editar, reexporte o PDF pelo navegador.
+Abra agrogest-pitch.html com dois cliques; funciona sem servidor nem internet.
+Setas, espaço ou Page Down: avançar. F: tela cheia. N: falas do slide. T: cronômetro. Home/End: início e fim.
+O PDF tem 10 páginas em 16:9 e serve para apresentar ou enviar.
+
+EDITAR
+Textos, falas, tempos e fontes ficam em conteudo.json; o visual em agrogest-app/scripts/pitch.css.
+Na raiz do repositório: npm run pitch:build (gera o HTML e este roteiro).
+Para o PDF, abra o HTML no Chrome, Imprimir > Salvar como PDF, margens nenhuma, gráficos de fundo ligados.
 
 ENTREGA
-Gravar e publicar o vídeo no YouTube como NÃO LISTADO. Abrir o link sem estar logado e conferir áudio/duração. Enviar o link real em TXT ou ZIP à FIAP ON até 19/11/2026. HTML/PDF não substituem o vídeo obrigatório. O pitch Startup-One de até três minutos é opcional.
+Gravar e publicar o vídeo no YouTube como NÃO LISTADO, com até 5 minutos. Abrir o link sem estar logado e conferir áudio e duração. Enviar o link real em TXT ou ZIP à FIAP ON até 19/11/2026. HTML e PDF não substituem o vídeo obrigatório. O pitch Startup-One de até três minutos é opcional.
 
 FONTES E BASE
 FIAP · enunciado GS2 fornecido pelo usuário
 ../REQUISITOS_GS.md
+
+Levantamento de requisitos com produtor de recria e engorda (base AgroGest)
+../../REQUISITOS_PRODUTO.md
 
 IBGE · Censo Agropecuário 2017 · agricultura familiar: 77% dos estabelecimentos
 https://agenciadenoticias.ibge.gov.br/agencia-sala-de-imprensa/2013-agencia-de-noticias/releases/25789-censo-agro-2017-populacao-ocupada-nos-estabelecimentos-agropecuarios-cai-8-8
@@ -80,11 +103,13 @@ https://agenciadenoticias.ibge.gov.br/agencia-sala-de-imprensa/2013-agencia-de-n
 ONU · ODS 2, meta 2.3
 https://sdgs.un.org/goals/goal2
 
-Cloudflare · Llama 4 Scout multimodal
+Cloudflare · Llama 4 Scout multimodal no Workers AI
 https://developers.cloudflare.com/workers-ai/models/llama-4-scout-17b-16e-instruct/
 
-Evidências locais datadas
+Evidências locais datadas (GS-004, testes, limites)
 ../../HISTORICO_REVISOES.md
 
 Base e atribuição
 ../../arquivo/ORIGEM.md
+
+Tipografia: Bricolage Grotesque, Inter e IBM Plex Mono (SIL Open Font License 1.1), embutidas no HTML. Licenças em font-license.txt.

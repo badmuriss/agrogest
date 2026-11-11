@@ -15,7 +15,7 @@ O desenho original **branco/laranja** é reutilizado sem alterar seus pixels. Co
 
 As diretrizes verdes de outubro abaixo são **históricas e substituídas para a versão acadêmica**. Os slides da GS seguem a mesma paleta vigente e as capturas usadas neles devem corresponder ao app atualizado.
 
-No pitch, o cabeçalho reutiliza o símbolo branco/laranja V1, com o nome composto em Inter para manter a leitura em projeção; os arquivos originais permanecem intactos. A capa e o exemplo de aprovação usam carvão para dar contraste à marca, entre slides de fundo branco. As molduras compartilham a proporção 9:19,5, exibem as capturas inteiras sem deformar ou cortar seus dados e mantêm legendas fora da tela. O estilo editável fica em `scripts/pitch.css` e é incorporado ao HTML offline pelo gerador.
+**Pitch da GS (11/11/2026, substitui a direção de 10/11):** o logo completo V2 branco/laranja (`logo-dark-v2.png`) aparece grande apenas sobre carvão, na capa e no fechamento; os slides brancos não levam selo reduzido da marca. Não há molduras de celular: as capturas reais aparecem como recortes ampliados da região relevante, sem distorção, com cantos de 28 px e rótulo "tela real do app". O recibo sintético GS-004 é o fio condutor da narrativa, com marcações laranja que ligam os campos do papel aos da revisão. Tipografia exclusiva da apresentação: Bricolage Grotesque (títulos e números), Inter (texto, como no app) e IBM Plex Mono (rótulos), todas OFL e embutidas a partir de `docs/gs/pitch/fontes/`; o app continua só com Inter. Cores: carvão `#1C1D21`, branco, laranja `#FF6F1E` para grafismos, `#A63D00` para texto laranja sobre branco e `#FF8A4C` sobre carvão. O estilo editável fica em `scripts/pitch.css` e é incorporado ao HTML offline pelo gerador.
 
 ## 1. Objetivo
 
