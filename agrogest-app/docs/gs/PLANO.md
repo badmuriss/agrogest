@@ -23,7 +23,7 @@ Conferência em 10/11/2026 contra o enunciado integral reenviado pelo usuário. 
 - **Visão computacional:** pixels do comprovante são processados pelo extrator; não usar resposta constante.
 - **Inteligência artificial:** modelo visual organiza campos para revisão, com valores nulos quando desconhecidos e validação determinística. IA/CV podem ser funções do mesmo modelo; não é exigido treinar dois modelos.
 - **Análise de dados:** custos por lote, por cabeça e equilíbrio decorrem do domínio, após aprovação. GS-004 demonstra acréscimo de R$ 42,50; não confundir cálculo com ganho de produtividade.
-- **Cloud:** arquitetura Workers/D1/R2/Workers AI e [roteiro Wrangler](../CLOUDFLARE_LOCAL.md#deploy-com-wrangler-na-conta-do-responsável) estão preparados. **Antes da gravação que afirma cloud em uso**, o responsável deve publicar na própria conta e registrar URL/saúde e uma inferência real. Teste emulado/dry-run não comprova chamada hospedada. Essa execução pelo amigo não foi realizada nesta conferência.
+- **Cloud:** arquitetura Workers/D1/R2/Workers AI e [roteiro Wrangler](../CLOUDFLARE_LOCAL.md#deploy-com-wrangler-na-conta-do-responsável) estão preparados. **Antes da gravação que afirma cloud em uso**, o responsável deve publicar na própria conta e registrar URL/saúde e uma inferência real. Teste emulado/dry-run não comprova chamada hospedada. Essa execução pelo amigo não foi realizada nesta conferência. Em 11/11/2026 o usuário informou que a equipe publicou na Cloudflare; o slide de tecnologia passou a mostrar a nuvem como publicada. URL, saúde e leitura hospedada não foram conferidas pelo agente e devem aparecer na gravação.
 
 ### Indicadores, ODS e sustentação
 

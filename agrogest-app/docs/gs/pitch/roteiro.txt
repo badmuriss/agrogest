@@ -43,7 +43,7 @@ Direção de gravação: Mostrar Ana enviando e Bruno aprovando com contas sint�
 
 Por dentro, as quatro tecnologias formam um caminho só. A visão computacional lê os pixels do comprovante, e a inteligência artificial organiza os campos: localmente, com o Qwen3-VL; na nuvem, com o Llama 4 Scout no Workers AI. Na Cloudflare, Workers atende a API, D1 guarda os registros e R2, a imagem original. A análise de dados calcula custo acumulado, por cabeça e preço de equilíbrio. Sem sinal, o aparelho guarda a captura até sincronizar.
 
-Direção de gravação: Antes de afirmar nuvem em uso, publicar pelo guia Wrangler e mostrar a URL e uma leitura real com Workers AI; então trocar cloud.executed para true. Sem isso, dizer que a execução gravada é local e a nuvem está preparada.
+Direção de gravação: Mostrar a URL publicada e uma leitura real feita pelo Workers AI. Emulação local não comprova nuvem.
 
 
 07 · O que muda em relação à planilha.
@@ -73,9 +73,9 @@ AgroGest: do comprovante à decisão no campo. Obrigado.
 
 
 NUVEM NO VÍDEO
-Executado localmente em 10/11/2026: Qwen3-VL-2B leu o recibo GS-004; Worker, D1 e R2 em ambiente local.
-Preparado para a conta Cloudflare do responsável (guia Wrangler). Sem publicação nem leitura hospedada registradas até 11/11/2026.
-Só diga que a nuvem está em uso depois de publicar e gravar uma leitura real com Workers AI. Então mude "cloud.executed" para true em conteudo.json e regenere.
+Qwen3-VL-2B leu o recibo GS-004 em 10/11/2026, com Worker, D1 e R2 locais.
+Publicado pela equipe na Cloudflare em 11/11/2026: Workers, D1, R2 e Workers AI.
+Na gravação, mostre a URL publicada e uma leitura real feita pelo Workers AI. Emulação local não comprova nuvem.
 
 APRESENTAR
 Abra agrogest-pitch.html com dois cliques; funciona sem servidor nem internet.
@@ -112,4 +112,4 @@ Evidências locais datadas (GS-004, testes, limites)
 Base e atribuição
 ../../arquivo/ORIGEM.md
 
-Tipografia: Bricolage Grotesque, Inter e IBM Plex Mono (SIL Open Font License 1.1), embutidas no HTML. Licenças em font-license.txt.
+Tipografia: Bricolage Grotesque e Inter (SIL Open Font License 1.1), embutidas no HTML. Licenças em font-license.txt.

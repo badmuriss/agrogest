@@ -23,49 +23,45 @@ const fontFaces = [
   face('Bricolage Grotesque', 'bricolage-grotesque-latin-600-normal.woff2', 600),
   face('Bricolage Grotesque', 'bricolage-grotesque-latin-800-normal.woff2', 800),
   ...[400, 500, 600, 700].map(w => face('Inter', `inter-latin-${w}-normal.woff2`, w)),
-  ...[400, 500].map(w => face('IBM Plex Mono', `ibm-plex-mono-latin-${w}-normal.woff2`, w)),
 ].join('\n');
 
 const total = deck.slides.length;
 const pad2 = n => String(n).padStart(2, '0');
 const arrow = (w = 120) => `<svg width="${w}" height="28" viewBox="0 0 ${w} 28" fill="none" aria-hidden="true"><path d="M2 14H${w - 6}M${w - 18} 3l13 11-13 11" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
-const kicker = (s, i) => `<p class="kicker rise"><b>${pad2(i + 1)}</b>${esc(s.kicker)}</p>`;
-const foot = i => `<div class="foot"><span>AgroGest · pitch técnico GS 2026</span><span>${pad2(i + 1)} / ${pad2(total)}</span></div>`;
-const trail = current => `<ol class="trail">${deck.journey.map((step, n) => `<li class="${n < current ? 'done' : n === current ? 'now' : ''}"><span>${esc(step)}</span></li>`).join('')}</ol>`;
+const title = (s, cls = 'rise d1') => `<h1 class="${cls}">${esc(s.title)}</h1>`;
 // Recorte de captura real: mostra uma região da imagem ampliada por `scale`, sem distorcer.
-const crop = ({ src, alt, natW, sx, sy, sw, sh, scale, left, top, cls = '' }) =>
-  `<figure class="crop ${cls}" style="left:${left}px;top:${top}px;width:${Math.round(sw * scale)}px;height:${Math.round(sh * scale)}px"><img src="${src}" alt="${esc(alt)}" style="width:${Math.round(natW * scale)}px;left:${Math.round(-sx * scale)}px;top:${Math.round(-sy * scale)}px"></figure>`;
+const crop = ({ src, alt, natW, sx, sy, sw, sh, scale, left, top }) =>
+  `<figure class="crop" style="left:${left}px;top:${top}px;width:${Math.round(sw * scale)}px;height:${Math.round(sh * scale)}px"><img src="${src}" alt="${esc(alt)}" style="width:${Math.round(natW * scale)}px;left:${Math.round(-sx * scale)}px;top:${Math.round(-sy * scale)}px"></figure>`;
 // Posição, no palco, de um ponto (x, y) da imagem recortada.
 const at = (c, x, y) => ({ x: Math.round(c.left + (x - c.sx) * c.scale), y: Math.round(c.top + (y - c.sy) * c.scale) });
+const cap = (text, left, top, cls = 'rise d2') => `<span class="cap ${cls}" style="left:${left}px;top:${top}px">${esc(text)}</span>`;
 
 const layouts = {
-  capa: (s, i) => `<div class="stage dark cover">
+  capa: s => `<div class="stage dark cover">
     <img class="logo rise" src="${img.logo}" alt="AgroGest">
-    <div class="copy"><p class="kicker rise d1">${esc(s.kicker)}</p><h1 class="rise d1">Do comprovante ao <em>custo do lote.</em></h1><p class="lede rise d2">${esc(s.lede)}</p></div>
+    <div class="copy"><h1 class="rise d1">Do comprovante ao <em>custo do lote.</em></h1><p class="lede rise d2">${esc(s.lede)}</p><p class="meta rise d3">${esc(s.meta)}</p></div>
     <figure class="paper rise d2"><img src="${img.receipt}" alt="Recibo sintético GS-004: mineral para bovinos, total de R$ 42,50"><span class="hl"></span></figure>
-    <span class="paper-tag rise d3">Recibo sintético GS-004 · sem valor fiscal</span>
-    <div class="bottom rise d3">${trail(-1)}<span class="meta">${esc(s.meta)}</span></div>
+    <span class="cap paper-cap rise d3">${esc(s.receiptLabel)}</span>
   </div>`,
 
-  problema: (s, i) => `<div class="stage problem"><div class="pad">${kicker(s, i)}<h1 class="rise d1">${esc(s.title)}</h1></div>
+  problema: s => `<div class="stage problem">${title(s)}
     <div class="route rise d2">
       <div class="end from"><b>${esc(s.from[0])}</b><span>${esc(s.from[1])}</span></div>
       <div class="gap"></div>
       <div class="drops">${s.failures.map(f => `<div class="drop"><span>${esc(f)}</span></div>`).join('')}</div>
       <div class="end to"><b>${esc(s.to[0])}</b><span>${esc(s.to[1])}</span></div>
     </div>
-    <div class="src rise d3"><p>${esc(s.evidence)}</p><p class="limit">${esc(s.limit)}</p></div>${foot(i)}</div>`,
+    <div class="src rise d3"><p>${esc(s.evidence)}</p><p class="limit">${esc(s.limit)}</p></div></div>`,
 
-  publico: (s, i) => `<div class="stage audience">
-    <div class="left">${kicker(s, i)}<h1 class="rise d1">${esc(s.title)}</h1>
-      <div class="roles rise d2">${s.roles.map(([who, what]) => `<div class="role"><b>${esc(who)}</b><span>${esc(what)}</span></div>`).join('')}</div>
-      <p class="access rise d3">${esc(s.access)}</p></div>
-    <aside class="panel rise d2"><div class="big">${esc(s.statValue)}</div><p>${esc(s.statText)}</p><p class="src">${esc(s.statSource)}</p><p class="lim">${esc(s.statLimit)}</p><p class="entry">${esc(s.entry)}</p></aside>${foot(i)}</div>`,
+  publico: s => `<div class="stage audience">${title(s)}
+    <div class="roles rise d2">${s.roles.map(([who, what]) => `<div class="role"><b>${esc(who)}</b><span>${esc(what)}</span></div>`).join('')}</div>
+    <p class="access rise d3">${esc(s.access)}</p>
+    <aside class="panel rise d2"><div class="big">${esc(s.statValue)}</div><p>${esc(s.statText)}</p><p class="src">${esc(s.statSource)}</p><p class="lim">${esc(s.statLimit)}</p><p class="entry">${esc(s.entry)}</p></aside></div>`,
 
-  leitura: (s, i) => {
-    const r = { left: 120, top: 330, w: 800 }, k = r.w / 1200;
+  leitura: s => {
+    const r = { left: 150, top: 320, w: 740 }, k = r.w / 1200;
     const rp = (x, y) => ({ x: Math.round(r.left + x * k), y: Math.round(r.top + y * k) });
-    const c = { src: img.review, alt: 'Tela de revisão do AgroGest com R$ 42,50, Mineral para bovinos e 10/11/2026', natW: 420, sx: 0, sy: 288, sw: 420, sh: 372, scale: 1.56, left: 1130, top: 300 };
+    const c = { src: img.review, alt: 'Tela de revisão do AgroGest com R$ 42,50, Mineral para bovinos e 10/11/2026', natW: 420, sx: 0, sy: 288, sw: 420, sh: 372, scale: 1.42, left: 1144, top: 290 };
     // Campos no recibo (pixels do arquivo 1200×740) e na captura (420×1000).
     const fields = [
       { n: 1, receipt: [52, 478, 335, 56], app: [112, 356, 196, 52] },
@@ -75,68 +71,68 @@ const layouts = {
     const marks = fields.map(f => {
       const a = rp(f.receipt[0], f.receipt[1]);
       const b = at(c, f.app[0], f.app[1]);
-      return `<span class="hl" style="left:${a.x}px;top:${a.y}px;width:${Math.round(f.receipt[2] * k)}px;height:${Math.round(f.receipt[3] * k)}px"></span>
-        <span class="pin" style="left:${a.x + Math.round(f.receipt[2] * k) + 14}px;top:${a.y + Math.round(f.receipt[3] * k / 2) - 22}px">${f.n}</span>
-        <span class="ring" style="left:${b.x - 8}px;top:${b.y - 6}px;width:${Math.round(f.app[2] * c.scale) + 16}px;height:${Math.round(f.app[3] * c.scale) + 12}px"></span>
-        <span class="pin" style="left:${b.x - (f.n === 1 ? 58 : 30)}px;top:${b.y + Math.round(f.app[3] * c.scale / 2) - 22}px">${f.n}</span>`;
+      const rw = Math.round(f.receipt[2] * k), rh = Math.round(f.receipt[3] * k);
+      const aw = Math.round(f.app[2] * c.scale), ah = Math.round(f.app[3] * c.scale);
+      return `<span class="hl" style="left:${a.x}px;top:${a.y}px;width:${rw}px;height:${rh}px"></span>
+        <span class="pin" style="left:${a.x + rw + 14}px;top:${a.y + Math.round(rh / 2) - 22}px">${f.n}</span>
+        <span class="ring" style="left:${b.x - 8}px;top:${b.y - 6}px;width:${aw + 16}px;height:${ah + 12}px"></span>
+        <span class="pin" style="left:${b.x - (f.n === 1 ? 58 : 30)}px;top:${b.y + Math.round(ah / 2) - 22}px">${f.n}</span>`;
     }).join('');
-    return `<div class="stage reading"><div class="pad"><div class="top">${kicker(s, i)}<div class="rise">${trail(s.step)}</div></div><h1 class="rise d1">${esc(s.title)}</h1></div>
-      <span class="tag rise d2" style="left:${r.left}px;top:${r.top - 34}px">${esc(s.receiptLabel)}</span>
+    return `<div class="stage reading">${title(s)}
+      ${cap(s.receiptLabel, r.left, r.top - 38)}
       <figure class="receipt rise d2" style="left:${r.left}px;top:${r.top}px;width:${r.w}px"><img src="${img.receipt}" alt="Recibo sintético GS-004"></figure>
-      <div class="arrow rise d3" style="left:950px;top:520px">${arrow(140)}<span>${esc(s.readLabel)}</span></div>
-      <span class="tag rise d2" style="left:${c.left}px;top:${c.top - 34}px">${esc(s.appLabel)}</span>
+      <div class="arrow rise d3" style="left:966px;top:500px">${arrow(130)}<span>${esc(s.readLabel)}</span></div>
+      ${cap(s.appLabel, c.left, c.top - 38)}
       <div class="rise d3">${crop(c)}</div>
       <div class="rise d4">${marks}</div>
-      <div class="rules rise d4" style="left:120px;right:120px;top:900px;display:grid;grid-template-columns:repeat(3,1fr);gap:40px">${s.rules.map(([a, b]) => `<div class="rule"><b>${esc(a)}</b><span>${esc(b)}</span></div>`).join('')}</div>
+      <div class="rules rise d4">${s.rules.map(([a, b]) => `<div class="rule"><b>${esc(a)}</b><span>${esc(b)}</span></div>`).join('')}</div>
     </div>`;
   },
 
-  aprovacao: (s, i) => {
-    const c = { src: img.indicator, alt: 'Tela do lote no AgroGest: custo acumulado R$ 11.620,40 e R$ 1.162,04 por cabeça', natW: 420, sx: 14, sy: 262, sw: 392, sh: 300, scale: 1.68, left: 1140, top: 190 };
+  aprovacao: s => {
+    const c = { src: img.indicator, alt: 'Tela do lote no AgroGest: custo acumulado R$ 11.620,40 e R$ 1.162,04 por cabeça', natW: 420, sx: 14, sy: 262, sw: 392, sh: 300, scale: 1.6, left: 1143, top: 170 };
     const p = at(c, 34, 330), q = at(c, 280, 368);
-    return `<div class="stage dark approval">
-      <div class="left">${kicker(s, i)}<h1 class="rise d1">${esc(s.title)}</h1>
-        <div class="steps rise d2">${s.timeline.map(([a, b], n) => `<div class="step ${n ? 'ok' : ''}"><b>${esc(a)}</b><span>${esc(b)}</span></div>`).join('')}</div></div>
+    return `<div class="stage dark approval">${title(s)}
+      <div class="steps rise d2">${s.timeline.map(([a, b], n) => `<div class="step ${n ? 'ok' : ''}"><b>${esc(a)}</b><span>${esc(b)}</span></div>`).join('')}</div>
       <div class="numbers rise d3"><div class="before">${esc(s.before)}</div><div class="after">${esc(s.after)}</div><div class="delta">${esc(s.delta)}<span>${esc(s.perHead)}</span></div></div>
-      <div class="rise" style="position:absolute;right:120px;top:92px">${trail(s.step)}</div>
-      <span class="tag shot-tag rise d2">${esc(s.appLabel)}</span>
+      ${cap(s.appLabel, c.left, c.top - 38)}
       <div class="rise d2">${crop(c)}</div>
       <span class="ring rise d4" style="left:${p.x - 10}px;top:${p.y - 8}px;width:${Math.round(150 * c.scale)}px;height:${Math.round(30 * c.scale)}px"></span>
       <span class="ring rise d4" style="left:${q.x - 10}px;top:${q.y - 8}px;width:${Math.round(118 * c.scale)}px;height:${Math.round(26 * c.scale)}px"></span>
-      <p class="evidence rise d4">${esc(s.evidence)}</p>${foot(i)}</div>`;
+      <p class="evidence rise d4" style="left:${c.left}px;top:${c.top + Math.round(c.sh * c.scale) + 44}px">${esc(s.evidence)}</p></div>`;
   },
 
-  tecnologia: (s, i) => `<div class="stage tech"><div class="pad">${kicker(s, i)}<h1 class="rise d1">${esc(s.title)}</h1></div>
+  tecnologia: s => `<div class="stage tech">${title(s)}
     <div class="line rise d2"></div>
-    <div class="stations">${s.stations.map(([name, what, how], n) => `<div class="st rise d${Math.min(n + 1, 4)}"><span class="n">${pad2(n + 1)}</span><h2>${esc(name)}</h2><span class="dot"></span><p>${esc(what)}</p><code>${esc(how)}</code></div>`).join('')}</div>
-    <p class="device rise d3"><b>Offline</b>${esc(s.device)}</p>
-    <div class="status rise d4"><div><i class="on"></i><span>${esc(deck.cloud.local)}</span></div><div><i class="${deck.cloud.executed ? 'on' : ''}"></i><span>${esc(deck.cloud.hosted)}</span></div></div>${foot(i)}</div>`,
+    <div class="stations">${s.stations.map(([name, what, how], n) => `<div class="st rise d${Math.min(n + 1, 4)}"><h2>${esc(name)}</h2><span class="dot"></span><p>${esc(what)}</p><span class="how">${esc(how)}</span></div>`).join('')}</div>
+    <p class="device rise d3"><b>Sem sinal:</b> ${esc(s.device)}</p>
+    <div class="status rise d4"><div><i class="on"></i><span><b>Local:</b> ${esc(deck.cloud.local)}</span></div><div><i class="${deck.cloud.executed ? 'on' : ''}"></i><span><b>Nuvem:</b> ${esc(deck.cloud.hosted)}</span></div></div></div>`,
 
-  diferencial: (s, i) => {
-    const c = { src: img.review, alt: 'Aviso do AgroGest: este comprovante já tem uma despesa; botão Abrir despesa existente', natW: 420, sx: 14, sy: 726, sw: 392, sh: 106, scale: 1.42, left: 1244, top: 852 };
-    return `<div class="stage diff"><div class="pad">${kicker(s, i)}<h1 class="rise d1">${esc(s.title)}</h1></div>
+  diferencial: s => {
+    const c = { src: img.review, alt: 'Aviso do AgroGest: este comprovante já tem uma despesa; botão Abrir despesa existente', natW: 420, sx: 14, sy: 726, sw: 392, sh: 106, scale: 1.38, left: 1229, top: 820 };
+    return `<div class="stage diff">${title(s)}
       <table class="rise d2"><thead><tr><th>${esc(s.columns[0])}</th><th></th><th>${esc(s.columns[1])}</th></tr></thead><tbody>${s.rows.map(([a, b]) => `<tr><td>${esc(a)}</td><td>${arrow(70)}</td><td>${esc(b)}</td></tr>`).join('')}</tbody></table>
       <p class="honest rise d3">${esc(s.honesty)}</p>
-      <span class="tag rise d4" style="left:${c.left}px;top:${c.top - 32}px">${esc(s.dupeLabel)}</span>
-      <div class="rise d4">${crop(c)}</div>${foot(i)}</div>`;
+      ${cap(s.dupeLabel, c.left, c.top - 36, 'rise d4')}
+      <div class="rise d4">${crop(c)}</div></div>`;
   },
 
-  piloto: (s, i) => `<div class="stage pilot"><div class="pad">${kicker(s, i)}<h1 class="rise d1">${esc(s.title)}</h1></div>
+  piloto: s => `<div class="stage pilot">${title(s)}
     <div class="scope rise d1">${s.scope.map(([n, l]) => `<div><b>${esc(n)}</b><span>${esc(l)}</span></div>`).join('')}</div>
     <span class="status rise d2">${esc(s.status)}</span>
-    <div class="rows">${s.metrics.map(([v, h, p], n) => `<div class="row rise d${n + 2}"><div class="v"><small>META</small>${esc(v)}</div><h3>${esc(h)}</h3><p>${esc(p)}</p></div>`).join('')}</div>
-    <p class="also rise d4">${esc(s.also)}</p>${foot(i)}</div>`,
+    <div class="rows">${s.metrics.map(([v, h, p], n) => `<div class="row rise d${n + 2}"><div class="v"><small>meta</small>${esc(v)}</div><h3>${esc(h)}</h3><p>${esc(p)}</p></div>`).join('')}</div>
+    <p class="also rise d4">${esc(s.also)}</p></div>`,
 
-  continuidade: (s, i) => `<div class="stage cont"><div class="pad">${kicker(s, i)}<h1 class="rise d1">${esc(s.title)}</h1></div>
-    <div class="phases rise d2">${s.phases.map(([a, b], n) => `<div class="ph"><i>${pad2(n + 1)}</i><div><b>${esc(a)}</b><span>${esc(b)}</span></div></div>`).join('')}</div>
+  continuidade: s => `<div class="stage cont">${title(s)}
+    <div class="phases rise d2">${s.phases.map(([a, b], n) => `<div class="ph"><b><em>${n + 1}</em>${esc(a)}</b><span>${esc(b)}</span></div>`).join('')}</div>
     <p class="next rise d3">${esc(s.next)}</p>
-    <aside class="ods rise d3"><span class="badge">ODS 2 <small>Fome zero e<br>agricultura sustentável</small></span><h3>${esc(s.odsTarget)}</h3><p>${esc(s.odsText)}</p><p class="contrib">${esc(s.odsContribution)}</p></aside>${foot(i)}</div>`,
+    <aside class="ods rise d3"><span class="badge">ODS 2 <small>Fome zero e<br>agricultura sustentável</small></span><h3>${esc(s.odsTarget)}</h3><p>${esc(s.odsText)}</p><p class="contrib">${esc(s.odsContribution)}</p></aside></div>`,
 
-  fechamento: (s, i) => `<div class="stage dark closing">
+  fechamento: s => `<div class="stage dark closing">
     <img class="logo rise" src="${img.logo}" alt="AgroGest">
     <h1 class="rise d1">Do comprovante à <em>decisão no campo.</em></h1>
     <p class="credits rise d2">${esc(s.credits)}</p>
-    <div class="sources rise d3">${deck.sources.filter(x => x.url.startsWith('http')).map(x => `<span>${esc(x.label)}</span>`).join('')}</div></div>`,
+    <p class="sources rise d3">Fontes: ${deck.sources.filter(x => x.url.startsWith('http')).map(x => esc(x.label)).join(' · ')}</p></div>`,
 };
 
 // Roteiro com tempos acumulados e ritmo de fala.
@@ -162,7 +158,7 @@ ${blocks.join('\n\n')}
 NUVEM NO VÍDEO
 ${deck.cloud.local}
 ${deck.cloud.hosted}
-Só diga que a nuvem está em uso depois de publicar e gravar uma leitura real com Workers AI. Então mude "cloud.executed" para true em conteudo.json e regenere.
+${deck.cloud.executed ? 'Na gravação, mostre a URL publicada e uma leitura real feita pelo Workers AI. Emulação local não comprova nuvem.' : 'Só diga que a nuvem está em uso depois de publicar e gravar uma leitura real com Workers AI. Então mude "cloud.executed" para true em conteudo.json e regenere.'}
 
 APRESENTAR
 Abra agrogest-pitch.html com dois cliques; funciona sem servidor nem internet.
@@ -180,13 +176,13 @@ Gravar e publicar o vídeo no YouTube como NÃO LISTADO, com até 5 minutos. Abr
 FONTES E BASE
 ${deck.sources.map(x => `${x.label}\n${x.url}`).join('\n\n')}
 
-Tipografia: Bricolage Grotesque, Inter e IBM Plex Mono (SIL Open Font License 1.1), embutidas no HTML. Licenças em font-license.txt.
+Tipografia: Bricolage Grotesque e Inter (SIL Open Font License 1.1), embutidas no HTML. Licenças em font-license.txt.
 `);
 
-const license = ['bricolage-grotesque', 'inter', 'ibm-plex-mono'].map(f => readFileSync(path.join(fonts, `OFL-${f}.txt`), 'utf8').replace(/[\t ]+$/gm, '').trim()).join('\n\n----------------------------------------\n\n');
+const license = ['bricolage-grotesque', 'inter'].map(f => readFileSync(path.join(fonts, `OFL-${f}.txt`), 'utf8').replace(/[\t ]+$/gm, '').trim()).join('\n\n----------------------------------------\n\n');
 writeFileSync(path.join(folder, 'font-license.txt'), `Fontes embutidas em agrogest-pitch.html (subconjunto latino, via Fontsource 5.3.0).\n\n${license}\n`);
 
-const sections = deck.slides.map((s, i) => `<section class="slide${i === 0 ? ' active' : ''}" data-index="${i}" aria-label="Slide ${i + 1} de ${total}: ${esc(s.title)}">${layouts[s.id](s, i)}</section>`).join('\n');
+const sections = deck.slides.map((s, i) => `<section class="slide${i === 0 ? ' active' : ''}" data-index="${i}" aria-label="Slide ${i + 1} de ${total}: ${esc(s.title)}">${layouts[s.id](s)}</section>`).join('\n');
 const notesData = JSON.stringify(deck.slides.map(s => ({ title: s.title, notes: s.notes, cue: s.cue ?? '', seconds: s.seconds }))).replaceAll('<', '\\u003c');
 
 const html = `<!doctype html>
@@ -201,7 +197,6 @@ ${styles}
 <main class="deck" aria-label="Apresentação AgroGest">
 ${sections}
 </main>
-<div class="progress" aria-hidden="true"></div>
 <nav class="nav" aria-label="Navegação"><button id="prev" aria-label="Slide anterior">‹</button>${deck.slides.map((s, i) => `<button class="dot${i === 0 ? ' on' : ''}" data-go="${i}" aria-label="Ir para o slide ${i + 1}"></button>`).join('')}<button id="next" aria-label="Próximo slide">›</button><span class="count">1/${total}</span><button id="notes-btn" aria-label="Mostrar falas (N)">N</button><span class="timer" hidden>0:00</span></nav>
 <aside class="notes" hidden aria-live="polite"></aside>
 <script>
@@ -224,7 +219,6 @@ function go(i) {
   index = Math.max(0, Math.min(slides.length - 1, i));
   slides.forEach((s, n) => s.classList.toggle('active', n === index));
   dots.forEach((d, n) => { d.classList.toggle('on', n === index); d.setAttribute('aria-current', n === index ? 'step' : 'false'); });
-  document.querySelector('.progress').style.width = ((index + 1) / slides.length * 100) + '%';
   document.querySelector('.count').textContent = (index + 1) + '/' + slides.length;
   renderNotes();
   history.replaceState(null, '', '#' + (index + 1));
