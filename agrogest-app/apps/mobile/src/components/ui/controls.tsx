@@ -6,7 +6,8 @@ import { radius, soft, space, toneColor, usePalette, type Tone } from '@/theme';
 import { haptics, PressableScale } from './motion';
 import { AppText, Icon, type IconName } from './text';
 
-type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'danger';
+/** primary: laranja da marca (ação principal da tela); strong: carvão no claro e branco no escuro (destaque secundário). */
+type ButtonVariant = 'primary' | 'strong' | 'secondary' | 'ghost' | 'danger';
 
 export function Button({
   title,
@@ -28,6 +29,7 @@ export function Button({
   const p = usePalette();
   const colors = disabled ? { bg: p.disabledBackground, fg: p.disabledText } : {
     primary: { bg: p.accent, fg: p.onAccent },
+    strong: { bg: p.inverse, fg: p.onInverse },
     secondary: { bg: p.fill, fg: p.text },
     ghost: { bg: 'transparent', fg: p.accent },
     danger: { bg: soft(p.danger), fg: p.danger },

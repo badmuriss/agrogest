@@ -77,7 +77,7 @@ export function HeroCard({
           {detail}
         </AppText>
       ) : null}
-      {action ? <Button title={action.title} onPress={action.onPress} size="lg" style={styles.action} /> : null}
+      {action ? <Button title={action.title} onPress={action.onPress} variant="strong" size="lg" style={styles.action} /> : null}
     </>
   );
 

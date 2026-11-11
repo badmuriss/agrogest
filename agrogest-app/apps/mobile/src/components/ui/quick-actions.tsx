@@ -11,7 +11,7 @@ export interface QuickAction {
   label: string;
   icon: LucideIcon;
   onPress: () => void;
-  /** A ação principal ganha o fundo da marca; as demais ficam neutras. */
+  /** A ação principal ganha o fundo forte (carvão no claro, branco no escuro); as demais ficam neutras. */
   primary?: boolean;
 }
 
@@ -41,8 +41,8 @@ function QuickTile({ action }: { action: QuickAction }) {
       style={styles.inner}
       scaleTo={0.94}
       onPress={action.onPress}>
-      <View style={[styles.tile, { backgroundColor: action.primary ? p.accent : p.surface }, elevation(p), action.primary && { borderColor: p.accent }]}>
-        <Glyph color={action.primary ? p.onAccent : p.text} size={26} strokeWidth={1.75} />
+      <View style={[styles.tile, { backgroundColor: action.primary ? p.inverse : p.surface }, elevation(p), action.primary && { borderColor: p.inverse }]}>
+        <Glyph color={action.primary ? p.onInverse : p.text} size={26} strokeWidth={1.75} />
       </View>
       <AppText variant="caption" numberOfLines={2} style={[styles.label, { color: p.text }]}>
         {action.label}

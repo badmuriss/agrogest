@@ -4,7 +4,8 @@ import { StyleSheet, useColorScheme, type ViewStyle } from 'react-native';
 /**
  * Base neutra e fria: fundo cinza muito claro com cartões brancos separados por um fio de borda (sem
  * sombra: no Android a sombra é cortada em retângulo durante as animações e o cartão parece papel amassado).
- * A marca usa laranja, branco e carvão; ações e destaques usam o mesmo laranja do logo (#FF6F1E) nos dois temas.
+ * A marca usa laranja, branco e carvão: o laranja do logo (#FF6F1E) marca a ação principal e os destaques;
+ * a faixa do topo e os botões de destaque secundário (`strong`) usam carvão no claro e branco no escuro.
  * Estados usam texto e ícone; a aprovação acompanha o laranja, e perigo/alerta mantêm semântica própria.
  * Contraste AA (≥ 4,5:1) para todo texto: muted ≥ 7:1 e faint ≥ 4,5:1 sobre o fundo.
  */
@@ -22,10 +23,10 @@ const light = {
   onAccent: '#FFFFFF',
   accentSoft: '#FFF0E6',
   highlight: '#FF6F1E',
-  /** Faixa escura do topo (Início), com conteúdo claro por cima. */
-  hero: '#FF6F1E',
+  /** Faixa escura do topo (Início, Financeiro): carvão, para o laranja ficar nas ações principais. */
+  hero: '#1C1D21',
   onHero: '#FFFFFF',
-  onHeroMuted: '#FFF4EC',
+  onHeroMuted: '#C9CCD3',
   inverse: '#151619',
   onInverse: '#FFFFFF',
   success: '#FF6F1E',

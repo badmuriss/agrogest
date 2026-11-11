@@ -7,7 +7,7 @@
 /*
  * Tokens do AgroGest para os componentes Gluestack (mesmos valores de src/theme.ts).
  * Base neutra (cinza muito claro e cartão branco no claro; carvão e cartão um degrau acima no escuro);
- * laranja do logo (#FF6F1E) em primary/highlight nos dois temas, hero laranja no claro e carvão no escuro.
+ * laranja do logo (#FF6F1E) em primary/highlight nos dois temas, hero carvão nos dois temas.
  * - :root claro + @media escuro: no nativo, o NativeWind segue o Appearance, que o
  *   ThemePreferenceProvider define (inclusive o modo "sistema").
  * - .light / .dark: na web, o GluestackUIProvider põe a classe no <html> conforme a escolha.
@@ -38,7 +38,7 @@
     --success: 255 111 30;
     --warning: 180 83 9;
     --info: 29 78 216;
-    --hero: 255 111 30;
+    --hero: 28 29 33;
     --hero-foreground: 255 255 255;
   }
 
@@ -96,7 +96,7 @@
     --success: 255 111 30;
     --warning: 180 83 9;
     --info: 29 78 216;
-    --hero: 255 111 30;
+    --hero: 28 29 33;
     --hero-foreground: 255 255 255;
   }
 
